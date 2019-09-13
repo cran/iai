@@ -1,13 +1,12 @@
 context("OptImpute")
 
 
-X = iris[,1:4]
-X[1, 1] = NA
+X <- iris[, 1:4]
+X[1, 1] <- NA
 
 
 test_that("constructors", {
   skip_on_cran()
-  iai::iai_setup()
 
   lnr <- iai::opt_knn_imputation_learner()
   expect_true(is.data.frame(iai::fit_transform(lnr, X)))
@@ -31,7 +30,6 @@ test_that("constructors", {
 
 test_that("impute grid", {
   skip_on_cran()
-  iai::iai_setup()
 
   grid <- iai::grid_search(iai::imputation_learner())
   iai::fit_cv(grid, X)

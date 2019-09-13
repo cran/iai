@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{score}
 \alias{score}
-\title{score}
+\title{Calculate the score for a model on the given data}
 \usage{
 score(lnr, X, ...)
 }
@@ -16,9 +16,6 @@ required by the problem type. Refer to the Julia documentation for
 available parameters.}
 }
 \description{
-Calculate the score for a model on the given data
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.score}{\code{IAI.score}}
 }

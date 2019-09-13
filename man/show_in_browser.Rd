@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaibase.R
 \name{show_in_browser}
 \alias{show_in_browser}
-\title{show_in_browser}
+\title{Show interactive visualization of an object (such as a learner or curve) in
+the default browser}
 \usage{
 show_in_browser(obj, ...)
 }
@@ -12,10 +13,6 @@ show_in_browser(obj, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Show interactive visualization of an object (such as a learner or curve) in
-the default browser
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.show_in_browser}{\code{IAI.show_in_browser}}
 }

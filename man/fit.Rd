@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{fit}
 \alias{fit}
-\title{fit}
+\title{Fits a model to the training data}
 \usage{
 fit(lnr, X, ...)
 }
@@ -16,9 +16,6 @@ required by the problem type. Refer to the Julia documentation for
 available parameters.}
 }
 \description{
-Fits a model to the training data
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.fit!}{\code{IAI.fit!}}
 }
@@ -26,7 +23,6 @@ Julia Equivalent:
 \donttest{
 X <- iris[, 1:4]
 y <- iris$Species
-iai::iai_setup()
 grid <- iai::grid_search(
     iai::optimal_tree_classifier(max_depth = 1),
 )

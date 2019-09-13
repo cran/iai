@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{get_parent}
 \alias{get_parent}
-\title{get_parent}
+\title{Get the index of the parent node at a node of a tree}
 \usage{
 get_parent(lnr, node_index)
 }
@@ -12,9 +12,6 @@ get_parent(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Get the index of the parent node at a node of a tree
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_parent}{\code{IAI.get_parent}}
 }

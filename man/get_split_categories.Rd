@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaitrees.R
 \name{get_split_categories}
 \alias{get_split_categories}
-\title{get_split_categories}
+\title{Return the categoric/ordinal information used in the split at a node of a
+tree}
 \usage{
 get_split_categories(lnr, node_index)
 }
@@ -12,10 +13,6 @@ get_split_categories(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Return the categoric/ordinal information used in the split at a node of a
-tree
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_split_categories}{\code{IAI.get_split_categories}}
 }

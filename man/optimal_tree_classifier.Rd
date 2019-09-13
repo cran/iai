@@ -2,7 +2,7 @@
 % Please edit documentation in R/optimaltrees.R
 \name{optimal_tree_classifier}
 \alias{optimal_tree_classifier}
-\title{optimal_tree_classifier}
+\title{Learner for training Optimal Classification Trees}
 \usage{
 optimal_tree_classifier(...)
 }
@@ -11,9 +11,6 @@ optimal_tree_classifier(...)
 Refer to the Julia documentation for available parameters.}
 }
 \description{
-Learner for training Optimal Classification Trees
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/OptimalTrees/stable/reference/#IAI.OptimalTreeClassifier}{\code{IAI.OptimalTreeClassifier}}
 }

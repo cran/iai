@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{transform}
 \alias{transform}
-\title{transform}
+\title{Impute missing values in a dataframe using a fitted imputation model}
 \usage{
 transform(lnr, X)
 }
@@ -12,9 +12,6 @@ transform(lnr, X)
 \item{X}{The features of the data.}
 }
 \description{
-Impute missing values in a dataframe using a fitted imputation model
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.transform}{\code{IAI.transform}}
 }

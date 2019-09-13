@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{get_num_samples}
 \alias{get_num_samples}
-\title{get_num_samples}
+\title{Get the number of training points contained in a node of a tree}
 \usage{
 get_num_samples(lnr, node_index)
 }
@@ -12,9 +12,6 @@ get_num_samples(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Get the number of training points contained in a node of a tree
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_num_samples}{\code{IAI.get_num_samples}}
 }

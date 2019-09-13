@@ -2,7 +2,7 @@
 % Please edit documentation in R/optimpute.R
 \name{impute}
 \alias{impute}
-\title{impute}
+\title{Impute missing values using either a specified method or through validation}
 \usage{
 impute(X, ...)
 }
@@ -12,9 +12,6 @@ impute(X, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Impute missing values using either a specified method or through validation
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.impute}{\code{IAI.impute}}
 }
@@ -22,7 +19,6 @@ Julia Equivalent:
 \donttest{
 X <- iris
 X[1, 1] <- NA
-iai::iai_setup()
 iai::impute(X)
 }
 }

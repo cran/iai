@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{get_depth}
 \alias{get_depth}
-\title{get_depth}
+\title{Get the depth of a node of a tree}
 \usage{
 get_depth(lnr, node_index)
 }
@@ -12,9 +12,6 @@ get_depth(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Get the depth of a node of a tree
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_depth}{\code{IAI.get_depth}}
 }

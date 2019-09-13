@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{get_upper_child}
 \alias{get_upper_child}
-\title{get_upper_child}
+\title{Get the index of the upper child at a split node of a tree}
 \usage{
 get_upper_child(lnr, node_index)
 }
@@ -12,9 +12,6 @@ get_upper_child(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Get the index of the upper child at a split node of a tree
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_upper_child}{\code{IAI.get_upper_child}}
 }

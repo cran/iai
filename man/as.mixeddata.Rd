@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{as.mixeddata}
 \alias{as.mixeddata}
-\title{as.mixeddata}
+\title{Convert a vector of values to IAI mixed data format}
 \usage{
 as.mixeddata(values, categorical_levels, ordinal_levels = c())
 }
@@ -16,9 +16,6 @@ levels}
 ordinal levels, in the order supplied}
 }
 \description{
-Convert a vector of values to IAI mixed data format
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
 }
@@ -29,7 +26,6 @@ set.seed(1)
 df$mixed <- rnorm(150)
 df$mixed[1:5] <- NA  # Insert some missing values
 df$mixed[6:10] <- "Not graded"
-iai::iai_setup()
 df$mixed <- iai::as.mixeddata(df$mixed, c("Not graded"))
 }
 }

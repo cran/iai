@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaibase.R
 \name{get_survival_curve_data}
 \alias{get_survival_curve_data}
-\title{get_survival_curve_data}
+\title{Extract the underlying data from a survival curve (as returned by
+\code{predict} or \code{get_survival_curve})}
 \usage{
 get_survival_curve_data(curve)
 }
@@ -10,14 +11,11 @@ get_survival_curve_data(curve)
 \item{curve}{The curve to query.}
 }
 \description{
-Extract the underlying data from a survival curve (as returned by
-\code{predict} or \code{get_survival_curve})
-}
-\details{
 The data is returned as a list with two keys: \code{times} containing the
 time for each breakpoint on the curve, and \code{coefs} containing the
 probability for each breakpoint on the curve.
-
+}
+\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.get_survival_curve_data}{\code{IAI.get_survival_curve_data}}
 }

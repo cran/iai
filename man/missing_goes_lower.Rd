@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaitrees.R
 \name{missing_goes_lower}
 \alias{missing_goes_lower}
-\title{missing_goes_lower}
+\title{Check if points with missing values go to the lower child at a split node of
+of a tree}
 \usage{
 missing_goes_lower(lnr, node_index)
 }
@@ -12,10 +13,6 @@ missing_goes_lower(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Check if points with missing values go to the lower child at a split node of
-of a tree
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.missing_goes_lower}{\code{IAI.missing_goes_lower}}
 }

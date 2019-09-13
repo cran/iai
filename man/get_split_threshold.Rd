@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{get_split_threshold}
 \alias{get_split_threshold}
-\title{get_split_threshold}
+\title{Return the threshold used in the split at a node of a tree}
 \usage{
 get_split_threshold(lnr, node_index)
 }
@@ -12,9 +12,6 @@ get_split_threshold(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Return the threshold used in the split at a node of a tree
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_split_threshold}{\code{IAI.get_split_threshold}}
 }

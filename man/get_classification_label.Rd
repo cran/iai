@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{get_classification_label}
 \alias{get_classification_label}
-\title{get_classification_label}
+\title{Return the predicted label at a node of a tree}
 \usage{
 get_classification_label(lnr, node_index)
 }
@@ -12,9 +12,6 @@ get_classification_label(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Return the predicted label at a node of a tree
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_classification_label}{\code{IAI.get_classification_label}}
 }

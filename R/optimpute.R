@@ -1,5 +1,3 @@
-#' impute
-#'
 #' Impute missing values using either a specified method or through validation
 #'
 #' Julia Equivalent:
@@ -18,8 +16,6 @@ impute <- function(X, ...) {
 }
 
 
-#' impute_cv
-#'
 #' Impute missing values using cross validation
 #'
 #' Julia Equivalent:
@@ -38,8 +34,6 @@ impute_cv <- function(X, ...) {
 }
 
 
-#' imputation_learner
-#'
 #' Generic learner for imputing missing values
 #'
 #' Julia Equivalent:
@@ -59,8 +53,6 @@ imputation_learner <- function(method = "opt_knn", ...) {
 }
 
 
-#' opt_knn_imputation_learner
-#'
 #' Learner for conducting optimal k-NN imputation
 #'
 #' Julia Equivalent:
@@ -79,8 +71,6 @@ opt_knn_imputation_learner <- function(...) {
 }
 
 
-#' opt_svm_imputation_learner
-#'
 #' Learner for conducting optimal SVM imputation
 #'
 #' Julia Equivalent:
@@ -99,8 +89,6 @@ opt_svm_imputation_learner <- function(...) {
 }
 
 
-#' opt_tree_imputation_learner
-#'
 #' Learner for conducting optimal tree-based imputation
 #'
 #' Julia Equivalent:
@@ -119,8 +107,6 @@ opt_tree_imputation_learner <- function(...) {
 }
 
 
-#' single_knn_imputation_learner
-#'
 #' Learner for conducting heuristic k-NN imputation
 #'
 #' Julia Equivalent:
@@ -139,8 +125,6 @@ single_knn_imputation_learner <- function(...) {
 }
 
 
-#' mean_imputation_learner
-#'
 #' Learner for conducting mean imputation
 #'
 #' Julia Equivalent:
@@ -159,8 +143,6 @@ mean_imputation_learner <- function(...) {
 }
 
 
-#' rand_imputation_learner
-#'
 #' Learner for conducting random imputation
 #'
 #' Julia Equivalent:

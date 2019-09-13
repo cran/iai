@@ -2,7 +2,7 @@
 % Please edit documentation in R/optimpute.R
 \name{rand_imputation_learner}
 \alias{rand_imputation_learner}
-\title{rand_imputation_learner}
+\title{Learner for conducting random imputation}
 \usage{
 rand_imputation_learner(...)
 }
@@ -11,9 +11,6 @@ rand_imputation_learner(...)
 Refer to the Julia documentation for available parameters.}
 }
 \description{
-Learner for conducting random imputation
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.RandImputationLearner}{\code{IAI.RandImputationLearner}}
 }

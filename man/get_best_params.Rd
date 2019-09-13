@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{get_best_params}
 \alias{get_best_params}
-\title{get_best_params}
+\title{Return the best parameter combination from a grid}
 \usage{
 get_best_params(grid)
 }
@@ -10,9 +10,6 @@ get_best_params(grid)
 \item{grid}{The grid search to query.}
 }
 \description{
-Return the best parameter combination from a grid
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.get_best_params}{\code{IAI.get_best_params}}
 }

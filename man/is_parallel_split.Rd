@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{is_parallel_split}
 \alias{is_parallel_split}
-\title{is_parallel_split}
+\title{Check if a node of a tree applies a parallel split}
 \usage{
 is_parallel_split(lnr, node_index)
 }
@@ -12,9 +12,6 @@ is_parallel_split(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Check if a node of a tree applies a parallel split
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.is_parallel_split}{\code{IAI.is_parallel_split}}
 }

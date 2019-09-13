@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{get_learner}
 \alias{get_learner}
-\title{get_learner}
+\title{Return the fitted learner using the best parameter combination from a grid}
 \usage{
 get_learner(grid)
 }
@@ -10,9 +10,6 @@ get_learner(grid)
 \item{grid}{The grid to query.}
 }
 \description{
-Return the fitted learner using the best parameter combination from a grid
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.get_learner}{\code{IAI.get_learner}}
 }

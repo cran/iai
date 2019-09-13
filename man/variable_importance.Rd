@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaitrees.R
 \name{variable_importance}
 \alias{variable_importance}
-\title{variable_importance}
+\title{Generate a ranking of the variables in the learner according to their
+importance when training the trees}
 \usage{
 variable_importance(lnr)
 }
@@ -10,10 +11,6 @@ variable_importance(lnr)
 \item{lnr}{The learner or grid to query.}
 }
 \description{
-Generate a ranking of the variables in the learner according to their
-importance when training the trees
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.variable_importance}{\code{IAI.variable_importance}}
 }

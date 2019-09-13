@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{get_num_nodes}
 \alias{get_num_nodes}
-\title{get_num_nodes}
+\title{Return the number of nodes in a trained learner}
 \usage{
 get_num_nodes(lnr)
 }
@@ -10,9 +10,6 @@ get_num_nodes(lnr)
 \item{lnr}{The learner or grid to query.}
 }
 \description{
-Return the number of nodes in a trained learner
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_num_nodes}{\code{IAI.get_num_nodes}}
 }

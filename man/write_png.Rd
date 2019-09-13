@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{write_png}
 \alias{write_png}
-\title{write_png}
+\title{Output a learner as a PNG image}
 \usage{
 write_png(filename, lnr, ...)
 }
@@ -14,9 +14,6 @@ write_png(filename, lnr, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Output a learner as a PNG image
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.write_png}{\code{IAI.write_png}}
 }

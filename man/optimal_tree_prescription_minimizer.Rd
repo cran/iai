@@ -2,7 +2,8 @@
 % Please edit documentation in R/optimaltrees.R
 \name{optimal_tree_prescription_minimizer}
 \alias{optimal_tree_prescription_minimizer}
-\title{optimal_tree_prescription_minimizer}
+\title{Learner for training Optimal Prescriptive Trees where the prescriptions
+should aim to minimize outcomes}
 \usage{
 optimal_tree_prescription_minimizer(...)
 }
@@ -11,10 +12,6 @@ optimal_tree_prescription_minimizer(...)
 Refer to the Julia documentation for available parameters.}
 }
 \description{
-Learner for training Optimal Prescriptive Trees where the prescriptions
-should aim to minimize outcomes
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/OptimalTrees/stable/reference/#IAI.OptimalTreePrescriptionMinimizer}{\code{IAI.OptimalTreePrescriptionMinimizer}}
 }

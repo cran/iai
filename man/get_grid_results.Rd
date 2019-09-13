@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{get_grid_results}
 \alias{get_grid_results}
-\title{get_grid_results}
+\title{Return a summary of the results from the grid search}
 \usage{
 get_grid_results(grid)
 }
@@ -10,9 +10,6 @@ get_grid_results(grid)
 \item{grid}{The grid search to query.}
 }
 \description{
-Return a summary of the results from the grid search
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.get_grid_results}{\code{IAI.get_grid_results}}
 }

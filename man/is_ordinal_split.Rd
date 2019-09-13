@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{is_ordinal_split}
 \alias{is_ordinal_split}
-\title{is_ordinal_split}
+\title{Check if a node of a tree applies a ordinal split}
 \usage{
 is_ordinal_split(lnr, node_index)
 }
@@ -12,9 +12,6 @@ is_ordinal_split(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Check if a node of a tree applies a ordinal split
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.is_ordinal_split}{\code{IAI.is_ordinal_split}}
 }

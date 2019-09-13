@@ -1,5 +1,3 @@
-#' set_julia_seed
-#'
 #' Set the random seed in Julia
 #'
 #' Julia Equivalent:
@@ -19,8 +17,6 @@ set_julia_seed <- function(seed) {
 }
 
 
-#' as.mixeddata
-#'
 #' Convert a vector of values to IAI mixed data format
 #'
 #' Julia Equivalent:

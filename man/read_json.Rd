@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{read_json}
 \alias{read_json}
-\title{read_json}
+\title{Read in a learner or grid saved in JSON format}
 \usage{
 read_json(filename)
 }
@@ -10,13 +10,10 @@ read_json(filename)
 \item{filename}{The location of the JSON file.}
 }
 \description{
-Read in a learner saved in JSON format
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.read_json}{\code{IAI.read_json}}
 }
 \examples{
-\dontrun{lnr <- iai::read_json("out.json")}
+\dontrun{obj <- iai::read_json("out.json")}
 
 }

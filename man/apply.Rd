@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaitrees.R
 \name{apply}
 \alias{apply}
-\title{apply}
+\title{Return the leaf index in a tree model into which each point in the features
+falls}
 \usage{
 apply(lnr, X)
 }
@@ -12,10 +13,6 @@ apply(lnr, X)
 \item{X}{The features of the data.}
 }
 \description{
-Return the leaf index in a tree model into which each point in the features
-falls
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.apply}{\code{IAI.apply}}
 }

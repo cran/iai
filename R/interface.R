@@ -1,7 +1,9 @@
-#' iai_setup
+pkg.env <- new.env(parent = emptyenv())
+pkg.env$initialized <- FALSE
+
+#' Initialize Julia and the IAI package.
 #'
-#' Initialize Julia and the IAI package. This needs to be done in
-#' every R session before calling `iai` functions
+#' This needs to be done in every R session before calling `iai` functions
 #'
 #' @usage iai_setup(...)
 #'
@@ -17,11 +19,6 @@ iai_setup <- function(...) {
   Sys.setenv(IAI_DISABLE_INIT = T)
   JuliaCall::julia_setup(...)
   Sys.unsetenv("IAI_DISABLE_INIT")
-
-  # Install dependencies of IAI-R
-  for (package in c("DataFrames", "CategoricalArrays")) {
-    JuliaCall::julia_install_package_if_needed(package)
-  }
 
   # Check version of IAI installed
   if (JuliaCall::julia_exists("IAISysImg")) {
@@ -44,7 +41,7 @@ iai_setup <- function(...) {
   }
 
   # Check version of IAI is recent enough
-  REQUIRED_IAI_VERSION <- "0.1.0"
+  REQUIRED_IAI_VERSION <- "1.0.0"
   jleval <- paste("Base.thispatch(v\"", iai_version, "\")",
                   " < ",
                   "Base.thispatch(v\"", REQUIRED_IAI_VERSION, "\")",
@@ -56,11 +53,19 @@ iai_setup <- function(...) {
                "downgrade to an older version of the R `iai` package.",
                sep = ""))
   }
+  pkg.env$iai_version <- iai_version
+
+  # Install dependencies of IAI-R
+  for (package in c("DataFrames", "CategoricalArrays")) {
+    JuliaCall::julia_install_package_if_needed(package)
+  }
 
   # Load conversion script
   if (!JuliaCall::julia_exists("IAIConvert")) {
     JuliaCall::julia_source(system.file("julia", "convert.jl", package = "iai"))
   }
+
+  pkg.env$initialized <- TRUE
 }
 
 
@@ -104,7 +109,73 @@ get_kwargs <- function(...) {
 
 
 jl_func <- function(funcname, ...) {
+  # Call iai_setup automatically if calls Julia and IAI is not initialized
+  if (!pkg.env$initialized) {
+    iai_setup()
+  }
+
   kwargs <- get_kwargs(...)
   jleval <- stringr::str_interp("${funcname}(${kwargs})")
   JuliaCall::julia_eval(jleval)
+}
+
+jl_isa <- function(obj, typename) {
+  JuliaCall::julia_assign("_iai_arg_", obj)
+  jleval <- stringr::str_interp("_iai_arg_ isa ${typename}")
+  JuliaCall::julia_eval(jleval)
+}
+
+set_obj_class <- function(obj) {
+  if (jl_isa(obj, "IAI.OptimalTreeLearner")) {
+    class(obj) <- c(
+        "optimal_tree_learner",
+        "JuliaObject"
+    )
+  } else if (jl_isa(obj, "IAI.ROCCurve")) {
+    class(obj) <- c(
+        "roc_curve",
+        "JuliaObject"
+    )
+  } else if (!iai_version_less_than("1.1.0") &&
+             jl_isa(obj, "IAI.AbstractVisualization")) {
+    class(obj) <- c(
+        "visualization",
+        "JuliaObject"
+    )
+  }
+
+  obj
+}
+
+
+to_html <- function(obj) {
+  out <- jl_func("IAI.to_html", obj)
+  viewer <- getOption("viewer")
+  if (!is.null(viewer) && !is.null(out)) {
+    html_file <- file.path(tempdir(), "index.html")
+    write(out, file = html_file)
+    viewer(html_file)
+    TRUE
+  } else {
+    FALSE
+  }
+}
+
+
+iai_version_less_than <- function(version) {
+  jleval <- paste("Base.thispatch(v\"", pkg.env$iai_version, "\")",
+                  " < ",
+                  "Base.thispatch(v\"", version, "\")",
+                  sep = "")
+  JuliaCall::julia_eval(jleval)
+}
+
+
+requires_iai_version <- function(required_iai_version, function_name) {
+  if (iai_version_less_than(required_iai_version)) {
+    stop(paste("The function `", function_name, "` in this version of the ",
+               "`iai` R package requires IAI version ", required_iai_version,
+               ". Please upgrade your IAI installation to use this function.",
+               sep = ""))
+  }
 }

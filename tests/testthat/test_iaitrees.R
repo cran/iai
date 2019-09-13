@@ -3,10 +3,9 @@ context("IAITrees")
 
 test_that("common structure", {
   skip_on_cran()
-  iai::iai_setup()
 
   X <- JuliaCall::julia_eval(
-      "IAIConvert.convert_to_R(IAI.IAIBase.make_mixed_data())"
+      "IAIConvert.convert_to_R(IAI.IAIBase.generate_mixed_data())"
   )
   names(X) <- c("num_attempts", "score1", "score2", "score3", "num_children",
                 "region")
@@ -47,7 +46,7 @@ test_that("common structure", {
       D = FALSE,
       E = FALSE
   ))
-  weights = iai::get_split_weights(lnr, 2)
+  weights <- iai::get_split_weights(lnr, 2)
   expect_mapequal(weights$numeric, list(score2 = 0.010100076620278502,
                                         score3 = 2.0478494324868732))
   expect_mapequal(weights$categoric,
@@ -57,7 +56,6 @@ test_that("common structure", {
 
 test_that("classification structure", {
   skip_on_cran()
-  iai::iai_setup()
 
   lnr <- JuliaCall::julia_eval(
       "IAI.OptimalTrees.load_iris_tree(random_seed=1)"
@@ -74,7 +72,6 @@ test_that("classification structure", {
 
 test_that("regression structure", {
   skip_on_cran()
-  iai::iai_setup()
 
   lnr <- JuliaCall::julia_eval(
       "IAI.OptimalTrees.load_mtcars_tree(random_seed=1,
@@ -85,7 +82,7 @@ test_that("regression structure", {
   expect_equal(iai::get_regression_constant(lnr, 2), 30.879999999999995)
   expect_equal(iai::get_regression_constant(lnr, 3), 26.56192034262967)
 
-  weights = iai::get_regression_weights(lnr, 3)
+  weights <- iai::get_regression_weights(lnr, 3)
   expect_mapequal(weights$numeric, list(Disp = -0.021044493648366,
                                         HP = -0.018861409939436))
   expect_true(is.list(weights$categoric) && length(weights$categoric) == 0)
@@ -94,7 +91,6 @@ test_that("regression structure", {
 
 test_that("survival structure", {
   skip_on_cran()
-  iai::iai_setup()
 
   iai::set_julia_seed(4)
   lnr <- JuliaCall::julia_eval("IAI.OptimalTrees.load_survival_tree()")
@@ -116,7 +112,6 @@ test_that("survival structure", {
 
 test_that("prescription structure", {
   skip_on_cran()
-  iai::iai_setup()
 
   iai::set_julia_seed(2)
   lnr <- JuliaCall::julia_eval(
@@ -128,7 +123,7 @@ test_that("prescription structure", {
   expect_equal(iai::get_prescription_treatment_rank(lnr, 2), c(1, 0))
   expect_equal(iai::get_regression_constant(lnr, 2, 0), 30.5)
 
-  weights = iai::get_regression_weights(lnr, 5, 1)
+  weights <- iai::get_regression_weights(lnr, 5, 1)
   expect_mapequal(weights$numeric, list(Disp = -0.007198454096246))
   expect_true(is.list(weights$categoric) && length(weights$categoric) == 0)
 })
@@ -136,29 +131,77 @@ test_that("prescription structure", {
 
 test_that("visualization", {
   skip_on_cran()
-  iai::iai_setup()
 
   lnr <- JuliaCall::julia_eval("IAI.OptimalTrees.load_iris_tree()")
 
   if (JuliaCall::julia_eval("IAI.IAITrees.has_graphviz()")) {
     iai::write_png("test.png", lnr)
+    expect_true(file.exists("test.png"))
     file.remove("test.png")
   }
 
   iai::write_dot("test.dot", lnr)
+  expect_true(file.exists("test.dot"))
   file.remove("test.dot")
 
   iai::write_html("tree.html", lnr)
+  expect_true(file.exists("tree.html"))
   file.remove("tree.html")
 
   iai::write_questionnaire("question.html", lnr)
+  expect_true(file.exists("question.html"))
   file.remove("question.html")
+
+  if (iai:::iai_version_less_than("1.1.0")) {
+    expect_error(iai::tree_plot(),
+                 "requires IAI version 1.1.0")
+    expect_error(iai::questionnaire(),
+                 "requires IAI version 1.1.0")
+    expect_error(iai::multi_tree_plot(),
+                 "requires IAI version 1.1.0")
+    expect_error(iai::multi_questionnaire(),
+                 "requires IAI version 1.1.0")
+  } else {
+    feature_renames <- list(
+      "PetalLength" = "A",
+      "PetalWidth" = "B",
+      "SepalWidth" = "C"
+    )
+
+    vis <- iai::tree_plot(lnr, feature_renames = feature_renames)
+    expect_true("visualization" %in% class(vis))
+    iai::write_html("tree_rename.html", vis)
+    expect_true(file.exists("tree_rename.html"))
+    file.remove("tree_rename.html")
+
+    vis <- iai::questionnaire(lnr, feature_renames = feature_renames)
+    expect_true("visualization" %in% class(vis))
+    iai::write_html("questionnaire_rename.html", vis)
+    expect_true(file.exists("questionnaire_rename.html"))
+    file.remove("questionnaire_rename.html")
+
+    questions <- list("Use learner with" = list(
+      "renamed features" = lnr,
+      "extra text output" = lnr
+    ))
+
+    vis <- iai::multi_tree_plot(questions)
+    expect_true("visualization" %in% class(vis))
+    iai::write_html("multitree.html", vis)
+    expect_true(file.exists("multitree.html"))
+    file.remove("multitree.html")
+
+    vis <- iai::multi_questionnaire(questions)
+    expect_true("visualization" %in% class(vis))
+    iai::write_html("multiquestion.html", vis)
+    expect_true(file.exists("multiquestion.html"))
+    file.remove("multiquestion.html")
+  }
 })
 
 
 test_that("tree API", {
   skip_on_cran()
-  iai::iai_setup()
 
   X <- iris[, 1:4]
   y <- iris$Species
@@ -180,7 +223,6 @@ test_that("tree API", {
 
 test_that("classification tree API", {
   skip_on_cran()
-  iai::iai_setup()
 
   X <- iris[, 1:4]
   y <- iris$Species == "setosa"
@@ -202,7 +244,6 @@ test_that("classification tree API", {
 
 test_that("prescription tree API", {
   skip_on_cran()
-  iai::iai_setup()
 
   lnr <- iai::optimal_tree_prescription_maximizer(max_depth = 1, cp = 0)
   X <- matrix(rnorm(200), 100, 2)

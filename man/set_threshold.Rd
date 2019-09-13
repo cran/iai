@@ -2,7 +2,9 @@
 % Please edit documentation in R/iaitrees.R
 \name{set_threshold}
 \alias{set_threshold}
-\title{set_threshold}
+\title{For a binary classification problem, update the the predicted labels in the
+leaves of the learner to predict a label only if the predicted probability is
+at least the specified threshold.}
 \usage{
 set_threshold(lnr, label, threshold, ...)
 }
@@ -17,11 +19,6 @@ be predicted.}
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-For a binary classification problem, update the the predicted labels in the
-leaves of the learner to predict a label only if the predicted probability is
-at least the specified threshold.
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.set_threshold!}{\code{IAI.set_threshold!}}
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/optimpute.R
 \name{opt_svm_imputation_learner}
 \alias{opt_svm_imputation_learner}
-\title{opt_svm_imputation_learner}
+\title{Learner for conducting optimal SVM imputation}
 \usage{
 opt_svm_imputation_learner(...)
 }
@@ -11,9 +11,6 @@ opt_svm_imputation_learner(...)
 Refer to the Julia documentation for available parameters.}
 }
 \description{
-Learner for conducting optimal SVM imputation
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.OptSVMImputationLearner}{\code{IAI.OptSVMImputationLearner}}
 }

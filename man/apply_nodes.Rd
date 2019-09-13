@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaitrees.R
 \name{apply_nodes}
 \alias{apply_nodes}
-\title{apply_nodes}
+\title{Return the indices of the points in the features that fall into each node of
+a trained tree model}
 \usage{
 apply_nodes(lnr, X)
 }
@@ -12,10 +13,6 @@ apply_nodes(lnr, X)
 \item{X}{The features of the data.}
 }
 \description{
-Return the indices of the points in the features that fall into each node of
-a trained tree model
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.apply_nodes}{\code{IAI.apply_nodes}}
 }

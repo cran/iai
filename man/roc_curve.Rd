@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{roc_curve}
 \alias{roc_curve}
-\title{roc_curve}
+\title{Construct an ROC curve using a trained model on the given data}
 \usage{
 roc_curve(lnr, X, y)
 }
@@ -14,9 +14,6 @@ roc_curve(lnr, X, y)
 \item{y}{The labels of the data.}
 }
 \description{
-Construct an ROC curve using a trained model on the given data
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
 }

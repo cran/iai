@@ -1,5 +1,3 @@
-#' split_data
-#'
 #' Split the data into training and test datasets
 #'
 #' Julia Equivalent:
@@ -17,12 +15,23 @@
 #'
 #' @export
 split_data <- function(task, X, ...) {
-  jl_func("IAI.split_data_convert", task, X, ...)
+  out <- jl_func("IAI.split_data_convert", task, X, ...)
+
+  names(out) <- c("train", "test")
+  if (task %in% c("classification", "regression")) {
+    names(out$train) <- names(out$test) <- c("X", "y")
+  } else if (task %in% c("survival")) {
+    names(out$train) <- names(out$test) <- c("X", "deaths", "times")
+  } else if (task %in% c("prescription_minimize", "prescription_maximize")) {
+    names(out$train) <- names(out$test) <- c("X", "treatments", "outcomes")
+  } else if (task %in% c("imputation")) {
+    names(out$train) <- names(out$test) <- c("X")
+  }
+
+  out
 }
 
 
-#' fit
-#'
 #' Fits a model to the training data
 #'
 #' Julia Equivalent:
@@ -41,11 +50,10 @@ split_data <- function(task, X, ...) {
 #' @export
 fit <- function(lnr, X, ...) {
   jl_func("IAI.fit_convert", lnr, X, ...)
+  lnr
 }
 
 
-#' predict
-#'
 #' Return the predictions made by the model for each point in the features
 #'
 #' Julia Equivalent:
@@ -68,8 +76,6 @@ predict <- function(lnr, X) {
 }
 
 
-#' score
-#'
 #' Calculate the score for a model on the given data
 #'
 #' Julia Equivalent:
@@ -91,30 +97,26 @@ score <- function(lnr, X, ...) {
 }
 
 
-#' write_json
-#'
-#' Output a learner in JSON format
+#' Output a learner or grid in JSON format
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.write_json}{\code{IAI.write_json}}
 #'
-#' @usage write_json(filename, lnr, ...)
+#' @usage write_json(filename, obj, ...)
 #'
 #' @param filename Where to save the output.
-#' @param lnr The learner to output.
+#' @param obj The learner or grid to output.
 #' @param ... Refer to the Julia documentation for available parameters.
 #'
-#' @examples \dontrun{iai::write_json(file.path(tempdir(), "out.json"), lnr)}
+#' @examples \dontrun{iai::write_json(file.path(tempdir(), "out.json"), obj)}
 #'
 #' @export
-write_json <- function(filename, lnr, ...) {
-  jl_func("IAI.write_json_convert", filename, lnr, ...)
+write_json <- function(filename, obj, ...) {
+  jl_func("IAI.write_json_convert", filename, obj, ...)
 }
 
 
-#' read_json
-#'
-#' Read in a learner saved in JSON format
+#' Read in a learner or grid saved in JSON format
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.read_json}{\code{IAI.read_json}}
@@ -123,16 +125,14 @@ write_json <- function(filename, lnr, ...) {
 #'
 #' @param filename The location of the JSON file.
 #'
-#' @examples \dontrun{lnr <- iai::read_json("out.json")}
+#' @examples \dontrun{obj <- iai::read_json("out.json")}
 #'
 #' @export
 read_json <- function(filename) {
-  jl_func("IAI.read_json_convert", filename)
+  set_obj_class(jl_func("IAI.read_json_convert", filename))
 }
 
 
-#' get_params
-#'
 #' Return the value of all parameters on a learner
 #'
 #' Julia Equivalent:
@@ -150,8 +150,6 @@ get_params <- function(lnr) {
 }
 
 
-#' set_params
-#'
 #' Set all supplied parameters on a learner
 #'
 #' Julia Equivalent:
@@ -167,11 +165,10 @@ get_params <- function(lnr) {
 #' @export
 set_params <- function(lnr, ...) {
   jl_func("IAI.set_params_convert", lnr, ...)
+  lnr
 }
 
 
-#' clone
-#'
 #' Return an unfitted copy of a learner with the same parameters
 #'
 #' Julia Equivalent:
@@ -185,12 +182,10 @@ set_params <- function(lnr, ...) {
 #'
 #' @export
 clone <- function(lnr) {
-  jl_func("IAI.clone_convert", lnr)
+  set_obj_class(jl_func("IAI.clone_convert", lnr))
 }
 
 
-#' show_in_browser
-#'
 #' Show interactive visualization of an object (such as a learner or curve) in
 #' the default browser
 #'
@@ -210,8 +205,6 @@ show_in_browser <- function(obj, ...) {
 }
 
 
-#' set_rich_output_param
-#'
 #' Sets a global rich output parameter
 #'
 #' Julia Equivalent:
@@ -230,8 +223,6 @@ set_rich_output_param <- function(key, value) {
 }
 
 
-#' get_rich_output_params
-#'
 #' Return the current global rich output parameter settings
 #'
 #' Julia Equivalent:
@@ -247,8 +238,6 @@ get_rich_output_params <- function() {
 }
 
 
-#' delete_rich_output_param
-#'
 #' Delete a global rich output parameter
 #'
 #' Julia Equivalent:
@@ -266,8 +255,6 @@ delete_rich_output_param <- function(key) {
 }
 
 
-#' grid_search
-#'
 #' Controls grid search over parameter combinations
 #'
 #' Julia Equivalent:
@@ -286,8 +273,6 @@ grid_search <- function(lnr, ...) {
 }
 
 
-#' fit_cv
-#'
 #' Fits a grid search to the training data with cross-validation
 #'
 #' Julia Equivalent:
@@ -309,8 +294,6 @@ fit_cv <- function(grid, X, ...) {
 }
 
 
-#' get_learner
-#'
 #' Return the fitted learner using the best parameter combination from a grid
 #'
 #' Julia Equivalent:
@@ -324,12 +307,10 @@ fit_cv <- function(grid, X, ...) {
 #'
 #' @export
 get_learner <- function(grid) {
-  jl_func("IAI.get_learner_convert", grid)
+  set_obj_class(jl_func("IAI.get_learner_convert", grid))
 }
 
 
-#' get_best_params
-#'
 #' Return the best parameter combination from a grid
 #'
 #' Julia Equivalent:
@@ -347,8 +328,6 @@ get_best_params <- function(grid) {
 }
 
 
-#' get_grid_results
-#'
 #' Return a summary of the results from the grid search
 #'
 #' Julia Equivalent:
@@ -366,8 +345,6 @@ get_grid_results <- function(grid) {
 }
 
 
-#' predict_proba
-#'
 #' Return the probabilities of class membership predicted by a model for each
 #' point in the features
 #'
@@ -387,8 +364,6 @@ predict_proba <- function(lnr, X) {
 }
 
 
-#' roc_curve
-#'
 #' Construct an ROC curve using a trained model on the given data
 #'
 #' Julia Equivalent:
@@ -404,12 +379,18 @@ predict_proba <- function(lnr, X) {
 #'
 #' @export
 roc_curve <- function(lnr, X, y) {
-  jl_func("IAI.ROCCurve_convert", lnr, X, y)
+  set_obj_class(jl_func("IAI.ROCCurve_convert", lnr, X, y))
+}
+#' @export
+print.roc_curve <- function(x, ...) {
+  if (to_html(x)) {
+    invisible(x)
+  } else {
+    NextMethod()
+  }
 }
 
 
-#' get_survival_curve_data
-#'
 #' Extract the underlying data from a survival curve (as returned by
 #' \code{predict} or \code{get_survival_curve})
 #'
@@ -432,8 +413,6 @@ get_survival_curve_data <- function(curve) {
 }
 
 
-#' predict_outcomes
-#'
 #' Return the the predicted outcome for each treatment made by a model for each
 #' point in the features
 #'
@@ -453,8 +432,6 @@ predict_outcomes <- function(lnr, X) {
 }
 
 
-#' transform
-#'
 #' Impute missing values in a dataframe using a fitted imputation model
 #'
 #' Julia Equivalent:
@@ -473,8 +450,6 @@ transform <- function(lnr, X) {
 }
 
 
-#' fit_transform
-#'
 #' Fit an imputation model using the given features and impute the missing
 #' values in these features
 #'
@@ -497,8 +472,6 @@ fit_transform <- function(lnr, X, ...) {
 }
 
 
-#' fit_transform_cv
-#'
 #' Train a grid using cross-validation with features and impute all missing
 #' values in these features
 #'

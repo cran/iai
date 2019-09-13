@@ -2,7 +2,7 @@
 % Please edit documentation in R/optimpute.R
 \name{mean_imputation_learner}
 \alias{mean_imputation_learner}
-\title{mean_imputation_learner}
+\title{Learner for conducting mean imputation}
 \usage{
 mean_imputation_learner(...)
 }
@@ -11,9 +11,6 @@ mean_imputation_learner(...)
 Refer to the Julia documentation for available parameters.}
 }
 \description{
-Learner for conducting mean imputation
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.MeanImputationLearner}{\code{IAI.MeanImputationLearner}}
 }

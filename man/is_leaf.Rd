@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{is_leaf}
 \alias{is_leaf}
-\title{is_leaf}
+\title{Check if a node of a tree is a leaf}
 \usage{
 is_leaf(lnr, node_index)
 }
@@ -12,9 +12,6 @@ is_leaf(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Check if a node of a tree is a leaf
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.is_leaf}{\code{IAI.is_leaf}}
 }

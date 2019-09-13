@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaibase.R
 \name{fit_transform}
 \alias{fit_transform}
-\title{fit_transform}
+\title{Fit an imputation model using the given features and impute the missing
+values in these features}
 \usage{
 fit_transform(lnr, X, ...)
 }
@@ -14,12 +15,9 @@ fit_transform(lnr, X, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Fit an imputation model using the given features and impute the missing
-values in these features
+Similar to calling \code{fit} followed by \code{transform}
 }
 \details{
-Similar to calling \code{fit} followed by \code{transform}
-
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
 }
@@ -27,7 +25,6 @@ Julia Equivalent:
 \donttest{
 X <- iris
 X[1, 1] <- NA
-iai::iai_setup()
 grid <- iai::grid_search(
     iai::imputation_learner(),
     method = c("opt_knn", "opt_tree"),

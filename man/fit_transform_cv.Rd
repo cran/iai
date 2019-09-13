@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaibase.R
 \name{fit_transform_cv}
 \alias{fit_transform_cv}
-\title{fit_transform_cv}
+\title{Train a grid using cross-validation with features and impute all missing
+values in these features}
 \usage{
 fit_transform_cv(grid, X, ...)
 }
@@ -14,10 +15,6 @@ fit_transform_cv(grid, X, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Train a grid using cross-validation with features and impute all missing
-values in these features
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.fit_transform_cv!}{\code{IAI.fit_transform_cv!}}
 }
@@ -25,7 +22,6 @@ Julia Equivalent:
 \donttest{
 X <- iris
 X[1, 1] <- NA
-iai::iai_setup()
 grid <- iai::grid_search(
     iai::imputation_learner(),
     method = c("opt_knn", "opt_tree"),

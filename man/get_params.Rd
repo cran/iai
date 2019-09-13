@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{get_params}
 \alias{get_params}
-\title{get_params}
+\title{Return the value of all parameters on a learner}
 \usage{
 get_params(lnr)
 }
@@ -10,9 +10,6 @@ get_params(lnr)
 \item{lnr}{The learner to query.}
 }
 \description{
-Return the value of all parameters on a learner
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.get_params}{\code{IAI.get_params}}
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/interface.R
 \name{iai_setup}
 \alias{iai_setup}
-\title{iai_setup}
+\title{Initialize Julia and the IAI package.}
 \usage{
 iai_setup(...)
 }
@@ -11,8 +11,7 @@ iai_setup(...)
 \href{https://www.rdocumentation.org/packages/JuliaCall/topics/julia_setup}{\code{JuliaCall::julia_setup}}}
 }
 \description{
-Initialize Julia and the IAI package. This needs to be done in
-every R session before calling `iai` functions
+This needs to be done in every R session before calling `iai` functions
 }
 \examples{
 \dontrun{iai::iai_setup()}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{set_params}
 \alias{set_params}
-\title{set_params}
+\title{Set all supplied parameters on a learner}
 \usage{
 set_params(lnr, ...)
 }
@@ -12,9 +12,6 @@ set_params(lnr, ...)
 \item{...}{The parameters to set on the learner.}
 }
 \description{
-Set all supplied parameters on a learner
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.set_params!}{\code{IAI.set_params!}}
 }

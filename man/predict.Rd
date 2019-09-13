@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{predict}
 \alias{predict}
-\title{predict}
+\title{Return the predictions made by the model for each point in the features}
 \usage{
 predict(lnr, X)
 }
@@ -12,9 +12,6 @@ predict(lnr, X)
 \item{X}{The features of the data.}
 }
 \description{
-Return the predictions made by the model for each point in the features
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.predict}{\code{IAI.predict}}
 }

@@ -1,5 +1,12 @@
-#' optimal_tree_classifier
-#'
+#' @export
+print.optimal_tree_learner <- function(x, ...) {
+  if (to_html(x)) {
+    invisible(x)
+  } else {
+    NextMethod()
+  }
+}
+
 #' Learner for training Optimal Classification Trees
 #'
 #' Julia Equivalent:
@@ -14,12 +21,10 @@
 #'
 #' @export
 optimal_tree_classifier <- function(...) {
-  jl_func("IAI.OptimalTreeClassifier", ...)
+  set_obj_class(jl_func("IAI.OptimalTreeClassifier", ...))
 }
 
 
-#' optimal_tree_regressor
-#'
 #' Learner for training Optimal Regression Trees
 #'
 #' Julia Equivalent:
@@ -34,12 +39,10 @@ optimal_tree_classifier <- function(...) {
 #'
 #' @export
 optimal_tree_regressor <- function(...) {
-  jl_func("IAI.OptimalTreeRegressor", ...)
+  set_obj_class(jl_func("IAI.OptimalTreeRegressor", ...))
 }
 
 
-#' optimal_tree_survivor
-#'
 #' Learner for training Optimal Survival Trees
 #'
 #' Julia Equivalent:
@@ -54,12 +57,10 @@ optimal_tree_regressor <- function(...) {
 #'
 #' @export
 optimal_tree_survivor <- function(...) {
-  jl_func("IAI.OptimalTreeSurvivor", ...)
+  set_obj_class(jl_func("IAI.OptimalTreeSurvivor", ...))
 }
 
 
-#' optimal_tree_prescription_minimizer
-#'
 #' Learner for training Optimal Prescriptive Trees where the prescriptions
 #' should aim to minimize outcomes
 #'
@@ -75,12 +76,10 @@ optimal_tree_survivor <- function(...) {
 #'
 #' @export
 optimal_tree_prescription_minimizer <- function(...) {
-  jl_func("IAI.OptimalTreePrescriptionMinimizer", ...)
+  set_obj_class(jl_func("IAI.OptimalTreePrescriptionMinimizer", ...))
 }
 
 
-#' optimal_tree_prescription_maximizer
-#'
 #' Learner for training Optimal Prescriptive Trees where the prescriptions
 #' should aim to maximize outcomes
 #'
@@ -96,5 +95,5 @@ optimal_tree_prescription_minimizer <- function(...) {
 #'
 #' @export
 optimal_tree_prescription_maximizer <- function(...) {
-  jl_func("IAI.OptimalTreePrescriptionMaximizer", ...)
+  set_obj_class(jl_func("IAI.OptimalTreePrescriptionMaximizer", ...))
 }

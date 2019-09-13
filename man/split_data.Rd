@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{split_data}
 \alias{split_data}
-\title{split_data}
+\title{Split the data into training and test datasets}
 \usage{
 split_data(task, X, ...)
 }
@@ -16,9 +16,6 @@ required by the problem type. Refer to the Julia documentation for
 available parameters.}
 }
 \description{
-Split the data into training and test datasets
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.split_data}{\code{IAI.split_data}}
 }
@@ -26,11 +23,10 @@ Julia Equivalent:
 \donttest{
 X <- iris[, 1:4]
 y <- iris$Species
-iai::iai_setup()
 split <- iai::split_data("classification", X, y, train_proportion = 0.75)
-train_X <- split[[1]][[1]]
-train_y <- split[[1]][[2]]
-test_X <- split[[2]][[1]]
-test_y <- split[[2]][[2]]
+train_X <- split$train$X
+train_y <- split$train$y
+test_X <- split$test$X
+test_y <- split$test$y
 }
 }

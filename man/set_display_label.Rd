@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{set_display_label}
 \alias{set_display_label}
-\title{set_display_label}
+\title{Show the probability of a specified label when visualizing a learner}
 \usage{
 set_display_label(lnr, display_label)
 }
@@ -12,9 +12,6 @@ set_display_label(lnr, display_label)
 \item{display_label}{The label for which to show probabilities.}
 }
 \description{
-Show the probability of a specified label when visualizing a learner
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.set_display_label!}{\code{IAI.set_display_label!}}
 }

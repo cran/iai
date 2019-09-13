@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{set_rich_output_param}
 \alias{set_rich_output_param}
-\title{set_rich_output_param}
+\title{Sets a global rich output parameter}
 \usage{
 set_rich_output_param(key, value)
 }
@@ -12,9 +12,6 @@ set_rich_output_param(key, value)
 \item{value}{The value to set}
 }
 \description{
-Sets a global rich output parameter
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.set_rich_output_param!}{\code{IAI.set_rich_output_param!}}
 }

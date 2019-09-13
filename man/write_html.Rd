@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{write_html}
 \alias{write_html}
-\title{write_html}
+\title{Output a learner as an interactive browser visualization in HTML format}
 \usage{
 write_html(filename, lnr, ...)
 }
@@ -14,9 +14,6 @@ write_html(filename, lnr, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Output a learner as an interactive browser visualization in HTML format
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.write_html}{\code{IAI.write_html}}
 }

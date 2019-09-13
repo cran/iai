@@ -2,7 +2,7 @@
 % Please edit documentation in R/optimaltrees.R
 \name{optimal_tree_regressor}
 \alias{optimal_tree_regressor}
-\title{optimal_tree_regressor}
+\title{Learner for training Optimal Regression Trees}
 \usage{
 optimal_tree_regressor(...)
 }
@@ -11,9 +11,6 @@ optimal_tree_regressor(...)
 Refer to the Julia documentation for available parameters.}
 }
 \description{
-Learner for training Optimal Regression Trees
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/OptimalTrees/stable/reference/#IAI.OptimalTreeRegressor}{\code{IAI.OptimalTreeRegressor}}
 }

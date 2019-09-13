@@ -1,5 +1,3 @@
-#' get_num_nodes
-#'
 #' Return the number of nodes in a trained learner
 #'
 #' Julia Equivalent:
@@ -17,8 +15,6 @@ get_num_nodes <- function(lnr) {
 }
 
 
-#' is_leaf
-#'
 #' Check if a node of a tree is a leaf
 #'
 #' Julia Equivalent:
@@ -37,8 +33,6 @@ is_leaf <- function(lnr, node_index) {
 }
 
 
-#' get_depth
-#'
 #' Get the depth of a node of a tree
 #'
 #' Julia Equivalent:
@@ -57,8 +51,6 @@ get_depth <- function(lnr, node_index) {
 }
 
 
-#' get_num_samples
-#'
 #' Get the number of training points contained in a node of a tree
 #'
 #' Julia Equivalent:
@@ -77,8 +69,6 @@ get_num_samples <- function(lnr, node_index) {
 }
 
 
-#' get_parent
-#'
 #' Get the index of the parent node at a node of a tree
 #'
 #' Julia Equivalent:
@@ -97,8 +87,6 @@ get_parent <- function(lnr, node_index) {
 }
 
 
-#' get_lower_child
-#'
 #' Get the index of the lower child at a split node of a tree
 #'
 #' Julia Equivalent:
@@ -117,8 +105,6 @@ get_lower_child <- function(lnr, node_index) {
 }
 
 
-#' get_upper_child
-#'
 #' Get the index of the upper child at a split node of a tree
 #'
 #' Julia Equivalent:
@@ -137,8 +123,6 @@ get_upper_child <- function(lnr, node_index) {
 }
 
 
-#' is_parallel_split
-#'
 #' Check if a node of a tree applies a parallel split
 #'
 #' Julia Equivalent:
@@ -157,8 +141,6 @@ is_parallel_split <- function(lnr, node_index) {
 }
 
 
-#' is_hyperplane_split
-#'
 #' Check if a node of a tree applies a hyperplane split
 #'
 #' Julia Equivalent:
@@ -177,8 +159,6 @@ is_hyperplane_split <- function(lnr, node_index) {
 }
 
 
-#' is_categoric_split
-#'
 #' Check if a node of a tree applies a categoric split
 #'
 #' Julia Equivalent:
@@ -197,8 +177,6 @@ is_categoric_split <- function(lnr, node_index) {
 }
 
 
-#' is_ordinal_split
-#'
 #' Check if a node of a tree applies a ordinal split
 #'
 #' Julia Equivalent:
@@ -217,8 +195,6 @@ is_ordinal_split <- function(lnr, node_index) {
 }
 
 
-#' is_mixed_parallel_split
-#'
 #' Check if a node of a tree applies a mixed parallel/categoric split
 #'
 #' Julia Equivalent:
@@ -237,8 +213,6 @@ is_mixed_parallel_split <- function(lnr, node_index) {
 }
 
 
-#' is_mixed_ordinal_split
-#'
 #' Check if a node of a tree applies a mixed ordinal/categoric split
 #'
 #' Julia Equivalent:
@@ -257,8 +231,6 @@ is_mixed_ordinal_split <- function(lnr, node_index) {
 }
 
 
-#' missing_goes_lower
-#'
 #' Check if points with missing values go to the lower child at a split node of
 #' of a tree
 #'
@@ -278,8 +250,6 @@ missing_goes_lower <- function(lnr, node_index) {
 }
 
 
-#' get_split_feature
-#'
 #' Return the feature used in the split at a node of a tree
 #'
 #' Julia Equivalent:
@@ -298,8 +268,6 @@ get_split_feature <- function(lnr, node_index) {
 }
 
 
-#' get_split_threshold
-#'
 #' Return the threshold used in the split at a node of a tree
 #'
 #' Julia Equivalent:
@@ -318,8 +286,6 @@ get_split_threshold <- function(lnr, node_index) {
 }
 
 
-#' get_split_categories
-#'
 #' Return the categoric/ordinal information used in the split at a node of a
 #' tree
 #'
@@ -339,8 +305,6 @@ get_split_categories <- function(lnr, node_index) {
 }
 
 
-#' get_split_weights
-#'
 #' Return the weights for numeric and categoric features used in the hyperplane
 #' split at a node of a tree
 #'
@@ -362,8 +326,6 @@ get_split_weights <- function(lnr, node_index) {
 }
 
 
-#' get_classification_label
-#'
 #' Return the predicted label at a node of a tree
 #'
 #' Julia Equivalent:
@@ -382,8 +344,6 @@ get_classification_label <- function(lnr, node_index) {
 }
 
 
-#' get_classification_proba
-#'
 #' Return the predicted probabilities of class membership at a node of a tree
 #'
 #' Julia Equivalent:
@@ -402,8 +362,6 @@ get_classification_proba <- function(lnr, node_index) {
 }
 
 
-#' get_regression_constant
-#'
 #' Return the constant term in the regression prediction at a node of a tree
 #'
 #' Julia Equivalent:
@@ -428,8 +386,6 @@ get_regression_constant <- function(lnr, node_index, ...) {
 }
 
 
-#' get_regression_weights
-#'
 #' Return the weights for each feature in the regression prediction at a node of
 #' a tree
 #'
@@ -457,8 +413,6 @@ get_regression_weights <- function(lnr, node_index, ...) {
 }
 
 
-#' get_survival_curve
-#'
 #' Return the survival curve at a node of a tree
 #'
 #' Julia Equivalent:
@@ -477,8 +431,6 @@ get_survival_curve <- function(lnr, node_index) {
 }
 
 
-#' get_prescription_treatment_rank
-#'
 #' Return the treatments ordered from most effective to least effective at a
 #' node of a tree
 #'
@@ -498,8 +450,6 @@ get_prescription_treatment_rank <- function(lnr, node_index) {
 }
 
 
-#' apply
-#'
 #' Return the leaf index in a tree model into which each point in the features
 #' falls
 #'
@@ -518,8 +468,6 @@ apply <- function(lnr, X) {
   jl_func("IAI.apply_convert", lnr, X)
 }
 
-#' apply_nodes
-#'
 #' Return the indices of the points in the features that fall into each node of
 #' a trained tree model
 #'
@@ -539,8 +487,6 @@ apply_nodes <- function(lnr, X) {
 }
 
 
-#' decision_path
-#'
 #' Return a matrix where entry \code{(i, j)} is true if the \code{i}th point in
 #' the features passes through the \code{j}th node in a trained tree model.
 #'
@@ -560,8 +506,6 @@ decision_path <- function(lnr, X) {
 }
 
 
-#' print_path
-#'
 #' Print the decision path through the learner for each sample in the features
 #'
 #' Julia Equivalent:
@@ -585,8 +529,6 @@ print_path <- function(lnr, X, ...) {
 }
 
 
-#' variable_importance
-#'
 #' Generate a ranking of the variables in the learner according to their
 #' importance when training the trees
 #'
@@ -605,8 +547,6 @@ variable_importance <- function(lnr) {
 }
 
 
-#' set_threshold
-#'
 #' For a binary classification problem, update the the predicted labels in the
 #' leaves of the learner to predict a label only if the predicted probability is
 #' at least the specified threshold.
@@ -627,11 +567,10 @@ variable_importance <- function(lnr) {
 #' @export
 set_threshold <- function(lnr, label, threshold, ...) {
   jl_func("IAI.set_threshold_convert", lnr, label, threshold, ...)
+  lnr
 }
 
 
-#' write_png
-#'
 #' Output a learner as a PNG image
 #'
 #' Julia Equivalent:
@@ -651,8 +590,6 @@ write_png <- function(filename, lnr, ...) {
 }
 
 
-#' write_dot
-#'
 #' Output a learner in
 #' \href{http://www.graphviz.org/content/dot-language/}{.dot format}
 #'
@@ -673,8 +610,6 @@ write_dot <- function(filename, lnr, ...) {
 }
 
 
-#' write_html
-#'
 #' Output a learner as an interactive browser visualization in HTML format
 #'
 #' Julia Equivalent:
@@ -694,8 +629,6 @@ write_html <- function(filename, lnr, ...) {
 }
 
 
-#' write_questionnaire
-#'
 #' Output a learner as an interactive questionnaire in HTML format
 #'
 #' Julia Equivalent:
@@ -715,8 +648,6 @@ write_questionnaire <- function(filename, lnr, ...) {
 }
 
 
-#' show_questionnaire
-#'
 #' Show an interactive questionnaire based on a learner in default browser
 #'
 #' Julia Equivalent:
@@ -735,8 +666,6 @@ show_questionnaire <- function(lnr, ...) {
 }
 
 
-#' set_display_label
-#'
 #' Show the probability of a specified label when visualizing a learner
 #'
 #' Julia Equivalent:
@@ -752,11 +681,10 @@ show_questionnaire <- function(lnr, ...) {
 #' @export
 set_display_label <- function(lnr, display_label) {
   jl_func("IAI.set_display_label_convert", lnr, display_label)
+  lnr
 }
 
 
-#' reset_display_label
-#'
 #' Reset the predicted probability displayed to be that of the predicted label
 #' when visualizing a learner
 #'
@@ -772,4 +700,114 @@ set_display_label <- function(lnr, display_label) {
 #' @export
 reset_display_label <- function(lnr) {
   jl_func("IAI.reset_display_label_convert", lnr)
+  lnr
+}
+
+#' @export
+print.visualization <- function(x, ...) {
+  if (to_html(x)) {
+    invisible(x)
+  } else {
+    NextMethod()
+  }
+}
+
+
+#' Specify an interactive tree visualization of a tree learner
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.TreePlot}{\code{IAI.TreePlot}}
+#'
+#' @usage tree_plot(lnr, ...)
+#'
+#' @param lnr The learner to visualize.
+#' @param ... Refer to the \href{https://docs.interpretable.ai/IAITrees/stable/advanced/#Advanced-Visualization-1}{Julia documentation on advanced tree visualization} for available parameters.
+#'
+#' @examples \dontrun{iai::tree_plot(lnr)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 1.1 or higher.
+#'
+#' @export
+tree_plot <- function(lnr, ...) {
+  requires_iai_version("1.1.0", "tree_plot")
+  set_obj_class(jl_func("IAI.TreePlot_convert", lnr, ...))
+}
+
+
+#' Specify an interactive questionnaire of a tree learner
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.Questionnaire}{\code{IAI.Questionnaire}}
+#'
+#' @usage questionnaire(lnr, ...)
+#'
+#' @param lnr The learner to visualize.
+#' @param ... Refer to the \href{https://docs.interpretable.ai/IAITrees/stable/advanced/#Advanced-Visualization-1}{Julia documentation} for available parameters.
+#'
+#' @examples \dontrun{iai::questionnaire(lnr)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 1.1 or higher.
+#'
+#' @export
+questionnaire <- function(lnr, ...) {
+  requires_iai_version("1.1.0", "questionnaire")
+  set_obj_class(jl_func("IAI.Questionnaire_convert", lnr, ...))
+}
+
+
+#' Construct an interactive tree visualization of multiple tree learners as
+#' specified by questions
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.MultiTreePlot}{\code{IAI.MultiTreePlot}}
+#'
+#' @usage multi_tree_plot(questions)
+#'
+#' @param questions The questions to visualize. Refer to the \href{https://docs.interpretable.ai/IAITrees/stable/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.
+#'
+#' @examples
+#' \dontrun{
+#' iai::multi_tree_plot(list("Visualizing" = list(
+#'    "first learner" = lnr1,
+#'    "second learner" = lnr2
+#' )))
+#' }
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 1.1 or higher.
+#'
+#' @export
+multi_tree_plot <- function(questions) {
+  requires_iai_version("1.1.0", "multi_tree_plot")
+  set_obj_class(jl_func("IAI.MultiTreePlot_convert", questions))
+}
+
+
+#' Construct an interactive questionnaire using multiple tree learners as
+#' specified by questions
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.MultiQuestionnaire}{\code{IAI.MultiQuestionnaire}}
+#'
+#' @usage multi_questionnaire(questions)
+#'
+#' @param questions The questions to visualize. Refer to the \href{https://docs.interpretable.ai/IAITrees/stable/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.
+#'
+#' @examples
+#' \dontrun{
+#' iai::multi_questionnaire(list("Questionnaire for" = list(
+#'    "first learner" = lnr1,
+#'    "second learner" = lnr2
+#' )))
+#' }
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 1.1 or higher.
+#'
+#' @export
+multi_questionnaire <- function(questions) {
+  requires_iai_version("1.1.0", "multi_questionnaire")
+  set_obj_class(jl_func("IAI.MultiQuestionnaire_convert", questions))
 }

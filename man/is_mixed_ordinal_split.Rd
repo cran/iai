@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{is_mixed_ordinal_split}
 \alias{is_mixed_ordinal_split}
-\title{is_mixed_ordinal_split}
+\title{Check if a node of a tree applies a mixed ordinal/categoric split}
 \usage{
 is_mixed_ordinal_split(lnr, node_index)
 }
@@ -12,9 +12,6 @@ is_mixed_ordinal_split(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Check if a node of a tree applies a mixed ordinal/categoric split
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.is_mixed_ordinal_split}{\code{IAI.is_mixed_ordinal_split}}
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/optimpute.R
 \name{single_knn_imputation_learner}
 \alias{single_knn_imputation_learner}
-\title{single_knn_imputation_learner}
+\title{Learner for conducting heuristic k-NN imputation}
 \usage{
 single_knn_imputation_learner(...)
 }
@@ -11,9 +11,6 @@ single_knn_imputation_learner(...)
 Refer to the Julia documentation for available parameters.}
 }
 \description{
-Learner for conducting heuristic k-NN imputation
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.SingleKNNImputationLearner}{\code{IAI.SingleKNNImputationLearner}}
 }

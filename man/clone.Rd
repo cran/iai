@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{clone}
 \alias{clone}
-\title{clone}
+\title{Return an unfitted copy of a learner with the same parameters}
 \usage{
 clone(lnr)
 }
@@ -10,9 +10,6 @@ clone(lnr)
 \item{lnr}{The learner to copy.}
 }
 \description{
-Return an unfitted copy of a learner with the same parameters
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.clone}{\code{IAI.clone}}
 }

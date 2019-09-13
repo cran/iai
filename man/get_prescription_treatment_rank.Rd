@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaitrees.R
 \name{get_prescription_treatment_rank}
 \alias{get_prescription_treatment_rank}
-\title{get_prescription_treatment_rank}
+\title{Return the treatments ordered from most effective to least effective at a
+node of a tree}
 \usage{
 get_prescription_treatment_rank(lnr, node_index)
 }
@@ -12,10 +13,6 @@ get_prescription_treatment_rank(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Return the treatments ordered from most effective to least effective at a
-node of a tree
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_prescription_treatment_rank}{\code{IAI.get_prescription_treatment_rank}}
 }

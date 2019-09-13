@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{print_path}
 \alias{print_path}
-\title{print_path}
+\title{Print the decision path through the learner for each sample in the features}
 \usage{
 print_path(lnr, X, ...)
 }
@@ -14,9 +14,6 @@ print_path(lnr, X, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Print the decision path through the learner for each sample in the features
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.print_path}{\code{IAI.print_path}}
 }

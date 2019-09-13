@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaitrees.R
 \name{decision_path}
 \alias{decision_path}
-\title{decision_path}
+\title{Return a matrix where entry \code{(i, j)} is true if the \code{i}th point in
+the features passes through the \code{j}th node in a trained tree model.}
 \usage{
 decision_path(lnr, X)
 }
@@ -12,10 +13,6 @@ decision_path(lnr, X)
 \item{X}{The features of the data.}
 }
 \description{
-Return a matrix where entry \code{(i, j)} is true if the \code{i}th point in
-the features passes through the \code{j}th node in a trained tree model.
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.decision_path}{\code{IAI.decision_path}}
 }

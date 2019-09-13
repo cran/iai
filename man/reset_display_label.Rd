@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaitrees.R
 \name{reset_display_label}
 \alias{reset_display_label}
-\title{reset_display_label}
+\title{Reset the predicted probability displayed to be that of the predicted label
+when visualizing a learner}
 \usage{
 reset_display_label(lnr)
 }
@@ -10,10 +11,6 @@ reset_display_label(lnr)
 \item{lnr}{The learner to modify.}
 }
 \description{
-Reset the predicted probability displayed to be that of the predicted label
-when visualizing a learner
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.reset_display_label!}{\code{IAI.reset_display_label!}}
 }

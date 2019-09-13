@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{get_survival_curve}
 \alias{get_survival_curve}
-\title{get_survival_curve}
+\title{Return the survival curve at a node of a tree}
 \usage{
 get_survival_curve(lnr, node_index)
 }
@@ -12,9 +12,6 @@ get_survival_curve(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Return the survival curve at a node of a tree
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_survival_curve}{\code{IAI.get_survival_curve}}
 }

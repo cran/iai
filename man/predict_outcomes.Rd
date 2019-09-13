@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaibase.R
 \name{predict_outcomes}
 \alias{predict_outcomes}
-\title{predict_outcomes}
+\title{Return the the predicted outcome for each treatment made by a model for each
+point in the features}
 \usage{
 predict_outcomes(lnr, X)
 }
@@ -12,10 +13,6 @@ predict_outcomes(lnr, X)
 \item{X}{The features of the data.}
 }
 \description{
-Return the the predicted outcome for each treatment made by a model for each
-point in the features
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.predict_outcomes}{\code{IAI.predict_outcomes}}
 }

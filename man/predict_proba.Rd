@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaibase.R
 \name{predict_proba}
 \alias{predict_proba}
-\title{predict_proba}
+\title{Return the probabilities of class membership predicted by a model for each
+point in the features}
 \usage{
 predict_proba(lnr, X)
 }
@@ -12,10 +13,6 @@ predict_proba(lnr, X)
 \item{X}{The features of the data.}
 }
 \description{
-Return the probabilities of class membership predicted by a model for each
-point in the features
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.predict_proba}{\code{IAI.predict_proba}}
 }

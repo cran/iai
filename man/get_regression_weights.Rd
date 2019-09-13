@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaitrees.R
 \name{get_regression_weights}
 \alias{get_regression_weights}
-\title{get_regression_weights}
+\title{Return the weights for each feature in the regression prediction at a node of
+a tree}
 \usage{
 get_regression_weights(lnr, node_index, ...)
 }
@@ -14,10 +15,6 @@ get_regression_weights(lnr, node_index, ...)
 \item{...}{If a prescription problem, the treatment to query.}
 }
 \description{
-Return the weights for each feature in the regression prediction at a node of
-a tree
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/}{\code{IAI.get_regression_weights}}
 (for regression or prescription tree learners as appropriate)

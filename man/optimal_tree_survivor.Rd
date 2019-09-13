@@ -2,7 +2,7 @@
 % Please edit documentation in R/optimaltrees.R
 \name{optimal_tree_survivor}
 \alias{optimal_tree_survivor}
-\title{optimal_tree_survivor}
+\title{Learner for training Optimal Survival Trees}
 \usage{
 optimal_tree_survivor(...)
 }
@@ -11,9 +11,6 @@ optimal_tree_survivor(...)
 Refer to the Julia documentation for available parameters.}
 }
 \description{
-Learner for training Optimal Survival Trees
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/OptimalTrees/stable/reference/#IAI.OptimalTreeSurvivor}{\code{IAI.OptimalTreeSurvivor}}
 }

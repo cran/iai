@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{write_questionnaire}
 \alias{write_questionnaire}
-\title{write_questionnaire}
+\title{Output a learner as an interactive questionnaire in HTML format}
 \usage{
 write_questionnaire(filename, lnr, ...)
 }
@@ -14,9 +14,6 @@ write_questionnaire(filename, lnr, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Output a learner as an interactive questionnaire in HTML format
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.write_questionnaire}{\code{IAI.write_questionnaire}}
 }

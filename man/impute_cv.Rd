@@ -2,7 +2,7 @@
 % Please edit documentation in R/optimpute.R
 \name{impute_cv}
 \alias{impute_cv}
-\title{impute_cv}
+\title{Impute missing values using cross validation}
 \usage{
 impute_cv(X, ...)
 }
@@ -12,9 +12,6 @@ impute_cv(X, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Impute missing values using cross validation
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.impute_cv}{\code{IAI.impute_cv}}
 }
@@ -22,7 +19,6 @@ Julia Equivalent:
 \donttest{
 X <- iris
 X[1, 1] <- NA
-iai::iai_setup()
 iai::impute_cv(X, list(method = c("opt_knn", "opt_tree")))
 }
 }

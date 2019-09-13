@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{set_julia_seed}
 \alias{set_julia_seed}
-\title{set_julia_seed}
+\title{Set the random seed in Julia}
 \usage{
 set_julia_seed(seed)
 }
@@ -10,9 +10,6 @@ set_julia_seed(seed)
 \item{seed}{The seed to set}
 }
 \description{
-Set the random seed in Julia
-}
-\details{
 Julia Equivalent:
 \href{https://docs.julialang.org/en/v1/stdlib/Random/index.html#Random.seed!}{\code{Random.seed!}}
 }

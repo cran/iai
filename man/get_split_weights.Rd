@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaitrees.R
 \name{get_split_weights}
 \alias{get_split_weights}
-\title{get_split_weights}
+\title{Return the weights for numeric and categoric features used in the hyperplane
+split at a node of a tree}
 \usage{
 get_split_weights(lnr, node_index)
 }
@@ -12,10 +13,6 @@ get_split_weights(lnr, node_index)
 \item{node_index}{The node in the tree to query.}
 }
 \description{
-Return the weights for numeric and categoric features used in the hyperplane
-split at a node of a tree
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_split_weights}{\code{IAI.get_split_weights}}
 }

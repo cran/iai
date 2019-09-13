@@ -2,14 +2,11 @@
 % Please edit documentation in R/iaibase.R
 \name{get_rich_output_params}
 \alias{get_rich_output_params}
-\title{get_rich_output_params}
+\title{Return the current global rich output parameter settings}
 \usage{
 get_rich_output_params()
 }
 \description{
-Return the current global rich output parameter settings
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.get_rich_output_params}{\code{IAI.get_rich_output_params}}
 }

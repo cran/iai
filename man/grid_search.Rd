@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{grid_search}
 \alias{grid_search}
-\title{grid_search}
+\title{Controls grid search over parameter combinations}
 \usage{
 grid_search(lnr, ...)
 }
@@ -12,15 +12,11 @@ grid_search(lnr, ...)
 \item{...}{The parameters to validate over.}
 }
 \description{
-Controls grid search over parameter combinations
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.GridSearch}{\code{IAI.GridSearch}}
 }
 \examples{
 \donttest{
-iai::iai_setup()
 grid <- iai::grid_search(
     iai::optimal_tree_classifier(
         random_seed = 1,

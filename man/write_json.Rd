@@ -2,25 +2,22 @@
 % Please edit documentation in R/iaibase.R
 \name{write_json}
 \alias{write_json}
-\title{write_json}
+\title{Output a learner or grid in JSON format}
 \usage{
-write_json(filename, lnr, ...)
+write_json(filename, obj, ...)
 }
 \arguments{
 \item{filename}{Where to save the output.}
 
-\item{lnr}{The learner to output.}
+\item{obj}{The learner or grid to output.}
 
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Output a learner in JSON format
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.write_json}{\code{IAI.write_json}}
 }
 \examples{
-\dontrun{iai::write_json(file.path(tempdir(), "out.json"), lnr)}
+\dontrun{iai::write_json(file.path(tempdir(), "out.json"), obj)}
 
 }

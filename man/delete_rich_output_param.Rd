@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{delete_rich_output_param}
 \alias{delete_rich_output_param}
-\title{delete_rich_output_param}
+\title{Delete a global rich output parameter}
 \usage{
 delete_rich_output_param(key)
 }
@@ -10,9 +10,6 @@ delete_rich_output_param(key)
 \item{key}{The parameter to delete.}
 }
 \description{
-Delete a global rich output parameter
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.delete_rich_output_param!}{\code{IAI.delete_rich_output_param!}}
 }

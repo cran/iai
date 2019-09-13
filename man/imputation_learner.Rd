@@ -2,7 +2,7 @@
 % Please edit documentation in R/optimpute.R
 \name{imputation_learner}
 \alias{imputation_learner}
-\title{imputation_learner}
+\title{Generic learner for imputing missing values}
 \usage{
 imputation_learner(method = "opt_knn", ...)
 }
@@ -13,9 +13,6 @@ imputation_learner(method = "opt_knn", ...)
 Refer to the Julia documentation for available parameters.}
 }
 \description{
-Generic learner for imputing missing values
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.ImputationLearner}{\code{IAI.ImputationLearner}}
 }

@@ -2,7 +2,8 @@
 % Please edit documentation in R/iaitrees.R
 \name{write_dot}
 \alias{write_dot}
-\title{write_dot}
+\title{Output a learner in
+\href{http://www.graphviz.org/content/dot-language/}{.dot format}}
 \usage{
 write_dot(filename, lnr, ...)
 }
@@ -14,10 +15,6 @@ write_dot(filename, lnr, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Output a learner in
-\href{http://www.graphviz.org/content/dot-language/}{.dot format}
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.write_dot}{\code{IAI.write_dot}}
 }

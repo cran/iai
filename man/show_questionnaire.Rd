@@ -2,7 +2,7 @@
 % Please edit documentation in R/iaitrees.R
 \name{show_questionnaire}
 \alias{show_questionnaire}
-\title{show_questionnaire}
+\title{Show an interactive questionnaire based on a learner in default browser}
 \usage{
 show_questionnaire(lnr, ...)
 }
@@ -12,9 +12,6 @@ show_questionnaire(lnr, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Show an interactive questionnaire based on a learner in default browser
-}
-\details{
 Julia Equivalent:
 \href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.show_questionnaire}{\code{IAI.show_questionnaire}}
 }
