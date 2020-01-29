@@ -9,7 +9,7 @@ at least the specified threshold.}
 set_threshold(lnr, label, threshold, ...)
 }
 \arguments{
-\item{lnr}{The learner or grid to modify.}
+\item{lnr}{The learner to modify.}
 
 \item{label}{The referenced label.}
 
@@ -20,7 +20,7 @@ be predicted.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.set_threshold!}{\code{IAI.set_threshold!}}
+\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.set_threshold!}{\code{IAI.set_threshold!}}
 }
 \examples{
 \dontrun{iai::set_threshold(lnr, "A", 0.4)}

@@ -9,13 +9,13 @@ write_png(filename, lnr, ...)
 \arguments{
 \item{filename}{Where to save the output.}
 
-\item{lnr}{The learner or grid to output.}
+\item{lnr}{The learner to output.}
 
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.write_png}{\code{IAI.write_png}}
+\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.write_png}{\code{IAI.write_png}}
 }
 \examples{
 \dontrun{iai::write_png(file.path(tempdir(), "tree.png"), lnr)}

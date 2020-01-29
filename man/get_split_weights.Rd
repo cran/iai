@@ -8,13 +8,13 @@ split at a node of a tree}
 get_split_weights(lnr, node_index)
 }
 \arguments{
-\item{lnr}{The learner or grid to query.}
+\item{lnr}{The learner to query.}
 
 \item{node_index}{The node in the tree to query.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_split_weights}{\code{IAI.get_split_weights}}
+\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.get_split_weights}{\code{IAI.get_split_weights}}
 }
 \examples{
 \dontrun{iai::get_split_weights(lnr, 1)}

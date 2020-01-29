@@ -7,13 +7,13 @@
 get_upper_child(lnr, node_index)
 }
 \arguments{
-\item{lnr}{The learner or grid to query.}
+\item{lnr}{The learner to query.}
 
 \item{node_index}{The node in the tree to query.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_upper_child}{\code{IAI.get_upper_child}}
+\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.get_upper_child}{\code{IAI.get_upper_child}}
 }
 \examples{
 \dontrun{iai::get_upper_child(lnr, 1)}

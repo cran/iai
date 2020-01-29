@@ -153,14 +153,10 @@ test_that("visualization", {
   file.remove("question.html")
 
   if (iai:::iai_version_less_than("1.1.0")) {
-    expect_error(iai::tree_plot(),
-                 "requires IAI version 1.1.0")
-    expect_error(iai::questionnaire(),
-                 "requires IAI version 1.1.0")
-    expect_error(iai::multi_tree_plot(),
-                 "requires IAI version 1.1.0")
-    expect_error(iai::multi_questionnaire(),
-                 "requires IAI version 1.1.0")
+    expect_error(iai::tree_plot(), "requires IAI version 1.1.0")
+    expect_error(iai::questionnaire(), "requires IAI version 1.1.0")
+    expect_error(iai::multi_tree_plot(), "requires IAI version 1.1.0")
+    expect_error(iai::multi_questionnaire(), "requires IAI version 1.1.0")
   } else {
     feature_renames <- list(
       "PetalLength" = "A",
@@ -239,6 +235,24 @@ test_that("classification tree API", {
   expect_true(grepl("true)", print(lnr)))
   iai::reset_display_label(lnr)
   expect_false(grepl("true)", print(lnr)))
+})
+
+
+test_that("survival tree API", {
+  skip_on_cran()
+
+  lnr <- iai::optimal_tree_survivor(max_depth = 1, cp = 0)
+  n <- 100
+  X <- matrix(rnorm(200), n, 2)
+  died <- rbinom(n, 1, 0.5) == 1
+  times <- runif(n)
+  iai::fit(lnr, X, died, times)
+
+  if (iai:::iai_version_less_than("1.2.0")) {
+    expect_error(iai::predict_hazard(lnr, X), "requires IAI version 1.2.0")
+  } else {
+    expect_equal(length(iai::predict_hazard(lnr, X)), n)
+  }
 })
 
 

@@ -14,6 +14,17 @@ pkg.env$initialized <- FALSE
 #'
 #' @export
 iai_setup <- function(...) {
+  if (!is.na(Sys.getenv("IAI_JULIA", unset = NA))) {
+    bindir = dirname(Sys.getenv("IAI_JULIA"))
+    Sys.setenv(JULIA_HOME = bindir)
+
+    # Add Julia bindir to path on windows so that DLLs can be found
+    if (.Platform$OS.type == "windows") {
+      Sys.setenv(PATH = paste(Sys.getenv("PATH"), bindir,
+                              sep = .Platform$path.sep))
+    }
+  }
+
   # Run julia setup with IAI init disabled to avoid polluting stdout
   # We will instead have to init it manually later
   Sys.setenv(IAI_DISABLE_INIT = T)
@@ -30,7 +41,7 @@ iai_setup <- function(...) {
     if (iai_version == "nothing") {
       stop(paste("IAI is not present in your Julia installation. Please ",
                  "follow the instructions at ",
-                 "https://docs.interpretable.ai/IAI-R/stable/installation",
+                 "https://docs.interpretable.ai/stable/IAI-R/installation",
                  sep = ""))
     }
     JuliaCall::julia_library("IAI")
@@ -69,6 +80,28 @@ iai_setup <- function(...) {
 }
 
 
+### Define wrappers for JuliaCall functions that hit our init methods
+### Outside of iai_setup, JuliaCall functions should NOT be used directly
+iai_setup_auto <- function() {
+  # Call iai_setup automatically if calls Julia and IAI is not initialized
+  if (!pkg.env$initialized) {
+    iai_setup()
+  }
+}
+julia_assign <- function(...) {
+  iai_setup_auto()
+  JuliaCall::julia_assign(...)
+}
+julia_eval <- function(...) {
+  iai_setup_auto()
+  JuliaCall::julia_eval(...)
+}
+julia_library <- function(...) {
+  iai_setup_auto()
+  JuliaCall::julia_library(...)
+}
+
+
 get_kwargs <- function(...) {
   # Use list2 to handle trailing commas
   kwargs <- rlang::list2(...)
@@ -95,12 +128,12 @@ get_kwargs <- function(...) {
     out <- paste(out, julia_key, ", ", sep = "")
 
     # Send value to julia
-    JuliaCall::julia_assign(julia_key, value)
+    julia_assign(julia_key, value)
 
     if (typeof(value) == "double" && all(abs(value - round(value)) < 1e-8)) {
       # Convert integer back to int
       jleval <- stringr::str_interp("${julia_key} = Int.(${julia_key})")
-      JuliaCall::julia_eval(jleval)
+      julia_eval(jleval)
     }
 
   }
@@ -109,20 +142,15 @@ get_kwargs <- function(...) {
 
 
 jl_func <- function(funcname, ...) {
-  # Call iai_setup automatically if calls Julia and IAI is not initialized
-  if (!pkg.env$initialized) {
-    iai_setup()
-  }
-
   kwargs <- get_kwargs(...)
   jleval <- stringr::str_interp("${funcname}(${kwargs})")
-  JuliaCall::julia_eval(jleval)
+  julia_eval(jleval)
 }
 
 jl_isa <- function(obj, typename) {
-  JuliaCall::julia_assign("_iai_arg_", obj)
+  julia_assign("_iai_arg_", obj)
   jleval <- stringr::str_interp("_iai_arg_ isa ${typename}")
-  JuliaCall::julia_eval(jleval)
+  julia_eval(jleval)
 }
 
 set_obj_class <- function(obj) {
@@ -167,7 +195,7 @@ iai_version_less_than <- function(version) {
                   " < ",
                   "Base.thispatch(v\"", version, "\")",
                   sep = "")
-  JuliaCall::julia_eval(jleval)
+  julia_eval(jleval)
 }
 
 

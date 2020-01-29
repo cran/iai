@@ -12,7 +12,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/OptimalFeatureSelection/stable/reference/#IAI.OptimalFeatureSelectionClassifier}{\code{IAI.OptimalFeatureSelectionClassifier}}
+\href{https://docs.interpretable.ai/v1.2.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionClassifier}{\code{IAI.OptimalFeatureSelectionClassifier}}
 }
 \section{IAI Compatibility}{
 

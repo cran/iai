@@ -1,7 +1,7 @@
 #' Learner for conducting Optimal Feature Selection on classification problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptimalFeatureSelection/stable/reference/#IAI.OptimalFeatureSelectionClassifier}{\code{IAI.OptimalFeatureSelectionClassifier}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionClassifier}{\code{IAI.OptimalFeatureSelectionClassifier}}
 #'
 #' @usage optimal_feature_selection_classifier(...)
 #'
@@ -23,7 +23,7 @@ optimal_feature_selection_classifier <- function(...) {
 #' Learner for conducting Optimal Feature Selection on regression problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptimalFeatureSelection/stable/reference/#IAI.OptimalFeatureSelectionRegressor}{\code{IAI.OptimalFeatureSelectionRegressor}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionRegressor}{\code{IAI.OptimalFeatureSelectionRegressor}}
 #'
 #' @usage optimal_feature_selection_regressor(...)
 #'
@@ -45,11 +45,11 @@ optimal_feature_selection_regressor <- function(...) {
 #' Return the constant term in the prediction in the trained learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptimalFeatureSelection/stable/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
 #'
 #' @usage get_prediction_constant(lnr)
 #'
-#' @param lnr The learner or grid to query.
+#' @param lnr The learner to query.
 #'
 #' @examples \dontrun{iai::get_prediction_constant(lnr)}
 #'
@@ -67,11 +67,11 @@ get_prediction_constant <- function(lnr) {
 #' the trained learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptimalFeatureSelection/stable/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptimalFeatureSelection/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
 #'
 #' @usage get_prediction_weights(lnr)
 #'
-#' @param lnr The learner or grid to query.
+#' @param lnr The learner to query.
 #'
 #' @examples \dontrun{iai::get_prediction_weights(lnr)}
 #'

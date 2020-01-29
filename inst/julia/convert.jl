@@ -79,7 +79,12 @@ module IAIConvert
         old = col[i]
         if !old.iscat
           # Put back the Ox_ prefix for ordinals
-          order = CategoricalArrays.order(old.value_else)
+          f = if isdefined(CategoricalArrays, :levelcode)
+            CategoricalArrays.levelcode
+          else
+            CategoricalArrays.order
+          end
+          order = f(old.value_else)
           out[i] = string("O", order, "_", out[i])
         end
       end

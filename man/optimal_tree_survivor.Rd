@@ -12,7 +12,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/OptimalTrees/stable/reference/#IAI.OptimalTreeSurvivor}{\code{IAI.OptimalTreeSurvivor}}
+\href{https://docs.interpretable.ai/v1.2.0/OptimalTrees/reference/#IAI.OptimalTreeSurvivor}{\code{IAI.OptimalTreeSurvivor}}
 }
 \examples{
 \dontrun{lnr <- iai::optimal_tree_survivor()}

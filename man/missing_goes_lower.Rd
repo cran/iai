@@ -8,13 +8,13 @@ of a tree}
 missing_goes_lower(lnr, node_index)
 }
 \arguments{
-\item{lnr}{The learner or grid to query.}
+\item{lnr}{The learner to query.}
 
 \item{node_index}{The node in the tree to query.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.missing_goes_lower}{\code{IAI.missing_goes_lower}}
+\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.missing_goes_lower}{\code{IAI.missing_goes_lower}}
 }
 \examples{
 \dontrun{iai::missing_goes_lower(lnr, 1)}

@@ -7,11 +7,11 @@
 get_prediction_constant(lnr)
 }
 \arguments{
-\item{lnr}{The learner or grid to query.}
+\item{lnr}{The learner to query.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/OptimalFeatureSelection/stable/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
+\href{https://docs.interpretable.ai/v1.2.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
 }
 \section{IAI Compatibility}{
 

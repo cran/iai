@@ -1,7 +1,7 @@
 #' Impute missing values using either a specified method or through validation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.impute}{\code{IAI.impute}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptImpute/reference/#IAI.impute}{\code{IAI.impute}}
 #'
 #' @usage impute(X, ...)
 #'
@@ -19,7 +19,7 @@ impute <- function(X, ...) {
 #' Impute missing values using cross validation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.impute_cv}{\code{IAI.impute_cv}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptImpute/reference/#IAI.impute_cv}{\code{IAI.impute_cv}}
 #'
 #' @usage impute_cv(X, ...)
 #'
@@ -37,7 +37,7 @@ impute_cv <- function(X, ...) {
 #' Generic learner for imputing missing values
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.ImputationLearner}{\code{IAI.ImputationLearner}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptImpute/reference/#IAI.ImputationLearner}{\code{IAI.ImputationLearner}}
 #'
 #' @usage imputation_learner(method = "opt_knn", ...)
 #'
@@ -56,7 +56,7 @@ imputation_learner <- function(method = "opt_knn", ...) {
 #' Learner for conducting optimal k-NN imputation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.OptKNNImputationLearner}{\code{IAI.OptKNNImputationLearner}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptImpute/reference/#IAI.OptKNNImputationLearner}{\code{IAI.OptKNNImputationLearner}}
 #'
 #' @usage opt_knn_imputation_learner(...)
 #'
@@ -74,7 +74,7 @@ opt_knn_imputation_learner <- function(...) {
 #' Learner for conducting optimal SVM imputation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.OptSVMImputationLearner}{\code{IAI.OptSVMImputationLearner}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptImpute/reference/#IAI.OptSVMImputationLearner}{\code{IAI.OptSVMImputationLearner}}
 #'
 #' @usage opt_svm_imputation_learner(...)
 #'
@@ -92,7 +92,7 @@ opt_svm_imputation_learner <- function(...) {
 #' Learner for conducting optimal tree-based imputation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.OptTreeImputationLearner}{\code{IAI.OptTreeImputationLearner}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptImpute/reference/#IAI.OptTreeImputationLearner}{\code{IAI.OptTreeImputationLearner}}
 #'
 #' @usage opt_tree_imputation_learner(...)
 #'
@@ -110,7 +110,7 @@ opt_tree_imputation_learner <- function(...) {
 #' Learner for conducting heuristic k-NN imputation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.SingleKNNImputationLearner}{\code{IAI.SingleKNNImputationLearner}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptImpute/reference/#IAI.SingleKNNImputationLearner}{\code{IAI.SingleKNNImputationLearner}}
 #'
 #' @usage single_knn_imputation_learner(...)
 #'
@@ -128,7 +128,7 @@ single_knn_imputation_learner <- function(...) {
 #' Learner for conducting mean imputation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.MeanImputationLearner}{\code{IAI.MeanImputationLearner}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptImpute/reference/#IAI.MeanImputationLearner}{\code{IAI.MeanImputationLearner}}
 #'
 #' @usage mean_imputation_learner(...)
 #'
@@ -146,7 +146,7 @@ mean_imputation_learner <- function(...) {
 #' Learner for conducting random imputation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.RandImputationLearner}{\code{IAI.RandImputationLearner}}
+#' \href{https://docs.interpretable.ai/v1.2.0/OptImpute/reference/#IAI.RandImputationLearner}{\code{IAI.RandImputationLearner}}
 #'
 #' @usage rand_imputation_learner(...)
 #'

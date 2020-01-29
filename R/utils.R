@@ -11,16 +11,16 @@
 #'
 #' @export
 set_julia_seed <- function(seed) {
-  JuliaCall::julia_library("Random")
+  julia_library("Random")
   jleval <- stringr::str_interp("Random.seed!(${seed})")
-  JuliaCall::julia_eval(jleval)
+  julia_eval(jleval)
 }
 
 
 #' Convert a vector of values to IAI mixed data format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
+#' \href{https://docs.interpretable.ai/v1.2.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
 #'
 #' @usage as.mixeddata(values, categorical_levels, ordinal_levels = c())
 #'

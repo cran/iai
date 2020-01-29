@@ -8,4 +8,4 @@ iai is a package providing an interface to the algorithms of [Interpretable AI](
 
 # Installation and Usage
 
-Please refer to the official [Interpretable AI documentation](https://docs.interpretable.ai/IAI-R/stable/) for information on setting up and using the package.
+Please refer to the official [Interpretable AI documentation](https://docs.interpretable.ai/stable/IAI-R/) for information on setting up and using the package.

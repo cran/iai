@@ -8,13 +8,13 @@ node of a tree}
 get_prescription_treatment_rank(lnr, node_index)
 }
 \arguments{
-\item{lnr}{The learner or grid to query.}
+\item{lnr}{The learner to query.}
 
 \item{node_index}{The node in the tree to query.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.get_prescription_treatment_rank}{\code{IAI.get_prescription_treatment_rank}}
+\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.get_prescription_treatment_rank}{\code{IAI.get_prescription_treatment_rank}}
 }
 \examples{
 \dontrun{iai::get_prescription_treatment_rank(lnr, 1)}

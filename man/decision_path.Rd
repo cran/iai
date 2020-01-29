@@ -14,7 +14,7 @@ decision_path(lnr, X)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.decision_path}{\code{IAI.decision_path}}
+\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.decision_path}{\code{IAI.decision_path}}
 }
 \examples{
 \dontrun{iai::decision_path(lnr, X)}

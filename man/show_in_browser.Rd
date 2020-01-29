@@ -14,7 +14,7 @@ show_in_browser(obj, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.show_in_browser}{\code{IAI.show_in_browser}}
+\href{https://docs.interpretable.ai/v1.2.0/IAIBase/reference/#IAI.show_in_browser}{\code{IAI.show_in_browser}}
 }
 \examples{
 \dontrun{iai::show_in_browser(lnr)}

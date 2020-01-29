@@ -14,7 +14,7 @@ predict_outcomes(lnr, X)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.predict_outcomes}{\code{IAI.predict_outcomes}}
+\href{https://docs.interpretable.ai/v1.2.0/IAIBase/reference/#IAI.predict_outcomes}{\code{IAI.predict_outcomes}}
 }
 \examples{
 \dontrun{iai::predict_outcomes(lnr, X)}

@@ -9,13 +9,13 @@ write_html(filename, lnr, ...)
 \arguments{
 \item{filename}{Where to save the output.}
 
-\item{lnr}{The learner or grid to output.}
+\item{lnr}{The learner to output.}
 
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.write_html}{\code{IAI.write_html}}
+\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.write_html}{\code{IAI.write_html}}
 }
 \examples{
 \dontrun{iai::write_html(file.path(tempdir(), "tree.html"), lnr)}

@@ -14,7 +14,7 @@ predict_proba(lnr, X)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.predict_proba}{\code{IAI.predict_proba}}
+\href{https://docs.interpretable.ai/v1.2.0/IAIBase/reference/#IAI.predict_proba}{\code{IAI.predict_proba}}
 }
 \examples{
 \dontrun{iai::predict_proba(lnr, X)}

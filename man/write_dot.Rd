@@ -10,13 +10,13 @@ write_dot(filename, lnr, ...)
 \arguments{
 \item{filename}{Where to save the output.}
 
-\item{lnr}{The learner or grid to output.}
+\item{lnr}{The learner to output.}
 
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.write_dot}{\code{IAI.write_dot}}
+\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.write_dot}{\code{IAI.write_dot}}
 }
 \examples{
 \dontrun{iai::write_dot(file.path(tempdir(), "tree.dot"), lnr)}

@@ -15,11 +15,14 @@ fit_transform(lnr, X, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
-Similar to calling \code{fit} followed by \code{transform}
+Similar to calling
+\href{https://docs.interpretable.ai/v1.2.0/IAI-R/reference/#iai::fit}{\code{fit}}
+followed by
+\href{https://docs.interpretable.ai/v1.2.0/IAI-R/reference/#iai::transform}{\code{transform}}
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
+\href{https://docs.interpretable.ai/v1.2.0/IAIBase/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
 }
 \examples{
 \donttest{

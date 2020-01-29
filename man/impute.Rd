@@ -13,7 +13,7 @@ impute(X, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/OptImpute/stable/reference/#IAI.impute}{\code{IAI.impute}}
+\href{https://docs.interpretable.ai/v1.2.0/OptImpute/reference/#IAI.impute}{\code{IAI.impute}}
 }
 \examples{
 \donttest{

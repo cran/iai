@@ -13,7 +13,7 @@ grid_search(lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAIBase/stable/reference/#IAI.GridSearch}{\code{IAI.GridSearch}}
+\href{https://docs.interpretable.ai/v1.2.0/IAIBase/reference/#IAI.GridSearch}{\code{IAI.GridSearch}}
 }
 \examples{
 \donttest{

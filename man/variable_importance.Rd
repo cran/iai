@@ -8,11 +8,11 @@ importance when training the trees}
 variable_importance(lnr)
 }
 \arguments{
-\item{lnr}{The learner or grid to query.}
+\item{lnr}{The learner to query.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.variable_importance}{\code{IAI.variable_importance}}
+\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.variable_importance}{\code{IAI.variable_importance}}
 }
 \examples{
 \dontrun{iai::variable_importance(lnr)}

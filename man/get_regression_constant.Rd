@@ -7,7 +7,7 @@
 get_regression_constant(lnr, node_index, ...)
 }
 \arguments{
-\item{lnr}{The learner or grid to query.}
+\item{lnr}{The learner to query.}
 
 \item{node_index}{The node in the tree to query.}
 
@@ -15,7 +15,7 @@ get_regression_constant(lnr, node_index, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAITrees/stable/reference/}{\code{IAI.get_regression_constant}}
+\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAITrees-API-Reference-1}{\code{IAI.get_regression_constant}}
 (for regression or prescription tree learners as appropriate)
 }
 \examples{

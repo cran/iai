@@ -13,7 +13,7 @@ show_questionnaire(lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/IAITrees/stable/reference/#IAI.show_questionnaire}{\code{IAI.show_questionnaire}}
+\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.show_questionnaire}{\code{IAI.show_questionnaire}}
 }
 \examples{
 \dontrun{iai::show_questionnaire(lnr)}
