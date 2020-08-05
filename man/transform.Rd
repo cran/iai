@@ -13,7 +13,7 @@ transform(lnr, X)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAIBase/reference/#IAI.transform}{\code{IAI.transform}}
+\href{https://docs.interpretable.ai/v2.0.0/IAIBase/reference/#IAI.transform}{\code{IAI.transform}}
 }
 \examples{
 \dontrun{iai::transform(lnr, X)}

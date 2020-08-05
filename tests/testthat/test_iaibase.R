@@ -97,7 +97,22 @@ test_that("roc_curve", {
   iai::fit(lnr, X, y == "setosa")
   roc <- iai::roc_curve(lnr, X, y == "setosa")
 
-  expect_true("roc_curve" %in% class(roc))
+  expect_true("iai_visualization" %in% class(roc))
+
+  probs <- runif(10)
+  y <- rbinom(10, 1, 0.5)
+  positive_label <- 1
+
+  if (iai:::iai_version_less_than("2.0.0")) {
+    expect_error(iai::roc_curve(probs, y, positive_label=positive_label),
+                 "requires IAI version 2.0.0")
+  } else {
+    # positive_label not specified
+    expect_error(iai::roc_curve(probs, y), "positive_label")
+
+    roc <- iai::roc_curve(probs, y, positive_label=positive_label)
+    expect_true("iai_visualization" %in% class(roc))
+  }
 })
 
 

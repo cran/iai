@@ -13,7 +13,7 @@ get_classification_label(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.get_classification_label}{\code{IAI.get_classification_label}}
+\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_classification_label}{\code{IAI.get_classification_label}}
 }
 \examples{
 \dontrun{iai::get_classification_label(lnr, 1)}

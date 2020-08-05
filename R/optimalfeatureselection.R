@@ -1,7 +1,7 @@
 #' Learner for conducting Optimal Feature Selection on classification problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v1.2.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionClassifier}{\code{IAI.OptimalFeatureSelectionClassifier}}
+#' \href{https://docs.interpretable.ai/v2.0.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionClassifier}{\code{IAI.OptimalFeatureSelectionClassifier}}
 #'
 #' @usage optimal_feature_selection_classifier(...)
 #'
@@ -16,14 +16,14 @@
 #' @export
 optimal_feature_selection_classifier <- function(...) {
   requires_iai_version("1.1.0", "optimal_feature_selection_classifier")
-  jl_func("IAI.OptimalFeatureSelectionClassifier", ...)
+  set_obj_class(jl_func("IAI.OptimalFeatureSelectionClassifier_convert", ...))
 }
 
 
 #' Learner for conducting Optimal Feature Selection on regression problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v1.2.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionRegressor}{\code{IAI.OptimalFeatureSelectionRegressor}}
+#' \href{https://docs.interpretable.ai/v2.0.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionRegressor}{\code{IAI.OptimalFeatureSelectionRegressor}}
 #'
 #' @usage optimal_feature_selection_regressor(...)
 #'
@@ -38,14 +38,14 @@ optimal_feature_selection_classifier <- function(...) {
 #' @export
 optimal_feature_selection_regressor <- function(...) {
   requires_iai_version("1.1.0", "optimal_feature_selection_regressor")
-  jl_func("IAI.OptimalFeatureSelectionRegressor", ...)
+  set_obj_class(jl_func("IAI.OptimalFeatureSelectionRegressor_convert", ...))
 }
 
 
 #' Return the constant term in the prediction in the trained learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v1.2.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
+#' \href{https://docs.interpretable.ai/v2.0.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
 #'
 #' @usage get_prediction_constant(lnr)
 #'
@@ -59,7 +59,7 @@ optimal_feature_selection_regressor <- function(...) {
 #' @export
 get_prediction_constant <- function(lnr) {
   requires_iai_version("1.1.0", "get_prediction_constant")
-  jl_func("IAI.get_prediction_constant", lnr)
+  jl_func("IAI.get_prediction_constant_convert", lnr)
 }
 
 
@@ -67,7 +67,7 @@ get_prediction_constant <- function(lnr) {
 #' the trained learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v1.2.0/OptimalFeatureSelection/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
+#' \href{https://docs.interpretable.ai/v2.0.0/OptimalFeatureSelection/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
 #'
 #' @usage get_prediction_weights(lnr)
 #'
@@ -81,7 +81,7 @@ get_prediction_constant <- function(lnr) {
 #' @export
 get_prediction_weights <- function(lnr) {
   requires_iai_version("1.1.0", "get_prediction_weights")
-  out <- jl_func("IAI.get_prediction_weights", lnr)
+  out <- jl_func("IAI.get_prediction_weights_convert", lnr)
   names(out) <- c("numeric", "categoric")
   out
 }

@@ -2,29 +2,17 @@
 % Please edit documentation in R/iaitrees.R
 \name{multi_tree_plot}
 \alias{multi_tree_plot}
-\title{Construct an interactive tree visualization of multiple tree learners as
-specified by questions}
+\title{Generic function for constructing an interactive tree visualization of
+multiple tree learners}
 \usage{
-multi_tree_plot(questions)
+multi_tree_plot(obj, ...)
 }
 \arguments{
-\item{questions}{The questions to visualize. Refer to the \href{https://docs.interpretable.ai/v1.2.0/IAITrees/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.}
+\item{obj}{The object controlling which method is used}
+
+\item{...}{Arguments depending on the specific method used}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.MultiTreePlot}{\code{IAI.MultiTreePlot}}
-}
-\section{IAI Compatibility}{
-
-Requires IAI version 1.1 or higher.
-}
-
-\examples{
-\dontrun{
-iai::multi_tree_plot(list("Visualizing" = list(
-   "first learner" = lnr1,
-   "second learner" = lnr2
-)))
-}
-
+\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.MultiTreePlot}{\code{IAI.MultiTreePlot}}
 }

@@ -5,11 +5,14 @@ module IAIConvert
   using CategoricalArrays
 
   convert_to_jl(value) = value
-  function convert_to_jl(df::DataFrame)
-    DataFrame(convert_to_jl.(eachcol(df)), names(df))
-  end
+  convert_to_jl(p::Float64) = isinteger(p) ? Int(p) : p
+  convert_to_jl(p::Vector{Float64}) = all(isinteger, p) ? Int.(p) : p
 
-  function convert_to_jl(col::Vector{Any})
+  function convert_to_jl(df::DataFrame)
+    DataFrame(convert_to_jl_col.(eachcol(df)), names(df))
+  end
+  convert_to_jl_col(col) = col
+  function convert_to_jl_col(col::Vector{Any})
     n = length(col)
     ordinal_levels = Vector{String}(undef, n)
 

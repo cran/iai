@@ -13,7 +13,7 @@ get_classification_proba(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.get_classification_proba}{\code{IAI.get_classification_proba}}
+\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_classification_proba}{\code{IAI.get_classification_proba}}
 }
 \examples{
 \dontrun{iai::get_classification_proba(lnr, 1)}

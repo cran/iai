@@ -157,22 +157,47 @@ set_obj_class <- function(obj) {
   if (jl_isa(obj, "IAI.OptimalTreeLearner")) {
     class(obj) <- c(
         "optimal_tree_learner",
+        "learner",
+        "iai_visualization",
+        "JuliaObject"
+    )
+  } else if (jl_isa(obj, "IAI.Learner")) {
+    class(obj) <- c(
+        "learner",
+        "iai_visualization",
+        "JuliaObject"
+    )
+  } else if (jl_isa(obj, "IAI.GridSearch")) {
+    class(obj) <- c(
+        "grid_search",
+        "learner",
+        "iai_visualization",
         "JuliaObject"
     )
   } else if (jl_isa(obj, "IAI.ROCCurve")) {
     class(obj) <- c(
-        "roc_curve",
+        "iai_visualization",
         "JuliaObject"
     )
   } else if (!iai_version_less_than("1.1.0") &&
              jl_isa(obj, "IAI.AbstractVisualization")) {
     class(obj) <- c(
-        "visualization",
+        "iai_visualization",
         "JuliaObject"
     )
   }
 
   obj
+}
+
+
+#' @export
+print.iai_visualization <- function(x, ...) {
+  if (to_html(x)) {
+    invisible(x)
+  } else {
+    NextMethod()
+  }
 }
 
 
@@ -191,6 +216,7 @@ to_html <- function(obj) {
 
 
 iai_version_less_than <- function(version) {
+  iai_setup_auto()  # Need to run setup so that `iai_version` is set
   jleval <- paste("Base.thispatch(v\"", pkg.env$iai_version, "\")",
                   " < ",
                   "Base.thispatch(v\"", version, "\")",
@@ -199,11 +225,13 @@ iai_version_less_than <- function(version) {
 }
 
 
-requires_iai_version <- function(required_iai_version, function_name) {
+requires_iai_version <- function(required_iai_version, function_name,
+                                 extra = "") {
   if (iai_version_less_than(required_iai_version)) {
-    stop(paste("The function `", function_name, "` in this version of the ",
-               "`iai` R package requires IAI version ", required_iai_version,
-               ". Please upgrade your IAI installation to use this function.",
+    stop(paste("The function `", function_name, "` ", extra, " in this ",
+               "version of the `iai` R package requires IAI version ",
+               required_iai_version, ". Please upgrade your IAI installation ",
+               "to use this function.",
                sep = ""))
   }
 }

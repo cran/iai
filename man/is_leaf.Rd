@@ -13,7 +13,7 @@ is_leaf(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.is_leaf}{\code{IAI.is_leaf}}
+\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.is_leaf}{\code{IAI.is_leaf}}
 }
 \examples{
 \dontrun{iai::is_leaf(lnr, 1)}

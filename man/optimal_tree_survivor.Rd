@@ -11,8 +11,8 @@ optimal_tree_survivor(...)
 Refer to the Julia documentation for available parameters.}
 }
 \description{
-Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/OptimalTrees/reference/#IAI.OptimalTreeSurvivor}{\code{IAI.OptimalTreeSurvivor}}
+This function was deprecated and renamed to \code{\link[=optimal_tree_survival_learner]{optimal_tree_survival_learner()}}
+in iai 2.0.0. This is for consistency with the IAI v2.0.0 Julia release.
 }
 \examples{
 \dontrun{lnr <- iai::optimal_tree_survivor()}

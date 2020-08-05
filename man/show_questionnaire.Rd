@@ -7,14 +7,19 @@
 show_questionnaire(lnr, ...)
 }
 \arguments{
-\item{lnr}{The learner to visualize.}
+\item{lnr}{The learner or grid to visualize.}
 
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.show_questionnaire}{\code{IAI.show_questionnaire}}
+\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.show_questionnaire}{\code{IAI.show_questionnaire}}
 }
+\section{IAI Compatibility}{
+
+Showing a grid search requires IAI version 2.0 or higher.
+}
+
 \examples{
 \dontrun{iai::show_questionnaire(lnr)}
 

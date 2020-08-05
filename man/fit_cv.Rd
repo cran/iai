@@ -17,7 +17,7 @@ available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAIBase/reference/#IAI.fit_cv!}{\code{IAI.fit_cv!}}
+\href{https://docs.interpretable.ai/v2.0.0/IAIBase/reference/#IAI.fit_cv!}{\code{IAI.fit_cv!}}
 }
 \examples{
 \donttest{

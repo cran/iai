@@ -14,8 +14,13 @@ show_in_browser(obj, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAIBase/reference/#IAI.show_in_browser}{\code{IAI.show_in_browser}}
+\href{https://docs.interpretable.ai/v2.0.0/IAIBase/reference/#IAI.show_in_browser}{\code{IAI.show_in_browser}}
 }
+\section{IAI Compatibility}{
+
+Showing a grid search requires IAI version 2.0 or higher.
+}
+
 \examples{
 \dontrun{iai::show_in_browser(lnr)}
 

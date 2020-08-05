@@ -9,14 +9,19 @@ write_html(filename, lnr, ...)
 \arguments{
 \item{filename}{Where to save the output.}
 
-\item{lnr}{The learner to output.}
+\item{lnr}{The learner or grid to output.}
 
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.write_html}{\code{IAI.write_html}}
+\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.write_html}{\code{IAI.write_html}}
 }
+\section{IAI Compatibility}{
+
+Outputting a grid search requires IAI version 2.0 or higher.
+}
+
 \examples{
 \dontrun{iai::write_html(file.path(tempdir(), "tree.html"), lnr)}
 

@@ -12,7 +12,7 @@ get_prediction_weights(lnr)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/OptimalFeatureSelection/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
+\href{https://docs.interpretable.ai/v2.0.0/OptimalFeatureSelection/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
 }
 \section{IAI Compatibility}{
 

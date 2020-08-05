@@ -11,7 +11,7 @@ get_grid_results(grid)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAIBase/reference/#IAI.get_grid_results}{\code{IAI.get_grid_results}}
+\href{https://docs.interpretable.ai/v2.0.0/IAIBase/reference/#IAI.get_grid_results}{\code{IAI.get_grid_results}}
 }
 \examples{
 \dontrun{iai::get_grid_results(grid)}

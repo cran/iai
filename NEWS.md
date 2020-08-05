@@ -1,3 +1,11 @@
+# iai 1.3.0
+
+* Add support for Optimal Policy Trees
+* Add support for `reward_estimator` for prescription problems
+* Add `predict_expected_survival_time` for survival learners
+* Add direct `roc_curve` calculation from probabilities and labels
+* `optimal_tree_survivor` has been deprecated and renamed to `optimal_tree_survival_learner` to match the IAI Julia interface.
+
 # iai 1.2.0
 
 * Allow specifying Julia location with `IAI_JULIA` environment variable

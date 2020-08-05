@@ -14,7 +14,7 @@ missing_goes_lower(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAITrees/reference/#IAI.missing_goes_lower}{\code{IAI.missing_goes_lower}}
+\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.missing_goes_lower}{\code{IAI.missing_goes_lower}}
 }
 \examples{
 \dontrun{iai::missing_goes_lower(lnr, 1)}

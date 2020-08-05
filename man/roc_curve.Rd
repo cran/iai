@@ -2,22 +2,16 @@
 % Please edit documentation in R/iaibase.R
 \name{roc_curve}
 \alias{roc_curve}
-\title{Construct an ROC curve using a trained model on the given data}
+\title{Generic function for constructing an ROC curve}
 \usage{
-roc_curve(lnr, X, y)
+roc_curve(obj, ...)
 }
 \arguments{
-\item{lnr}{The learner or grid to use for prediction.}
+\item{obj}{The object controlling which method is used}
 
-\item{X}{The features of the data.}
-
-\item{y}{The labels of the data.}
+\item{...}{Arguments depending on the specific method used}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
-}
-\examples{
-\dontrun{iai::roc_curve(lnr, X, y)}
-
+\href{https://docs.interpretable.ai/v2.0.0/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
 }

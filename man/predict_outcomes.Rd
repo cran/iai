@@ -5,18 +5,26 @@
 \title{Return the the predicted outcome for each treatment made by a model for each
 point in the features}
 \usage{
-predict_outcomes(lnr, X)
+predict_outcomes(lnr, X, ...)
 }
 \arguments{
 \item{lnr}{The learner or grid to use for prediction.}
 
 \item{X}{The features of the data.}
+
+\item{...}{For policy learners only, the reward matrix.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/IAIBase/reference/#IAI.predict_outcomes}{\code{IAI.predict_outcomes}}
+\href{https://docs.interpretable.ai/v2.0.0/IAIBase/reference/#IAIBase-API-Reference-1}{\code{IAI.predict_outcomes}}
+(for prescription or policy learners as appropriate)
 }
+\section{IAI Compatibility}{
+
+Requires IAI version 2.0 or higher for policy learners.
+}
+
 \examples{
-\dontrun{iai::predict_outcomes(lnr, X)}
+\dontrun{iai::predict_outcomes(lnr, X, ...)}
 
 }

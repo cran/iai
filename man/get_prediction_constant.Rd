@@ -11,7 +11,7 @@ get_prediction_constant(lnr)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v1.2.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
+\href{https://docs.interpretable.ai/v2.0.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
 }
 \section{IAI Compatibility}{
 
