@@ -73,11 +73,14 @@ module IAIConvert
   function convert_to_R(df::AbstractDataFrame)
     DataFrame(convert_to_R.(eachcol(df)), names(df))
   end
+  function convert_to_R(row::DataFrameRow)
+    convert_to_R(DataFrame(row))
+  end
 
   function convert_to_R(col::AbstractVector{T}) where T<:IAI.IAIBase.MixedDatum
     out = Vector{Any}(IAI.undo_mixed_data(col))
 
-    if T == IAI.IAIBase.OrdinalMixedDatum
+    if T <: IAI.IAIBase.OrdinalMixedDatum
       for i in 1:length(out)
         old = col[i]
         if !old.iscat

@@ -1,3 +1,14 @@
+# Unreleased
+
+# iai 1.4.0
+
+* Add support for new RewardEstimation interface
+* Add support for Heuristics
+* Add `get_roc_curve_data`
+* Add `predict_treatment_rank` and `predict_treatment_outcome`
+* Add `get_policy_treatment_outcome`, `get_survival_expected_time`, and `get_survival_hazard`
+* Add `write_pdf` and `write_svg` to output trees as static images
+
 # iai 1.3.0
 
 * Add support for Optimal Policy Trees

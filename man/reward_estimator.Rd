@@ -2,7 +2,7 @@
 % Please edit documentation in R/rewardestimation.R
 \name{reward_estimator}
 \alias{reward_estimator}
-\title{Learner for conducting Reward Estimation}
+\title{Learner for conducting reward estimation with categorical treatments}
 \usage{
 reward_estimator(...)
 }
@@ -11,14 +11,9 @@ reward_estimator(...)
 Refer to the Julia documentation for available parameters.}
 }
 \description{
-Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/RewardEstimation/reference/#IAI.RewardEstimator}{\code{IAI.RewardEstimator}}
+This function was deprecated and renamed to \code{\link[=categorical_reward_estimator]{categorical_reward_estimator()}}
+in iai 2.0.0. This is for consistency with the IAI v2.1.0 Julia release.
 }
-\section{IAI Compatibility}{
-
-Requires IAI version 2.0 or higher.
-}
-
 \examples{
 \dontrun{lnr <- iai::reward_estimator()}
 

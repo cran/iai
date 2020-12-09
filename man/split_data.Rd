@@ -17,7 +17,7 @@ available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAIBase/reference/#IAI.split_data}{\code{IAI.split_data}}
+\href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.split_data}{\code{IAI.split_data}}
 }
 \examples{
 \donttest{

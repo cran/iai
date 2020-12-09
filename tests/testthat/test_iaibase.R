@@ -113,6 +113,45 @@ test_that("roc_curve", {
     roc <- iai::roc_curve(probs, y, positive_label=positive_label)
     expect_true("iai_visualization" %in% class(roc))
   }
+
+  if (iai:::iai_version_less_than("2.1.0")) {
+    expect_error(iai::get_roc_curve_data(roc), "requires IAI version 2.1.0")
+  } else {
+    data <- iai::get_roc_curve_data(roc)
+    expect_true("auc" %in% names(data))
+    expect_true("coords" %in% names(data))
+    c = data$coords[1]
+    expect_true("tpr" %in% names(c))
+    expect_true("fpr" %in% names(c))
+    expect_true("threshold" %in% names(c))
+  }
+})
+
+
+test_that("policy", {
+  skip_on_cran()
+
+  if (!iai:::iai_version_less_than("2.0.0")) {
+    X <- iris[,1:4]
+    rewards <- iris[,1:3]
+    lnr <- iai::optimal_tree_policy_minimizer(max_depth=0, cp=0)
+    iai::fit(lnr, X, rewards)
+  }
+
+  if (iai:::iai_version_less_than("2.1.0")) {
+    expect_error(iai::predict_treatment_rank(), "requires IAI version 2.1.0")
+    expect_error(iai::predict_treatment_outcome(), "requires IAI version 2.1.0")
+  } else {
+    rank <- iai::predict_treatment_rank(lnr, X)
+    expect_true(is.matrix(rank))
+    expect_equal(nrow(rank), nrow(rewards))
+    expect_equal(ncol(rank), ncol(rewards))
+
+    outcomes <- iai::predict_treatment_outcome(lnr, X)
+    expect_true(is.data.frame(outcomes))
+    expect_equal(nrow(outcomes), nrow(rewards))
+    expect_equal(ncol(outcomes), ncol(rewards))
+  }
 })
 
 

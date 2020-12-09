@@ -5,14 +5,17 @@
 \title{Return the weights for numeric and categoric features used for prediction in
 the trained learner}
 \usage{
-get_prediction_weights(lnr)
+get_prediction_weights(lnr, ...)
 }
 \arguments{
 \item{lnr}{The learner to query.}
+
+\item{...}{If a GLMNet learner, the index of the fit in the path to query,
+defaulting to the best fit if not supplied.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/OptimalFeatureSelection/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
+\href{https://docs.interpretable.ai/v2.1.0/OptimalFeatureSelection/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
 }
 \section{IAI Compatibility}{
 

@@ -4,16 +4,18 @@
 \alias{get_classification_label}
 \title{Return the predicted label at a node of a tree}
 \usage{
-get_classification_label(lnr, node_index)
+get_classification_label(lnr, node_index, ...)
 }
 \arguments{
 \item{lnr}{The learner to query.}
 
 \item{node_index}{The node in the tree to query.}
+
+\item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_classification_label}{\code{IAI.get_classification_label}}
+\href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_classification_label}{\code{IAI.get_classification_label}}
 }
 \examples{
 \dontrun{iai::get_classification_label(lnr, 1)}

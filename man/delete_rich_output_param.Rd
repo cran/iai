@@ -11,7 +11,7 @@ delete_rich_output_param(key)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAIBase/reference/#IAI.delete_rich_output_param!}{\code{IAI.delete_rich_output_param!}}
+\href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.delete_rich_output_param!}{\code{IAI.delete_rich_output_param!}}
 }
 \examples{
 \dontrun{iai::delete_rich_output_param("simple_layout")}

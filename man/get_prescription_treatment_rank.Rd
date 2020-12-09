@@ -5,16 +5,18 @@
 \title{Return the treatments ordered from most effective to least effective at a
 node of a tree}
 \usage{
-get_prescription_treatment_rank(lnr, node_index)
+get_prescription_treatment_rank(lnr, node_index, ...)
 }
 \arguments{
 \item{lnr}{The learner to query.}
 
 \item{node_index}{The node in the tree to query.}
+
+\item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_prescription_treatment_rank}{\code{IAI.get_prescription_treatment_rank}}
+\href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_prescription_treatment_rank}{\code{IAI.get_prescription_treatment_rank}}
 }
 \examples{
 \dontrun{iai::get_prescription_treatment_rank(lnr, 1)}

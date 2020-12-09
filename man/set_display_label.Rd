@@ -13,7 +13,7 @@ set_display_label(lnr, display_label)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.set_display_label!}{\code{IAI.set_display_label!}}
+\href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.set_display_label!}{\code{IAI.set_display_label!}}
 }
 \examples{
 \dontrun{iai::set_display_label(lnr, "A")}

@@ -1,7 +1,7 @@
 #' Return the number of nodes in a trained learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_num_nodes}{\code{IAI.get_num_nodes}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_num_nodes}{\code{IAI.get_num_nodes}}
 #'
 #' @usage get_num_nodes(lnr)
 #'
@@ -18,7 +18,7 @@ get_num_nodes <- function(lnr) {
 #' Check if a node of a tree is a leaf
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.is_leaf}{\code{IAI.is_leaf}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.is_leaf}{\code{IAI.is_leaf}}
 #'
 #' @usage is_leaf(lnr, node_index)
 #'
@@ -36,7 +36,7 @@ is_leaf <- function(lnr, node_index) {
 #' Get the depth of a node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_depth}{\code{IAI.get_depth}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_depth}{\code{IAI.get_depth}}
 #'
 #' @usage get_depth(lnr, node_index)
 #'
@@ -54,7 +54,7 @@ get_depth <- function(lnr, node_index) {
 #' Get the number of training points contained in a node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_num_samples}{\code{IAI.get_num_samples}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_num_samples}{\code{IAI.get_num_samples}}
 #'
 #' @usage get_num_samples(lnr, node_index)
 #'
@@ -72,7 +72,7 @@ get_num_samples <- function(lnr, node_index) {
 #' Get the index of the parent node at a node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_parent}{\code{IAI.get_parent}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_parent}{\code{IAI.get_parent}}
 #'
 #' @usage get_parent(lnr, node_index)
 #'
@@ -90,7 +90,7 @@ get_parent <- function(lnr, node_index) {
 #' Get the index of the lower child at a split node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_lower_child}{\code{IAI.get_lower_child}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_lower_child}{\code{IAI.get_lower_child}}
 #'
 #' @usage get_lower_child(lnr, node_index)
 #'
@@ -108,7 +108,7 @@ get_lower_child <- function(lnr, node_index) {
 #' Get the index of the upper child at a split node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_upper_child}{\code{IAI.get_upper_child}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_upper_child}{\code{IAI.get_upper_child}}
 #'
 #' @usage get_upper_child(lnr, node_index)
 #'
@@ -126,7 +126,7 @@ get_upper_child <- function(lnr, node_index) {
 #' Check if a node of a tree applies a parallel split
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.is_parallel_split}{\code{IAI.is_parallel_split}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.is_parallel_split}{\code{IAI.is_parallel_split}}
 #'
 #' @usage is_parallel_split(lnr, node_index)
 #'
@@ -144,7 +144,7 @@ is_parallel_split <- function(lnr, node_index) {
 #' Check if a node of a tree applies a hyperplane split
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.is_hyperplane_split}{\code{IAI.is_hyperplane_split}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.is_hyperplane_split}{\code{IAI.is_hyperplane_split}}
 #'
 #' @usage is_hyperplane_split(lnr, node_index)
 #'
@@ -162,7 +162,7 @@ is_hyperplane_split <- function(lnr, node_index) {
 #' Check if a node of a tree applies a categoric split
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.is_categoric_split}{\code{IAI.is_categoric_split}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.is_categoric_split}{\code{IAI.is_categoric_split}}
 #'
 #' @usage is_categoric_split(lnr, node_index)
 #'
@@ -180,7 +180,7 @@ is_categoric_split <- function(lnr, node_index) {
 #' Check if a node of a tree applies a ordinal split
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.is_ordinal_split}{\code{IAI.is_ordinal_split}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.is_ordinal_split}{\code{IAI.is_ordinal_split}}
 #'
 #' @usage is_ordinal_split(lnr, node_index)
 #'
@@ -198,7 +198,7 @@ is_ordinal_split <- function(lnr, node_index) {
 #' Check if a node of a tree applies a mixed parallel/categoric split
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.is_mixed_parallel_split}{\code{IAI.is_mixed_parallel_split}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.is_mixed_parallel_split}{\code{IAI.is_mixed_parallel_split}}
 #'
 #' @usage is_mixed_parallel_split(lnr, node_index)
 #'
@@ -216,7 +216,7 @@ is_mixed_parallel_split <- function(lnr, node_index) {
 #' Check if a node of a tree applies a mixed ordinal/categoric split
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.is_mixed_ordinal_split}{\code{IAI.is_mixed_ordinal_split}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.is_mixed_ordinal_split}{\code{IAI.is_mixed_ordinal_split}}
 #'
 #' @usage is_mixed_ordinal_split(lnr, node_index)
 #'
@@ -235,7 +235,7 @@ is_mixed_ordinal_split <- function(lnr, node_index) {
 #' of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.missing_goes_lower}{\code{IAI.missing_goes_lower}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.missing_goes_lower}{\code{IAI.missing_goes_lower}}
 #'
 #' @usage missing_goes_lower(lnr, node_index)
 #'
@@ -253,7 +253,7 @@ missing_goes_lower <- function(lnr, node_index) {
 #' Return the feature used in the split at a node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_split_feature}{\code{IAI.get_split_feature}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_split_feature}{\code{IAI.get_split_feature}}
 #'
 #' @usage get_split_feature(lnr, node_index)
 #'
@@ -271,7 +271,7 @@ get_split_feature <- function(lnr, node_index) {
 #' Return the threshold used in the split at a node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_split_threshold}{\code{IAI.get_split_threshold}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_split_threshold}{\code{IAI.get_split_threshold}}
 #'
 #' @usage get_split_threshold(lnr, node_index)
 #'
@@ -290,7 +290,7 @@ get_split_threshold <- function(lnr, node_index) {
 #' tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_split_categories}{\code{IAI.get_split_categories}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_split_categories}{\code{IAI.get_split_categories}}
 #'
 #' @usage get_split_categories(lnr, node_index)
 #'
@@ -309,7 +309,7 @@ get_split_categories <- function(lnr, node_index) {
 #' split at a node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_split_weights}{\code{IAI.get_split_weights}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_split_weights}{\code{IAI.get_split_weights}}
 #'
 #' @usage get_split_weights(lnr, node_index)
 #'
@@ -329,43 +329,45 @@ get_split_weights <- function(lnr, node_index) {
 #' Return the predicted label at a node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_classification_label}{\code{IAI.get_classification_label}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_classification_label}{\code{IAI.get_classification_label}}
 #'
-#' @usage get_classification_label(lnr, node_index)
+#' @usage get_classification_label(lnr, node_index, ...)
 #'
 #' @param lnr The learner to query.
 #' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
 #'
 #' @examples \dontrun{iai::get_classification_label(lnr, 1)}
 #'
 #' @export
-get_classification_label <- function(lnr, node_index) {
-  jl_func("IAI.get_classification_label_convert", lnr, node_index)
+get_classification_label <- function(lnr, node_index, ...) {
+  jl_func("IAI.get_classification_label_convert", lnr, node_index, ...)
 }
 
 
 #' Return the predicted probabilities of class membership at a node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_classification_proba}{\code{IAI.get_classification_proba}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_classification_proba}{\code{IAI.get_classification_proba}}
 #'
-#' @usage get_classification_proba(lnr, node_index)
+#' @usage get_classification_proba(lnr, node_index, ...)
 #'
 #' @param lnr The learner to query.
 #' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
 #'
 #' @examples \dontrun{iai::get_classification_proba(lnr, 1)}
 #'
 #' @export
-get_classification_proba <- function(lnr, node_index) {
-  jl_func("IAI.get_classification_proba_convert", lnr, node_index)
+get_classification_proba <- function(lnr, node_index, ...) {
+  jl_func("IAI.get_classification_proba_convert", lnr, node_index, ...)
 }
 
 
 #' Return the constant term in the regression prediction at a node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAITrees-API-Reference-1}{\code{IAI.get_regression_constant}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAITrees-API-Reference-1}{\code{IAI.get_regression_constant}}
 #' (for regression or prescription tree learners as appropriate)
 #'
 #' @usage get_regression_constant(lnr, node_index, ...)
@@ -390,7 +392,7 @@ get_regression_constant <- function(lnr, node_index, ...) {
 #' a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAITrees-API-Reference-1}{\code{IAI.get_regression_weights}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAITrees-API-Reference-1}{\code{IAI.get_regression_weights}}
 #' (for regression or prescription tree learners as appropriate)
 #'
 #' @usage get_regression_weights(lnr, node_index, ...)
@@ -416,18 +418,65 @@ get_regression_weights <- function(lnr, node_index, ...) {
 #' Return the survival curve at a node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_survival_curve}{\code{IAI.get_survival_curve}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_survival_curve}{\code{IAI.get_survival_curve}}
 #'
-#' @usage get_survival_curve(lnr, node_index)
+#' @usage get_survival_curve(lnr, node_index, ...)
 #'
 #' @param lnr The learner to query.
 #' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
 #'
 #' @examples \dontrun{iai::get_survival_curve(lnr, 1)}
 #'
 #' @export
-get_survival_curve <- function(lnr, node_index) {
-  jl_func("IAI.get_survival_curve_convert", lnr, node_index)
+get_survival_curve <- function(lnr, node_index, ...) {
+  jl_func("IAI.get_survival_curve_convert", lnr, node_index, ...)
+}
+
+
+#' Return the predicted expected survival time at a node of a tree
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_survival_expected_time}{\code{IAI.get_survival_expected_time}}
+#'
+#' @usage get_survival_expected_time(lnr, node_index, ...)
+#'
+#' @param lnr The learner to query.
+#' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{iai::get_survival_expected_time(lnr, 1)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 2.1 or higher.
+#'
+#' @export
+get_survival_expected_time <- function(lnr, node_index, ...) {
+  requires_iai_version("2.1.0", "get_survival_expected_time")
+  jl_func("IAI.get_survival_expected_time_convert", lnr, node_index, ...)
+}
+
+
+#' Return the predicted hazard ratio at a node of a tree
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_survival_hazard}{\code{IAI.get_survival_hazard}}
+#'
+#' @usage get_survival_hazard(lnr, node_index, ...)
+#'
+#' @param lnr The learner to query.
+#' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{iai::get_survival_hazard(lnr, 1)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 2.1 or higher.
+#'
+#' @export
+get_survival_hazard <- function(lnr, node_index, ...) {
+  requires_iai_version("2.1.0", "get_survival_hazard")
+  jl_func("IAI.get_survival_hazard_convert", lnr, node_index, ...)
 }
 
 
@@ -435,18 +484,19 @@ get_survival_curve <- function(lnr, node_index) {
 #' node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_prescription_treatment_rank}{\code{IAI.get_prescription_treatment_rank}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_prescription_treatment_rank}{\code{IAI.get_prescription_treatment_rank}}
 #'
-#' @usage get_prescription_treatment_rank(lnr, node_index)
+#' @usage get_prescription_treatment_rank(lnr, node_index, ...)
 #'
 #' @param lnr The learner to query.
 #' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
 #'
 #' @examples \dontrun{iai::get_prescription_treatment_rank(lnr, 1)}
 #'
 #' @export
-get_prescription_treatment_rank <- function(lnr, node_index) {
-  jl_func("IAI.get_prescription_treatment_rank_convert", lnr, node_index)
+get_prescription_treatment_rank <- function(lnr, node_index, ...) {
+  jl_func("IAI.get_prescription_treatment_rank_convert", lnr, node_index, ...)
 }
 
 
@@ -454,12 +504,13 @@ get_prescription_treatment_rank <- function(lnr, node_index) {
 #' node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_policy_treatment_rank}{\code{IAI.get_policy_treatment_rank}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_policy_treatment_rank}{\code{IAI.get_policy_treatment_rank}}
 #'
-#' @usage get_policy_treatment_rank(lnr, node_index)
+#' @usage get_policy_treatment_rank(lnr, node_index, ...)
 #'
 #' @param lnr The learner to query.
 #' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
 #'
 #' @examples \dontrun{iai::get_policy_treatment_rank(lnr, 1)}
 #'
@@ -467,9 +518,32 @@ get_prescription_treatment_rank <- function(lnr, node_index) {
 #' Requires IAI version 2.0 or higher.
 #'
 #' @export
-get_policy_treatment_rank <- function(lnr, node_index) {
+get_policy_treatment_rank <- function(lnr, node_index, ...) {
   requires_iai_version("2.0.0", "get_policy_treatment_rank")
-  jl_func("IAI.get_policy_treatment_rank_convert", lnr, node_index)
+  jl_func("IAI.get_policy_treatment_rank_convert", lnr, node_index, ...)
+}
+
+
+#' Return the quality of the treatments at a node of a tree
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_policy_treatment_outcome}{\code{IAI.get_policy_treatment_outcome}}
+#'
+#' @usage get_policy_treatment_outcome(lnr, node_index, ...)
+#'
+#' @param lnr The learner to query.
+#' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{iai::get_policy_treatment_outcome(lnr, 1)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 2.1 or higher.
+#'
+#' @export
+get_policy_treatment_outcome <- function(lnr, node_index, ...) {
+  requires_iai_version("2.1.0", "get_policy_treatment_outcome")
+  jl_func("IAI.get_policy_treatment_outcome_convert", lnr, node_index, ...)
 }
 
 
@@ -477,7 +551,7 @@ get_policy_treatment_rank <- function(lnr, node_index) {
 #' falls
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.apply}{\code{IAI.apply}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.apply}{\code{IAI.apply}}
 #'
 #' @usage apply(lnr, X)
 #'
@@ -495,7 +569,7 @@ apply <- function(lnr, X) {
 #' a trained tree model
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.apply_nodes}{\code{IAI.apply_nodes}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.apply_nodes}{\code{IAI.apply_nodes}}
 #'
 #' @usage apply_nodes(lnr, X)
 #'
@@ -514,7 +588,7 @@ apply_nodes <- function(lnr, X) {
 #' the features passes through the \code{j}th node in a trained tree model.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.decision_path}{\code{IAI.decision_path}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.decision_path}{\code{IAI.decision_path}}
 #'
 #' @usage decision_path(lnr, X)
 #'
@@ -532,7 +606,7 @@ decision_path <- function(lnr, X) {
 #' Print the decision path through the learner for each sample in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.print_path}{\code{IAI.print_path}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.print_path}{\code{IAI.print_path}}
 #'
 #' @usage print_path(lnr, X, ...)
 #'
@@ -557,7 +631,7 @@ print_path <- function(lnr, X, ...) {
 #' at least the specified threshold.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.set_threshold!}{\code{IAI.set_threshold!}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.set_threshold!}{\code{IAI.set_threshold!}}
 #'
 #' @usage set_threshold(lnr, label, threshold, ...)
 #'
@@ -579,7 +653,7 @@ set_threshold <- function(lnr, label, threshold, ...) {
 #' Output a learner as a PNG image
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.write_png}{\code{IAI.write_png}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.write_png}{\code{IAI.write_png}}
 #'
 #' @usage write_png(filename, lnr, ...)
 #'
@@ -595,11 +669,57 @@ write_png <- function(filename, lnr, ...) {
 }
 
 
+#' Output a learner as a PDF image
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.write_pdf}{\code{IAI.write_pdf}}
+#'
+#' @usage write_pdf(filename, lnr, ...)
+#'
+#' @param filename Where to save the output.
+#' @param lnr The learner to output.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{iai::write_pdf(file.path(tempdir(), "tree.pdf"), lnr)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 2.1 or higher.
+#'
+#' @export
+write_pdf <- function(filename, lnr, ...) {
+  requires_iai_version("2.1.0", "write_pdf")
+  jl_func("IAI.write_pdf_convert", filename, lnr, ...) # nocov
+}
+
+
+#' Output a learner as a SVG image
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.write_svg}{\code{IAI.write_svg}}
+#'
+#' @usage write_svg(filename, lnr, ...)
+#'
+#' @param filename Where to save the output.
+#' @param lnr The learner to output.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{iai::write_svg(file.path(tempdir(), "tree.svg"), lnr)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 2.1 or higher.
+#'
+#' @export
+write_svg <- function(filename, lnr, ...) {
+  requires_iai_version("2.1.0", "write_svg")
+  jl_func("IAI.write_svg_convert", filename, lnr, ...) # nocov
+}
+
+
 #' Output a learner in
 #' \href{http://www.graphviz.org/content/dot-language/}{.dot format}
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.write_dot}{\code{IAI.write_dot}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.write_dot}{\code{IAI.write_dot}}
 #'
 #' @usage write_dot(filename, lnr, ...)
 #'
@@ -618,7 +738,7 @@ write_dot <- function(filename, lnr, ...) {
 #' Output a learner as an interactive browser visualization in HTML format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.write_html}{\code{IAI.write_html}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.write_html}{\code{IAI.write_html}}
 #'
 #' @usage write_html(filename, lnr, ...)
 #'
@@ -640,7 +760,7 @@ write_html <- function(filename, lnr, ...) {
 #' Output a learner as an interactive questionnaire in HTML format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.write_questionnaire}{\code{IAI.write_questionnaire}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.write_questionnaire}{\code{IAI.write_questionnaire}}
 #'
 #' @usage write_questionnaire(filename, lnr, ...)
 #'
@@ -662,7 +782,7 @@ write_questionnaire <- function(filename, lnr, ...) {
 #' Show an interactive questionnaire based on a learner in default browser
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.show_questionnaire}{\code{IAI.show_questionnaire}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.show_questionnaire}{\code{IAI.show_questionnaire}}
 #'
 #' @usage show_questionnaire(lnr, ...)
 #'
@@ -683,7 +803,7 @@ show_questionnaire <- function(lnr, ...) {
 #' Show the probability of a specified label when visualizing a learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.set_display_label!}{\code{IAI.set_display_label!}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.set_display_label!}{\code{IAI.set_display_label!}}
 #'
 #' @usage set_display_label(lnr, display_label)
 #'
@@ -703,7 +823,7 @@ set_display_label <- function(lnr, display_label) {
 #' when visualizing a learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.reset_display_label!}{\code{IAI.reset_display_label!}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.reset_display_label!}{\code{IAI.reset_display_label!}}
 #'
 #' @usage reset_display_label(lnr)
 #'
@@ -721,12 +841,12 @@ reset_display_label <- function(lnr) {
 #' Specify an interactive tree visualization of a tree learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.TreePlot}{\code{IAI.TreePlot}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.TreePlot}{\code{IAI.TreePlot}}
 #'
 #' @usage tree_plot(lnr, ...)
 #'
 #' @param lnr The learner to visualize.
-#' @param ... Refer to the \href{https://docs.interpretable.ai/v2.0.0/IAITrees/advanced/#Advanced-Visualization-1}{Julia documentation on advanced tree visualization} for available parameters.
+#' @param ... Refer to the \href{https://docs.interpretable.ai/v2.1.0/IAITrees/advanced/#Advanced-Visualization-1}{Julia documentation on advanced tree visualization} for available parameters.
 #'
 #' @examples \dontrun{iai::tree_plot(lnr)}
 #'
@@ -743,12 +863,12 @@ tree_plot <- function(lnr, ...) {
 #' Specify an interactive questionnaire of a tree learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.Questionnaire}{\code{IAI.Questionnaire}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.Questionnaire}{\code{IAI.Questionnaire}}
 #'
 #' @usage questionnaire(lnr, ...)
 #'
 #' @param lnr The learner to visualize.
-#' @param ... Refer to the \href{https://docs.interpretable.ai/v2.0.0/IAITrees/advanced/#Advanced-Visualization-1}{Julia documentation} for available parameters.
+#' @param ... Refer to the \href{https://docs.interpretable.ai/v2.1.0/IAITrees/advanced/#Advanced-Visualization-1}{Julia documentation} for available parameters.
 #'
 #' @examples \dontrun{iai::questionnaire(lnr)}
 #'
@@ -766,7 +886,7 @@ questionnaire <- function(lnr, ...) {
 #' multiple tree learners
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.MultiTreePlot}{\code{IAI.MultiTreePlot}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.MultiTreePlot}{\code{IAI.MultiTreePlot}}
 #'
 #' @usage multi_tree_plot(obj, ...)
 #'
@@ -783,9 +903,9 @@ multi_tree_plot <- function (obj, ...) {
 #' specified by questions
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.MultiTreePlot}{\code{IAI.MultiTreePlot}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.MultiTreePlot}{\code{IAI.MultiTreePlot}}
 #'
-#' @param obj The questions to visualize. Refer to the \href{https://docs.interpretable.ai/v2.0.0/IAITrees/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.
+#' @param obj The questions to visualize. Refer to the \href{https://docs.interpretable.ai/v2.1.0/IAITrees/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.
 #' @param ... Additional arguments (unused)
 #'
 #' @examples
@@ -810,7 +930,7 @@ multi_tree_plot.default <- function(obj, ...) {
 #' the results of a grid search
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.MultiTreePlot}{\code{IAI.MultiTreePlot}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.MultiTreePlot}{\code{IAI.MultiTreePlot}}
 #'
 #' @param obj The grid to visualize
 #' @param ... Additional arguments (unused)
@@ -831,7 +951,7 @@ multi_tree_plot.grid_search <- function(obj, ...) {
 #' multiple tree learners
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.MultiQuestionnaire}{\code{IAI.MultiQuestionnaire}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.MultiQuestionnaire}{\code{IAI.MultiQuestionnaire}}
 #'
 #' @usage multi_questionnaire(obj, ...)
 #'
@@ -848,9 +968,9 @@ multi_questionnaire <- function (obj, ...) {
 #' specified by questions
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.MultiQuestionnaire}{\code{IAI.MultiQuestionnaire}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.MultiQuestionnaire}{\code{IAI.MultiQuestionnaire}}
 #'
-#' @param obj The questions to visualize. Refer to the \href{https://docs.interpretable.ai/v2.0.0/IAITrees/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.
+#' @param obj The questions to visualize. Refer to the \href{https://docs.interpretable.ai/v2.1.0/IAITrees/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.
 #' @param ... Additional arguments (unused)
 #'
 #' @examples
@@ -875,7 +995,7 @@ multi_questionnaire.default <- function(obj, ...) {
 #' the results of a grid search
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.MultiQuestionnaire}{\code{IAI.MultiQuestionnaire}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.MultiQuestionnaire}{\code{IAI.MultiQuestionnaire}}
 #'
 #' @param obj The grid to visualize
 #' @param ... Additional arguments (unused)

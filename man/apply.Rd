@@ -14,7 +14,7 @@ apply(lnr, X)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.apply}{\code{IAI.apply}}
+\href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.apply}{\code{IAI.apply}}
 }
 \examples{
 \dontrun{iai::apply(lnr, X)}

@@ -13,7 +13,7 @@ variable_importance(lnr)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAIBase/reference/#IAI.variable_importance}{\code{IAI.variable_importance}}
+\href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.variable_importance}{\code{IAI.variable_importance}}
 }
 \examples{
 \dontrun{iai::variable_importance(lnr)}

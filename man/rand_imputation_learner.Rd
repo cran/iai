@@ -12,7 +12,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/OptImpute/reference/#IAI.RandImputationLearner}{\code{IAI.RandImputationLearner}}
+\href{https://docs.interpretable.ai/v2.1.0/OptImpute/reference/#IAI.RandImputationLearner}{\code{IAI.RandImputationLearner}}
 }
 \examples{
 \dontrun{lnr <- iai::rand_imputation_learner()}

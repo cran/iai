@@ -8,13 +8,13 @@ specified by questions}
 \method{multi_tree_plot}{default}(obj, ...)
 }
 \arguments{
-\item{obj}{The questions to visualize. Refer to the \href{https://docs.interpretable.ai/v2.0.0/IAITrees/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.}
+\item{obj}{The questions to visualize. Refer to the \href{https://docs.interpretable.ai/v2.1.0/IAITrees/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.}
 
 \item{...}{Additional arguments (unused)}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.MultiTreePlot}{\code{IAI.MultiTreePlot}}
+\href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.MultiTreePlot}{\code{IAI.MultiTreePlot}}
 }
 \section{IAI Compatibility}{
 

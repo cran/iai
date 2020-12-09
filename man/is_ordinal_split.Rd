@@ -13,7 +13,7 @@ is_ordinal_split(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.is_ordinal_split}{\code{IAI.is_ordinal_split}}
+\href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.is_ordinal_split}{\code{IAI.is_ordinal_split}}
 }
 \examples{
 \dontrun{iai::is_ordinal_split(lnr, 1)}

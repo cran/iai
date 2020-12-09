@@ -4,16 +4,18 @@
 \alias{predict}
 \title{Return the predictions made by the model for each point in the features}
 \usage{
-predict(lnr, X)
+predict(lnr, X, ...)
 }
 \arguments{
 \item{lnr}{The learner or grid to use for prediction.}
 
 \item{X}{The features of the data.}
+
+\item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAIBase/reference/#IAI.predict}{\code{IAI.predict}}
+\href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.predict}{\code{IAI.predict}}
 }
 \examples{
 \dontrun{iai::predict(lnr, X)}

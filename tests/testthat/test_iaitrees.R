@@ -103,25 +103,57 @@ test_that("classification structure", {
       setosa = 0.0,
       versicolor = 0.9074074074074074
   ))
+
+  expect_error(iai::get_classification_label(lnr, 1))
+  expect_error(iai::get_classification_proba(lnr, 1))
+  if (!iai:::iai_version_less_than("2.1.0")) {
+    iai::get_classification_label(lnr, 1, check_leaf=FALSE)
+    iai::get_classification_proba(lnr, 1, check_leaf=FALSE)
+  }
 })
 
 
 test_that("regression structure", {
   skip_on_cran()
 
-  lnr <- JuliaCall::julia_eval(
-      "IAI.OptimalTrees.load_mtcars_tree(random_seed=1,
-                                         regression_sparsity=\"all\",
-                                         regression_lambda=0.2)"
-  )
+  if (iai:::iai_version_less_than("2.1.0")) {
+    lnr <- JuliaCall::julia_eval(
+        "IAI.OptimalTrees.load_mtcars_tree(random_seed=1,
+                                           regression_sparsity=\"all\",
+                                           regression_lambda=0.2)"
+    )
+  } else {
+    lnr <- JuliaCall::julia_eval(
+        "IAI.OptimalTrees.load_mtcars_tree(random_seed=1,
+                                           regression_sparsity=\"all\",
+                                           regression_lambda=0.02)"
+    )
+  }
 
   expect_equal(iai::get_regression_constant(lnr, 2), 30.879999999999995)
-  expect_equal(iai::get_regression_constant(lnr, 3), 26.56192034262967)
+  if (iai:::iai_version_less_than("2.1.0")) {
+    expect_equal(iai::get_regression_constant(lnr, 3), 26.56192034262967)
 
-  weights <- iai::get_regression_weights(lnr, 3)
-  expect_mapequal(weights$numeric, list(Disp = -0.021044493648366,
-                                        HP = -0.018861409939436))
-  expect_true(is.list(weights$categoric) && length(weights$categoric) == 0)
+    weights <- iai::get_regression_weights(lnr, 3)
+    expect_mapequal(weights$numeric, list(Disp = -0.021044493648366,
+                                          HP = -0.018861409939436))
+    expect_true(is.list(weights$categoric) && length(weights$categoric) == 0)
+  } else {
+    expect_equal(iai::get_regression_constant(lnr, 3), 30.887599089534906)
+
+    weights <- iai::get_regression_weights(lnr, 3)
+    expect_mapequal(weights$numeric,
+                    list(Cyl = -0.794565711367838, Gear = 0.058519556715652,
+                         HP = -0.012667192837728, WT = -1.649738918131852))
+    expect_true(is.list(weights$categoric) && length(weights$categoric) == 0)
+  }
+
+  expect_error(iai::get_regression_constant(lnr, 1))
+  expect_error(iai::get_regression_weights(lnr, 1))
+  if (!iai:::iai_version_less_than("2.1.0")) {
+    iai::get_regression_constant(lnr, 1, check_leaf=FALSE)
+    iai::get_regression_weights(lnr, 1, check_leaf=FALSE)
+  }
 })
 
 
@@ -162,6 +194,25 @@ test_that("survival structure", {
       18000, 19000, 20000, 21000, 22000, 23000, 24000, 25000, 26000,
       27000, 28000, 29000, 30000))
   }
+
+  if (iai:::iai_version_less_than("2.1.0")) {
+    expect_error(iai::get_survival_expected_time(),
+                 "requires IAI version 2.1.0")
+    expect_error(iai::get_survival_hazard(), "requires IAI version 2.1.0")
+  } else {
+    expect_equal(iai::get_survival_expected_time(lnr, 2), 22981.39)
+    expect_equal(iai::get_survival_hazard(lnr, 2), 0.9541041, tolerance=1e-6)
+  }
+
+
+  expect_error(iai::get_survival_curve(lnr, 1))
+  expect_error(iai::get_survival_expected_time(lnr, 1))
+  expect_error(iai::get_survival_hazard(lnr, 1))
+  if (!iai:::iai_version_less_than("2.1.0")) {
+    iai::get_survival_curve(lnr, 1, check_leaf=FALSE)
+    iai::get_survival_expected_time(lnr, 1, check_leaf=FALSE)
+    iai::get_survival_hazard(lnr, 1, check_leaf=FALSE)
+  }
 })
 
 
@@ -175,10 +226,18 @@ test_that("prescription structure", {
                                                  regression_lambda=0.22,
                                                  max_depth=2)"
     )
-  } else {
+  } else if (iai:::iai_version_less_than("2.1.0")) {
     lnr <- JuliaCall::julia_eval(
         "IAI.OptimalTrees.load_prescription_tree(regression_sparsity=\"all\",
                                                  regression_lambda=0.22,
+                                                 max_depth=2,
+                                                 random_seed=1)"
+    )
+  } else {
+    lnr <- JuliaCall::julia_eval(
+        "IAI.OptimalTrees.load_prescription_tree(regression_sparsity=\"all\",
+                                                 regression_weighted_betas=true,
+                                                 regression_lambda=1.9,
                                                  max_depth=2,
                                                  random_seed=1)"
     )
@@ -191,13 +250,28 @@ test_that("prescription structure", {
     expect_true(is.list(weights$categoric) && length(weights$categoric) == 0)
     expect_equal(iai::get_prescription_treatment_rank(lnr, 2), c(1, 0))
     expect_equal(iai::get_regression_constant(lnr, 2, 0), 30.5)
-  } else {
+  } else if (iai:::iai_version_less_than("2.1.0")) {
     weights <- iai::get_regression_weights(lnr, 5, 0)
     expect_mapequal(weights$numeric, list(Disp = -0.00853409230131,
                                           AM = 1.316408317777783))
     expect_true(is.list(weights$categoric) && length(weights$categoric) == 0)
     expect_equal(iai::get_prescription_treatment_rank(lnr, 5), c(1, 0))
     expect_equal(iai::get_regression_constant(lnr, 5, 0), 18.507454507299066)
+  } else {
+    weights <- iai::get_regression_weights(lnr, 4, 0)
+    expect_mapequal(weights$numeric, list(Cyl = -0.189847291283807))
+    expect_true(is.list(weights$categoric) && length(weights$categoric) == 0)
+    expect_equal(iai::get_prescription_treatment_rank(lnr, 4), c(0, 1))
+    expect_equal(iai::get_regression_constant(lnr, 4, 0), 20.7970532059596)
+  }
+
+  expect_error(iai::get_prescription_treatment_rank(lnr, 1))
+  expect_error(iai::get_regression_constant(lnr, 1, 0))
+  expect_error(iai::get_regression_weights(lnr, 1, 0))
+  if (!iai:::iai_version_less_than("2.1.0")) {
+    iai::get_prescription_treatment_rank(lnr, 1, check_leaf=FALSE)
+    iai::get_regression_constant(lnr, 1, 0, check_leaf=FALSE)
+    iai::get_regression_weights(lnr, 1, 0, check_leaf=FALSE)
   }
 })
 
@@ -213,6 +287,23 @@ test_that("policy structure", {
     )
     expect_equal(iai::get_policy_treatment_rank(lnr, 3), c("A", "C", "B"))
   }
+
+  if (iai:::iai_version_less_than("2.1.0")) {
+    expect_error(iai::get_policy_treatment_outcome(),
+                 "requires IAI version 2.1.0")
+  } else {
+    outcomes <- iai::get_policy_treatment_outcome(lnr, 3)
+    expect_equal(outcomes$A, 0.8276032, tolerance=1e-6)
+    expect_equal(outcomes$B, 1.698339, tolerance=1e-6)
+    expect_equal(outcomes$C, 1.096775, tolerance=1e-6)
+  }
+
+  expect_error(iai::get_policy_treatment_rank(lnr, 1))
+  expect_error(iai::get_policy_treatment_outcome(lnr, 1))
+  if (!iai:::iai_version_less_than("2.1.0")) {
+    iai::get_policy_treatment_rank(lnr, 1, check_leaf=FALSE)
+    iai::get_policy_treatment_outcome(lnr, 1, check_leaf=FALSE)
+  }
 })
 
 
@@ -225,6 +316,20 @@ test_that("visualization", {
     iai::write_png("test.png", lnr)
     expect_true(file.exists("test.png"))
     file.remove("test.png")
+
+    if (iai:::iai_version_less_than("2.1.0")) {
+      error_message = "requires IAI version 2.1.0"
+      expect_error(iai::write_pdf("test.pdf", lnr), error_message)
+      expect_error(iai::write_svg("test.svg", lnr), error_message)
+    } else {
+      iai::write_pdf("test.pdf", lnr)
+      expect_true(file.exists("test.pdf"))
+      file.remove("test.pdf")
+
+      iai::write_svg("test.svg", lnr)
+      expect_true(file.exists("test.svg"))
+      file.remove("test.svg")
+    }
   }
 
   iai::write_dot("test.dot", lnr)
@@ -304,6 +409,25 @@ test_that("visualization", {
     iai::write_html("multiquestion.html", vis)
     expect_true(file.exists("multiquestion.html"))
     file.remove("multiquestion.html")
+  }
+
+  # Data visualization
+  if (iai:::iai_version_less_than("2.1.0")) {
+  } else {
+    X <- iris[, 1:4]
+    y <- iris$Species
+    grid <- iai::grid_search(
+      iai::optimal_tree_classifier(
+        random_seed = 1,
+        max_depth = 1,
+      ),
+    )
+    iai::fit(grid, X, y)
+    lnr <- iai::get_learner(grid)
+    iai::write_html("tree_with_data.html", lnr, data=list(X, y))
+    res <- grep("True Label", readLines("tree_with_data.html"), value = TRUE)
+    expect_true(length(res) > 0)
+    file.remove("tree_with_data.html")
   }
 })
 

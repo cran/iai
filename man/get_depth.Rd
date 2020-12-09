@@ -13,7 +13,7 @@ get_depth(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_depth}{\code{IAI.get_depth}}
+\href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_depth}{\code{IAI.get_depth}}
 }
 \examples{
 \dontrun{iai::get_depth(lnr, 1)}

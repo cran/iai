@@ -20,7 +20,7 @@ set_julia_seed <- function(seed) {
 #' Convert a vector of values to IAI mixed data format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
+#' \href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
 #'
 #' @usage as.mixeddata(values, categorical_levels, ordinal_levels = c())
 #'

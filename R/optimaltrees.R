@@ -1,7 +1,7 @@
 #' Learner for training Optimal Classification Trees
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/OptimalTrees/reference/#IAI.OptimalTreeClassifier}{\code{IAI.OptimalTreeClassifier}}
+#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreeClassifier}{\code{IAI.OptimalTreeClassifier}}
 #'
 #' @usage optimal_tree_classifier(...)
 #'
@@ -19,7 +19,7 @@ optimal_tree_classifier <- function(...) {
 #' Learner for training Optimal Regression Trees
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/OptimalTrees/reference/#IAI.OptimalTreeRegressor}{\code{IAI.OptimalTreeRegressor}}
+#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreeRegressor}{\code{IAI.OptimalTreeRegressor}}
 #'
 #' @usage optimal_tree_regressor(...)
 #'
@@ -37,7 +37,7 @@ optimal_tree_regressor <- function(...) {
 #' Learner for training Optimal Survival Trees
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/OptimalTrees/reference/#IAI.OptimalTreeSurvivalLearner}{\code{IAI.OptimalTreeSurvivalLearner}}
+#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreeSurvivalLearner}{\code{IAI.OptimalTreeSurvivalLearner}}
 #'
 #' @usage optimal_tree_survival_learner(...)
 #'
@@ -57,7 +57,7 @@ optimal_tree_survival_learner <- function(...) {
 #' Learner for training Optimal Survival Trees
 #'
 #' This function was deprecated and renamed to [optimal_tree_survival_learner()]
-#' in iai 2.0.0. This is for consistency with the IAI v2.0.0 Julia release.
+#' in iai 1.3.0. This is for consistency with the IAI v2.0.0 Julia release.
 #'
 #' @usage optimal_tree_survivor(...)
 #'
@@ -69,7 +69,7 @@ optimal_tree_survival_learner <- function(...) {
 #' @export
 #' @md
 optimal_tree_survivor <- function(...) {
-  lifecycle::deprecate_warn("2.0.0", "iai::optimal_tree_survivor()",
+  lifecycle::deprecate_warn("1.3.0", "iai::optimal_tree_survivor()",
                             "optimal_tree_survival_learner()")
   optimal_tree_survival_learner(...)
 }
@@ -79,7 +79,7 @@ optimal_tree_survivor <- function(...) {
 #' should aim to minimize outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMinimizer}{\code{IAI.OptimalTreePrescriptionMinimizer}}
+#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMinimizer}{\code{IAI.OptimalTreePrescriptionMinimizer}}
 #'
 #' @usage optimal_tree_prescription_minimizer(...)
 #'
@@ -98,7 +98,7 @@ optimal_tree_prescription_minimizer <- function(...) {
 #' should aim to maximize outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMaximizer}{\code{IAI.OptimalTreePrescriptionMaximizer}}
+#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMaximizer}{\code{IAI.OptimalTreePrescriptionMaximizer}}
 #'
 #' @usage optimal_tree_prescription_maximizer(...)
 #'
@@ -117,7 +117,7 @@ optimal_tree_prescription_maximizer <- function(...) {
 #' minimize outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/OptimalTrees/reference/#IAI.OptimalTreePolicyMinimizer}{\code{IAI.OptimalTreePolicyMinimizer}}
+#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreePolicyMinimizer}{\code{IAI.OptimalTreePolicyMinimizer}}
 #'
 #' @usage optimal_tree_policy_minimizer(...)
 #'
@@ -140,7 +140,7 @@ optimal_tree_policy_minimizer <- function(...) {
 #' maximize outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.0.0/OptimalTrees/reference/#IAI.OptimalTreePolicyMaximizer}{\code{IAI.OptimalTreePolicyMaximizer}}
+#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreePolicyMaximizer}{\code{IAI.OptimalTreePolicyMaximizer}}
 #'
 #' @usage optimal_tree_policy_maximizer(...)
 #'

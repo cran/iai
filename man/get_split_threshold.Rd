@@ -13,7 +13,7 @@ get_split_threshold(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_split_threshold}{\code{IAI.get_split_threshold}}
+\href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_split_threshold}{\code{IAI.get_split_threshold}}
 }
 \examples{
 \dontrun{iai::get_split_threshold(lnr, 1)}

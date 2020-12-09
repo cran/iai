@@ -13,7 +13,7 @@ impute_cv(X, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/OptImpute/reference/#IAI.impute_cv}{\code{IAI.impute_cv}}
+\href{https://docs.interpretable.ai/v2.1.0/OptImpute/reference/#IAI.impute_cv}{\code{IAI.impute_cv}}
 }
 \examples{
 \donttest{

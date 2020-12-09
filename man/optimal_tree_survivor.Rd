@@ -12,7 +12,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 This function was deprecated and renamed to \code{\link[=optimal_tree_survival_learner]{optimal_tree_survival_learner()}}
-in iai 2.0.0. This is for consistency with the IAI v2.0.0 Julia release.
+in iai 1.3.0. This is for consistency with the IAI v2.0.0 Julia release.
 }
 \examples{
 \dontrun{lnr <- iai::optimal_tree_survivor()}

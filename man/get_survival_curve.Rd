@@ -4,16 +4,18 @@
 \alias{get_survival_curve}
 \title{Return the survival curve at a node of a tree}
 \usage{
-get_survival_curve(lnr, node_index)
+get_survival_curve(lnr, node_index, ...)
 }
 \arguments{
 \item{lnr}{The learner to query.}
 
 \item{node_index}{The node in the tree to query.}
+
+\item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/IAITrees/reference/#IAI.get_survival_curve}{\code{IAI.get_survival_curve}}
+\href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_survival_curve}{\code{IAI.get_survival_curve}}
 }
 \examples{
 \dontrun{iai::get_survival_curve(lnr, 1)}

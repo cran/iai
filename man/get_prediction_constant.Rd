@@ -4,14 +4,17 @@
 \alias{get_prediction_constant}
 \title{Return the constant term in the prediction in the trained learner}
 \usage{
-get_prediction_constant(lnr)
+get_prediction_constant(lnr, ...)
 }
 \arguments{
 \item{lnr}{The learner to query.}
+
+\item{...}{If a GLMNet learner, the index of the fit in the path to query,
+defaulting to the best fit if not supplied.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.0.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
+\href{https://docs.interpretable.ai/v2.1.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
 }
 \section{IAI Compatibility}{
 
