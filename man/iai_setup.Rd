@@ -11,7 +11,10 @@ iai_setup(...)
 \href{https://www.rdocumentation.org/packages/JuliaCall/topics/julia_setup}{\code{JuliaCall::julia_setup}}}
 }
 \description{
-This needs to be done in every R session before calling `iai` functions
+This function is called automatically with default parameters the first time
+any `iai` function is used in an R session. If custom parameters for Julia
+setup are required, this function must be called in every R session before
+calling other `iai` functions.
 }
 \examples{
 \dontrun{iai::iai_setup()}

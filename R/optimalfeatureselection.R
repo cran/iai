@@ -3,8 +3,6 @@
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionClassifier}{\code{IAI.OptimalFeatureSelectionClassifier}}
 #'
-#' @usage optimal_feature_selection_classifier(...)
-#'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
 #'
@@ -25,8 +23,6 @@ optimal_feature_selection_classifier <- function(...) {
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionRegressor}{\code{IAI.OptimalFeatureSelectionRegressor}}
 #'
-#' @usage optimal_feature_selection_regressor(...)
-#'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
 #'
@@ -46,8 +42,6 @@ optimal_feature_selection_regressor <- function(...) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
-#'
-#' @usage get_prediction_constant(lnr, ...)
 #'
 #' @param lnr The learner to query.
 #' @param ... If a GLMNet learner, the index of the fit in the path to query,
@@ -70,8 +64,6 @@ get_prediction_constant <- function(lnr, ...) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptimalFeatureSelection/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
-#'
-#' @usage get_prediction_weights(lnr, ...)
 #'
 #' @param lnr The learner to query.
 #' @param ... If a GLMNet learner, the index of the fit in the path to query,

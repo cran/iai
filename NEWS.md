@@ -1,5 +1,11 @@
 # Unreleased
 
+# iai 1.5.0
+
+* Add `install_julia` and `install_system_image` for automatic installation
+* Add `get_grid_result_details`
+* Rename `get_grid_results` to `get_grid_result_summary`
+
 # iai 1.4.0
 
 * Add support for new RewardEstimation interface

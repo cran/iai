@@ -3,8 +3,6 @@
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/Heuristics/reference/#IAI.RandomForestClassifier}{\code{IAI.RandomForestClassifier}}
 #'
-#' @usage random_forest_classifier(...)
-#'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
 #'
@@ -24,8 +22,6 @@ random_forest_classifier <- function(...) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/Heuristics/reference/#IAI.RandomForestRegressor}{\code{IAI.RandomForestRegressor}}
-#'
-#' @usage random_forest_regressor(...)
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -47,8 +43,6 @@ random_forest_regressor <- function(...) {
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/Heuristics/reference/#IAI.XGBoostClassifier}{\code{IAI.XGBoostClassifier}}
 #'
-#' @usage xgboost_classifier(...)
-#'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
 #'
@@ -68,8 +62,6 @@ xgboost_classifier <- function(...) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/Heuristics/reference/#IAI.XGBoostRegressor}{\code{IAI.XGBoostRegressor}}
-#'
-#' @usage xgboost_regressor(...)
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -91,8 +83,6 @@ xgboost_regressor <- function(...) {
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/Heuristics/reference/#IAI.write_booster}{\code{IAI.write_booster}}
 #'
-#' @usage write_booster(filename, lnr)
-#'
 #' @param filename Where to save the output.
 #' @param lnr The XGBoost learner with the booster to output.
 #'
@@ -113,8 +103,6 @@ write_booster <- function(filename, lnr) {
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/Heuristics/reference/#IAI.GLMNetCVRegressor}{\code{IAI.GLMNetCVRegressor}}
 #'
-#' @usage glmnetcv_regressor(...)
-#'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
 #'
@@ -134,8 +122,6 @@ glmnetcv_regressor <- function(...) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/Heuristics/reference/#IAI.get_num_fits}{\code{IAI.get_num_fits}}
-#'
-#' @usage get_num_fits(lnr)
 #'
 #' @param lnr The GLMNet learner to query.
 #'

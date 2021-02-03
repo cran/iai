@@ -23,9 +23,15 @@ test_that("common structure", {
       hyperplane_config = list(sparsity = "all"),
     )
   } else {
-    X <- JuliaCall::julia_eval(
-      "IAIConvert.convert_to_R(IAI.IAIBase.generate_mixed_data(rng = IAI.IAIBase.make_rng(3)))"
-    )
+    if (iai:::iai_version_less_than("2.2.0")) {
+      X <- JuliaCall::julia_eval(
+        "IAIConvert.convert_to_R(IAI.IAIBase.generate_mixed_data(rng = IAI.IAIBase.make_rng(3)))"
+      )
+    } else {
+      X <- JuliaCall::julia_eval(
+        "IAIConvert.convert_to_R(IAI.IAIBase.generate_mixed_data(rng = IAI.IAIBase.make_rng(5)))"
+      )
+    }
     names(X) <- c("num_attempts", "score1", "score2", "score3", "num_children",
                   "region")
 
@@ -48,8 +54,10 @@ test_that("common structure", {
   expect_equal(iai::get_depth(lnr, 6), 2)
   if (iai:::iai_version_less_than("2.0.0")) {
     expect_equal(iai::get_num_samples(lnr, 6), 97)
-  } else {
+  } else if (iai:::iai_version_less_than("2.2.0")) {
     expect_equal(iai::get_num_samples(lnr, 6), 72)
+  } else {
+    expect_equal(iai::get_num_samples(lnr, 6), 78)
   }
   expect_equal(iai::get_parent(lnr, 2), 1)
   expect_equal(iai::get_lower_child(lnr, 1), 2)
@@ -81,11 +89,16 @@ test_that("common structure", {
                                           score3 = 2.0478494324868732))
     expect_mapequal(weights$categoric,
                     list(region = list(E = 1.5176596636410404)))
-  } else {
+  } else if (iai:::iai_version_less_than("2.2.0")) {
     expect_mapequal(weights$numeric, list(score2 = 0.0012369248211116827,
                                           score3 = 0.09806740780674195))
     expect_mapequal(weights$categoric,
                     list(region = list(E = 0.10571515793193487)))
+  } else {
+    expect_mapequal(weights$numeric, list(score2 = 0.018901518025769143,
+                                          score3 = 1.2041462082802483))
+    expect_mapequal(weights$categoric,
+                    list(region = list(E = 1.4792242450156097)))
   }
 })
 
@@ -183,7 +196,7 @@ test_that("survival structure", {
       00000, 11000, 12000, 13000, 14000, 15000, 16000, 17000, 18000,
       19000, 20000, 21000, 22000, 23000, 24000, 25000, 26000, 27000,
       28000, 29000, 30000))
-  } else {
+  } else if (iai:::iai_version_less_than("2.2.0")) {
     expect_equal(curve_data$coefs, c(
       0.000000, 0.003472, 0.024306, 0.066330, 0.098207, 0.112815,
       0.123968, 0.150682, 0.193501, 0.225786, 0.260612, 0.316929,
@@ -193,15 +206,28 @@ test_that("survival structure", {
       00000, 06000, 11000, 12000, 13000, 14000, 15000, 16000, 17000,
       18000, 19000, 20000, 21000, 22000, 23000, 24000, 25000, 26000,
       27000, 28000, 29000, 30000))
+  } else {
+    expect_equal(curve_data$coefs, c(
+      0.000000, 0.005814, 0.023256, 0.052538, 0.076310, 0.094997,
+      0.114033, 0.140796, 0.168202, 0.190038, 0.220994, 0.271124,
+      0.340665, 0.395205, 0.433004, 0.482354, 0.523395, 0.546250,
+      0.597468, 0.669475, 0.727317, 0.845066), tolerance = 1e-6)
+    expect_equal(curve_data$times, c(
+      00000,  7000, 11000, 12000, 13000, 14000, 15000, 16000,
+      17000, 18000, 19000, 20000, 21000, 22000, 23000, 24000,
+      25000, 26000, 27000, 28000, 29000, 30000))
   }
 
   if (iai:::iai_version_less_than("2.1.0")) {
     expect_error(iai::get_survival_expected_time(),
                  "requires IAI version 2.1.0")
     expect_error(iai::get_survival_hazard(), "requires IAI version 2.1.0")
-  } else {
+  } else if (iai:::iai_version_less_than("2.2.0")) {
     expect_equal(iai::get_survival_expected_time(lnr, 2), 22981.39)
     expect_equal(iai::get_survival_hazard(lnr, 2), 0.9541041, tolerance=1e-6)
+  } else {
+    expect_equal(iai::get_survival_expected_time(lnr, 2), 23443.187)
+    expect_equal(iai::get_survival_hazard(lnr, 2), 0.8880508, tolerance=1e-6)
   }
 
 
@@ -233,13 +259,21 @@ test_that("prescription structure", {
                                                  max_depth=2,
                                                  random_seed=1)"
     )
-  } else {
+  } else if (iai:::iai_version_less_than("2.2.0")) {
     lnr <- JuliaCall::julia_eval(
         "IAI.OptimalTrees.load_prescription_tree(regression_sparsity=\"all\",
                                                  regression_weighted_betas=true,
                                                  regression_lambda=1.9,
                                                  max_depth=2,
                                                  random_seed=1)"
+    )
+  } else {
+    lnr <- JuliaCall::julia_eval(
+        "IAI.OptimalTrees.load_prescription_tree(regression_sparsity=\"all\",
+                                                 regression_weighted_betas=true,
+                                                 regression_lambda=1.9,
+                                                 max_depth=2,
+                                                 random_seed=2)"
     )
   }
 
@@ -257,12 +291,18 @@ test_that("prescription structure", {
     expect_true(is.list(weights$categoric) && length(weights$categoric) == 0)
     expect_equal(iai::get_prescription_treatment_rank(lnr, 5), c(1, 0))
     expect_equal(iai::get_regression_constant(lnr, 5, 0), 18.507454507299066)
-  } else {
+  } else if (iai:::iai_version_less_than("2.2.0")) {
     weights <- iai::get_regression_weights(lnr, 4, 0)
     expect_mapequal(weights$numeric, list(Cyl = -0.189847291283807))
     expect_true(is.list(weights$categoric) && length(weights$categoric) == 0)
     expect_equal(iai::get_prescription_treatment_rank(lnr, 4), c(0, 1))
     expect_equal(iai::get_regression_constant(lnr, 4, 0), 20.7970532059596)
+  } else {
+    weights <- iai::get_regression_weights(lnr, 2, 0)
+    expect_mapequal(weights$numeric, list(Cyl = -1.377692110219233))
+    expect_true(is.list(weights$categoric) && length(weights$categoric) == 0)
+    expect_equal(iai::get_prescription_treatment_rank(lnr, 2), c(0, 1))
+    expect_equal(iai::get_regression_constant(lnr, 2, 0), 28.682819327982067)
   }
 
   expect_error(iai::get_prescription_treatment_rank(lnr, 1))
@@ -293,9 +333,15 @@ test_that("policy structure", {
                  "requires IAI version 2.1.0")
   } else {
     outcomes <- iai::get_policy_treatment_outcome(lnr, 3)
-    expect_equal(outcomes$A, 0.8276032, tolerance=1e-6)
-    expect_equal(outcomes$B, 1.698339, tolerance=1e-6)
-    expect_equal(outcomes$C, 1.096775, tolerance=1e-6)
+    if (iai:::iai_version_less_than("2.2.0")) {
+      expect_equal(outcomes$A, 0.8276032, tolerance=1e-6)
+      expect_equal(outcomes$B, 1.698339, tolerance=1e-6)
+      expect_equal(outcomes$C, 1.096775, tolerance=1e-6)
+    } else {
+      expect_equal(outcomes$A, 0.827778, tolerance=1e-6)
+      expect_equal(outcomes$B, 1.70248, tolerance=1e-5)
+      expect_equal(outcomes$C, 1.09849, tolerance=1e-5)
+    }
   }
 
   expect_error(iai::get_policy_treatment_rank(lnr, 1))
@@ -338,6 +384,9 @@ test_that("visualization", {
 
   iai::write_html("tree.html", lnr)
   expect_true(file.exists("tree.html"))
+  lines <- readLines("tree.html")
+  expect_false(length(grep("\"Target\"", lines, value = TRUE)) > 0)
+  expect_false(length(grep("\"Results\"", lines, value = TRUE)) > 0)
   file.remove("tree.html")
 
   iai::write_questionnaire("question.html", lnr)
@@ -425,9 +474,20 @@ test_that("visualization", {
     iai::fit(grid, X, y)
     lnr <- iai::get_learner(grid)
     iai::write_html("tree_with_data.html", lnr, data=list(X, y))
-    res <- grep("True Label", readLines("tree_with_data.html"), value = TRUE)
-    expect_true(length(res) > 0)
+    lines <- readLines("tree_with_data.html")
+    expect_true(length(grep("\"Target\"", lines, value = TRUE)) > 0)
+    expect_true(length(grep("\"Results\"", lines, value = TRUE)) > 0)
     file.remove("tree_with_data.html")
+
+    if (iai:::iai_version_less_than("2.2.0")) {
+      expect_error(iai::write_html("tree_with_data.html", lnr, data=X))
+    } else {
+      iai::write_html("tree_with_data.html", lnr, data=X)
+      lines <- readLines("tree_with_data.html")
+      expect_false(length(grep("\"Target\"", lines, value = TRUE)) > 0)
+      expect_true(length(grep("\"Results\"", lines, value = TRUE)) > 0)
+      file.remove("tree_with_data.html")
+    }
   }
 })
 

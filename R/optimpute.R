@@ -3,8 +3,6 @@
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptImpute/reference/#IAI.impute}{\code{IAI.impute}}
 #'
-#' @usage impute(X, ...)
-#'
 #' @param X The dataframe in which to impute missing values.
 #' @param ... Refer to the Julia documentation for available parameters.
 #'
@@ -21,8 +19,6 @@ impute <- function(X, ...) {
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptImpute/reference/#IAI.impute_cv}{\code{IAI.impute_cv}}
 #'
-#' @usage impute_cv(X, ...)
-#'
 #' @param X The dataframe in which to impute missing values.
 #' @param ... Refer to the Julia documentation for available parameters.
 #'
@@ -38,8 +34,6 @@ impute_cv <- function(X, ...) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptImpute/reference/#IAI.ImputationLearner}{\code{IAI.ImputationLearner}}
-#'
-#' @usage imputation_learner(method = "opt_knn", ...)
 #'
 #' @param method (optional) Specifies the imputation method to use.
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
@@ -58,8 +52,6 @@ imputation_learner <- function(method = "opt_knn", ...) {
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptImpute/reference/#IAI.OptKNNImputationLearner}{\code{IAI.OptKNNImputationLearner}}
 #'
-#' @usage opt_knn_imputation_learner(...)
-#'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
 #'
@@ -75,8 +67,6 @@ opt_knn_imputation_learner <- function(...) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptImpute/reference/#IAI.OptSVMImputationLearner}{\code{IAI.OptSVMImputationLearner}}
-#'
-#' @usage opt_svm_imputation_learner(...)
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -94,8 +84,6 @@ opt_svm_imputation_learner <- function(...) {
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptImpute/reference/#IAI.OptTreeImputationLearner}{\code{IAI.OptTreeImputationLearner}}
 #'
-#' @usage opt_tree_imputation_learner(...)
-#'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
 #'
@@ -111,8 +99,6 @@ opt_tree_imputation_learner <- function(...) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptImpute/reference/#IAI.SingleKNNImputationLearner}{\code{IAI.SingleKNNImputationLearner}}
-#'
-#' @usage single_knn_imputation_learner(...)
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -130,8 +116,6 @@ single_knn_imputation_learner <- function(...) {
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptImpute/reference/#IAI.MeanImputationLearner}{\code{IAI.MeanImputationLearner}}
 #'
-#' @usage mean_imputation_learner(...)
-#'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
 #'
@@ -147,8 +131,6 @@ mean_imputation_learner <- function(...) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/OptImpute/reference/#IAI.RandImputationLearner}{\code{IAI.RandImputationLearner}}
-#'
-#' @usage rand_imputation_learner(...)
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.

@@ -84,7 +84,26 @@ test_that("grid_search", {
   iai::fit(grid, X, y)
 
   expect_equal(iai::get_best_params(grid), list(cp = 0.25))
-  expect_true(is.data.frame(iai::get_grid_results(grid)))
+  lifecycle::expect_deprecated(iai::get_grid_results(grid))
+  expect_true(is.data.frame(iai::get_grid_result_summary(grid)))
+
+  if (iai:::iai_version_less_than("2.2.0")) {
+    expect_error(iai::get_grid_result_details(grid),
+                 "requires IAI version 2.2.0")
+  } else {
+    d <- iai::get_grid_result_details(grid)
+    expect_true(is.list(d))
+    expect_true("params" %in% names(d[[1]]))
+    expect_true("valid_score" %in% names(d[[1]]))
+    expect_true("rank" %in% names(d[[1]]))
+    expect_true("fold_results" %in% names(d[[1]]))
+    f = d[[1]]$fold_results
+    expect_true(is.list(f))
+    expect_true("train_score" %in% names(f[[1]]))
+    expect_true("valid_score" %in% names(f[[1]]))
+    expect_true("learner" %in% names(f[[1]]))
+    expect_true("optimal_tree_learner" %in% class(f[[1]]$learner))
+  }
 
   expect_true("optimal_tree_learner" %in% class(iai::get_learner(grid)))
 })

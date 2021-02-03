@@ -3,8 +3,6 @@
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/RewardEstimation/reference/#IAI.CategoricalRewardEstimator}{\code{IAI.CategoricalRewardEstimator}}
 #'
-#' @usage categorical_reward_estimator(...)
-#'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
 #'
@@ -27,8 +25,6 @@ categorical_reward_estimator <- function(...) {
 #' This function was deprecated and renamed to [categorical_reward_estimator()]
 #' in iai 2.0.0. This is for consistency with the IAI v2.1.0 Julia release.
 #'
-#' @usage reward_estimator(...)
-#'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
 #'
@@ -37,6 +33,7 @@ categorical_reward_estimator <- function(...) {
 #' @export
 #' @md
 reward_estimator <- function(...) {
+  requires_iai_version("2.0.0", "reward_estimator")
   lifecycle::deprecate_warn("2.0.0", "iai::reward_estimator()",
                             "categorical_reward_estimator()")
   categorical_reward_estimator(...)
@@ -47,8 +44,6 @@ reward_estimator <- function(...) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/RewardEstimation/reference/#IAI.NumericRewardEstimator}{\code{IAI.NumericRewardEstimator}}
-#'
-#' @usage numeric_reward_estimator(...)
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -72,8 +67,6 @@ numeric_reward_estimator <- function(...) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/RewardEstimation/reference/#IAI.EqualPropensityEstimator}{\code{IAI.EqualPropensityEstimator}}
-#'
-#' @usage equal_propensity_estimator(...)
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -101,8 +94,6 @@ equal_propensity_estimator <- function(...) {
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/RewardEstimation/reference/#IAI.fit_predict!}{\code{IAI.fit_predict!}}
 #'
-#' @usage fit_predict(lnr, X, treatments, outcomes, ...)
-#'
 #' @param lnr The learner or grid to use for estimation
 #' @param X The features of the data.
 #' @param treatments The treatment applied to each point in the data.
@@ -128,8 +119,6 @@ fit_predict <- function(lnr, X, treatments, outcomes, ...) {
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/RewardEstimation/reference/#IAI.all_treatment_combinations}{\code{IAI.all_treatment_combinations}}
 #'
-#' @usage all_treatment_combinations(...)
-#'
 #' @param ... A vector of possible options for each treatment
 #'
 #' @examples \dontrun{iai::all_treatment_combinations(c(1, 2, 3))}
@@ -145,8 +134,6 @@ all_treatment_combinations <- function(...) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/RewardEstimation/reference/#IAI.convert_treatments_to_numeric}{\code{IAI.convert_treatments_to_numeric}}
-#'
-#' @usage convert_treatments_to_numeric(treatments)
 #'
 #' @param treatments The treatments to convert
 #'

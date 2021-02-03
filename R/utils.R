@@ -3,8 +3,6 @@
 #' Julia Equivalent:
 #' \href{https://docs.julialang.org/en/v1/stdlib/Random/index.html#Random.seed!}{\code{Random.seed!}}
 #'
-#' @usage set_julia_seed(seed)
-#'
 #' @param seed The seed to set
 #'
 #' @examples \dontrun{iai::set_julia_seed(1)}
@@ -21,8 +19,6 @@ set_julia_seed <- function(seed) {
 #'
 #' Julia Equivalent:
 #' \href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
-#'
-#' @usage as.mixeddata(values, categorical_levels, ordinal_levels = c())
 #'
 #' @param values The vector of values to convert
 #' @param categorical_levels The values in \code{values} to treat as categoric

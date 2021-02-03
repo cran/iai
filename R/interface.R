@@ -1,19 +1,21 @@
 pkg.env <- new.env(parent = emptyenv())
 pkg.env$initialized <- FALSE
+pkg.env$needs_restart <- FALSE
 
-#' Initialize Julia and the IAI package.
-#'
-#' This needs to be done in every R session before calling `iai` functions
-#'
-#' @usage iai_setup(...)
-#'
-#' @param ... All parameters are passed through to
-#'            \href{https://www.rdocumentation.org/packages/JuliaCall/topics/julia_setup}{\code{JuliaCall::julia_setup}}
-#'
-#' @examples \dontrun{iai::iai_setup()}
-#'
-#' @export
-iai_setup <- function(...) {
+# IAI wrapper around `julia_setup` with correct environment settings
+iai_run_julia_setup <- function(...) {
+  if (pkg.env$needs_restart) {
+    stop("Need to restart R after installing the IAI system image")
+  }
+
+  # Check if a system image replacement was queued on Windows
+  replace_sysimg_file <- sysimage_replace_command_path()
+  if (file.exists(replace_sysimg_file)) {
+    lines <- readLines(replace_sysimg_file)
+    sysimage_do_replace(lines[1], lines[2])
+    file.remove(replace_sysimg_file)
+  }
+
   if (!is.na(Sys.getenv("IAI_JULIA", unset = NA))) {
     bindir = dirname(Sys.getenv("IAI_JULIA"))
     Sys.setenv(JULIA_HOME = bindir)
@@ -30,6 +32,23 @@ iai_setup <- function(...) {
   Sys.setenv(IAI_DISABLE_INIT = T)
   JuliaCall::julia_setup(...)
   Sys.unsetenv("IAI_DISABLE_INIT")
+}
+
+#' Initialize Julia and the IAI package.
+#'
+#' This function is called automatically with default parameters the first time
+#' any `iai` function is used in an R session. If custom parameters for Julia
+#' setup are required, this function must be called in every R session before
+#' calling other `iai` functions.
+#'
+#' @param ... All parameters are passed through to
+#'            \href{https://www.rdocumentation.org/packages/JuliaCall/topics/julia_setup}{\code{JuliaCall::julia_setup}}
+#'
+#' @examples \dontrun{iai::iai_setup()}
+#'
+#' @export
+iai_setup <- function(...) {
+  iai_run_julia_setup(...)
 
   # Check version of IAI installed
   if (JuliaCall::julia_exists("IAISysImg")) {

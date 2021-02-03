@@ -77,26 +77,31 @@ module IAIConvert
     convert_to_R(DataFrame(row))
   end
 
-  function convert_to_R(col::AbstractVector{T}) where T<:IAI.IAIBase.MixedDatum
-    out = Vector{Any}(IAI.undo_mixed_data(col))
+  function convert_to_R(col::AbstractVector)
+    T = nonmissingtype(eltype(col))
+    if T <: IAI.IAIBase.MixedDatum
+      out = Vector{Any}(IAI.undo_mixed_data(col))
 
-    if T <: IAI.IAIBase.OrdinalMixedDatum
-      for i in 1:length(out)
-        old = col[i]
-        if !old.iscat
-          # Put back the Ox_ prefix for ordinals
-          f = if isdefined(CategoricalArrays, :levelcode)
-            CategoricalArrays.levelcode
-          else
-            CategoricalArrays.order
+      if T <: IAI.IAIBase.OrdinalMixedDatum
+        for i in 1:length(out)
+          old = col[i]
+          if !ismissing(old) && !old.iscat
+            # Put back the Ox_ prefix for ordinals
+            f = if isdefined(CategoricalArrays, :levelcode)
+              CategoricalArrays.levelcode
+            else
+              CategoricalArrays.order
+            end
+            order = f(old.value_else)
+            out[i] = string("O", order, "_", out[i])
           end
-          order = f(old.value_else)
-          out[i] = string("O", order, "_", out[i])
         end
       end
-    end
 
-    out
+      out
+    else
+      col
+    end
   end
 
   for f in names(IAI)
