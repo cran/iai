@@ -3,9 +3,9 @@
 \name{get_survival_curve_data}
 \alias{get_survival_curve_data}
 \title{Extract the underlying data from a survival curve (as returned by
-\href{https://docs.interpretable.ai/v2.1.0/IAI-R/reference/#iai::predict}{\code{predict}}
+\href{https://docs.interpretable.ai/v2.2.0/IAI-R/reference/#iai::predict}{\code{predict}}
 or
-\href{https://docs.interpretable.ai/v2.1.0/IAI-R/reference/#iai::get_survival_curve}{\code{get_survival_curve}})}
+\href{https://docs.interpretable.ai/v2.2.0/IAI-R/reference/#iai::get_survival_curve}{\code{get_survival_curve}})}
 \usage{
 get_survival_curve_data(curve)
 }
@@ -19,7 +19,7 @@ probability for each breakpoint on the curve.
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.get_survival_curve_data}{\code{IAI.get_survival_curve_data}}
+\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.get_survival_curve_data}{\code{IAI.get_survival_curve_data}}
 }
 \examples{
 \dontrun{iai::get_survival_curve_data(curve)}

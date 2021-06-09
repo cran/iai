@@ -12,7 +12,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 This function was deprecated and renamed to \code{\link[=categorical_reward_estimator]{categorical_reward_estimator()}}
-in iai 2.0.0. This is for consistency with the IAI v2.1.0 Julia release.
+in iai 1.4.0. This is for consistency with the IAI v2.1.0 Julia release.
 }
 \examples{
 \dontrun{lnr <- iai::reward_estimator()}

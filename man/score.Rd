@@ -17,7 +17,7 @@ available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.score}{\code{IAI.score}}
+\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.score}{\code{IAI.score}}
 }
 \examples{
 \dontrun{iai::score(lnr, X, y)}

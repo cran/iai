@@ -13,7 +13,7 @@ get_split_feature(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_split_feature}{\code{IAI.get_split_feature}}
+\href{https://docs.interpretable.ai/v2.2.0/IAITrees/reference/#IAI.get_split_feature}{\code{IAI.get_split_feature}}
 }
 \examples{
 \dontrun{iai::get_split_feature(lnr, 1)}

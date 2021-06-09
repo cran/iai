@@ -11,7 +11,7 @@ get_num_fits(lnr)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/Heuristics/reference/#IAI.get_num_fits}{\code{IAI.get_num_fits}}
+\href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.get_num_fits}{\code{IAI.get_num_fits}}
 }
 \section{IAI Compatibility}{
 

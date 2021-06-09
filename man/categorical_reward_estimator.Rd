@@ -11,8 +11,9 @@ categorical_reward_estimator(...)
 Refer to the Julia documentation for available parameters.}
 }
 \description{
-Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/RewardEstimation/reference/#IAI.CategoricalRewardEstimator}{\code{IAI.CategoricalRewardEstimator}}
+This function was deprecated in iai 1.6.0, and
+[categorical_classification_reward_estimator()] or
+[categorical_classification_reward_estimator()] should be used instead.
 }
 \section{IAI Compatibility}{
 

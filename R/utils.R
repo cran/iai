@@ -14,11 +14,37 @@ set_julia_seed <- function(seed) {
   julia_eval(jleval)
 }
 
+#' Add additional Julia worker processes to parallelize workloads
+#'
+#' Julia Equivalent:
+#' \href{https://docs.julialang.org/en/v1/stdlib/Distributed/#Distributed.addprocs}{\code{Distributed.addprocs!}}
+#'
+#' For more information, refer to the
+#' \href{https://docs.interpretable.ai/stable/IAIBase/advanced/#IAIBase-Parallelization-1}{documentation on parallelization}
+#'
+#' @param ... Refer to the Julia documentation for available parameters
+#'
+#' @examples \dontrun{iai::add_julia_processes(3)}
+#'
+#' @export
+add_julia_processes <- function(...) {
+  julia_library("Distributed")
+  out <- jl_func("Distributed.addprocs", ...)
+
+  # We need to load IAI on all processes
+  # NB: If using system image this is automatic
+  if (!JuliaCall::julia_exists("IAISysImg")) {
+    JuliaCall::julia_eval("Distributed.@everywhere import IAI")
+  }
+
+  out
+}
+
 
 #' Convert a vector of values to IAI mixed data format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
+#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
 #'
 #' @param values The vector of values to convert
 #' @param categorical_levels The values in \code{values} to treat as categoric

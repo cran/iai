@@ -15,7 +15,7 @@ defaulting to the best fit if not supplied.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/OptimalFeatureSelection/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
+\href{https://docs.interpretable.ai/v2.2.0/OptimalFeatureSelection/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
 }
 \section{IAI Compatibility}{
 

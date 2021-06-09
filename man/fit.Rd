@@ -17,7 +17,7 @@ available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.fit!}{\code{IAI.fit!}}
+\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.fit!}{\code{IAI.fit!}}
 }
 \examples{
 \donttest{

@@ -13,7 +13,7 @@ get_lower_child(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.get_lower_child}{\code{IAI.get_lower_child}}
+\href{https://docs.interpretable.ai/v2.2.0/IAITrees/reference/#IAI.get_lower_child}{\code{IAI.get_lower_child}}
 }
 \examples{
 \dontrun{iai::get_lower_child(lnr, 1)}

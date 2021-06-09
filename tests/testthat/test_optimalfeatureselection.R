@@ -31,6 +31,18 @@ test_that("classification", {
     expect_true(is.list(weights$numeric))
     expect_true(is.list(weights$categoric))
     expect_equal(length(weights$categoric), 0)
+
+
+    grid <- iai::grid_search(lnr, sparsity = 1:2)
+    iai::fit(grid, X, y)
+
+    if (iai:::iai_version_less_than("2.2.0")) {
+      expect_error(ggplot2::autoplot(grid, type = "wrong"),
+                   "not supported by autoplot")
+    } else {
+      expect_error(ggplot2::autoplot(grid, type = "wrong"),
+                   "`type` has to be")
+    }
   }
 })
 

@@ -12,7 +12,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreeClassifier}{\code{IAI.OptimalTreeClassifier}}
+\href{https://docs.interpretable.ai/v2.2.0/OptimalTrees/reference/#IAI.OptimalTreeClassifier}{\code{IAI.OptimalTreeClassifier}}
 }
 \examples{
 \dontrun{lnr <- iai::optimal_tree_classifier()}

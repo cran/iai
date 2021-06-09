@@ -120,8 +120,8 @@ test_that("classification structure", {
   expect_error(iai::get_classification_label(lnr, 1))
   expect_error(iai::get_classification_proba(lnr, 1))
   if (!iai:::iai_version_less_than("2.1.0")) {
-    iai::get_classification_label(lnr, 1, check_leaf=FALSE)
-    iai::get_classification_proba(lnr, 1, check_leaf=FALSE)
+    iai::get_classification_label(lnr, 1, check_leaf = FALSE)
+    iai::get_classification_proba(lnr, 1, check_leaf = FALSE)
   }
 })
 
@@ -164,8 +164,8 @@ test_that("regression structure", {
   expect_error(iai::get_regression_constant(lnr, 1))
   expect_error(iai::get_regression_weights(lnr, 1))
   if (!iai:::iai_version_less_than("2.1.0")) {
-    iai::get_regression_constant(lnr, 1, check_leaf=FALSE)
-    iai::get_regression_weights(lnr, 1, check_leaf=FALSE)
+    iai::get_regression_constant(lnr, 1, check_leaf = FALSE)
+    iai::get_regression_weights(lnr, 1, check_leaf = FALSE)
   }
 })
 
@@ -224,10 +224,10 @@ test_that("survival structure", {
     expect_error(iai::get_survival_hazard(), "requires IAI version 2.1.0")
   } else if (iai:::iai_version_less_than("2.2.0")) {
     expect_equal(iai::get_survival_expected_time(lnr, 2), 22981.39)
-    expect_equal(iai::get_survival_hazard(lnr, 2), 0.9541041, tolerance=1e-6)
+    expect_equal(iai::get_survival_hazard(lnr, 2), 0.9541041, tolerance = 1e-6)
   } else {
     expect_equal(iai::get_survival_expected_time(lnr, 2), 23443.187)
-    expect_equal(iai::get_survival_hazard(lnr, 2), 0.8880508, tolerance=1e-6)
+    expect_equal(iai::get_survival_hazard(lnr, 2), 0.8880508, tolerance = 1e-6)
   }
 
 
@@ -235,9 +235,9 @@ test_that("survival structure", {
   expect_error(iai::get_survival_expected_time(lnr, 1))
   expect_error(iai::get_survival_hazard(lnr, 1))
   if (!iai:::iai_version_less_than("2.1.0")) {
-    iai::get_survival_curve(lnr, 1, check_leaf=FALSE)
-    iai::get_survival_expected_time(lnr, 1, check_leaf=FALSE)
-    iai::get_survival_hazard(lnr, 1, check_leaf=FALSE)
+    iai::get_survival_curve(lnr, 1, check_leaf = FALSE)
+    iai::get_survival_expected_time(lnr, 1, check_leaf = FALSE)
+    iai::get_survival_hazard(lnr, 1, check_leaf = FALSE)
   }
 })
 
@@ -309,9 +309,9 @@ test_that("prescription structure", {
   expect_error(iai::get_regression_constant(lnr, 1, 0))
   expect_error(iai::get_regression_weights(lnr, 1, 0))
   if (!iai:::iai_version_less_than("2.1.0")) {
-    iai::get_prescription_treatment_rank(lnr, 1, check_leaf=FALSE)
-    iai::get_regression_constant(lnr, 1, 0, check_leaf=FALSE)
-    iai::get_regression_weights(lnr, 1, 0, check_leaf=FALSE)
+    iai::get_prescription_treatment_rank(lnr, 1, check_leaf = FALSE)
+    iai::get_regression_constant(lnr, 1, 0, check_leaf = FALSE)
+    iai::get_regression_weights(lnr, 1, 0, check_leaf = FALSE)
   }
 })
 
@@ -334,21 +334,21 @@ test_that("policy structure", {
   } else {
     outcomes <- iai::get_policy_treatment_outcome(lnr, 3)
     if (iai:::iai_version_less_than("2.2.0")) {
-      expect_equal(outcomes$A, 0.8276032, tolerance=1e-6)
-      expect_equal(outcomes$B, 1.698339, tolerance=1e-6)
-      expect_equal(outcomes$C, 1.096775, tolerance=1e-6)
+      expect_equal(outcomes$A, 0.8276032, tolerance = 1e-6)
+      expect_equal(outcomes$B, 1.698339, tolerance = 1e-6)
+      expect_equal(outcomes$C, 1.096775, tolerance = 1e-6)
     } else {
-      expect_equal(outcomes$A, 0.827778, tolerance=1e-6)
-      expect_equal(outcomes$B, 1.70248, tolerance=1e-5)
-      expect_equal(outcomes$C, 1.09849, tolerance=1e-5)
+      expect_equal(outcomes$A, 0.827778, tolerance = 1e-6)
+      expect_equal(outcomes$B, 1.70248, tolerance = 1e-5)
+      expect_equal(outcomes$C, 1.09849, tolerance = 1e-5)
     }
   }
 
   expect_error(iai::get_policy_treatment_rank(lnr, 1))
   expect_error(iai::get_policy_treatment_outcome(lnr, 1))
   if (!iai:::iai_version_less_than("2.1.0")) {
-    iai::get_policy_treatment_rank(lnr, 1, check_leaf=FALSE)
-    iai::get_policy_treatment_outcome(lnr, 1, check_leaf=FALSE)
+    iai::get_policy_treatment_rank(lnr, 1, check_leaf = FALSE)
+    iai::get_policy_treatment_outcome(lnr, 1, check_leaf = FALSE)
   }
 })
 
@@ -364,7 +364,7 @@ test_that("visualization", {
     file.remove("test.png")
 
     if (iai:::iai_version_less_than("2.1.0")) {
-      error_message = "requires IAI version 2.1.0"
+      error_message <- "requires IAI version 2.1.0"
       expect_error(iai::write_pdf("test.pdf", lnr), error_message)
       expect_error(iai::write_svg("test.svg", lnr), error_message)
     } else {
@@ -473,16 +473,16 @@ test_that("visualization", {
     )
     iai::fit(grid, X, y)
     lnr <- iai::get_learner(grid)
-    iai::write_html("tree_with_data.html", lnr, data=list(X, y))
+    iai::write_html("tree_with_data.html", lnr, data = list(X, y))
     lines <- readLines("tree_with_data.html")
     expect_true(length(grep("\"Target\"", lines, value = TRUE)) > 0)
     expect_true(length(grep("\"Results\"", lines, value = TRUE)) > 0)
     file.remove("tree_with_data.html")
 
     if (iai:::iai_version_less_than("2.2.0")) {
-      expect_error(iai::write_html("tree_with_data.html", lnr, data=X))
+      expect_error(iai::write_html("tree_with_data.html", lnr, data = X))
     } else {
-      iai::write_html("tree_with_data.html", lnr, data=X)
+      iai::write_html("tree_with_data.html", lnr, data = X)
       lines <- readLines("tree_with_data.html")
       expect_false(length(grep("\"Target\"", lines, value = TRUE)) > 0)
       expect_true(length(grep("\"Results\"", lines, value = TRUE)) > 0)
@@ -510,6 +510,11 @@ test_that("tree API", {
   iai::print_path(lnr, X, 1)
 
   expect_true(is.data.frame(iai::variable_importance(lnr)))
+  if (iai:::iai_version_less_than("2.2.0")) {
+    expect_error(iai::get_features_used(lnr), "requires IAI version 2.2.0")
+  } else {
+    expect_true(is.vector(iai::get_features_used(lnr)))
+  }
 })
 
 

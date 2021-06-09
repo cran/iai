@@ -1,7 +1,7 @@
 #' Learner for training Optimal Classification Trees
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreeClassifier}{\code{IAI.OptimalTreeClassifier}}
+#' \href{https://docs.interpretable.ai/v2.2.0/OptimalTrees/reference/#IAI.OptimalTreeClassifier}{\code{IAI.OptimalTreeClassifier}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -17,7 +17,7 @@ optimal_tree_classifier <- function(...) {
 #' Learner for training Optimal Regression Trees
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreeRegressor}{\code{IAI.OptimalTreeRegressor}}
+#' \href{https://docs.interpretable.ai/v2.2.0/OptimalTrees/reference/#IAI.OptimalTreeRegressor}{\code{IAI.OptimalTreeRegressor}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -33,7 +33,7 @@ optimal_tree_regressor <- function(...) {
 #' Learner for training Optimal Survival Trees
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreeSurvivalLearner}{\code{IAI.OptimalTreeSurvivalLearner}}
+#' \href{https://docs.interpretable.ai/v2.2.0/OptimalTrees/reference/#IAI.OptimalTreeSurvivalLearner}{\code{IAI.OptimalTreeSurvivalLearner}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -71,7 +71,7 @@ optimal_tree_survivor <- function(...) {
 #' should aim to minimize outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMinimizer}{\code{IAI.OptimalTreePrescriptionMinimizer}}
+#' \href{https://docs.interpretable.ai/v2.2.0/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMinimizer}{\code{IAI.OptimalTreePrescriptionMinimizer}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -88,7 +88,7 @@ optimal_tree_prescription_minimizer <- function(...) {
 #' should aim to maximize outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMaximizer}{\code{IAI.OptimalTreePrescriptionMaximizer}}
+#' \href{https://docs.interpretable.ai/v2.2.0/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMaximizer}{\code{IAI.OptimalTreePrescriptionMaximizer}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -105,7 +105,7 @@ optimal_tree_prescription_maximizer <- function(...) {
 #' minimize outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreePolicyMinimizer}{\code{IAI.OptimalTreePolicyMinimizer}}
+#' \href{https://docs.interpretable.ai/v2.2.0/OptimalTrees/reference/#IAI.OptimalTreePolicyMinimizer}{\code{IAI.OptimalTreePolicyMinimizer}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -126,7 +126,7 @@ optimal_tree_policy_minimizer <- function(...) {
 #' maximize outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.1.0/OptimalTrees/reference/#IAI.OptimalTreePolicyMaximizer}{\code{IAI.OptimalTreePolicyMaximizer}}
+#' \href{https://docs.interpretable.ai/v2.2.0/OptimalTrees/reference/#IAI.OptimalTreePolicyMaximizer}{\code{IAI.OptimalTreePolicyMaximizer}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.

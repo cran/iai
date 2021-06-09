@@ -53,6 +53,20 @@ test_that("xgboost classification", {
 
     iai::write_booster("xgb_classifier.json", lnr)
     file.remove("xgb_classifier.json")
+
+    if (iai:::iai_version_less_than("2.2.0")) {
+      expect_error(iai::predict_shap(lnr, X), "requires IAI version 2.2.0")
+    } else {
+      s <- iai::predict_shap(lnr, X)
+      expect_true(is.data.frame(s$features))
+      expect_true(is.list(s$shap_values))
+      expect_length(s$shap_values, length(unique(y)))
+      expect_true(all(sapply(s$shap_values, is.matrix)))
+      expect_true(all(sapply(s$shap_values, nrow) == nrow(X)))
+      expect_true(all(sapply(s$shap_values, ncol) == ncol(X)))
+      expect_length(s$expected_value, length(unique(y)))
+      expect_setequal(s$labels, unique(y))
+    }
   }
 })
 
@@ -73,6 +87,18 @@ test_that("xgboost regression", {
 
     iai::write_booster("xgb_regressor.json", lnr)
     file.remove("xgb_regressor.json")
+
+    if (iai:::iai_version_less_than("2.2.0")) {
+      expect_error(iai::predict_shap(lnr, X), "requires IAI version 2.2.0")
+    } else {
+      s <- iai::predict_shap(lnr, X)
+      expect_true(is.data.frame(s$features))
+      expect_true(is.matrix(s$shap_values))
+      expect_equal(nrow(s$shap_values), nrow(X))
+      expect_equal(ncol(s$shap_values), ncol(X))
+      expect_length(s$expected_value, 1)
+      expect_false("labels" %in% s)
+    }
   }
 })
 
@@ -92,7 +118,7 @@ test_that("glmnetcv regression", {
     expect_true(is.vector(iai::predict(lnr, X)))
 
     s <- iai::score(lnr, X, y)
-    scores <- sapply(1:iai::get_num_fits(lnr), function (i) {
+    scores <- sapply(1:iai::get_num_fits(lnr), function(i) {
       iai::score(lnr, X, y, fit_index = i)
     })
     best_index <- which(scores == s)

@@ -26,7 +26,7 @@ iai_download_url <- function(julia_version, iai_version) {
   } else if (sysname == "Windows") {
     "win64"
   } else {
-    stop("Unknown or unsupported OS")
+    stop("Unknown or unsupported OS") # nocov
   }
 
   if (startsWith(iai_version, "v")) {
@@ -69,27 +69,38 @@ get_prefs_dir <- function() {
 }
 
 
+sysimage_path_prefs_file <- function() {
+  file.path(get_prefs_dir(), "IAI")
+}
 sysimage_save_install_path <- function(path) {
   # Save sysimg path so that it can be used automatically in future
-  cat(path, file = file.path(get_prefs_dir(), "IAI"))
+  cat(path, file = sysimage_path_prefs_file())
+}
+sysimage_load_install_path <- function() {
+  path <- sysimage_path_prefs_file()
+  if (file.exists(path)) {
+    readChar(path, 256)
+  } else {
+    NULL
+  }
 }
 
 
-sysimage_replace_command_path <- function() {
+sysimage_replace_prefs_file <- function() {
   # Temporary file to save our replace command in
   file.path(get_prefs_dir(), "IAI-replacedefault")
 }
 sysimage_save_replace_command <- function(image_path, target_path) {
   # Save the original path of the image and the new target path so that we can
   # process the copy during the next R session before Julia is initialized
-  writeLines(c(image_path, target_path), con = sysimage_replace_command_path())
+  writeLines(c(image_path, target_path), con = sysimage_replace_prefs_file())
 }
 sysimage_do_replace <- function(image_path, target_path) {
   # Copy the image to the new path
   file.remove(target_path)
   file.copy(image_path, target_path)
   message(paste("Replacing default system image at", target_path,
-              "with IAI system image"))
+                "with IAI system image"))
 }
 
 
@@ -97,13 +108,20 @@ sysimage_do_replace <- function(image_path, target_path) {
 #'
 #' @param prefix The directory where Julia will be installed. Defaults to a
 #'               location determined by
-#'               \href{https://www.rdocumentation.org/packages/rappdirs/topics/user_data_dir}{\code{rappdirs::user_data_dir}}.
+#'               \href{https://rdrr.io/cran/rappdirs/man/user_data_dir.html}{\code{rappdirs::user_data_dir}}.
 #'
 #' @examples \dontrun{iai::install_julia()}
 #'
 #' @export
 install_julia <- function(prefix = julia_default_install_dir()) {
-  JuliaCall::install_julia(prefix)
+  tryCatch({
+    JuliaCall::install_julia(prefix)
+  }, error = function(err) { # nocov start
+    stop(paste("There was an error downloading Julia. This could be due to ",
+               "network issues, and might be resolved by re-running ",
+               "`install_julia`.",
+               sep = ""))
+  }) # nocov end
 }
 
 
@@ -117,7 +135,7 @@ install_julia <- function(prefix = julia_default_install_dir()) {
 #'                        \code{FALSE}.
 #' @param prefix The directory where the IAI system image will be installed.
 #'               Defaults to a location determined by
-#'               \href{https://www.rdocumentation.org/packages/rappdirs/topics/user_data_dir}{\code{rappdirs::user_data_dir}}.
+#'               \href{https://rdrr.io/cran/rappdirs/man/user_data_dir.html}{\code{rappdirs::user_data_dir}}.
 #'
 #' @examples \dontrun{iai::install_system_image()}
 #'
@@ -136,15 +154,20 @@ install_system_image <- function(version = "latest", replace_default = F,
   file <- tempfile()
   tryCatch({
     utils::download.file(url, file)
-  }, error = function (err) {
+  }, error = function(err) { # nocov start
     stop(paste("Error downloading IAI system image v", version, " for Julia v",
                julia_version, ". ",
-               "This version may not exist, or there could be network issues.",
+               "This version may not exist, or there could be network ",
+               "issues. It might be resolved by re-running ",
+               "`install_system_image`.",
                sep = ""))
-  })
+  }) # nocov end
 
-  dest <- file.path(prefix, paste("v", version, sep = ""))
-  utils::unzip(file, exdir=dest)
+  if (version != "dev") {
+    version = paste("v", version, sep = "")
+  }
+  dest <- file.path(prefix, version)
+  utils::unzip(file, exdir = dest)
 
   sysname <- Sys.info()["sysname"]
   image_name <- if (sysname == "Linux") {
@@ -154,15 +177,31 @@ install_system_image <- function(version = "latest", replace_default = F,
   } else if (sysname == "Windows") {
     "sys.dll"
   } else {
-    stop("Unknown or unsupported OS")
+    stop("Unknown or unsupported OS") # nocov
   }
-  image_path = file.path(dest, image_name)
+  image_path <- file.path(dest, image_name)
 
   sysimage_save_install_path(image_path)
   message(paste("Installed IAI system image to", dest))
 
+  # Run init step to fix packages to right versions (in case JuliaCall installed
+  # incompatible versions before IAI was added)
+  # On Windows, Julia stdout won't show in RGui/RStudio, so we need to run the
+  # command using `system` from R so that the output is shown
+  cmd = paste(
+      '"', JuliaCall::julia_eval("Base.julia_cmd()[1]"), '" ',
+      '--sysimage="', image_path, '" ',
+      '-e nothing',
+  sep = "")
+  exitcode = system(cmd)
+  stopifnot(exitcode == 0)
+
   if (replace_default) {
-    target_path <- JuliaCall::julia_eval("unsafe_string(Base.JLOptions().image_file)")
+    target_path <- file.path(
+        JuliaCall::julia_eval("unsafe_string(Base.JLOptions().julia_bindir)"),
+        "../lib/julia",
+        image_name
+    )
     # Windows can't replace the current sysimg as it is loaded into this session
     # so we save a command to run later
     if (sysname == "Windows") {
@@ -173,6 +212,6 @@ install_system_image <- function(version = "latest", replace_default = F,
   }
 
   # Need to restart R to load with the system image before IAI can be used
-  pkg.env$needs_restart = T
+  pkg.env$needs_restart <- T
   return(T)
 }

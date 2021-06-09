@@ -13,7 +13,7 @@ write_booster(filename, lnr)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/Heuristics/reference/#IAI.write_booster}{\code{IAI.write_booster}}
+\href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.write_booster}{\code{IAI.write_booster}}
 }
 \section{IAI Compatibility}{
 

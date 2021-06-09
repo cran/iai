@@ -17,6 +17,12 @@ test_that("Split data and fitting",  {
   expect_equal(nrow(train_X) + nrow(test_X), nrow(X))
   expect_equal(length(train_y) + length(test_y), length(y))
 
+  # Test imputation split
+  split <- iai::split_data("imputation", X, train_proportion = 0.75)
+  train_X <- split[[1]][[1]]
+  test_X <- split[[2]][[1]]
+  expect_equal(nrow(train_X) + nrow(test_X), nrow(X))
+
   # Test prescription names
   treatments <- y
   outcomes <- X[, 1]
@@ -97,7 +103,7 @@ test_that("grid_search", {
     expect_true("valid_score" %in% names(d[[1]]))
     expect_true("rank" %in% names(d[[1]]))
     expect_true("fold_results" %in% names(d[[1]]))
-    f = d[[1]]$fold_results
+    f <- d[[1]]$fold_results
     expect_true(is.list(f))
     expect_true("train_score" %in% names(f[[1]]))
     expect_true("valid_score" %in% names(f[[1]]))
@@ -123,13 +129,13 @@ test_that("roc_curve", {
   positive_label <- 1
 
   if (iai:::iai_version_less_than("2.0.0")) {
-    expect_error(iai::roc_curve(probs, y, positive_label=positive_label),
+    expect_error(iai::roc_curve(probs, y, positive_label = positive_label),
                  "requires IAI version 2.0.0")
   } else {
     # positive_label not specified
     expect_error(iai::roc_curve(probs, y), "positive_label")
 
-    roc <- iai::roc_curve(probs, y, positive_label=positive_label)
+    roc <- iai::roc_curve(probs, y, positive_label = positive_label)
     expect_true("iai_visualization" %in% class(roc))
   }
 
@@ -139,7 +145,7 @@ test_that("roc_curve", {
     data <- iai::get_roc_curve_data(roc)
     expect_true("auc" %in% names(data))
     expect_true("coords" %in% names(data))
-    c = data$coords[1]
+    c <- data$coords[1]
     expect_true("tpr" %in% names(c))
     expect_true("fpr" %in% names(c))
     expect_true("threshold" %in% names(c))
@@ -151,9 +157,9 @@ test_that("policy", {
   skip_on_cran()
 
   if (!iai:::iai_version_less_than("2.0.0")) {
-    X <- iris[,1:4]
-    rewards <- iris[,1:3]
-    lnr <- iai::optimal_tree_policy_minimizer(max_depth=0, cp=0)
+    X <- iris[, 1:4]
+    rewards <- iris[, 1:3]
+    lnr <- iai::optimal_tree_policy_minimizer(max_depth = 0, cp = 0)
     iai::fit(lnr, X, rewards)
   }
 
@@ -200,4 +206,25 @@ test_that("learner params", {
   expect_equal(iai::get_params(new_lnr)$max_depth, 1)
   # Clone is not fitted
   expect_error(iai::predict(new_lnr))
+})
+
+
+test_that("add_julia_processes", {
+  skip_on_cran()
+
+  iai::add_julia_processes(1)
+
+  # Make sure process was added
+  expect_equal(JuliaCall::julia_eval("Distributed.nprocs()"), 2)
+
+  # Make sure we can fit a model
+  X <- iris[, 1:4]
+  y <- iris$Species
+  grid <- iai::grid_search(iai::optimal_tree_classifier(max_depth = 1))
+  iai::fit(grid, X, y)
+
+  # Make sure process is still added, then remove
+  expect_equal(JuliaCall::julia_eval("Distributed.nprocs()"), 2)
+  JuliaCall::julia_eval("Distributed.rmprocs(Distributed.workers())")
+  expect_equal(JuliaCall::julia_eval("Distributed.nprocs()"), 1)
 })

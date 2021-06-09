@@ -13,7 +13,7 @@ set_rich_output_param(key, value)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.set_rich_output_param!}{\code{IAI.set_rich_output_param!}}
+\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.set_rich_output_param!}{\code{IAI.set_rich_output_param!}}
 }
 \examples{
 \dontrun{iai::set_rich_output_param("simple_layout", TRUE)}

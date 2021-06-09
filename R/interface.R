@@ -3,21 +3,21 @@ pkg.env$initialized <- FALSE
 pkg.env$needs_restart <- FALSE
 
 # IAI wrapper around `julia_setup` with correct environment settings
-iai_run_julia_setup <- function(...) {
+iai_run_julia_setup <- function(sysimage_path = NULL, ...) {
   if (pkg.env$needs_restart) {
     stop("Need to restart R after installing the IAI system image")
   }
 
   # Check if a system image replacement was queued on Windows
-  replace_sysimg_file <- sysimage_replace_command_path()
+  replace_sysimg_file <- sysimage_replace_prefs_file()
   if (file.exists(replace_sysimg_file)) {
     lines <- readLines(replace_sysimg_file)
     sysimage_do_replace(lines[1], lines[2])
     file.remove(replace_sysimg_file)
   }
 
-  if (!is.na(Sys.getenv("IAI_JULIA", unset = NA))) {
-    bindir = dirname(Sys.getenv("IAI_JULIA"))
+  if (!is.na(Sys.getenv("IAI_JULIA", unset = NA))) { # nocov start
+    bindir <- dirname(Sys.getenv("IAI_JULIA"))
     Sys.setenv(JULIA_HOME = bindir)
 
     # Add Julia bindir to path on windows so that DLLs can be found
@@ -25,12 +25,19 @@ iai_run_julia_setup <- function(...) {
       Sys.setenv(PATH = paste(Sys.getenv("PATH"), bindir,
                               sep = .Platform$path.sep))
     }
+  } # nocov end
+
+  if (!is.na(Sys.getenv("IAI_SYSTEM_IMAGE", unset = NA))) { # nocov start
+    sysimage_path <- Sys.getenv("IAI_SYSTEM_IMAGE")
+  } # nocov end
+  if (is.null(sysimage_path)) {
+    sysimage_path <- sysimage_load_install_path()
   }
 
   # Run julia setup with IAI init disabled to avoid polluting stdout
   # We will instead have to init it manually later
   Sys.setenv(IAI_DISABLE_INIT = T)
-  JuliaCall::julia_setup(...)
+  JuliaCall::julia_setup(sysimage_path = sysimage_path, ...)
   Sys.unsetenv("IAI_DISABLE_INIT")
 }
 
@@ -42,7 +49,7 @@ iai_run_julia_setup <- function(...) {
 #' calling other `iai` functions.
 #'
 #' @param ... All parameters are passed through to
-#'            \href{https://www.rdocumentation.org/packages/JuliaCall/topics/julia_setup}{\code{JuliaCall::julia_setup}}
+#'            \href{https://rdrr.io/cran/JuliaCall/man/julia_setup.html}{\code{JuliaCall::julia_setup}}
 #'
 #' @examples \dontrun{iai::iai_setup()}
 #'
@@ -57,18 +64,16 @@ iai_setup <- function(...) {
     JuliaCall::julia_eval("IAISysImg.__init__()")
   } else {
     iai_version <- JuliaCall::julia_installed_package("IAI")
-    if (iai_version == "nothing") {
+    if (iai_version == "nothing") { # nocov start
       stop(paste("IAI is not present in your Julia installation. Please ",
                  "follow the instructions at ",
                  "https://docs.interpretable.ai/stable/IAI-R/installation",
                  sep = ""))
-    }
+    } # nocov end
     JuliaCall::julia_library("IAI")
   }
-  if (!JuliaCall::julia_exists("IAI")) {
-    # Shouldn't be possible to hit this
-    stop("IAI module not found")
-  }
+  # Shouldn't be possible to hit this
+  stopifnot("IAI module not found" = JuliaCall::julia_exists("IAI"))
 
   # Check version of IAI is recent enough
   REQUIRED_IAI_VERSION <- "1.0.0"
@@ -76,13 +81,13 @@ iai_setup <- function(...) {
                   " < ",
                   "Base.thispatch(v\"", REQUIRED_IAI_VERSION, "\")",
                   sep = "")
-  if (JuliaCall::julia_eval(jleval)) {
+  if (JuliaCall::julia_eval(jleval)) { # nocov start
     stop(paste("This version of the `iai` R package requires IAI version ",
                REQUIRED_IAI_VERSION, ". Version ", iai_version, " of IAI ",
                "modules is installed. Please upgrade your IAI installation or ",
                "downgrade to an older version of the R `iai` package.",
                sep = ""))
-  }
+  } # nocov end
   pkg.env$iai_version <- iai_version
 
   # Install dependencies of IAI-R
@@ -180,6 +185,14 @@ set_obj_class <- function(obj) {
         "iai_visualization",
         "JuliaObject"
     )
+  } else if (!iai_version_less_than("1.1.0") &&
+             jl_isa(obj, "IAI.OptimalFeatureSelectionLearner")) {
+    class(obj) <- c(
+        "optimal_feature_selection_learner",
+        "learner",
+        "iai_visualization",
+        "JuliaObject"
+    )
   } else if (jl_isa(obj, "IAI.Learner")) {
     class(obj) <- c(
         "learner",
@@ -195,6 +208,21 @@ set_obj_class <- function(obj) {
     )
   } else if (jl_isa(obj, "IAI.ROCCurve")) {
     class(obj) <- c(
+        "roc_curve",
+        "iai_visualization",
+        "JuliaObject"
+    )
+  } else if (!iai_version_less_than("2.2.0") &&
+             jl_isa(obj, "IAI.SimilarityComparison")) {
+    class(obj) <- c(
+        "similarity_comparison",
+        "iai_visualization",
+        "JuliaObject"
+    )
+  } else if (!iai_version_less_than("2.2.0") &&
+             jl_isa(obj, "IAI.StabilityAnalysis")) {
+    class(obj) <- c(
+        "stability_analysis",
         "iai_visualization",
         "JuliaObject"
     )
@@ -213,7 +241,7 @@ set_obj_class <- function(obj) {
 #' @export
 print.iai_visualization <- function(x, ...) {
   if (to_html(x)) {
-    invisible(x)
+    invisible(x) # nocov
   } else {
     NextMethod()
   }
@@ -223,12 +251,12 @@ print.iai_visualization <- function(x, ...) {
 to_html <- function(obj) {
   out <- jl_func("IAI.to_html", obj)
   viewer <- getOption("viewer")
-  if (!is.null(viewer) && !is.null(out)) {
+  if (!is.null(viewer) && !is.null(out)) { # nocov start
     html_file <- file.path(tempdir(), "index.html")
     write(out, file = html_file)
     viewer(html_file)
     TRUE
-  } else {
+  } else { # nocov end
     FALSE
   }
 }

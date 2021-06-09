@@ -15,7 +15,7 @@ write_pdf(filename, lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/IAITrees/reference/#IAI.write_pdf}{\code{IAI.write_pdf}}
+\href{https://docs.interpretable.ai/v2.2.0/IAITrees/reference/#IAI.write_pdf}{\code{IAI.write_pdf}}
 }
 \section{IAI Compatibility}{
 

@@ -17,7 +17,7 @@
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
+\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
 }
 \section{IAI Compatibility}{
 

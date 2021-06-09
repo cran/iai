@@ -14,7 +14,7 @@ predict_expected_survival_time(lnr, X)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.predict_expected_survival_time}{\code{IAI.predict_expected_survival_time}}
+\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.predict_expected_survival_time}{\code{IAI.predict_expected_survival_time}}
 }
 \section{IAI Compatibility}{
 

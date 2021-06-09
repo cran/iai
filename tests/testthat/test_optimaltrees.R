@@ -107,8 +107,8 @@ test_that("feature set inputs", {
       list(R = list(Between = c("cyl", "drat")),
            Julia = "Dict(:Between => [\"cyl\", \"drat\"])"))) {
 
-      feature_set = feature_set_pair$R
-      feature_set_julia = feature_set_pair$Julia
+      feature_set <- feature_set_pair$R
+      feature_set_julia <- feature_set_pair$Julia
 
       lnr <- iai::optimal_tree_regressor(
         hyperplane_config = list(sparsity = "all", feature_set = feature_set),

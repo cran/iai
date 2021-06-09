@@ -14,7 +14,7 @@ show_in_browser(obj, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.1.0/IAIBase/reference/#IAI.show_in_browser}{\code{IAI.show_in_browser}}
+\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.show_in_browser}{\code{IAI.show_in_browser}}
 }
 \section{IAI Compatibility}{
 

@@ -9,7 +9,7 @@ install_julia(prefix = julia_default_install_dir())
 \arguments{
 \item{prefix}{The directory where Julia will be installed. Defaults to a
 location determined by
-\href{https://www.rdocumentation.org/packages/rappdirs/topics/user_data_dir}{\code{rappdirs::user_data_dir}}.}
+\href{https://rdrr.io/cran/rappdirs/man/user_data_dir.html}{\code{rappdirs::user_data_dir}}.}
 }
 \description{
 Download and install Julia automatically.

@@ -1,5 +1,14 @@
 # Unreleased
 
+# iai 1.6.0
+
+* Add `add_julia_processes`
+* Add tree stability analysis functions
+* Add `get_features_used`
+* Add support for IAI v2.2 RewardEstimation interface
+* Add `predict_shap`
+* Add `plot`/`autoplot` functions for `roc_curve` and `grid_search`
+
 # iai 1.5.0
 
 * Add `install_julia` and `install_system_image` for automatic installation
@@ -8,7 +17,7 @@
 
 # iai 1.4.0
 
-* Add support for new RewardEstimation interface
+* Add support for IAI v2.1 RewardEstimation interface
 * Add support for Heuristics
 * Add `get_roc_curve_data`
 * Add `predict_treatment_rank` and `predict_treatment_outcome`
