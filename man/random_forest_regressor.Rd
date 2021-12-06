@@ -12,7 +12,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.RandomForestRegressor}{\code{IAI.RandomForestRegressor}}
+\href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.RandomForestRegressor}{\code{IAI.RandomForestRegressor}}
 }
 \section{IAI Compatibility}{
 

@@ -25,7 +25,7 @@ estimated reward under each treatment candidate.
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/RewardEstimation/reference/#IAI.fit_predict!}{\code{IAI.fit_predict!}}
+\href{https://docs.interpretable.ai/v3.0.0/RewardEstimation/reference/#IAI.fit_predict!}{\code{IAI.fit_predict!}}
 }
 \examples{
 \dontrun{iai::fit_predict(lnr, X, treatments, outcomes)}

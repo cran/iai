@@ -16,10 +16,10 @@ fit_transform_cv(grid, X, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.fit_transform_cv!}{\code{IAI.fit_transform_cv!}}
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.fit_transform_cv!}{\code{IAI.fit_transform_cv!}}
 }
 \examples{
-\donttest{
+\dontrun{
 X <- iris
 X[1, 1] <- NA
 grid <- iai::grid_search(

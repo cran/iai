@@ -6,16 +6,18 @@
 importance during training. The results are normalized so that they sum to
 one.}
 \usage{
-variable_importance(lnr)
+variable_importance(lnr, ...)
 }
 \arguments{
 \item{lnr}{The learner to query.}
+
+\item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.variable_importance}{\code{IAI.variable_importance}}
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.variable_importance}{\code{IAI.variable_importance}}
 }
 \examples{
-\dontrun{iai::variable_importance(lnr)}
+\dontrun{iai::variable_importance(lnr, ...)}
 
 }

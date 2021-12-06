@@ -5,16 +5,16 @@
 \title{Conduct the reward kernel bandwidth tuning procedure for a range of starting
 bandwidths and return the final tuned values.}
 \usage{
-tune_reward_kernel_bandwidth(lnr, input_bandwidths)
+tune_reward_kernel_bandwidth(lnr, ...)
 }
 \arguments{
 \item{lnr}{The learner to use for tuning the bandwidth}
 
-\item{input_bandwidths}{The starting bandwidth values to use when tuning}
+\item{...}{Refer to the Julia documentation for other parameters}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/RewardEstimation/reference/#IAI.tune_reward_kernel_bandwidth}{\code{IAI.tune_reward_kernel_bandwidth}}
+\href{https://docs.interpretable.ai/v3.0.0/RewardEstimation/reference/#IAI.tune_reward_kernel_bandwidth}{\code{IAI.tune_reward_kernel_bandwidth}}
 }
 \section{IAI Compatibility}{
 
@@ -22,6 +22,6 @@ Requires IAI version 2.2 or higher.
 }
 
 \examples{
-\dontrun{iai::tune_reward_kernel_bandwidth(lnr, input_bandwidths)}
+\dontrun{iai::tune_reward_kernel_bandwidth(lnr, ...)}
 
 }

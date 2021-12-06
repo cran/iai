@@ -15,7 +15,7 @@ write_png(filename, lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAITrees/reference/#IAI.write_png}{\code{IAI.write_png}}
+\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.write_png}{\code{IAI.write_png}}
 }
 \examples{
 \dontrun{iai::write_png(file.path(tempdir(), "tree.png"), lnr)}

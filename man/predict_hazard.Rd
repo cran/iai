@@ -5,12 +5,14 @@
 \title{Return the fitted hazard coefficient estimate made by a model for each
 point in the features.}
 \usage{
-predict_hazard(lnr, X)
+predict_hazard(lnr, X, ...)
 }
 \arguments{
 \item{lnr}{The learner or grid to use for prediction.}
 
 \item{X}{The features of the data.}
+
+\item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 A higher hazard coefficient estimate corresponds to a smaller predicted
@@ -18,7 +20,7 @@ survival time.
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.predict_hazard}{\code{IAI.predict_hazard}}
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.predict_hazard}{\code{IAI.predict_hazard}}
 }
 \section{IAI Compatibility}{
 

@@ -8,18 +8,18 @@ specified by questions}
 \method{multi_questionnaire}{default}(obj, ...)
 }
 \arguments{
-\item{obj}{The questions to visualize. Refer to the \href{https://docs.interpretable.ai/v2.2.0/IAITrees/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.}
+\item{obj}{The questions to visualize. Refer to the \href{https://docs.interpretable.ai/v3.0.0/IAITrees/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.}
 
 \item{...}{Additional arguments (unused)}
 }
 \description{
 Refer to the
-\href{https://docs.interpretable.ai/v2.2.0/IAI-R/julia/#R-Interactive-Visualizations-1}{documentation on advanced tree visualization}
+\href{https://docs.interpretable.ai/v3.0.0/IAI-R/julia/#R-Interactive-Visualizations-1}{documentation on advanced tree visualization}
 for more information.
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAITrees/reference/#IAI.MultiQuestionnaire}{\code{IAI.MultiQuestionnaire}}
+\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.MultiQuestionnaire}{\code{IAI.MultiQuestionnaire}}
 }
 \section{IAI Compatibility}{
 

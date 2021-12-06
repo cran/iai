@@ -13,10 +13,14 @@ impute(X, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/OptImpute/reference/#IAI.impute}{\code{IAI.impute}}
+\href{https://docs.interpretable.ai/v3.0.0/OptImpute/reference/#IAI.impute}{\code{IAI.impute}}
+}
+\details{
+This function was deprecated in iai 1.7.0. This is for consistency with the
+IAI v3.0.0 Julia release.
 }
 \examples{
-\donttest{
+\dontrun{
 X <- iris
 X[1, 1] <- NA
 iai::impute(X)

@@ -41,10 +41,22 @@ add_julia_processes <- function(...) {
 }
 
 
+#' Return the machine ID for the current computer.
+#'
+#' This ID ties the IAI license file to your machine.
+#'
+#' @examples \dontrun{iai::get_machine_id()}
+#'
+#' @export
+get_machine_id <- function() {
+  jl_func("IAI.get_machine_id_convert")
+}
+
+
 #' Convert a vector of values to IAI mixed data format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
 #'
 #' @param values The vector of values to convert
 #' @param categorical_levels The values in \code{values} to treat as categoric

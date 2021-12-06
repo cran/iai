@@ -8,7 +8,7 @@ iai_setup(...)
 }
 \arguments{
 \item{...}{All parameters are passed through to
-\href{https://rdrr.io/cran/JuliaCall/man/julia_setup.html}{\code{JuliaCall::julia_setup}}}
+\href{https://www.rdocumentation.org/packages/JuliaCall/topics/julia_setup}{\code{JuliaCall::julia_setup}}}
 }
 \description{
 This function is called automatically with default parameters the first time

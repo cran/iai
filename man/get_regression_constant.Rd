@@ -15,8 +15,8 @@ get_regression_constant(lnr, node_index, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAITrees/reference/#IAITrees-API-Reference-1}{\code{IAI.get_regression_constant}}
-(for regression or prescription tree learners as appropriate)
+\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAITrees-API-Reference-1}{\code{IAI.get_regression_constant}}
+(for classification, regression or prescription tree learners as appropriate)
 }
 \examples{
 \dontrun{

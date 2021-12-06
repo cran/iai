@@ -17,10 +17,10 @@ ordinal levels, in the order supplied}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
 }
 \examples{
-\donttest{
+\dontrun{
 df <- iris
 set.seed(1)
 df$mixed <- rnorm(150)

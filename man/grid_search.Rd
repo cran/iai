@@ -13,10 +13,10 @@ grid_search(lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.GridSearch}{\code{IAI.GridSearch}}
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.GridSearch}{\code{IAI.GridSearch}}
 }
 \examples{
-\donttest{
+\dontrun{
 grid <- iai::grid_search(
     iai::optimal_tree_classifier(
         random_seed = 1,

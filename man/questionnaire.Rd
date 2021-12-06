@@ -9,11 +9,11 @@ questionnaire(lnr, ...)
 \arguments{
 \item{lnr}{The learner to visualize.}
 
-\item{...}{Refer to the \href{https://docs.interpretable.ai/v2.2.0/IAITrees/advanced/#Advanced-Visualization-1}{Julia documentation} for available parameters.}
+\item{...}{Refer to the \href{https://docs.interpretable.ai/v3.0.0/IAITrees/advanced/#Advanced-Visualization-1}{Julia documentation} for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAITrees/reference/#IAI.Questionnaire}{\code{IAI.Questionnaire}}
+\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.Questionnaire}{\code{IAI.Questionnaire}}
 }
 \section{IAI Compatibility}{
 

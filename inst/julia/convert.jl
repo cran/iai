@@ -152,12 +152,33 @@ module IAIConvert
   @eval IAI begin
     function to_html(obj)
       if showable("text/html", obj)
-        io = IOBuffer()
         # Buttons don't seem to work in RStudio viewer
-        show(io, MIME("text/html"), obj, html_show_buttons=false)
-        String(take!(io))
+        sprint(io -> show(io, MIME("text/html"), obj, html_show_buttons=false))
       else
-        return nothing
+        nothing
+      end
+    end
+  end
+
+  # Add fallback definition for `get_machine_id` so we can use it on older IAI
+  if !isdefined(IAI, :get_machine_id_convert)
+    if isdefined(IAI, :IAILicensing)
+      @eval IAI begin
+        get_machine_id_convert() = IAILicensing.machine_id()
+      end
+    else
+      @eval IAI begin
+        get_machine_id_convert() = IAIBase.machine_id()
+      end
+    end
+  end
+
+  # Wrap `validate_license` to just return the messages
+  if isdefined(IAI, :IAILicensing) &&
+     isdefined(IAI.IAILicensing, :validate_license)
+    @eval IAI.IAILicensing begin
+      function validate_license_convert(args...)
+        [m for (_, m) in validate_license(args...)]
       end
     end
   end

@@ -6,16 +6,16 @@
 predictions generated using this bandwidth for the original data used to
 train the learner.}
 \usage{
-set_reward_kernel_bandwidth(lnr, bandwidth)
+set_reward_kernel_bandwidth(lnr, ...)
 }
 \arguments{
 \item{lnr}{The learner to modify}
 
-\item{bandwidth}{The new reward kernel bandwidth}
+\item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/RewardEstimation/reference/#IAI.set_reward_kernel_bandwidth!}{\code{IAI.set_reward_kernel_bandwidth!}}
+\href{https://docs.interpretable.ai/v3.0.0/RewardEstimation/reference/#IAI.set_reward_kernel_bandwidth!}{\code{IAI.set_reward_kernel_bandwidth!}}
 }
 \section{IAI Compatibility}{
 
@@ -23,6 +23,6 @@ Requires IAI version 2.2 or higher.
 }
 
 \examples{
-\dontrun{iai::set_reward_kernel_bandwidth(lnr, bandwidth)}
+\dontrun{iai::set_reward_kernel_bandwidth(lnr, ...)}
 
 }

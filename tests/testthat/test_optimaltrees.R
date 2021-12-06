@@ -81,7 +81,7 @@ test_that("policy json", {
 test_that("`optimal_tree_survivor` is deprecated", {
   skip_on_cran()
 
-  lifecycle::expect_deprecated(optimal_tree_survivor())
+  lifecycle::expect_deprecated(iai::optimal_tree_survivor())
 })
 
 
@@ -126,5 +126,90 @@ test_that("feature set inputs", {
       expect_true(JuliaCall::julia_eval(
           paste0("lnr.hyperplane_config[:feature_set] == ", feature_set_julia)))
     }
+  }
+})
+
+
+test_that("refit_leaves", {
+  skip_on_cran()
+
+  n <- 500
+  p <- 10
+  X <- matrix(runif(n * p), n, p)
+  y <- (((X[, 1] < 0.5) * (X[, 2] + X[, 3])) +
+        ((X[, 1] > 0.5) * (0.2 * X[, 4] + X[, 6])))
+
+  lnr <- iai::optimal_tree_regressor(max_depth=2, cp=0)
+  iai::fit(lnr, X, y)
+  expect_true(iai::score(lnr, X, y) < 0.75)
+
+  if (iai:::iai_version_less_than("3.0.0")) {
+    expect_error(iai::refit_leaves(lnr, X, y), "requires IAI version 3.0.0")
+  } else {
+    iai::refit_leaves(lnr, X, y, refit_learner = iai::glmnetcv_regressor())
+    expect_true(iai::score(lnr, X, y) > 0.9)
+  }
+})
+
+
+test_that("copy_splits_and_refit_leaves", {
+  skip_on_cran()
+
+  n <- 500
+  p <- 10
+  X <- matrix(runif(n * p), n, p)
+  y <- (((X[, 1] < 0.5) * (X[, 2])) +
+        ((X[, 1] > 0.5) * (0.2 * X[, 4])))
+
+  lnr <- iai::optimal_tree_regressor(max_depth=1, cp=0)
+  iai::fit(lnr, X, y)
+
+  y_class <- y > mean(y)
+
+  cls_lnr1 <- iai::optimal_tree_classifier()
+
+  if (iai:::iai_version_less_than("3.0.0")) {
+    expect_error(iai::copy_splits_and_refit_leaves(cls_lnr1, lnr, X, y_class),
+                 "requires IAI version 3.0.0")
+  } else {
+    iai::copy_splits_and_refit_leaves(cls_lnr1, lnr, X, y_class)
+    score1 <- iai::score(cls_lnr1, X, y_class)
+
+    cls_lnr2 <- iai::optimal_tree_classifier()
+    iai::copy_splits_and_refit_leaves(cls_lnr2, lnr, X, y_class,
+        refit_learner = iai::optimal_feature_selection_classifier(sparsity = 1),
+    )
+    score2 <- iai::score(cls_lnr2, X, y_class)
+
+    expect_true(score2 > 0.9)
+    expect_true(score2 > score1)
+  }
+})
+
+
+test_that("prune_trees", {
+  skip_on_cran()
+
+  n <- 500
+  p <- 10
+  X <- matrix(runif(n * p), n, p)
+  y <- (((X[, 1] < 0.5) * (X[, 2] + X[, 3])) +
+        ((X[, 1] > 0.5) * (0.2 * X[, 4] + X[, 6])))
+
+  if (iai:::iai_version_less_than("3.0.0")) {
+    # Note: old IAI version can't take `split_features=c(1)` as RCall converts
+    #       1-element vector to an int, which isn't a valid type on old versions
+    lnr <- iai::optimal_tree_regressor(max_depth=2, cp=0)
+    iai::fit(lnr, X, y)
+    expect_error(iai::prune_trees(lnr, X, y, reselect_best_tree = F),
+                 "requires IAI version 3.0.0")
+  } else {
+    lnr <- iai::optimal_tree_regressor(max_depth=2, cp=0, split_features=c(1))
+    iai::fit(lnr, X, y)
+    iai::prune_trees(lnr, X, y, reselect_best_tree = F)
+    expect_true(lnr$cp > 0)
+    iai::refit_leaves(lnr, X, y, refit_learner = iai::glmnetcv_regressor())
+    iai::prune_trees(lnr, X, y, reselect_best_tree = F)
+    expect_true(lnr$cp > 0)
   }
 })

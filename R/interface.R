@@ -17,7 +17,7 @@ iai_run_julia_setup <- function(sysimage_path = NULL, ...) {
   }
 
   if (!is.na(Sys.getenv("IAI_JULIA", unset = NA))) { # nocov start
-    bindir <- dirname(Sys.getenv("IAI_JULIA"))
+    bindir <- normalizePath(dirname(Sys.getenv("IAI_JULIA")), mustWork = F)
     Sys.setenv(JULIA_HOME = bindir)
 
     # Add Julia bindir to path on windows so that DLLs can be found
@@ -33,10 +33,22 @@ iai_run_julia_setup <- function(sysimage_path = NULL, ...) {
   if (is.null(sysimage_path)) {
     sysimage_path <- sysimage_load_install_path()
   }
+  if (!is.null(sysimage_path)) {
+    sysimage_path <- normalizePath(sysimage_path, mustWork = F)
+  }
 
   # Run julia setup with IAI init disabled to avoid polluting stdout
   # We will instead have to init it manually later
   Sys.setenv(IAI_DISABLE_INIT = T)
+
+  if (Sys.info()["sysname"] == "Darwin") {
+    # https://github.com/Non-Contradiction/JuliaCall/commit/5170fcf5c9c650412f2003092b085c4f2ac576b8
+    julia_dll_file <- julia_dll_locate(...)
+    cur_dir <- getwd()
+    setwd(dirname(julia_dll_file))
+    on.exit(setwd(cur_dir))
+  }
+
   JuliaCall::julia_setup(sysimage_path = sysimage_path, ...)
   Sys.unsetenv("IAI_DISABLE_INIT")
 }
@@ -49,7 +61,7 @@ iai_run_julia_setup <- function(sysimage_path = NULL, ...) {
 #' calling other `iai` functions.
 #'
 #' @param ... All parameters are passed through to
-#'            \href{https://rdrr.io/cran/JuliaCall/man/julia_setup.html}{\code{JuliaCall::julia_setup}}
+#'            \href{https://www.rdocumentation.org/packages/JuliaCall/topics/julia_setup}{\code{JuliaCall::julia_setup}}
 #'
 #' @examples \dontrun{iai::iai_setup()}
 #'
@@ -101,6 +113,17 @@ iai_setup <- function(...) {
   }
 
   pkg.env$initialized <- TRUE
+
+  # Display any license related warnings (added in IAIv3)
+  if (!iai_version_less_than("3.0.0")) {
+    jleval = "IAI.IAILicensing.validate_license_convert(1, 1)"
+    messages <- JuliaCall::julia_eval(jleval)
+    for (message in messages) {
+      warning(message) # nocov
+    }
+  }
+
+  invisible(TRUE)
 }
 
 
@@ -235,6 +258,12 @@ set_obj_class <- function(obj) {
   }
 
   obj
+}
+
+
+#' @export
+`==.iai_visualization` <- function(e1, e2) {
+  jl_func("isequal", e1, e2)
 }
 
 

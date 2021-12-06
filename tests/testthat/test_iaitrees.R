@@ -123,6 +123,16 @@ test_that("classification structure", {
     iai::get_classification_label(lnr, 1, check_leaf = FALSE)
     iai::get_classification_proba(lnr, 1, check_leaf = FALSE)
   }
+
+  if (iai:::iai_version_less_than("3.0.0")) {
+    expect_error(iai::get_regression_constant(lnr, 2))
+    expect_error(iai::get_regression_weights(lnr, 1))
+  } else {
+    expect_equal(iai::get_regression_constant(lnr, 2), NaN)
+    weights <- iai::get_regression_weights(lnr, 2)
+    expect_equal(length(weights$numeric), 0)
+    expect_equal(length(weights$categoric), 0)
+  }
 })
 
 

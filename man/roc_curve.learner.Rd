@@ -17,7 +17,7 @@
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
 }
 \examples{
 \dontrun{iai::roc_curve(lnr, X, y)}

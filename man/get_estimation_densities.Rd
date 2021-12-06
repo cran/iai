@@ -5,14 +5,16 @@
 \title{Return the total kernel density surrounding each treatment candidate for the
 propensity/outcome estimation problems in a fitted learner.}
 \usage{
-get_estimation_densities(lnr)
+get_estimation_densities(lnr, ...)
 }
 \arguments{
 \item{lnr}{The learner from which to extract densities}
+
+\item{...}{Refer to the Julia documentation for other parameters}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/RewardEstimation/reference/#IAI.get_estimation_densities}{\code{IAI.get_estimation_densities}}
+\href{https://docs.interpretable.ai/v3.0.0/RewardEstimation/reference/#IAI.get_estimation_densities}{\code{IAI.get_estimation_densities}}
 }
 \section{IAI Compatibility}{
 
@@ -20,6 +22,6 @@ Requires IAI version 2.2 or higher.
 }
 
 \examples{
-\dontrun{iai::get_estimation_densities(lnr)}
+\dontrun{iai::get_estimation_densities(lnr, ...)}
 
 }

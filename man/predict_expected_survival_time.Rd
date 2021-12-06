@@ -5,16 +5,18 @@
 \title{Return the expected survival time estimate made by a model for each
 point in the features.}
 \usage{
-predict_expected_survival_time(lnr, X)
+predict_expected_survival_time(lnr, X, ...)
 }
 \arguments{
 \item{lnr}{The learner or grid to use for prediction.}
 
 \item{X}{The features of the data.}
+
+\item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.predict_expected_survival_time}{\code{IAI.predict_expected_survival_time}}
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.predict_expected_survival_time}{\code{IAI.predict_expected_survival_time}}
 }
 \section{IAI Compatibility}{
 

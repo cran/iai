@@ -13,7 +13,7 @@ set_params(lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.set_params!}{\code{IAI.set_params!}}
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.set_params!}{\code{IAI.set_params!}}
 }
 \examples{
 \dontrun{iai::set_params(lnr, random_seed = 1)}

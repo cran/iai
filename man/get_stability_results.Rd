@@ -12,7 +12,7 @@ get_stability_results(stability)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAITrees/reference/#IAI.get_stability_results}{\code{get_stability_results}}
+\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.get_stability_results}{\code{get_stability_results}}
 }
 \section{IAI Compatibility}{
 

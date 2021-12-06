@@ -13,7 +13,7 @@ is_hyperplane_split(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAITrees/reference/#IAI.is_hyperplane_split}{\code{IAI.is_hyperplane_split}}
+\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.is_hyperplane_split}{\code{IAI.is_hyperplane_split}}
 }
 \examples{
 \dontrun{iai::is_hyperplane_split(lnr, 1)}

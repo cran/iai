@@ -103,6 +103,36 @@ test_that("xgboost regression", {
 })
 
 
+test_that("glmnetcv classification", {
+  skip_on_cran()
+
+  if (iai:::iai_version_less_than("2.3.0")) {
+    expect_error(iai::glmnetcv_classifier(), "requires IAI version 2.3.0")
+  } else {
+    X <- iris[, 1:4]
+    y <- iris[, 5] == "setosa"
+    lnr <- iai::glmnetcv_classifier()
+    iai::fit(lnr, X, y)
+
+    expect_true(is.numeric(iai::score(lnr, X, y)))
+    expect_true(is.vector(iai::predict(lnr, X)))
+
+    s <- iai::score(lnr, X, y)
+    scores <- sapply(1:iai::get_num_fits(lnr), function(i) {
+      iai::score(lnr, X, y, fit_index = i)
+    })
+    best_index <- which(scores == s)
+
+    expect_equal(iai::predict(lnr, X),
+                 iai::predict(lnr, X, fit_index = best_index))
+    expect_equal(iai::get_prediction_constant(lnr),
+                 iai::get_prediction_constant(lnr, fit_index = best_index))
+    expect_equal(iai::get_prediction_weights(lnr),
+                 iai::get_prediction_weights(lnr, fit_index = best_index))
+  }
+})
+
+
 test_that("glmnetcv regression", {
   skip_on_cran()
 
@@ -123,10 +153,55 @@ test_that("glmnetcv regression", {
     })
     best_index <- which(scores == s)
 
-    expect_equal(iai::predict(lnr, X), iai::predict(lnr, X, best_index))
+    if (iai:::iai_version_less_than("2.3.0")) {
+      expect_equal(iai::predict(lnr, X), iai::predict(lnr, X, best_index))
+      expect_equal(iai::get_prediction_constant(lnr),
+                   iai::get_prediction_constant(lnr, best_index))
+      expect_equal(iai::get_prediction_weights(lnr),
+                   iai::get_prediction_weights(lnr, best_index))
+    } else {
+      expect_equal(iai::predict(lnr, X),
+                   iai::predict(lnr, X, fit_index = best_index))
+      expect_equal(iai::get_prediction_constant(lnr),
+                   iai::get_prediction_constant(lnr, fit_index = best_index))
+      expect_equal(iai::get_prediction_weights(lnr),
+                   iai::get_prediction_weights(lnr, fit_index = best_index))
+    }
+  }
+})
+
+
+test_that("glmnetcv survival", {
+  skip_on_cran()
+
+  if (iai:::iai_version_less_than("3.0.0")) {
+    expect_error(iai::glmnetcv_survival_learner(), "requires IAI version 3.0.0")
+  } else {
+    X <- mtcars[, 2:11]
+    deaths <- sample(c(TRUE,FALSE), nrow(mtcars), TRUE)
+    times <- mtcars[, 1]
+    lnr <- iai::glmnetcv_survival_learner()
+    iai::fit(lnr, X, deaths, times)
+
+    expect_true(is.numeric(iai::score(lnr, X, deaths, times)))
+    expect_true(is.vector(iai::predict(lnr, X, t = 1)))
+
+    s <- iai::score(lnr, X, deaths, times)
+    scores <- sapply(1:iai::get_num_fits(lnr), function(i) {
+      iai::score(lnr, X, deaths, times, fit_index = i)
+    })
+    best_index <- which(scores == s)
+
+    expect_equal(iai::predict(lnr, X, t = 1),
+                 iai::predict(lnr, X, fit_index = best_index, t = 1))
+    expect_equal(iai::predict_hazard(lnr, X),
+                 iai::predict_hazard(lnr, X, fit_index = best_index))
+    expect_equal(iai::predict_expected_survival_time(lnr, X),
+                 iai::predict_expected_survival_time(lnr, X,
+                                                     fit_index = best_index))
     expect_equal(iai::get_prediction_constant(lnr),
-                 iai::get_prediction_constant(lnr, best_index))
+                 iai::get_prediction_constant(lnr, fit_index = best_index))
     expect_equal(iai::get_prediction_weights(lnr),
-                 iai::get_prediction_weights(lnr, best_index))
+                 iai::get_prediction_weights(lnr, fit_index = best_index))
   }
 })

@@ -12,7 +12,7 @@ get_train_errors(similarity)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAITrees/reference/#IAI.get_train_errors}{\code{get_train_errors}}
+\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.get_train_errors}{\code{get_train_errors}}
 }
 \section{IAI Compatibility}{
 

@@ -17,10 +17,10 @@ available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.fit_cv!}{\code{IAI.fit_cv!}}
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.fit_cv!}{\code{IAI.fit_cv!}}
 }
 \examples{
-\donttest{
+\dontrun{
 X <- iris[, 1:4]
 y <- iris$Species
 grid <- iai::grid_search(

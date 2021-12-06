@@ -18,10 +18,15 @@ test_that("Split data and fitting",  {
   expect_equal(length(train_y) + length(test_y), length(y))
 
   # Test imputation split
-  split <- iai::split_data("imputation", X, train_proportion = 0.75)
-  train_X <- split[[1]][[1]]
-  test_X <- split[[2]][[1]]
-  expect_equal(nrow(train_X) + nrow(test_X), nrow(X))
+  if (iai:::iai_version_less_than("3.0.0")) {
+    split <- iai::split_data("imputation", X, train_proportion = 0.75)
+    train_X <- split[[1]][[1]]
+    test_X <- split[[2]][[1]]
+    expect_equal(nrow(train_X) + nrow(test_X), nrow(X))
+  } else {
+    expect_error(iai::split_data("imputation", X),
+                 "Cannot use `split_data` with `imputation`")
+  }
 
   # Test prescription names
   treatments <- y
@@ -38,6 +43,30 @@ test_that("Split data and fitting",  {
   expect_equal(length(train_treatments) + length(test_treatments),
                length(treatments))
   expect_equal(length(train_outcomes) + length(test_outcomes), length(outcomes))
+})
+
+
+test_that("score", {
+  skip_on_cran()
+
+  y <- runif(100)
+  y_pred <- rep(y)
+
+  if (iai:::iai_version_less_than("2.1.0")) {
+    expect_error(iai::score("classification", y_pred, y,
+                            criterion="misclassification"),
+                 "requires IAI version 2.1.0")
+  } else {
+    expect_equal(iai::score("classification", y_pred, y,
+                            criterion="misclassification"),
+                 1.0)
+    expect_equal(iai::score("regression", y_pred, y,
+                            criterion="mse"),
+                 1.0)
+    expect_equal(iai::score("survival", 1 - y_pred, rep(T, 100), y,
+                            criterion="harrell_c_statistic"),
+                 1.0)
+  }
 })
 
 
@@ -227,4 +256,17 @@ test_that("add_julia_processes", {
   expect_equal(JuliaCall::julia_eval("Distributed.nprocs()"), 2)
   JuliaCall::julia_eval("Distributed.rmprocs(Distributed.workers())")
   expect_equal(JuliaCall::julia_eval("Distributed.nprocs()"), 1)
+})
+
+
+test_that("get_machine_id", {
+  skip_on_cran()
+
+  if (iai:::iai_version_less_than("1.2.0")) {
+    id <- JuliaCall::julia_eval("IAI.IAIBase.machine_id()")
+  } else {
+    id <- JuliaCall::julia_eval("IAI.IAILicensing.machine_id()")
+  }
+
+  expect_equal(iai::get_machine_id(), id)
 })

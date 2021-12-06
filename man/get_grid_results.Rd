@@ -11,7 +11,7 @@ get_grid_results(grid)
 }
 \description{
 This function was deprecated and renamed to [get_grid_result_summary()]
-in iai 2.1.0. This is for consistency with the IAI v2.2.0 Julia release.
+in iai 1.5.0. This is for consistency with the IAI v2.2.0 Julia release.
 }
 \examples{
 \dontrun{iai::get_grid_results(grid)}

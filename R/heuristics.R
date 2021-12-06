@@ -1,7 +1,7 @@
 #' Learner for training random forests for classification problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.RandomForestClassifier}{\code{IAI.RandomForestClassifier}}
+#' \href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.RandomForestClassifier}{\code{IAI.RandomForestClassifier}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -21,7 +21,7 @@ random_forest_classifier <- function(...) {
 #' Learner for training random forests for regression problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.RandomForestRegressor}{\code{IAI.RandomForestRegressor}}
+#' \href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.RandomForestRegressor}{\code{IAI.RandomForestRegressor}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -41,7 +41,7 @@ random_forest_regressor <- function(...) {
 #' Learner for training random forests for survival problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.RandomForestSurvivalLearner}{\code{IAI.RandomForestSurvivalLearner}}
+#' \href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.RandomForestSurvivalLearner}{\code{IAI.RandomForestSurvivalLearner}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -61,7 +61,7 @@ random_forest_survival_learner <- function(...) {
 #' Learner for training XGBoost models for classification problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.XGBoostClassifier}{\code{IAI.XGBoostClassifier}}
+#' \href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.XGBoostClassifier}{\code{IAI.XGBoostClassifier}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -81,7 +81,7 @@ xgboost_classifier <- function(...) {
 #' Learner for training XGBoost models for regression problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.XGBoostRegressor}{\code{IAI.XGBoostRegressor}}
+#' \href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.XGBoostRegressor}{\code{IAI.XGBoostRegressor}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -101,7 +101,7 @@ xgboost_regressor <- function(...) {
 #' Learner for training XGBoost models for survival problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.XGBoostSurvivalLearner}{\code{IAI.XGBoostSurvivalLearner}}
+#' \href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.XGBoostSurvivalLearner}{\code{IAI.XGBoostSurvivalLearner}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -121,7 +121,7 @@ xgboost_survival_learner <- function(...) {
 #' Write the internal booster saved in the learner to file
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.write_booster}{\code{IAI.write_booster}}
+#' \href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.write_booster}{\code{IAI.write_booster}}
 #'
 #' @param filename Where to save the output.
 #' @param lnr The XGBoost learner with the booster to output.
@@ -141,7 +141,7 @@ write_booster <- function(filename, lnr) {
 #' Calculate SHAP values for all points in the features using the learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.predict_shap}{\code{IAI.predict_shap}}
+#' \href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.predict_shap}{\code{IAI.predict_shap}}
 #'
 #' @param lnr The XGBoost learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -162,10 +162,11 @@ predict_shap <- function(lnr, X) {
 }
 
 
-#' Learner for training GLMNet models for regression problems
+#' Learner for training GLMNet models for regression problems with
+#' cross-validation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.GLMNetCVRegressor}{\code{IAI.GLMNetCVRegressor}}
+#' \href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.GLMNetCVRegressor}{\code{IAI.GLMNetCVRegressor}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -182,10 +183,52 @@ glmnetcv_regressor <- function(...) {
 }
 
 
+#' Learner for training GLMNet models for classification problems with
+#' cross-validation
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.GLMNetCVClassifier}{\code{IAI.GLMNetCVClassifier}}
+#'
+#' @param ... Use keyword arguments to set parameters on the resulting learner.
+#'            Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{lnr <- iai::glmnetcv_classifier()}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 2.3 or higher.
+#'
+#' @export
+glmnetcv_classifier <- function(...) {
+  requires_iai_version("2.3.0", "glmnetcv_classifier")
+  set_obj_class(jl_func("IAI.GLMNetCVClassifier_convert", ...))
+}
+
+
+#' Learner for training GLMNet models for survival problems with
+#' cross-validation
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.GLMNetCVSurvivalLearner}{\code{IAI.GLMNetCVSurvivalLearner}}
+#'
+#' @param ... Use keyword arguments to set parameters on the resulting learner.
+#'            Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{lnr <- iai::glmnetcv_survival_learner()}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.0 or higher.
+#'
+#' @export
+glmnetcv_survival_learner <- function(...) {
+  requires_iai_version("3.0.0", "glmnetcv_survival_learner")
+  set_obj_class(jl_func("IAI.GLMNetCVSurvivalLearner_convert", ...))
+}
+
+
 #' Return the number of fits along the path in the trained learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.get_num_fits}{\code{IAI.get_num_fits}}
+#' \href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.get_num_fits}{\code{IAI.get_num_fits}}
 #'
 #' @param lnr The GLMNet learner to query.
 #'

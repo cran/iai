@@ -10,7 +10,7 @@
 \item{x}{The grid search to plot}
 
 \item{...}{Additional arguments (passed to
-\href{https://docs.interpretable.ai/v2.2.0/IAI-R/reference/#ggplot2::autoplot.grid_search}{\code{ggplot2::autoplot.grid_search}})}
+\href{https://docs.interpretable.ai/v3.0.0/IAI-R/reference/#ggplot2::autoplot.grid_search}{\code{ggplot2::autoplot.grid_search}})}
 }
 \description{
 Plot a grid search results for Optimal Feature Selection learners

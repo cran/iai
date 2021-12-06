@@ -1,7 +1,7 @@
 #' Split the data into training and test datasets
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.split_data}{\code{IAI.split_data}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.split_data}{\code{IAI.split_data}}
 #'
 #' @param task The type of problem.
 #' @param X The features of the data.
@@ -39,7 +39,7 @@ split_data <- function(task, X, ...) {
 #' Fits a model to the training data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.fit!}{\code{IAI.fit!}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.fit!}{\code{IAI.fit!}}
 #'
 #' @param lnr The learner or grid to fit.
 #' @param X The features of the data.
@@ -59,7 +59,7 @@ fit <- function(lnr, X, ...) {
 #' Return the predictions made by the model for each point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.predict}{\code{IAI.predict}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.predict}{\code{IAI.predict}}
 #'
 #' @param lnr The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -77,22 +77,59 @@ predict <- function(lnr, X, ...) {
 }
 
 
+#' Generic function for calculating scores
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.score}{\code{IAI.score}}
+#'
+#' @param obj The object controlling which method is used
+#' @param ... Arguments depending on the specific method used
+#'
+#' @export
+score <- function(obj, ...) {
+  UseMethod("score", obj)
+}
+
+
 #' Calculate the score for a model on the given data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.score}{\code{IAI.score}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.score}{\code{IAI.score}}
 #'
-#' @param lnr The learner or grid to evaluate.
+#' @param obj The learner or grid to evaluate.
 #' @param X The features of the data.
 #' @param ... Other parameters, including zero or more target vectors as
 #'            required by the problem type. Refer to the Julia documentation for
 #'            available parameters.
 #'
-#' @examples \dontrun{iai::score(lnr, X, y)}
+#' @examples \dontrun{iai::score(obj, X, y)}
 #'
 #' @export
-score <- function(lnr, X, ...) {
-  jl_func("IAI.score_convert", lnr, X, ...)
+score.learner <- function(obj, X, ...) {
+  jl_func("IAI.score_convert", obj, X, ...)
+}
+
+
+#' Calculate the score for a set of predictions on the given data
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.score}{\code{IAI.score}}
+#'
+#' @param obj The type of problem.
+#' @param predictions The predictions to evaluate.
+#' @param truths The true target values for these observations.
+#' @param ... Other parameters, including the criterion. Refer to the Julia documentation for
+#'            available parameters.
+#'
+#' @examples \dontrun{iai::score("regression", y_pred, y_true, criterion="mse")}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 2.1 or higher.
+#'
+#' @export
+score.default <- function(obj, predictions, truths, ...) {
+  requires_iai_version("2.1.0", "score")
+  jl_func("IAI.score_convert", obj, predictions, truths, ...)
 }
 
 
@@ -101,22 +138,23 @@ score <- function(lnr, X, ...) {
 #' one.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.variable_importance}{\code{IAI.variable_importance}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.variable_importance}{\code{IAI.variable_importance}}
 #'
 #' @param lnr The learner to query.
+#' @param ... Refer to the Julia documentation for available parameters.
 #'
-#' @examples \dontrun{iai::variable_importance(lnr)}
+#' @examples \dontrun{iai::variable_importance(lnr, ...)}
 #'
 #' @export
-variable_importance <- function(lnr) {
-  jl_func("IAI.variable_importance_convert", lnr)
+variable_importance <- function(lnr, ...) {
+  jl_func("IAI.variable_importance_convert", lnr, ...)
 }
 
 
 #' Return the names of the features used by the learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.get_features_used}{\code{IAI.get_features_used}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.get_features_used}{\code{IAI.get_features_used}}
 #'
 #' @param lnr The learner to query.
 #'
@@ -135,7 +173,7 @@ get_features_used <- function(lnr) {
 #' Output a learner or grid in JSON format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.write_json}{\code{IAI.write_json}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.write_json}{\code{IAI.write_json}}
 #'
 #' @param filename Where to save the output.
 #' @param obj The learner or grid to output.
@@ -152,7 +190,7 @@ write_json <- function(filename, obj, ...) {
 #' Read in a learner or grid saved in JSON format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.read_json}{\code{IAI.read_json}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.read_json}{\code{IAI.read_json}}
 #'
 #' @param filename The location of the JSON file.
 #'
@@ -167,7 +205,7 @@ read_json <- function(filename) {
 #' Return the value of all parameters on a learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.get_params}{\code{IAI.get_params}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.get_params}{\code{IAI.get_params}}
 #'
 #' @param lnr The learner to query.
 #'
@@ -182,7 +220,7 @@ get_params <- function(lnr) {
 #' Set all supplied parameters on a learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.set_params!}{\code{IAI.set_params!}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.set_params!}{\code{IAI.set_params!}}
 #'
 #' @param lnr The learner to modify.
 #' @param ... The parameters to set on the learner.
@@ -199,7 +237,7 @@ set_params <- function(lnr, ...) {
 #' Return an unfitted copy of a learner with the same parameters
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.clone}{\code{IAI.clone}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.clone}{\code{IAI.clone}}
 #'
 #' @param lnr The learner to copy.
 #'
@@ -215,7 +253,7 @@ clone <- function(lnr) {
 #' the default browser
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.show_in_browser}{\code{IAI.show_in_browser}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.show_in_browser}{\code{IAI.show_in_browser}}
 #'
 #' @param obj The object to visualize.
 #' @param ... Refer to the Julia documentation for available parameters.
@@ -234,7 +272,7 @@ show_in_browser <- function(obj, ...) {
 #' Sets a global rich output parameter
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.set_rich_output_param!}{\code{IAI.set_rich_output_param!}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.set_rich_output_param!}{\code{IAI.set_rich_output_param!}}
 #'
 #' @param key The parameter to set.
 #' @param value The value to set
@@ -250,7 +288,7 @@ set_rich_output_param <- function(key, value) {
 #' Return the current global rich output parameter settings
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.get_rich_output_params}{\code{IAI.get_rich_output_params}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.get_rich_output_params}{\code{IAI.get_rich_output_params}}
 #'
 #' @examples \dontrun{iai::get_rich_output_params()}
 #'
@@ -263,7 +301,7 @@ get_rich_output_params <- function() {
 #' Delete a global rich output parameter
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.delete_rich_output_param!}{\code{IAI.delete_rich_output_param!}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.delete_rich_output_param!}{\code{IAI.delete_rich_output_param!}}
 #'
 #' @param key The parameter to delete.
 #'
@@ -278,7 +316,7 @@ delete_rich_output_param <- function(key) {
 #' Controls grid search over parameter combinations
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.GridSearch}{\code{IAI.GridSearch}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.GridSearch}{\code{IAI.GridSearch}}
 #'
 #' @param lnr The learner to use when validating.
 #' @param ... The parameters to validate over.
@@ -294,7 +332,7 @@ grid_search <- function(lnr, ...) {
 #' Fits a grid search to the training data with cross-validation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.fit_cv!}{\code{IAI.fit_cv!}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.fit_cv!}{\code{IAI.fit_cv!}}
 #'
 #' @param grid The grid to fit.
 #' @param X The features of the data.
@@ -314,7 +352,7 @@ fit_cv <- function(grid, X, ...) {
 #' Return the fitted learner using the best parameter combination from a grid
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.get_learner}{\code{IAI.get_learner}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.get_learner}{\code{IAI.get_learner}}
 #'
 #' @param grid The grid to query.
 #'
@@ -329,7 +367,7 @@ get_learner <- function(grid) {
 #' Return the best parameter combination from a grid
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.get_best_params}{\code{IAI.get_best_params}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.get_best_params}{\code{IAI.get_best_params}}
 #'
 #' @param grid The grid search to query.
 #'
@@ -344,7 +382,7 @@ get_best_params <- function(grid) {
 #' Return a summary of the results from the grid search
 #'
 #' This function was deprecated and renamed to [get_grid_result_summary()]
-#' in iai 2.1.0. This is for consistency with the IAI v2.2.0 Julia release.
+#' in iai 1.5.0. This is for consistency with the IAI v2.2.0 Julia release.
 #'
 #' @param grid The grid search to query.
 #'
@@ -352,7 +390,7 @@ get_best_params <- function(grid) {
 #'
 #' @export
 get_grid_results <- function(grid) {
-  lifecycle::deprecate_warn("2.1.0", "iai::get_grid_results()",
+  lifecycle::deprecate_warn("1.5.0", "iai::get_grid_results()",
                             "get_grid_result_summary()")
   get_grid_result_summary(grid)
 }
@@ -361,7 +399,7 @@ get_grid_results <- function(grid) {
 #' Return a summary of the results from the grid search
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.get_grid_result_summary}{\code{IAI.get_grid_result_summary}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.get_grid_result_summary}{\code{IAI.get_grid_result_summary}}
 #'
 #' @param grid The grid search to query.
 #'
@@ -380,7 +418,7 @@ get_grid_result_summary <- function(grid) {
 #' Return a vector of lists detailing the results of the grid search
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.get_grid_result_details}{\code{IAI.get_grid_result_details}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.get_grid_result_details}{\code{IAI.get_grid_result_details}}
 #'
 #' @param grid The grid search to query.
 #'
@@ -410,7 +448,7 @@ get_grid_result_details <- function(grid) {
 #' point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.predict_proba}{\code{IAI.predict_proba}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.predict_proba}{\code{IAI.predict_proba}}
 #'
 #' @param lnr The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -426,7 +464,7 @@ predict_proba <- function(lnr, X) {
 #' Generic function for constructing an ROC curve
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
 #'
 #' @param obj The object controlling which method is used
 #' @param ... Arguments depending on the specific method used
@@ -440,7 +478,7 @@ roc_curve <- function(obj, ...) {
 #' Construct an ROC curve using a trained model on the given data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -458,7 +496,7 @@ roc_curve.learner <- function(obj, X, y, ...) {
 #' Construct an ROC curve from predicted probabilities and true labels
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
 #'
 #' @param obj The predicted probabilities for each point in the data.
 #' @param y The true labels of the data.
@@ -535,7 +573,7 @@ plot.roc_curve <- function(x, ...) {
 
 
 #' Extract the underlying data from an ROC curve (as returned by
-#' \href{https://docs.interpretable.ai/v2.2.0/IAI-R/reference/#iai::roc_curve}{\code{roc_curve}})
+#' \href{https://docs.interpretable.ai/v3.0.0/IAI-R/reference/#iai::roc_curve}{\code{roc_curve}})
 #'
 #' The data is returned as a list with two keys: \code{auc} giving the
 #' area-under-the-curve, and \code{coords} containing a vector of lists
@@ -544,7 +582,7 @@ plot.roc_curve <- function(x, ...) {
 #' (the threshold).
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.get_roc_curve_data}{\code{IAI.get_roc_curve_data}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.get_roc_curve_data}{\code{IAI.get_roc_curve_data}}
 #'
 #' @param curve The curve to query.
 #'
@@ -561,16 +599,16 @@ get_roc_curve_data <- function(curve) {
 
 
 #' Extract the underlying data from a survival curve (as returned by
-#' \href{https://docs.interpretable.ai/v2.2.0/IAI-R/reference/#iai::predict}{\code{predict}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAI-R/reference/#iai::predict}{\code{predict}}
 #' or
-#' \href{https://docs.interpretable.ai/v2.2.0/IAI-R/reference/#iai::get_survival_curve}{\code{get_survival_curve}})
+#' \href{https://docs.interpretable.ai/v3.0.0/IAI-R/reference/#iai::get_survival_curve}{\code{get_survival_curve}})
 #'
 #' The data is returned as a list with two keys: \code{times} containing the
 #' time for each breakpoint on the curve, and \code{coefs} containing the
 #' probability for each breakpoint on the curve.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.get_survival_curve_data}{\code{IAI.get_survival_curve_data}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.get_survival_curve_data}{\code{IAI.get_survival_curve_data}}
 #'
 #' @param curve The curve to query.
 #'
@@ -589,10 +627,11 @@ get_survival_curve_data <- function(curve) {
 #' survival time.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.predict_hazard}{\code{IAI.predict_hazard}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.predict_hazard}{\code{IAI.predict_hazard}}
 #'
 #' @param lnr The learner or grid to use for prediction.
 #' @param X The features of the data.
+#' @param ... Refer to the Julia documentation for available parameters.
 #'
 #' @examples \dontrun{iai::predict_hazard(lnr, X)}
 #'
@@ -600,9 +639,9 @@ get_survival_curve_data <- function(curve) {
 #' Requires IAI version 1.2 or higher.
 #'
 #' @export
-predict_hazard <- function(lnr, X) {
+predict_hazard <- function(lnr, X, ...) {
   requires_iai_version("1.2.0", "predict_hazard")
-  jl_func("IAI.predict_hazard_convert", lnr, X)
+  jl_func("IAI.predict_hazard_convert", lnr, X, ...)
 }
 
 
@@ -610,10 +649,11 @@ predict_hazard <- function(lnr, X) {
 #' point in the features.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.predict_expected_survival_time}{\code{IAI.predict_expected_survival_time}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.predict_expected_survival_time}{\code{IAI.predict_expected_survival_time}}
 #'
 #' @param lnr The learner or grid to use for prediction.
 #' @param X The features of the data.
+#' @param ... Refer to the Julia documentation for available parameters.
 #'
 #' @examples \dontrun{iai::predict_expected_survival_time(lnr, X)}
 #'
@@ -621,9 +661,9 @@ predict_hazard <- function(lnr, X) {
 #' Requires IAI version 2.0 or higher.
 #'
 #' @export
-predict_expected_survival_time <- function(lnr, X) {
+predict_expected_survival_time <- function(lnr, X, ...) {
   requires_iai_version("2.0.0", "predict_expected_survival_time")
-  jl_func("IAI.predict_expected_survival_time_convert", lnr, X)
+  jl_func("IAI.predict_expected_survival_time_convert", lnr, X, ...)
 }
 
 
@@ -631,7 +671,7 @@ predict_expected_survival_time <- function(lnr, X) {
 #' point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAIBase-API-Reference-1}{\code{IAI.predict_outcomes}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAIBase-API-Reference-1}{\code{IAI.predict_outcomes}}
 #' (for prescription or policy learners as appropriate)
 #'
 #' @param lnr The learner or grid to use for prediction.
@@ -653,7 +693,7 @@ predict_outcomes <- function(lnr, X, ...) {
 #' features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.predict_treatment_rank}{\code{IAI.predict_treatment_rank}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.predict_treatment_rank}{\code{IAI.predict_treatment_rank}}
 #'
 #' @param lnr The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -674,7 +714,7 @@ predict_treatment_rank <- function(lnr, X) {
 #' learner for each point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.predict_treatment_outcome}{\code{IAI.predict_treatment_outcome}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.predict_treatment_outcome}{\code{IAI.predict_treatment_outcome}}
 #'
 #' @param lnr The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -694,7 +734,7 @@ predict_treatment_outcome <- function(lnr, X) {
 #' Impute missing values in a dataframe using a fitted imputation model
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.transform}{\code{IAI.transform}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.transform}{\code{IAI.transform}}
 #'
 #' @param lnr The learner or grid to use for imputation
 #' @param X The features of the data.
@@ -711,12 +751,12 @@ transform <- function(lnr, X) {
 #' values in these features
 #'
 #' Similar to calling
-#' \href{https://docs.interpretable.ai/v2.2.0/IAI-R/reference/#iai::fit}{\code{fit}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAI-R/reference/#iai::fit}{\code{fit}}
 #' followed by
-#' \href{https://docs.interpretable.ai/v2.2.0/IAI-R/reference/#iai::transform}{\code{transform}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAI-R/reference/#iai::transform}{\code{transform}}
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
 #'
 #' @param lnr The learner or grid to use for imputation
 #' @param X The features of the data.
@@ -734,7 +774,7 @@ fit_transform <- function(lnr, X, ...) {
 #' values in these features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.fit_transform_cv!}{\code{IAI.fit_transform_cv!}}
+#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.fit_transform_cv!}{\code{IAI.fit_transform_cv!}}
 #'
 #' @param grid The grid to use for imputation
 #' @param X The features of the data.

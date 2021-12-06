@@ -2,7 +2,8 @@
 % Please edit documentation in R/heuristics.R
 \name{glmnetcv_regressor}
 \alias{glmnetcv_regressor}
-\title{Learner for training GLMNet models for regression problems}
+\title{Learner for training GLMNet models for regression problems with
+cross-validation}
 \usage{
 glmnetcv_regressor(...)
 }
@@ -12,7 +13,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/Heuristics/reference/#IAI.GLMNetCVRegressor}{\code{IAI.GLMNetCVRegressor}}
+\href{https://docs.interpretable.ai/v3.0.0/Heuristics/reference/#IAI.GLMNetCVRegressor}{\code{IAI.GLMNetCVRegressor}}
 }
 \section{IAI Compatibility}{
 

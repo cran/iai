@@ -2,24 +2,16 @@
 % Please edit documentation in R/iaibase.R
 \name{score}
 \alias{score}
-\title{Calculate the score for a model on the given data}
+\title{Generic function for calculating scores}
 \usage{
-score(lnr, X, ...)
+score(obj, ...)
 }
 \arguments{
-\item{lnr}{The learner or grid to evaluate.}
+\item{obj}{The object controlling which method is used}
 
-\item{X}{The features of the data.}
-
-\item{...}{Other parameters, including zero or more target vectors as
-required by the problem type. Refer to the Julia documentation for
-available parameters.}
+\item{...}{Arguments depending on the specific method used}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.score}{\code{IAI.score}}
-}
-\examples{
-\dontrun{iai::score(lnr, X, y)}
-
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.score}{\code{IAI.score}}
 }

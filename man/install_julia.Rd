@@ -4,12 +4,16 @@
 \alias{install_julia}
 \title{Download and install Julia automatically.}
 \usage{
-install_julia(prefix = julia_default_install_dir())
+install_julia(version = "latest", prefix = julia_default_install_dir())
 }
 \arguments{
+\item{version}{The version of Julia to install (e.g. \code{"1.6.3"}).
+Defaults to \code{"latest"}, which will install the most
+recent stable release.}
+
 \item{prefix}{The directory where Julia will be installed. Defaults to a
 location determined by
-\href{https://rdrr.io/cran/rappdirs/man/user_data_dir.html}{\code{rappdirs::user_data_dir}}.}
+\href{https://www.rdocumentation.org/packages/rappdirs/topics/user_data_dir}{\code{rappdirs::user_data_dir}}.}
 }
 \description{
 Download and install Julia automatically.

@@ -16,7 +16,7 @@ predict_outcomes(lnr, X, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAIBase-API-Reference-1}{\code{IAI.predict_outcomes}}
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAIBase-API-Reference-1}{\code{IAI.predict_outcomes}}
 (for prescription or policy learners as appropriate)
 }
 \section{IAI Compatibility}{

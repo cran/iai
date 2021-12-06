@@ -14,7 +14,7 @@ defaulting to the best fit if not supplied.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
+\href{https://docs.interpretable.ai/v3.0.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
 }
 \section{IAI Compatibility}{
 

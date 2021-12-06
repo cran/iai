@@ -1,5 +1,17 @@
 # Unreleased
 
+# iai 1.7.0
+
+* Add `cleanup_installation`
+* Deprecate `impute` and `impute_cv`
+* Add `predict_reward`
+* Use official julialang.org binaries in `install_julia`
+* Support additional args in `variable_importance`
+* Add `get_machine_id`
+* Add `glmnetcv_classifier`
+* Add direct score calculation
+* Add tree refitting functions
+
 # iai 1.6.0
 
 * Add `add_julia_processes`

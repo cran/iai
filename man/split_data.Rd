@@ -17,10 +17,10 @@ available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.split_data}{\code{IAI.split_data}}
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.split_data}{\code{IAI.split_data}}
 }
 \examples{
-\donttest{
+\dontrun{
 X <- iris[, 1:4]
 y <- iris$Species
 split <- iai::split_data("classification", X, y, train_proportion = 0.75)

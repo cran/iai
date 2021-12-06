@@ -15,9 +15,12 @@ This function was deprecated in iai 1.6.0, and
 [numeric_classification_reward_estimator()] or
 [numeric_classification_reward_estimator()] should be used instead.
 }
+\details{
+This deprecation is no longer supported as of the IAI v3 release.
+}
 \section{IAI Compatibility}{
 
-Requires IAI version 2.1 or higher.
+Requires IAI version 2.1 or 2.2.
 }
 
 \examples{

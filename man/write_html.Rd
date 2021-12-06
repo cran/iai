@@ -15,7 +15,7 @@ write_html(filename, lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAITrees/reference/#IAI.write_html}{\code{IAI.write_html}}
+\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.write_html}{\code{IAI.write_html}}
 }
 \section{IAI Compatibility}{
 

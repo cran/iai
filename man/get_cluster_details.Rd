@@ -14,7 +14,7 @@ get_cluster_details(stability, num_trees)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAITrees/reference/#IAI.get_cluster_details}{\code{get_cluster_details}}
+\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.get_cluster_details}{\code{get_cluster_details}}
 }
 \section{IAI Compatibility}{
 

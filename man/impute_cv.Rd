@@ -13,10 +13,14 @@ impute_cv(X, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/OptImpute/reference/#IAI.impute_cv}{\code{IAI.impute_cv}}
+\href{https://docs.interpretable.ai/v3.0.0/OptImpute/reference/#IAI.impute_cv}{\code{IAI.impute_cv}}
+}
+\details{
+This function was deprecated in iai 1.7.0. This is for consistency with the
+IAI v3.0.0 Julia release.
 }
 \examples{
-\donttest{
+\dontrun{
 X <- iris
 X[1, 1] <- NA
 iai::impute_cv(X, list(method = c("opt_knn", "opt_tree")))

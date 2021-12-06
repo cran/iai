@@ -1,7 +1,7 @@
 #' Learner for conducting Optimal Feature Selection on classification problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionClassifier}{\code{IAI.OptimalFeatureSelectionClassifier}}
+#' \href{https://docs.interpretable.ai/v3.0.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionClassifier}{\code{IAI.OptimalFeatureSelectionClassifier}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -21,7 +21,7 @@ optimal_feature_selection_classifier <- function(...) {
 #' Learner for conducting Optimal Feature Selection on regression problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionRegressor}{\code{IAI.OptimalFeatureSelectionRegressor}}
+#' \href{https://docs.interpretable.ai/v3.0.0/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionRegressor}{\code{IAI.OptimalFeatureSelectionRegressor}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -41,7 +41,7 @@ optimal_feature_selection_regressor <- function(...) {
 #' Return the constant term in the prediction in the trained learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
+#' \href{https://docs.interpretable.ai/v3.0.0/OptimalFeatureSelection/reference/#IAI.get_prediction_constant}{\code{IAI.get_prediction_constant}}
 #'
 #' @param lnr The learner to query.
 #' @param ... If a GLMNet learner, the index of the fit in the path to query,
@@ -63,7 +63,7 @@ get_prediction_constant <- function(lnr, ...) {
 #' the trained learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v2.2.0/OptimalFeatureSelection/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
+#' \href{https://docs.interpretable.ai/v3.0.0/OptimalFeatureSelection/reference/#IAI.get_prediction_weights}{\code{IAI.get_prediction_weights}}
 #'
 #' @param lnr The learner to query.
 #' @param ... If a GLMNet learner, the index of the fit in the path to query,
@@ -91,7 +91,7 @@ get_prediction_weights <- function(lnr, ...) {
 #' @param x The grid search to plot
 #' @param type The type of plot to construct (either \code{"validation"} or
 #'             \code{"importance"}, for more information refer to the
-#'             \href{https://docs.interpretable.ai/v2.2.0/OptimalFeatureSelection/visualization/#Plotting-Grid-Search-Results-1}{Julia documentation for plotting grid search results}
+#'             \href{https://docs.interpretable.ai/v3.0.0/OptimalFeatureSelection/visualization/#Plotting-Grid-Search-Results-1}{Julia documentation for plotting grid search results}
 #'             )
 #' @param ... Additional arguments (unused)
 #'
@@ -139,7 +139,7 @@ autoplot.grid_search <- function(x, type = stop("`type` is required"), ...) {
 #'
 #' @param x The grid search to plot
 #' @param ... Additional arguments (passed to
-#'            \href{https://docs.interpretable.ai/v2.2.0/IAI-R/reference/#ggplot2::autoplot.grid_search}{\code{ggplot2::autoplot.grid_search}})
+#'            \href{https://docs.interpretable.ai/v3.0.0/IAI-R/reference/#ggplot2::autoplot.grid_search}{\code{ggplot2::autoplot.grid_search}})
 #'
 #' @examples \dontrun{plot(grid)}
 #'

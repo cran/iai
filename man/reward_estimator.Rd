@@ -14,6 +14,14 @@ Refer to the Julia documentation for available parameters.}
 This function was deprecated and renamed to \code{\link[=categorical_reward_estimator]{categorical_reward_estimator()}}
 in iai 1.4.0. This is for consistency with the IAI v2.1.0 Julia release.
 }
+\details{
+This deprecation is no longer supported as of the IAI v3 release.
+}
+\section{IAI Compatibility}{
+
+Requires IAI version 2.2 or lower.
+}
+
 \examples{
 \dontrun{lnr <- iai::reward_estimator()}
 

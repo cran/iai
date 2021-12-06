@@ -13,7 +13,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/RewardEstimation/reference/#IAI.CategoricalRegressionRewardEstimator}{\code{IAI.CategoricalRegressionRewardEstimator}}
+\href{https://docs.interpretable.ai/v3.0.0/RewardEstimation/reference/#IAI.CategoricalRegressionRewardEstimator}{\code{IAI.CategoricalRegressionRewardEstimator}}
 }
 \section{IAI Compatibility}{
 

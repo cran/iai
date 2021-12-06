@@ -16,16 +16,16 @@ fit_transform(lnr, X, ...)
 }
 \description{
 Similar to calling
-\href{https://docs.interpretable.ai/v2.2.0/IAI-R/reference/#iai::fit}{\code{fit}}
+\href{https://docs.interpretable.ai/v3.0.0/IAI-R/reference/#iai::fit}{\code{fit}}
 followed by
-\href{https://docs.interpretable.ai/v2.2.0/IAI-R/reference/#iai::transform}{\code{transform}}
+\href{https://docs.interpretable.ai/v3.0.0/IAI-R/reference/#iai::transform}{\code{transform}}
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v2.2.0/IAIBase/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
+\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
 }
 \examples{
-\donttest{
+\dontrun{
 X <- iris
 X[1, 1] <- NA
 grid <- iai::grid_search(

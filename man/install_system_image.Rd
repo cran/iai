@@ -21,7 +21,7 @@ the downloaded IAI system image. Defaults to
 
 \item{prefix}{The directory where the IAI system image will be installed.
 Defaults to a location determined by
-\href{https://rdrr.io/cran/rappdirs/man/user_data_dir.html}{\code{rappdirs::user_data_dir}}.}
+\href{https://www.rdocumentation.org/packages/rappdirs/topics/user_data_dir}{\code{rappdirs::user_data_dir}}.}
 }
 \description{
 Download and install the IAI system image automatically.
