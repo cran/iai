@@ -53,10 +53,59 @@ get_machine_id <- function() {
 }
 
 
+#' Acquire an IAI license for the current session.
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.0/installation/#IAI.acquire_license}{\code{IAI.acquire_license}}
+#'
+#' @param ... Refer to the Julia documentation for available parameters
+#'
+#' @examples \dontrun{iai::acquire_license()}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.1 or higher.
+#'
+#' @export
+acquire_license <- function(...) {
+  requires_iai_version("3.1.0", "acquire_license")
+  jl_func("IAI.acquire_license_convert", ...)
+}
+
+
+#' Release any IAI license held by the current session.
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.0/installation/#IAI.release_license}{\code{IAI.release_license}}
+#'
+#' @examples \dontrun{iai::release_license()}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.1 or higher.
+#'
+#' @export
+release_license <- function() {
+  requires_iai_version("3.1.0", "release_license")
+  jl_func("IAI.release_license_convert")
+}
+
+
+#' Loads the Julia Graphviz library to permit certain visualizations.
+#'
+#' The library will be installed if not already present.
+#'
+#' @examples \dontrun{iai::load_graphviz()}
+#'
+#' @export
+load_graphviz <- function() {
+  julia_install_package_if_needed("Graphviz_jll")
+  julia_library("Graphviz_jll")
+}
+
+
 #' Convert a vector of values to IAI mixed data format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
+#' \href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
 #'
 #' @param values The vector of values to convert
 #' @param categorical_levels The values in \code{values} to treat as categoric

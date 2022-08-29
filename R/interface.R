@@ -17,7 +17,7 @@ iai_run_julia_setup <- function(sysimage_path = NULL, ...) {
   }
 
   if (!is.na(Sys.getenv("IAI_JULIA", unset = NA))) { # nocov start
-    bindir <- normalizePath(dirname(Sys.getenv("IAI_JULIA")), mustWork = F)
+    bindir <- normalizePath(dirname(Sys.getenv("IAI_JULIA")), mustWork = FALSE)
     Sys.setenv(JULIA_HOME = bindir)
 
     # Add Julia bindir to path on windows so that DLLs can be found
@@ -34,12 +34,12 @@ iai_run_julia_setup <- function(sysimage_path = NULL, ...) {
     sysimage_path <- sysimage_load_install_path()
   }
   if (!is.null(sysimage_path)) {
-    sysimage_path <- normalizePath(sysimage_path, mustWork = F)
+    sysimage_path <- normalizePath(sysimage_path, mustWork = FALSE)
   }
 
   # Run julia setup with IAI init disabled to avoid polluting stdout
   # We will instead have to init it manually later
-  Sys.setenv(IAI_DISABLE_INIT = T)
+  Sys.setenv(IAI_DISABLE_INIT = TRUE)
 
   if (Sys.info()["sysname"] == "Darwin") {
     # https://github.com/Non-Contradiction/JuliaCall/commit/5170fcf5c9c650412f2003092b085c4f2ac576b8
@@ -72,8 +72,18 @@ iai_setup <- function(...) {
   # Check version of IAI installed
   if (JuliaCall::julia_exists("IAISysImg")) {
     iai_version <- JuliaCall::julia_eval("IAISysImg.VERSION")
+
+    # Disable update check temporarily so we can show it later
+    old_update_check = Sys.getenv("IAI_DISABLE_UPDATE_CHECK")
+    Sys.setenv(IAI_DISABLE_UPDATE_CHECK = TRUE)
     # Run delayed IAISysImg init
     JuliaCall::julia_eval("IAISysImg.__init__()")
+    # Reset update check
+    if (nchar(old_update_check) == 0) {
+      Sys.unsetenv("IAI_DISABLE_UPDATE_CHECK")
+    } else {
+      Sys.setenv(IAI_DISABLE_UPDATE_CHECK = old_update_check) # nocov
+    }
   } else {
     iai_version <- JuliaCall::julia_installed_package("IAI")
     if (iai_version == "nothing") { # nocov start
@@ -82,7 +92,7 @@ iai_setup <- function(...) {
                  "https://docs.interpretable.ai/stable/IAI-R/installation",
                  sep = ""))
     } # nocov end
-    JuliaCall::julia_library("IAI")
+    JuliaCall::julia_eval("import IAI")
   }
   # Shouldn't be possible to hit this
   stopifnot("IAI module not found" = JuliaCall::julia_exists("IAI"))
@@ -116,7 +126,7 @@ iai_setup <- function(...) {
 
   # Display any license related warnings (added in IAIv3)
   if (!iai_version_less_than("3.0.0")) {
-    jleval = "IAI.IAILicensing.validate_license_convert(1, 1)"
+    jleval <- "IAI.IAILicensing.validate_license_convert(1, 1)"
     messages <- JuliaCall::julia_eval(jleval)
     for (message in messages) {
       warning(message) # nocov
@@ -147,6 +157,10 @@ julia_library <- function(...) {
   iai_setup_auto()
   JuliaCall::julia_library(...)
 }
+julia_install_package_if_needed <- function(...) {
+  iai_setup_auto()
+  JuliaCall::julia_install_package_if_needed(...)
+}
 
 
 get_kwargs <- function(...) {
@@ -159,7 +173,7 @@ get_kwargs <- function(...) {
 
   out <- ""
   pos <- 1
-  for (pos in 1:length(kwargs)) {
+  for (pos in seq_along(kwargs)) {
     key <- names(kwargs)[[pos]]
     value <- kwargs[[pos]]
 
@@ -200,75 +214,20 @@ jl_isa <- function(obj, typename) {
   julia_eval(jleval)
 }
 
-set_obj_class <- function(obj) {
-  if (jl_isa(obj, "IAI.OptimalTreeLearner")) {
-    class(obj) <- c(
-        "optimal_tree_learner",
-        "learner",
-        "iai_visualization",
-        "JuliaObject"
-    )
-  } else if (!iai_version_less_than("1.1.0") &&
-             jl_isa(obj, "IAI.OptimalFeatureSelectionLearner")) {
-    class(obj) <- c(
-        "optimal_feature_selection_learner",
-        "learner",
-        "iai_visualization",
-        "JuliaObject"
-    )
-  } else if (jl_isa(obj, "IAI.Learner")) {
-    class(obj) <- c(
-        "learner",
-        "iai_visualization",
-        "JuliaObject"
-    )
-  } else if (jl_isa(obj, "IAI.GridSearch")) {
-    class(obj) <- c(
-        "grid_search",
-        "learner",
-        "iai_visualization",
-        "JuliaObject"
-    )
-  } else if (jl_isa(obj, "IAI.ROCCurve")) {
-    class(obj) <- c(
-        "roc_curve",
-        "iai_visualization",
-        "JuliaObject"
-    )
-  } else if (!iai_version_less_than("2.2.0") &&
-             jl_isa(obj, "IAI.SimilarityComparison")) {
-    class(obj) <- c(
-        "similarity_comparison",
-        "iai_visualization",
-        "JuliaObject"
-    )
-  } else if (!iai_version_less_than("2.2.0") &&
-             jl_isa(obj, "IAI.StabilityAnalysis")) {
-    class(obj) <- c(
-        "stability_analysis",
-        "iai_visualization",
-        "JuliaObject"
-    )
-  } else if (!iai_version_less_than("1.1.0") &&
-             jl_isa(obj, "IAI.AbstractVisualization")) {
-    class(obj) <- c(
-        "iai_visualization",
-        "JuliaObject"
-    )
-  }
-
-  obj
+jl_isdefined <- function(m, field) {
+  jleval <- stringr::str_interp("isdefined(${m}, :${field})")
+  julia_eval(jleval)
 }
 
 
 #' @export
-`==.iai_visualization` <- function(e1, e2) {
+`==.IAIObject` <- function(e1, e2) {
   jl_func("isequal", e1, e2)
 }
 
 
 #' @export
-print.iai_visualization <- function(x, ...) {
+print.IAIObject <- function(x, ...) {
   if (to_html(x)) {
     invisible(x) # nocov
   } else {

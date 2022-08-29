@@ -16,7 +16,7 @@ get_policy_treatment_rank(lnr, node_index, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.get_policy_treatment_rank}{\code{IAI.get_policy_treatment_rank}}
+\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.get_policy_treatment_rank}{\code{IAI.get_policy_treatment_rank}}
 }
 \section{IAI Compatibility}{
 

@@ -14,7 +14,7 @@ get_split_weights(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.get_split_weights}{\code{IAI.get_split_weights}}
+\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.get_split_weights}{\code{IAI.get_split_weights}}
 }
 \examples{
 \dontrun{iai::get_split_weights(lnr, 1)}

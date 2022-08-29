@@ -54,17 +54,17 @@ test_that("score", {
 
   if (iai:::iai_version_less_than("2.1.0")) {
     expect_error(iai::score("classification", y_pred, y,
-                            criterion="misclassification"),
+                            criterion = "misclassification"),
                  "requires IAI version 2.1.0")
   } else {
     expect_equal(iai::score("classification", y_pred, y,
-                            criterion="misclassification"),
+                            criterion = "misclassification"),
                  1.0)
     expect_equal(iai::score("regression", y_pred, y,
-                            criterion="mse"),
+                            criterion = "mse"),
                  1.0)
-    expect_equal(iai::score("survival", 1 - y_pred, rep(T, 100), y,
-                            criterion="harrell_c_statistic"),
+    expect_equal(iai::score("survival", 1 - y_pred, rep(TRUE, 100), y,
+                            criterion = "harrell_c_statistic"),
                  1.0)
   }
 })
@@ -118,6 +118,19 @@ test_that("grid_search", {
   )
   iai::fit(grid, X, y)
 
+  expect_equal(class(grid), c(
+      "grid_search",
+      "optimal_tree_classifier",
+      "optimal_tree_learner",
+      "classification_tree_learner",
+      "tree_learner",
+      "classification_learner",
+      "supervised_learner",
+      "learner",
+      "IAIObject",
+      "JuliaObject"
+  ))
+
   expect_equal(iai::get_best_params(grid), list(cp = 0.25))
   lifecycle::expect_deprecated(iai::get_grid_results(grid))
   expect_true(is.data.frame(iai::get_grid_result_summary(grid)))
@@ -151,7 +164,20 @@ test_that("roc_curve", {
   iai::fit(lnr, X, y == "setosa")
   roc <- iai::roc_curve(lnr, X, y == "setosa")
 
-  expect_true("iai_visualization" %in% class(roc))
+  expect_equal(class(roc), c(
+      "roc_curve",
+      "IAIObject",
+      "JuliaObject"
+  ))
+
+  if (iai:::iai_version_less_than("1.1.0")) {
+    expect_error(iai::show_in_browser(roc), "requires IAI version 1.1.0")
+    expect_error(iai::write_html("roc.html", roc), "requires IAI version 1.1.0")
+  } else {
+    iai::write_html("roc.html", roc)
+    expect_true(file.exists("roc.html"))
+    file.remove("roc.html")
+  }
 
   probs <- runif(10)
   y <- rbinom(10, 1, 0.5)
@@ -165,7 +191,11 @@ test_that("roc_curve", {
     expect_error(iai::roc_curve(probs, y), "positive_label")
 
     roc <- iai::roc_curve(probs, y, positive_label = positive_label)
-    expect_true("iai_visualization" %in% class(roc))
+    expect_equal(class(roc), c(
+        "roc_curve",
+        "IAIObject",
+        "JuliaObject"
+    ))
   }
 
   if (iai:::iai_version_less_than("2.1.0")) {
@@ -269,4 +299,49 @@ test_that("get_machine_id", {
   }
 
   expect_equal(iai::get_machine_id(), id)
+})
+
+test_that("resume_from_checkpoint", {
+  skip_on_cran()
+
+  if (iai:::iai_version_less_than("3.1.0")) {
+    expect_error(iai::resume_from_checkpoint(), "requires IAI version 3.1.0")
+  } else {
+    X <- iris[, 1:4]
+    y <- iris$Species
+
+    # OptimalTrees
+    d <- tempfile()
+    lnr1 <- iai::optimal_tree_classifier(cp = 0, max_depth = 4,
+                                         checkpoint_dir = d)
+    iai::fit(lnr1, X, y)
+
+    f <- file.path(d, "checkpoint.json")
+    lnr2 <- iai::resume_from_checkpoint(f)
+
+    expect_equal(lnr1, lnr2)
+
+    # RewardEstimation
+    d <- tempfile()
+    lnr1 <- iai::categorical_regression_reward_estimator(
+        propensity_estimator = iai::xgboost_classifier(num_round = 5),
+        propensity_insample_num_folds = 2,
+        outcome_estimator = iai::xgboost_regressor(num_round = 5),
+        outcome_insample_num_folds = 2,
+        reward_estimator = "doubly_robust",
+        checkpoint_dir = d,
+    )
+    out1 <- iai::fit_predict(lnr1, X, y, X$Sepal.Length)
+
+    f <- file.path(d, "checkpoint.json")
+    tmp <- iai::resume_from_checkpoint(f)
+    lnr2 <- tmp$learner
+    out2 <- tmp$results
+
+    # convert to str
+    iai::set_params(lnr2, reward_estimator = lnr1$reward_estimator)
+
+    expect_equal(lnr1, lnr2)
+    expect_true(all(out1$predictions$reward == out2$predictions$reward))
+  }
 })

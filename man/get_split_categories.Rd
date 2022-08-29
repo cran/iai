@@ -14,7 +14,7 @@ get_split_categories(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.get_split_categories}{\code{IAI.get_split_categories}}
+\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.get_split_categories}{\code{IAI.get_split_categories}}
 }
 \examples{
 \dontrun{iai::get_split_categories(lnr, 1)}

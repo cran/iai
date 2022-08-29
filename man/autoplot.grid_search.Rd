@@ -13,7 +13,7 @@ object plotting grid search results for Optimal Feature Selection learners}
 
 \item{type}{The type of plot to construct (either \code{"validation"} or
 \code{"importance"}, for more information refer to the
-\href{https://docs.interpretable.ai/v3.0.0/OptimalFeatureSelection/visualization/#Plotting-Grid-Search-Results-1}{Julia documentation for plotting grid search results}
+\href{https://docs.interpretable.ai/v3.1.0/OptimalFeatureSelection/visualization/#Plotting-Grid-Search-Results-1}{Julia documentation for plotting grid search results}
 )}
 
 \item{...}{Additional arguments (unused)}

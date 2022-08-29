@@ -15,7 +15,7 @@ get_policy_treatment_outcome(lnr, node_index, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.get_policy_treatment_outcome}{\code{IAI.get_policy_treatment_outcome}}
+\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.get_policy_treatment_outcome}{\code{IAI.get_policy_treatment_outcome}}
 }
 \section{IAI Compatibility}{
 

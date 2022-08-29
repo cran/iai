@@ -16,7 +16,7 @@ transform_and_expand(lnr, X, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.0.0/OptImpute/reference/#IAI.transform_and_expand}{\code{IAI.transform_and_expand}}
+\href{https://docs.interpretable.ai/v3.1.0/OptImpute/reference/#IAI.transform_and_expand}{\code{IAI.transform_and_expand}}
 }
 \section{IAI Compatibility}{
 

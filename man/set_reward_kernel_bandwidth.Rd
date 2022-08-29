@@ -15,7 +15,7 @@ set_reward_kernel_bandwidth(lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.0.0/RewardEstimation/reference/#IAI.set_reward_kernel_bandwidth!}{\code{IAI.set_reward_kernel_bandwidth!}}
+\href{https://docs.interpretable.ai/v3.1.0/RewardEstimation/reference/#IAI.set_reward_kernel_bandwidth!}{\code{IAI.set_reward_kernel_bandwidth!}}
 }
 \section{IAI Compatibility}{
 

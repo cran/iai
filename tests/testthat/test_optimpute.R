@@ -67,17 +67,17 @@ test_that("expand", {
     expect_equal(X_expanded$x1, c(1, 2, 1))
     expect_equal(X_expanded$x2, c(2, 1, 0))
     expect_equal(as.vector(X_expanded$x3), c("Null Level", "A", "B"))
-    expect_equal(X_expanded$x1_is_missing, c(F, F, F))
-    expect_equal(X_expanded$x2_is_missing, c(F, F, T))
-    expect_equal(X_expanded$x3_is_missing, c(T, F, F))
+    expect_equal(X_expanded$x1_is_missing, c(FALSE, FALSE, FALSE))
+    expect_equal(X_expanded$x2_is_missing, c(FALSE, FALSE, TRUE))
+    expect_equal(X_expanded$x3_is_missing, c(TRUE, FALSE, FALSE))
 
     X_test_expanded <- iai::transform_and_expand(lnr, X_test, type = "finite")
     expect_equal(X_test_expanded$x1, 2)
     expect_equal(X_test_expanded$x2, 0)
     expect_equal(as.vector(X_test_expanded$x3), "Null Level")
-    expect_equal(X_test_expanded$x1_is_missing, F)
-    expect_equal(X_test_expanded$x2_is_missing, T)
-    expect_equal(X_test_expanded$x3_is_missing, T)
+    expect_equal(X_test_expanded$x1_is_missing, FALSE)
+    expect_equal(X_test_expanded$x2_is_missing, TRUE)
+    expect_equal(X_test_expanded$x3_is_missing, TRUE)
   }
 })
 
@@ -87,4 +87,70 @@ test_that("simple API is deprecated", {
 
   lifecycle::expect_deprecated(iai::impute(iris))
   lifecycle::expect_deprecated(iai::impute_cv(iris, list(method = "opt_knn")))
+})
+
+test_that("class", {
+  skip_on_cran()
+
+  expect_equal(class(iai::mean_imputation_learner()), c(
+      "mean_imputation_learner",
+      "imputation_learner",
+      "unsupervised_learner",
+      "learner",
+      "IAIObject",
+      "JuliaObject"
+  ))
+  expect_equal(class(iai::rand_imputation_learner()), c(
+      "rand_imputation_learner",
+      "imputation_learner",
+      "unsupervised_learner",
+      "learner",
+      "IAIObject",
+      "JuliaObject"
+  ))
+  expect_equal(class(iai::single_knn_imputation_learner()), c(
+      "single_knn_imputation_learner",
+      "imputation_learner",
+      "unsupervised_learner",
+      "learner",
+      "IAIObject",
+      "JuliaObject"
+  ))
+  expect_equal(class(iai::opt_knn_imputation_learner()), c(
+      "opt_knn_imputation_learner",
+      "imputation_learner",
+      "unsupervised_learner",
+      "learner",
+      "IAIObject",
+      "JuliaObject"
+  ))
+  expect_equal(class(iai::opt_svm_imputation_learner()), c(
+      "opt_svm_imputation_learner",
+      "imputation_learner",
+      "unsupervised_learner",
+      "learner",
+      "IAIObject",
+      "JuliaObject"
+  ))
+  expect_equal(class(iai::opt_tree_imputation_learner()), c(
+      "opt_tree_imputation_learner",
+      "imputation_learner",
+      "unsupervised_learner",
+      "learner",
+      "IAIObject",
+      "JuliaObject"
+  ))
+
+  if (iai:::iai_version_less_than("3.0.0")) {
+      expect_error(iai::zero_imputation_learner(), "requires IAI version 3.0.0")
+  } else {
+    expect_equal(class(iai::zero_imputation_learner()), c(
+        "zero_imputation_learner",
+        "imputation_learner",
+        "unsupervised_learner",
+        "learner",
+        "IAIObject",
+        "JuliaObject"
+    ))
+  }
 })

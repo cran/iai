@@ -5,11 +5,23 @@ test_that("classification json", {
   skip_on_cran()
 
   lnr <- JuliaCall::julia_eval("IAI.OptimalTrees.load_iris_tree()")
+  lnr <- iai:::set_obj_class(lnr)
 
   iai::write_json("classification.json", lnr)
   new_lnr <- iai::read_json("classification.json")
   file.remove("classification.json")
-  expect_true("optimal_tree_learner" %in% class(new_lnr))
+
+  expect_equal(class(lnr), c(
+      "optimal_tree_classifier",
+      "optimal_tree_learner",
+      "classification_tree_learner",
+      "tree_learner",
+      "classification_learner",
+      "supervised_learner",
+      "learner",
+      "IAIObject",
+      "JuliaObject"
+  ))
 })
 
 
@@ -17,11 +29,23 @@ test_that("regression json", {
   skip_on_cran()
 
   lnr <- JuliaCall::julia_eval("IAI.OptimalTrees.load_mtcars_tree()")
+  lnr <- iai:::set_obj_class(lnr)
 
   iai::write_json("regression.json", lnr)
   new_lnr <- iai::read_json("regression.json")
   file.remove("regression.json")
-  expect_true("optimal_tree_learner" %in% class(new_lnr))
+
+  expect_equal(class(lnr), c(
+      "optimal_tree_regressor",
+      "optimal_tree_learner",
+      "regression_tree_learner",
+      "tree_learner",
+      "regression_learner",
+      "supervised_learner",
+      "learner",
+      "IAIObject",
+      "JuliaObject"
+  ))
 })
 
 
@@ -29,11 +53,23 @@ test_that("survival json", {
   skip_on_cran()
 
   lnr <- JuliaCall::julia_eval("IAI.OptimalTrees.load_survival_tree()")
+  lnr <- iai:::set_obj_class(lnr)
 
   iai::write_json("survival.json", lnr)
   new_lnr <- iai::read_json("survival.json")
   file.remove("survival.json")
-  expect_true("optimal_tree_learner" %in% class(new_lnr))
+
+  expect_equal(class(lnr), c(
+      "optimal_tree_survival_learner",
+      "optimal_tree_learner",
+      "survival_tree_learner",
+      "tree_learner",
+      "survival_learner",
+      "supervised_learner",
+      "learner",
+      "IAIObject",
+      "JuliaObject"
+  ))
 })
 
 
@@ -45,11 +81,24 @@ test_that("prescription json", {
         "IAI.OptimalTrees.load_prescription_tree(:${sense})"
     )
     lnr <- JuliaCall::julia_eval(jl_eval)
+    lnr <- iai:::set_obj_class(lnr)
 
     iai::write_json("prescription.json", lnr)
     new_lnr <- iai::read_json("prescription.json")
     file.remove("prescription.json")
-    expect_true("optimal_tree_learner" %in% class(new_lnr))
+
+    expect_equal(class(lnr), c(
+        ifelse(sense == "min", "optimal_tree_prescription_minimizer",
+                               "optimal_tree_prescription_maximizer"),
+        "optimal_tree_learner",
+        "prescription_tree_learner",
+        "tree_learner",
+        "prescription_learner",
+        "supervised_learner",
+        "learner",
+        "IAIObject",
+        "JuliaObject"
+    ))
   }
 })
 
@@ -68,11 +117,24 @@ test_that("policy json", {
           "IAI.OptimalTrees.load_policy_tree(:${sense})"
       )
       lnr <- JuliaCall::julia_eval(jl_eval)
+      lnr <- iai:::set_obj_class(lnr)
 
       iai::write_json("policy.json", lnr)
       new_lnr <- iai::read_json("policy.json")
       file.remove("policy.json")
-      expect_true("optimal_tree_learner" %in% class(new_lnr))
+
+      expect_equal(class(lnr), c(
+        ifelse(sense == "min", "optimal_tree_policy_minimizer",
+                               "optimal_tree_policy_maximizer"),
+          "optimal_tree_learner",
+          "policy_tree_learner",
+          "tree_learner",
+          "policy_learner",
+          "supervised_learner",
+          "learner",
+          "IAIObject",
+          "JuliaObject"
+      ))
     }
   }
 })
@@ -114,8 +176,9 @@ test_that("feature set inputs", {
         hyperplane_config = list(sparsity = "all", feature_set = feature_set),
         split_features = feature_set,
         regression_features = feature_set,
-        max_depth = 2,
-        cp = 0
+        max_depth = 1,
+        cp = 0,
+        ls_num_tree_restarts = 1,
       )
       iai::fit(lnr, X, y)
       JuliaCall::julia_assign("lnr", lnr)
@@ -139,7 +202,7 @@ test_that("refit_leaves", {
   y <- (((X[, 1] < 0.5) * (X[, 2] + X[, 3])) +
         ((X[, 1] > 0.5) * (0.2 * X[, 4] + X[, 6])))
 
-  lnr <- iai::optimal_tree_regressor(max_depth=2, cp=0)
+  lnr <- iai::optimal_tree_regressor(max_depth = 2, cp = 0)
   iai::fit(lnr, X, y)
   expect_true(iai::score(lnr, X, y) < 0.75)
 
@@ -161,7 +224,7 @@ test_that("copy_splits_and_refit_leaves", {
   y <- (((X[, 1] < 0.5) * (X[, 2])) +
         ((X[, 1] > 0.5) * (0.2 * X[, 4])))
 
-  lnr <- iai::optimal_tree_regressor(max_depth=1, cp=0)
+  lnr <- iai::optimal_tree_regressor(max_depth = 1, cp = 0)
   iai::fit(lnr, X, y)
 
   y_class <- y > mean(y)
@@ -199,17 +262,46 @@ test_that("prune_trees", {
   if (iai:::iai_version_less_than("3.0.0")) {
     # Note: old IAI version can't take `split_features=c(1)` as RCall converts
     #       1-element vector to an int, which isn't a valid type on old versions
-    lnr <- iai::optimal_tree_regressor(max_depth=2, cp=0)
+    lnr <- iai::optimal_tree_regressor(max_depth = 2, cp = 0)
     iai::fit(lnr, X, y)
-    expect_error(iai::prune_trees(lnr, X, y, reselect_best_tree = F),
+    expect_error(iai::prune_trees(lnr, X, y, reselect_best_tree = FALSE),
                  "requires IAI version 3.0.0")
   } else {
-    lnr <- iai::optimal_tree_regressor(max_depth=2, cp=0, split_features=c(1))
+    lnr <- iai::optimal_tree_regressor(max_depth = 2, cp = 0,
+                                       split_features = c(1))
     iai::fit(lnr, X, y)
-    iai::prune_trees(lnr, X, y, reselect_best_tree = F)
+    iai::prune_trees(lnr, X, y, reselect_best_tree = FALSE)
     expect_true(lnr$cp > 0)
     iai::refit_leaves(lnr, X, y, refit_learner = iai::glmnetcv_regressor())
-    iai::prune_trees(lnr, X, y, reselect_best_tree = F)
+    iai::prune_trees(lnr, X, y, reselect_best_tree = FALSE)
     expect_true(lnr$cp > 0)
+  }
+})
+
+
+test_that("lda", {
+  skip_on_cran()
+
+  if (iai:::iai_version_less_than("3.1.0")) {
+    expect_error(
+        iai::optimal_tree_classifier(regression_features = list(All = c())),
+    )
+  } else {
+    n <- 200
+    p <- 4
+    X <- matrix(runif(n * p), n, p)
+    y <- ((X[, 1] > 0.5) * (X[, 2] + X[, 3] < 0.7))
+    y[1:10] <- 1 - y[1:10]
+
+    n2 <- 1000
+    X2 <- matrix(runif(n2 * p), n2, p)
+    y2 <- ((X2[, 1] > 0.5) * (X2[, 2] + X2[, 3] < 0.7))
+
+    grid <- iai::grid_search(
+        iai::optimal_tree_classifier(regression_features = c(2, 3)),
+        max_depth = 1:2,
+    )
+    iai::fit(grid, X, y)
+    expect_true(iai::score(grid, X2, y2) > 0.85)
   }
 })

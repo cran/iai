@@ -20,7 +20,7 @@ be predicted.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.set_threshold!}{\code{IAI.set_threshold!}}
+\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.set_threshold!}{\code{IAI.set_threshold!}}
 }
 \examples{
 \dontrun{iai::set_threshold(lnr, "A", 0.4)}

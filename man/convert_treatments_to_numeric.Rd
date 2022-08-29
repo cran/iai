@@ -11,7 +11,7 @@ convert_treatments_to_numeric(treatments)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.0.0/RewardEstimation/reference/#IAI.convert_treatments_to_numeric}{\code{IAI.convert_treatments_to_numeric}}
+\href{https://docs.interpretable.ai/v3.1.0/RewardEstimation/reference/#IAI.convert_treatments_to_numeric}{\code{IAI.convert_treatments_to_numeric}}
 }
 \examples{
 \dontrun{iai::convert_treatments_to_numeric(c("1", "2", "3"))}

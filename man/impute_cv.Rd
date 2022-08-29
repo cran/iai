@@ -13,7 +13,7 @@ impute_cv(X, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.0.0/OptImpute/reference/#IAI.impute_cv}{\code{IAI.impute_cv}}
+\href{https://docs.interpretable.ai/v3.1.0/OptImpute/reference/#IAI.impute_cv}{\code{IAI.impute_cv}}
 }
 \details{
 This function was deprecated in iai 1.7.0. This is for consistency with the

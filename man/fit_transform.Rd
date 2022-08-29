@@ -16,13 +16,13 @@ fit_transform(lnr, X, ...)
 }
 \description{
 Similar to calling
-\href{https://docs.interpretable.ai/v3.0.0/IAI-R/reference/#iai::fit}{\code{fit}}
+\code{\link{fit.imputation_learner}}
 followed by
-\href{https://docs.interpretable.ai/v3.0.0/IAI-R/reference/#iai::transform}{\code{transform}}
+\code{\link{transform}}
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
+\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
 }
 \examples{
 \dontrun{

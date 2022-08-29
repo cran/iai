@@ -9,21 +9,30 @@ julia_latest_version <- function() {
   url <- "https://julialang-s3.julialang.org/bin/versions.json"
   file <- tempfile()
   utils::download.file(url, file)
-  versions <- rjson::fromJSON(file=file)
-  max(names(Filter(function(v) v$stable, versions)))
+  versions <- rjson::fromJSON(file = file)
+
+  iai_versions <- get_iai_version_info()
+
+  max(intersect(
+      names(Filter(function(v) v$stable, versions)),
+      names(iai_versions)
+  ))
 }
 
 julia_tgz_url <- function(version) {
-  arch <- "x64"
-  short_version <- substr(version, 1, 3)
   sysname <- Sys.info()["sysname"]
+  sysmachine <- Sys.info()["machine"]
+
+  arch <- ifelse(sysmachine == "arm64", "aarch64", "x64")
+  short_version <- substr(version, 1, 3)
+
   if (sysname == "Linux") {
     os <- "linux"
     slug <- "linux-x86_64"
     ext <- "tar.gz"
   } else if (sysname == "Darwin") {
     os <- "mac"
-    slug <- "mac64"
+    slug <- ifelse(sysmachine == "arm64", "macaarch64", "mac64")
     ext <- "dmg"
   } else if (sysname == "Windows") {
     os <- "winnt"
@@ -107,13 +116,13 @@ install_julia <- function(version = "latest",
 
   sysname <- Sys.info()["sysname"]
   if (sysname == "Linux") {
-    utils::untar(file, exdir=dest)
-    subfolder <- paste("julia-", version, sep="")
+    utils::untar(file, exdir = dest)
+    subfolder <- paste("julia-", version, sep = "")
   } else if (sysname == "Darwin") {
     subfolder <- install_julia_dmg(file, dest)
   } else if (sysname == "Windows") {
     utils::unzip(file, exdir = dest)
-    subfolder <- paste("julia-", version, sep="")
+    subfolder <- paste("julia-", version, sep = "")
   }
   dest <- file.path(dest, subfolder)
 
@@ -121,7 +130,7 @@ install_julia <- function(version = "latest",
 
   print(sprintf("Installed Julia to %s", dest))
 
-  return(TRUE)
+  invisible(TRUE)
 }
 
 install_julia_dmg <- function(dmg_path, install_dir) {
@@ -140,12 +149,12 @@ install_julia_dmg <- function(dmg_path, install_dir) {
     exitcode <- system(cmd)
     stopifnot(exitcode == 0)
 
-    appname <- list.files(mount_point, pattern = "julia*", ignore.case = T)
+    appname <- list.files(mount_point, pattern = "julia*", ignore.case = TRUE)
     src_path <- file.path(mount_point, appname)
     if (!dir.exists(install_dir)) {
-      dir.create(install_dir, recursive = T)
+      dir.create(install_dir, recursive = TRUE)
     }
-    file.copy(src_path, install_dir, recursive = T)
+    file.copy(src_path, install_dir, recursive = TRUE)
   },
   finally = {
     umount(mount_point)
@@ -161,43 +170,52 @@ umount <- function(mount_point) {
   }
 }
 
-get_latest_iai_version <- function() {
-  url <- "https://docs.interpretable.ai/stable_version.txt"
-  file <- tempfile()
-  utils::download.file(url, file)
-  readChar(file, 1024)
+#' @importFrom utils tail
+get_latest_iai_version <- function(versions) {
+  vs <- names(versions)
+  tail(vs[vs != "dev"], n = 1)
 }
 
 
-iai_download_url <- function(julia_version, iai_version) {
+iai_download_url <- function(iai_versions, version) {
+  if (startsWith(version, "v")) {
+    version <- substr(version, 2, nchar(version))
+  }
+
+  v <- iai_versions[[version]]
+  if (is.null(v)) {
+    available <- paste(names(iai_versions), collapse = ", ")
+    stop(paste("IAI version ", version, " not available for this version of ",
+               "Julia. Available versions are: ", available, sep = ""))
+  }
+  v
+}
+
+
+get_iai_version_info <- function() {
+  url <- "https://docs.interpretable.ai/versions.json"
+  file <- tempfile()
+  utils::download.file(url, file)
+  versions <- rjson::fromJSON(file = file)
+
   sysname <- Sys.info()["sysname"]
+  sysmachine <- Sys.info()["machine"]
+
   os <- if (sysname == "Linux") {
     "linux"
   } else if (sysname == "Darwin") {
-    "macos"
+    ifelse(sysmachine == "arm64", "macos_aarch64", "macos")
   } else if (sysname == "Windows") {
     "win64"
   } else {
     stop("Unknown or unsupported OS") # nocov
   }
+  return(versions[[os]])
+}
 
-  if (startsWith(iai_version, "v")) {
-    iai_version <- substr(iai_version, 2, nchar(iai_version))
-  }
-
-  url <- if (iai_version == "dev") {
-    sprintf(
-      "https://iai-system-images.s3.amazonaws.com/%s/julia%s/master/latest.zip",
-      os, julia_version
-    )
-  } else {
-    sprintf(
-      "https://iai-system-images.s3.amazonaws.com/%s/julia%s/v%s/sys-%s-julia%s-iai%s.zip",
-      os, julia_version, iai_version, os, julia_version, iai_version
-    )
-  }
-
-  return(url)
+get_iai_versions <- function(julia_version) {
+  info <- get_iai_version_info()
+  return(info[[julia_version]])
 }
 
 
@@ -247,20 +265,29 @@ sysimage_do_replace <- function(image_path, target_path) {
 #' @param prefix The directory where the IAI system image will be installed.
 #'               Defaults to a location determined by
 #'               \href{https://www.rdocumentation.org/packages/rappdirs/topics/user_data_dir}{\code{rappdirs::user_data_dir}}.
+#' @param accept_license Set to \code{TRUE} to confirm that you agree to the
+#'                       \href{https://docs.interpretable.ai/End_User_License_Agreement.pdf}{End User License Agreement}
+#'                       and skip the interactive confirmation dialog.
 #'
 #' @examples \dontrun{iai::install_system_image()}
 #'
 #' @export
-install_system_image <- function(version = "latest", replace_default = F,
-                                 prefix = sysimage_default_install_dir()) {
-  if (version == "latest") {
-    version <- get_latest_iai_version()
+install_system_image <- function(version = "latest", replace_default = FALSE,
+                                 prefix = sysimage_default_install_dir(),
+                                 accept_license = FALSE) {
+  if (!accept_license && !accept_license_prompt()) {
+    stop("The license agreement was not accepted, aborting installation")
   }
 
   iai_run_julia_setup()
   julia_version <- JuliaCall::julia_eval("string(VERSION)")
+  iai_versions <- get_iai_versions(julia_version)
 
-  url <- iai_download_url(julia_version, version)
+  if (version == "latest") {
+    version <- get_latest_iai_version(iai_versions)
+  }
+
+  url <- iai_download_url(iai_versions, version)
 
   file <- tempfile()
   tryCatch({
@@ -275,7 +302,7 @@ install_system_image <- function(version = "latest", replace_default = F,
   }) # nocov end
 
   if (version != "dev") {
-    version = paste("v", version, sep = "")
+    version <- paste("v", version, sep = "")
   }
   dest <- file.path(prefix, version)
   utils::unzip(file, exdir = dest)
@@ -323,8 +350,8 @@ install_system_image <- function(version = "latest", replace_default = F,
   }
 
   # Need to restart R to load with the system image before IAI can be used
-  pkg.env$needs_restart <- T
-  return(T)
+  pkg.env$needs_restart <- TRUE
+  invisible(TRUE)
 }
 
 
@@ -350,5 +377,35 @@ cleanup_installation <- function() {
     if (dir.exists(p)) {
       unlink(p, recursive = TRUE) # nocov
     }
+  }
+}
+
+
+#' @importFrom utils askYesNo
+accept_license_prompt <- function() {
+  if (interactive()) { # nocov start
+    message(paste("In order to continue the installation process, please",
+                  "review the license agreement."))
+    invisible(readline(prompt = "Press [ENTER] to continue..."))
+
+    url <- "https://docs.interpretable.ai/End_User_License_Agreement.md"
+    file <- tempfile()
+    tryCatch({
+      utils::download.file(url, file, quiet = TRUE)
+    }, error = function(err) {
+      stop("Error downloading license agreement")
+    })
+
+    file.show(file)
+    rm(file)
+
+    isTRUE(askYesNo("Do you accept the license terms?", default = FALSE))
+
+  } else { # nocov end
+    message(paste("R is not running in interactive mode, so cannot show",
+                  "license confirmation dialog. Please run in an interactive R",
+                  "session, or pass `accept_license = TRUE` to",
+                  "`install_system_image`."))
+    return(FALSE)
   }
 }

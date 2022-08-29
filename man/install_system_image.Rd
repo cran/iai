@@ -6,8 +6,9 @@
 \usage{
 install_system_image(
   version = "latest",
-  replace_default = F,
-  prefix = sysimage_default_install_dir()
+  replace_default = FALSE,
+  prefix = sysimage_default_install_dir(),
+  accept_license = FALSE
 )
 }
 \arguments{
@@ -22,6 +23,10 @@ the downloaded IAI system image. Defaults to
 \item{prefix}{The directory where the IAI system image will be installed.
 Defaults to a location determined by
 \href{https://www.rdocumentation.org/packages/rappdirs/topics/user_data_dir}{\code{rappdirs::user_data_dir}}.}
+
+\item{accept_license}{Set to \code{TRUE} to confirm that you agree to the
+\href{https://docs.interpretable.ai/End_User_License_Agreement.pdf}{End User License Agreement}
+and skip the interactive confirmation dialog.}
 }
 \description{
 Download and install the IAI system image automatically.

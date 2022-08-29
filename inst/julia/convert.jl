@@ -7,6 +7,13 @@ module IAIConvert
   convert_to_jl(value) = value
   convert_to_jl(p::Float64) = isinteger(p) ? Int(p) : p
   convert_to_jl(p::Vector{Float64}) = all(isinteger, p) ? Int.(p) : p
+  function convert_to_jl(p::Vector{Any})
+    if all(v -> !(v isa Number) || isinteger(v), p)
+      [v isa Number ? Int(v) : convert_to_jl(v) for v in p]
+    else
+      convert_to_jl.(p)
+    end
+  end
 
   function convert_to_jl(df::DataFrame)
     DataFrame(convert_to_jl_col.(eachcol(df)), names(df))

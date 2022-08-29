@@ -1,5 +1,11 @@
 # Unreleased
 
+# iai 1.8.0
+
+* Introduce more generic functions to better cover and match Julia functionality
+* Add `resume_from_checkpoint`
+* Add `acquire_license`/`release_license`
+
 # iai 1.7.0
 
 * Add `cleanup_installation`

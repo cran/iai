@@ -109,6 +109,7 @@ test_that("classification structure", {
   lnr <- JuliaCall::julia_eval(
       "IAI.OptimalTrees.load_iris_tree(random_seed=1)"
   )
+  lnr <- iai:::set_obj_class(lnr)
 
   expect_equal(iai::get_classification_label(lnr, 2), "setosa")
   expect_mapequal(iai::get_classification_proba(lnr, 4), list(
@@ -125,8 +126,10 @@ test_that("classification structure", {
   }
 
   if (iai:::iai_version_less_than("3.0.0")) {
-    expect_error(iai::get_regression_constant(lnr, 2))
-    expect_error(iai::get_regression_weights(lnr, 1))
+    expect_error(iai::get_regression_constant(lnr, 2),
+                 "requires IAI version 3.0.0")
+    expect_error(iai::get_regression_weights(lnr, 2),
+                 "requires IAI version 3.0.0")
   } else {
     expect_equal(iai::get_regression_constant(lnr, 2), NaN)
     weights <- iai::get_regression_weights(lnr, 2)
@@ -145,13 +148,20 @@ test_that("regression structure", {
                                            regression_sparsity=\"all\",
                                            regression_lambda=0.2)"
     )
-  } else {
+  } else if (iai:::iai_version_less_than("3.1.0")) {
     lnr <- JuliaCall::julia_eval(
         "IAI.OptimalTrees.load_mtcars_tree(random_seed=1,
                                            regression_sparsity=\"all\",
                                            regression_lambda=0.02)"
     )
+  } else {
+    lnr <- JuliaCall::julia_eval(
+        "IAI.OptimalTrees.load_mtcars_tree(random_seed=1,
+                                           regression_features=Set([\"All\"]),
+                                           regression_lambda=0.02)"
+    )
   }
+  lnr <- iai:::set_obj_class(lnr)
 
   expect_equal(iai::get_regression_constant(lnr, 2), 30.879999999999995)
   if (iai:::iai_version_less_than("2.1.0")) {
@@ -190,10 +200,23 @@ test_that("survival structure", {
     lnr <- JuliaCall::julia_eval(
       "IAI.OptimalTrees.load_survival_tree(random_seed=1, max_depth=1, cp=0)")
   }
+  lnr <- iai:::set_obj_class(lnr)
 
   curve <- iai::get_survival_curve(lnr, 2)
-  curve_data <- iai::get_survival_curve_data(curve)
+  expect_equal(class(curve), c(
+      "survival_curve",
+      "IAIObject",
+      "JuliaObject"
+  ))
 
+  if (iai:::iai_version_less_than("2.2.0")) {
+    expect_error(iai::predict_expected_survival_time(curve),
+                 "requires IAI version 2.2.0")
+  } else {
+    expect_true(is.numeric(iai::predict_expected_survival_time(curve)))
+  }
+
+  curve_data <- iai::get_survival_curve_data(curve)
 
   if (iai:::iai_version_less_than("2.0.0")) {
     expect_equal(curve_data$coefs, c(
@@ -249,6 +272,18 @@ test_that("survival structure", {
     iai::get_survival_expected_time(lnr, 1, check_leaf = FALSE)
     iai::get_survival_hazard(lnr, 1, check_leaf = FALSE)
   }
+
+  if (iai:::iai_version_less_than("3.0.0")) {
+    expect_error(iai::get_regression_constant(lnr, 2),
+                 "requires IAI version 3.0.0")
+    expect_error(iai::get_regression_weights(lnr, 2),
+                 "requires IAI version 3.0.0")
+  } else {
+    expect_equal(iai::get_regression_constant(lnr, 2), NaN)
+    weights <- iai::get_regression_weights(lnr, 2)
+    expect_equal(length(weights$numeric), 0)
+    expect_equal(length(weights$categoric), 0)
+  }
 })
 
 
@@ -277,7 +312,7 @@ test_that("prescription structure", {
                                                  max_depth=2,
                                                  random_seed=1)"
     )
-  } else {
+  } else if (iai:::iai_version_less_than("3.1.0")) {
     lnr <- JuliaCall::julia_eval(
         "IAI.OptimalTrees.load_prescription_tree(regression_sparsity=\"all\",
                                                  regression_weighted_betas=true,
@@ -285,7 +320,18 @@ test_that("prescription structure", {
                                                  max_depth=2,
                                                  random_seed=2)"
     )
+  } else {
+    lnr <- JuliaCall::julia_eval(
+        "IAI.OptimalTrees.load_prescription_tree(
+            regression_features=Set([\"All\"]),
+            regression_weighted_betas=true,
+            regression_lambda=1.9,
+            max_depth=2,
+            random_seed=2,
+        )"
+    )
   }
+  lnr <- iai:::set_obj_class(lnr)
 
 
   if (iai:::iai_version_less_than("2.0.0")) {
@@ -335,6 +381,7 @@ test_that("policy structure", {
     lnr <- JuliaCall::julia_eval(
         "IAI.OptimalTrees.load_policy_tree(max_depth=2, random_seed=1)"
     )
+    lnr <- iai:::set_obj_class(lnr)
     expect_equal(iai::get_policy_treatment_rank(lnr, 3), c("A", "C", "B"))
   }
 
@@ -367,11 +414,28 @@ test_that("visualization", {
   skip_on_cran()
 
   lnr <- JuliaCall::julia_eval("IAI.OptimalTrees.load_iris_tree()")
+  lnr <- iai:::set_obj_class(lnr)
+  extra_content <- replicate(iai::get_num_nodes(lnr),
+                             list("node_color" = "#FFFFFF"),
+                             FALSE)
+
+  if (!iai:::iai_version_less_than("3.1.0")) {
+    if (!JuliaCall::julia_eval("IAI.IAITrees.has_graphviz()")) {
+      iai::load_graphviz()
+    }
+    expect_true(JuliaCall::julia_eval("IAI.IAITrees.has_graphviz()"))
+  }
 
   if (JuliaCall::julia_eval("IAI.IAITrees.has_graphviz()")) {
     iai::write_png("test.png", lnr)
     expect_true(file.exists("test.png"))
     file.remove("test.png")
+    if (iai:::iai_version_less_than("2.1.0")) {
+    } else {
+      iai::write_png("test.png", lnr, extra_content = extra_content)
+      expect_true(file.exists("test.png"))
+      file.remove("test.png")
+    }
 
     if (iai:::iai_version_less_than("2.1.0")) {
       error_message <- "requires IAI version 2.1.0"
@@ -381,8 +445,14 @@ test_that("visualization", {
       iai::write_pdf("test.pdf", lnr)
       expect_true(file.exists("test.pdf"))
       file.remove("test.pdf")
+      iai::write_pdf("test.pdf", lnr, extra_content = extra_content)
+      expect_true(file.exists("test.pdf"))
+      file.remove("test.pdf")
 
       iai::write_svg("test.svg", lnr)
+      expect_true(file.exists("test.svg"))
+      file.remove("test.svg")
+      iai::write_svg("test.svg", lnr, extra_content = extra_content)
       expect_true(file.exists("test.svg"))
       file.remove("test.svg")
     }
@@ -391,12 +461,22 @@ test_that("visualization", {
   iai::write_dot("test.dot", lnr)
   expect_true(file.exists("test.dot"))
   file.remove("test.dot")
+  if (iai:::iai_version_less_than("2.1.0")) {
+  } else {
+    iai::write_dot("test.dot", lnr, extra_content = extra_content)
+    expect_true(file.exists("test.dot"))
+    file.remove("test.dot")
+  }
 
   iai::write_html("tree.html", lnr)
   expect_true(file.exists("tree.html"))
   lines <- readLines("tree.html")
   expect_false(length(grep("\"Target\"", lines, value = TRUE)) > 0)
   expect_false(length(grep("\"Results\"", lines, value = TRUE)) > 0)
+  file.remove("tree.html")
+  iai::write_html("tree.html", lnr, extra_content = extra_content)
+  expect_true(file.exists("tree.html"))
+  lines <- readLines("tree.html")
   file.remove("tree.html")
 
   iai::write_questionnaire("question.html", lnr)
@@ -416,13 +496,23 @@ test_that("visualization", {
     )
 
     vis <- iai::tree_plot(lnr, feature_renames = feature_renames)
-    expect_true("iai_visualization" %in% class(vis))
+    expect_equal(class(vis), c(
+        "tree_plot",
+        "abstract_visualization",
+        "IAIObject",
+        "JuliaObject"
+    ))
     iai::write_html("tree_rename.html", vis)
     expect_true(file.exists("tree_rename.html"))
     file.remove("tree_rename.html")
 
     vis <- iai::questionnaire(lnr, feature_renames = feature_renames)
-    expect_true("iai_visualization" %in% class(vis))
+    expect_equal(class(vis), c(
+        "questionnaire",
+        "abstract_visualization",
+        "IAIObject",
+        "JuliaObject"
+    ))
     iai::write_html("questionnaire_rename.html", vis)
     expect_true(file.exists("questionnaire_rename.html"))
     file.remove("questionnaire_rename.html")
@@ -433,38 +523,65 @@ test_that("visualization", {
     ))
 
     vis <- iai::multi_tree_plot(questions)
-    expect_true("iai_visualization" %in% class(vis))
+    expect_equal(class(vis), c(
+        "multi_tree_plot",
+        "abstract_visualization",
+        "IAIObject",
+        "JuliaObject"
+    ))
     iai::write_html("multitree.html", vis)
     expect_true(file.exists("multitree.html"))
     file.remove("multitree.html")
 
     vis <- iai::multi_questionnaire(questions)
-    expect_true("iai_visualization" %in% class(vis))
+    expect_equal(class(vis), c(
+        "multi_questionnaire",
+        "abstract_visualization",
+        "IAIObject",
+        "JuliaObject"
+    ))
     iai::write_html("multiquestion.html", vis)
     expect_true(file.exists("multiquestion.html"))
     file.remove("multiquestion.html")
   }
 
+  X <- iris[, 1:4]
+  y <- iris$Species
+  grid <- iai::grid_search(
+    iai::optimal_tree_classifier(
+      random_seed = 1,
+      max_depth = 1,
+    ),
+  )
+  iai::fit(grid, X, y)
+
   if (iai:::iai_version_less_than("2.0.0")) {
+    expect_error(iai::write_html("grid.html", grid),
+                 "requires IAI version 2.0.0")
+    expect_error(iai::write_questionnaire("grid.html", grid),
+                 "requires IAI version 2.0.0")
+    expect_error(iai::show_in_browser(grid), "requires IAI version 2.0.0")
+    expect_error(iai::show_questionnaire(grid), "requires IAI version 2.0.0")
   } else {
-    X <- iris[, 1:4]
-    y <- iris$Species
-    grid <- iai::grid_search(
-      iai::optimal_tree_classifier(
-        random_seed = 1,
-        max_depth = 1,
-      ),
-    )
-    iai::fit(grid, X, y)
 
     vis <- iai::multi_tree_plot(grid)
-    expect_true("iai_visualization" %in% class(vis))
+    expect_equal(class(vis), c(
+        "multi_tree_plot",
+        "abstract_visualization",
+        "IAIObject",
+        "JuliaObject"
+    ))
     iai::write_html("multitree.html", vis)
     expect_true(file.exists("multitree.html"))
     file.remove("multitree.html")
 
     vis <- iai::multi_questionnaire(grid)
-    expect_true("iai_visualization" %in% class(vis))
+    expect_equal(class(vis), c(
+        "multi_questionnaire",
+        "abstract_visualization",
+        "IAIObject",
+        "JuliaObject"
+    ))
     iai::write_html("multiquestion.html", vis)
     expect_true(file.exists("multiquestion.html"))
     file.remove("multiquestion.html")
@@ -615,5 +732,43 @@ test_that("policy tree API", {
       expect_true(is.vector(iai::predict(lnr, X)))
       expect_true(is.vector(iai::predict_outcomes(lnr, X, rewards)))
     }
+  }
+})
+
+test_that("stability", {
+  skip_on_cran()
+
+  X <- iris[, 1:4]
+  y <- iris$Species == "setosa"
+  lnr <- iai::optimal_tree_classifier(max_depth = 1, cp = 0)
+  iai::fit(lnr, X, y)
+
+  if (iai:::iai_version_less_than("2.2.0")) {
+    expect_error(iai::stability_analysis(lnr, X, y),
+                 "requires IAI version 2.2.0")
+  } else {
+    stability <- iai::stability_analysis(lnr, X, y)
+
+    expect_equal(class(stability), c(
+        "stability_analysis",
+        "abstract_visualization",
+        "IAIObject",
+        "JuliaObject"
+    ))
+  }
+
+  deviations <- runif(4)
+  if (iai:::iai_version_less_than("2.2.0")) {
+    expect_error(iai::similarity_comparison(lnr, lnr, deviations),
+                 "requires IAI version 2.2.0")
+  } else {
+    similarity <- iai::similarity_comparison(lnr, lnr, deviations)
+
+    expect_equal(class(similarity), c(
+        "similarity_comparison",
+        "abstract_visualization",
+        "IAIObject",
+        "JuliaObject"
+    ))
   }
 })

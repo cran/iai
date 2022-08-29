@@ -14,8 +14,13 @@ write_pdf(filename, lnr, ...)
 \item{...}{Refer to the Julia documentation for available parameters.}
 }
 \description{
+Before using this function, either run \code{\link{load_graphviz}} or ensure
+that \href{http://graphviz.org}{Graphviz} is installed and on the system
+\code{PATH}
+}
+\details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.0.0/IAITrees/reference/#IAI.write_pdf}{\code{IAI.write_pdf}}
+\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.write_pdf}{\code{IAI.write_pdf}}
 }
 \section{IAI Compatibility}{
 

@@ -152,8 +152,122 @@ test_that("all_treatment_combinations", {
 })
 
 
+test_that("categorical API", {
+  skip_on_cran()
+
+  X <- iris[, 1:2]
+  t <- iris$Species
+  y <- iris[, 4]
+
+  if (iai:::iai_version_less_than("2.0.0")) {
+  } else if (iai:::iai_version_less_than("2.2.0")) {
+    withr::local_options(lifecycle_verbosity = "quiet")
+
+    lnr <- iai::categorical_reward_estimator(
+        propensity_estimation_method = "random_forest",
+        outcome_estimation_method = "random_forest",
+        reward_estimation_method = "doubly_robust",
+        random_seed = 1,
+    )
+    rewards <- iai::fit_predict(lnr, X, t, y)
+    preds <- iai::predict(lnr, X, t, y)
+
+    expect_equal(nrow(preds), nrow(X))
+    expect_equal(ncol(preds), length(unique(t)))
+
+    if (iai:::iai_version_less_than("2.1.0")) {
+      expect_error(iai::score(lnr, X, t, y), "requires IAI version 2.1.0")
+    } else {
+      s <- iai::score(lnr, X, t, y)
+      expect_equal(length(s), 2)
+      expect_equal(length(s$propensity), 1)
+      expect_equal(length(s$outcome), length(unique(t)))
+    }
+
+    expect_error(iai::predict_reward(lnr, X, t, y),
+                 "requires IAI version 3.0.0")
+  } else {
+    lnr <- iai::categorical_regression_reward_estimator(
+        propensity_estimator = iai::random_forest_classifier(num_trees = 5),
+        outcome_estimator = iai::random_forest_regressor(num_trees = 5),
+        reward_estimator = "doubly_robust",
+    )
+    rewards <- iai::fit_predict(lnr, X, t, y)
+    preds <- iai::predict(lnr, X, t, y)
+
+    s <- iai::score(lnr, X, t, y)
+    expect_equal(length(s), 2)
+    expect_equal(length(s$propensity), 1)
+    expect_equal(length(s$outcome), length(unique(t)))
+
+    if (iai:::iai_version_less_than("3.0.0")) {
+      expect_equal(nrow(preds), nrow(X))
+      expect_equal(ncol(preds), length(unique(t)))
+
+      expect_error(iai::predict_reward(lnr, X, t, y),
+                   "requires IAI version 3.0.0")
+    } else {
+      expect_equal(nrow(preds$reward), nrow(X))
+      expect_equal(ncol(preds$reward), length(unique(t)))
+      expect_equal(nrow(preds$propensity), nrow(X))
+      expect_equal(ncol(preds$propensity), length(unique(t)))
+      expect_equal(nrow(preds$outcome), nrow(X))
+      expect_equal(ncol(preds$outcome), length(unique(t)))
+
+      rewards2 <- iai::predict_reward(lnr, t, y, rewards$predictions)
+      expect_equal(nrow(rewards2$reward), nrow(X))
+      expect_equal(ncol(rewards2$reward), length(unique(t)))
+      expect_equal(nrow(rewards2$propensity), nrow(X))
+      expect_equal(ncol(rewards2$propensity), length(unique(t)))
+      expect_equal(nrow(rewards2$outcome), nrow(X))
+      expect_equal(ncol(rewards2$outcome), length(unique(t)))
+    }
+  }
+})
+
 test_that("numeric API", {
   skip_on_cran()
+
+  X <- iris[, 1:2]
+  t <- iris[, 3]
+  y <- iris[, 4]
+  c <- unique(y)
+
+  if (iai:::iai_version_less_than("2.1.0")) {
+  } else if (iai:::iai_version_less_than("2.2.0")) {
+    withr::local_options(lifecycle_verbosity = "quiet")
+
+    lnr <- iai::numeric_reward_estimator(
+        outcome_estimator = iai::random_forest_regressor(num_trees = 5),
+    )
+    rewards <- iai::fit_predict(lnr, X, t, y, c)
+
+    preds <- iai::predict(lnr, X, c)
+    expect_equal(nrow(preds), nrow(X))
+    expect_equal(ncol(preds), length(c))
+
+    expect_equal(length(iai::score(lnr, X, t, y)), 1)
+  } else {
+    lnr <- iai::numeric_regression_reward_estimator(
+        propensity_estimator = iai::random_forest_regressor(num_trees = 5),
+        outcome_estimator = iai::random_forest_regressor(num_trees = 5),
+        reward_estimator = "doubly_robust",
+    )
+    rewards <- iai::fit_predict(lnr, X, t, y, c)
+    preds <- iai::predict(lnr, X, t, y)
+
+    if (iai:::iai_version_less_than("3.0.0")) {
+      expect_equal(nrow(preds), nrow(X))
+      expect_equal(ncol(preds), length(c))
+    } else {
+      expect_equal(nrow(preds$reward), nrow(X))
+      expect_equal(ncol(preds$reward), length(c))
+      expect_equal(nrow(preds$propensity), nrow(X))
+      expect_equal(ncol(preds$propensity), length(c))
+      expect_equal(nrow(preds$outcome), nrow(X))
+      expect_equal(ncol(preds$outcome), length(c))
+    }
+  }
 
   if (iai:::iai_version_less_than("2.2.0")) {
     expect_error(iai::get_estimation_densities(), "requires IAI version 2.2.0")
@@ -162,17 +276,6 @@ test_that("numeric API", {
     expect_error(iai::set_reward_kernel_bandwidth(),
                  "requires IAI version 2.2.0")
   } else {
-    X <- iris[, 1:2]
-    t <- iris[, 3]
-    y <- iris[, 4]
-    c <- unique(y)
-
-    lnr <- iai::numeric_regression_reward_estimator(
-        propensity_estimator = iai::random_forest_regressor(),
-        outcome_estimator = iai::random_forest_regressor(),
-        reward_estimator = "doubly_robust",
-    )
-    rewards <- iai::fit_predict(lnr, X, t, y, c)
 
     if (iai:::iai_version_less_than("3.0.0")) {
       densities <- iai::get_estimation_densities(lnr)
@@ -224,21 +327,94 @@ test_that("JSON", {
   skip_on_cran()
 
   if (!iai:::iai_version_less_than("3.0.0")) {
-    lnrs <- c(iai::categorical_classification_reward_estimator(),
-              iai::categorical_regression_reward_estimator(),
-              iai::categorical_survival_reward_estimator(),
-              iai::numeric_classification_reward_estimator(),
-              iai::numeric_regression_reward_estimator(),
-              iai::numeric_survival_reward_estimator(),
-              iai::equal_propensity_estimator())
+    lnrs <- list(iai::categorical_classification_reward_estimator(),
+                 iai::categorical_regression_reward_estimator(),
+                 iai::categorical_survival_reward_estimator(),
+                 iai::numeric_classification_reward_estimator(),
+                 iai::numeric_regression_reward_estimator(),
+                 iai::numeric_survival_reward_estimator(),
+                 iai::equal_propensity_estimator())
     for (i in seq(lnrs)) {
-      # Putting learners in a vector removes their class info so add it back
-      lnr <- iai:::set_obj_class(lnrs[i])
+      lnr <- lnrs[[i]]
 
       iai::write_json("re.json", lnr)
       new_lnr <- iai::read_json("re.json")
       file.remove("re.json")
       expect_true(lnr == new_lnr)
     }
+  }
+})
+
+
+test_that("class", {
+  skip_on_cran()
+
+  if (!iai:::iai_version_less_than("2.1.0")) {
+    expect_equal(class(iai::equal_propensity_estimator()), c(
+        "equal_propensity_estimator",
+        "classification_learner",
+        "supervised_learner",
+        "learner",
+        "IAIObject",
+        "JuliaObject"
+    ))
+  }
+
+  if (!iai:::iai_version_less_than("3.0.0")) {
+    expect_equal(class(iai::categorical_classification_reward_estimator()), c(
+        "categorical_classification_reward_estimator",
+        "categorical_reward_estimator",
+        "reward_estimator",
+        "supervised_learner",
+        "learner",
+        "IAIObject",
+        "JuliaObject"
+    ))
+    expect_equal(class(iai::categorical_regression_reward_estimator()), c(
+        "categorical_regression_reward_estimator",
+        "categorical_reward_estimator",
+        "reward_estimator",
+        "supervised_learner",
+        "learner",
+        "IAIObject",
+        "JuliaObject"
+    ))
+    expect_equal(class(iai::categorical_survival_reward_estimator()), c(
+        "categorical_survival_reward_estimator",
+        "categorical_reward_estimator",
+        "reward_estimator",
+        "supervised_learner",
+        "learner",
+        "IAIObject",
+        "JuliaObject"
+    ))
+
+    expect_equal(class(iai::numeric_classification_reward_estimator()), c(
+        "numeric_classification_reward_estimator",
+        "numeric_reward_estimator",
+        "reward_estimator",
+        "supervised_learner",
+        "learner",
+        "IAIObject",
+        "JuliaObject"
+    ))
+    expect_equal(class(iai::numeric_regression_reward_estimator()), c(
+        "numeric_regression_reward_estimator",
+        "numeric_reward_estimator",
+        "reward_estimator",
+        "supervised_learner",
+        "learner",
+        "IAIObject",
+        "JuliaObject"
+    ))
+    expect_equal(class(iai::numeric_survival_reward_estimator()), c(
+        "numeric_survival_reward_estimator",
+        "numeric_reward_estimator",
+        "reward_estimator",
+        "supervised_learner",
+        "learner",
+        "IAIObject",
+        "JuliaObject"
+    ))
   }
 })

@@ -2,8 +2,7 @@
 % Please edit documentation in R/iaibase.R
 \name{get_roc_curve_data}
 \alias{get_roc_curve_data}
-\title{Extract the underlying data from an ROC curve (as returned by
-\href{https://docs.interpretable.ai/v3.0.0/IAI-R/reference/#iai::roc_curve}{\code{roc_curve}})}
+\title{Extract the underlying data from an ROC curve}
 \usage{
 get_roc_curve_data(curve)
 }
@@ -11,15 +10,18 @@ get_roc_curve_data(curve)
 \item{curve}{The curve to query.}
 }
 \description{
+ROC curves are returned by \code{roc_curve}, e.g.
+\code{\link{roc_curve.classification_learner}}
+}
+\details{
 The data is returned as a list with two keys: \code{auc} giving the
 area-under-the-curve, and \code{coords} containing a vector of lists
 representing each point on the curve, each with keys \code{fpr} (the false
 positive rate), \code{tpr} (the true positive rate) and \code{threshold}
 (the threshold).
-}
-\details{
+
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.0.0/IAIBase/reference/#IAI.get_roc_curve_data}{\code{IAI.get_roc_curve_data}}
+\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.get_roc_curve_data}{\code{IAI.get_roc_curve_data}}
 }
 \section{IAI Compatibility}{
 

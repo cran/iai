@@ -3,7 +3,7 @@
 if (identical(Sys.getenv("NOT_CRAN"), "true")) {
   tryCatch({
     iai:::julia_eval("IAI.IAIBase.disable_progress_bar()")
-  }, error = function (e) {
+  }, error = function(e) {
     iai:::julia_eval("IAI.OptimalTrees.disable_progress_bar()")
   })
 }
