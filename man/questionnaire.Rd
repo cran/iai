@@ -13,5 +13,5 @@ questionnaire(obj, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.Questionnaire-Tuple\%7BLearner\%7D}{\code{IAI.Questionnaire}}
+\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.Questionnaire-Tuple\%7BLearner\%7D}{\code{IAI.Questionnaire}}
 }

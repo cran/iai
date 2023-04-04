@@ -4,10 +4,10 @@
 \alias{autoplot.roc_curve}
 \title{Construct a \href{https://ggplot2.tidyverse.org/reference/ggplot.html}{\code{ggplot2::ggplot}} object plotting the ROC curve}
 \usage{
-\method{autoplot}{roc_curve}(x, ...)
+\method{autoplot}{roc_curve}(object, ...)
 }
 \arguments{
-\item{x}{The ROC curve to plot}
+\item{object}{The ROC curve to plot}
 
 \item{...}{Additional arguments (unused)}
 }

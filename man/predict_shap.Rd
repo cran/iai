@@ -13,7 +13,7 @@ predict_shap(lnr, X)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/Heuristics/reference/#IAI.predict_shap}{\code{IAI.predict_shap}}
+\href{https://docs.interpretable.ai/v3.1.1/Heuristics/reference/#IAI.predict_shap}{\code{IAI.predict_shap}}
 }
 \section{IAI Compatibility}{
 

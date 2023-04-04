@@ -18,7 +18,7 @@ documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.score-Tuple\%7BUnion\%7BAbstractString\%2C\%20Symbol\%7D\%2C\%20Vararg\%7BAny\%7D\%7D}{\code{IAI.score}}
+\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.score-Tuple\%7BUnion\%7BAbstractString\%2C\%20Symbol\%7D\%2C\%20Vararg\%7BAny\%7D\%7D}{\code{IAI.score}}
 }
 \section{IAI Compatibility}{
 

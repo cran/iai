@@ -17,7 +17,7 @@
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BAbstractVector\%7B\%3C\%3AReal\%7D\%2C\%20AbstractVector\%7D}{\code{IAI.ROCCurve}}
+\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BAbstractVector\%7B\%3C\%3AReal\%7D\%2C\%20AbstractVector\%7D}{\code{IAI.ROCCurve}}
 }
 \section{IAI Compatibility}{
 

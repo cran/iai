@@ -14,7 +14,7 @@ learner in default browser}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/OptimalFeatureSelection/reference/#IAI.show_questionnaire-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.show_questionnaire}}
+\href{https://docs.interpretable.ai/v3.1.1/OptimalFeatureSelection/reference/#IAI.show_questionnaire-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.show_questionnaire}}
 }
 \section{IAI Compatibility}{
 

@@ -14,7 +14,7 @@ predict_treatment_rank(lnr, X)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.predict_treatment_rank}{\code{IAI.predict_treatment_rank}}
+\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_treatment_rank}{\code{IAI.predict_treatment_rank}}
 }
 \section{IAI Compatibility}{
 

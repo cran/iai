@@ -13,7 +13,7 @@
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.show_in_browser-Tuple\%7BTreeLearner\%7D}{\code{IAI.show_in_browser}}
+\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.show_in_browser-Tuple\%7BTreeLearner\%7D}{\code{IAI.show_in_browser}}
 }
 \section{IAI Compatibility}{
 

@@ -21,7 +21,7 @@ positive rate), \code{tpr} (the true positive rate) and \code{threshold}
 (the threshold).
 
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.get_roc_curve_data}{\code{IAI.get_roc_curve_data}}
+\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_roc_curve_data}{\code{IAI.get_roc_curve_data}}
 }
 \section{IAI Compatibility}{
 

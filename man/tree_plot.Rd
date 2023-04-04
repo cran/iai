@@ -9,11 +9,11 @@ tree_plot(lnr, ...)
 \arguments{
 \item{lnr}{The learner to visualize.}
 
-\item{...}{Refer to the \href{https://docs.interpretable.ai/v3.1.0/IAITrees/advanced/#Advanced-Visualization-1}{Julia documentation on advanced tree visualization} for available parameters.}
+\item{...}{Refer to the \href{https://docs.interpretable.ai/v3.1.1/IAITrees/advanced/#Advanced-Visualization-1}{Julia documentation on advanced tree visualization} for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.TreePlot-Tuple\%7BTreeLearner\%7D}{\code{IAI.TreePlot}}
+\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.TreePlot-Tuple\%7BTreeLearner\%7D}{\code{IAI.TreePlot}}
 }
 \section{IAI Compatibility}{
 

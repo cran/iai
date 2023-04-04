@@ -401,11 +401,25 @@ test_that("policy structure", {
     }
   }
 
+  if (iai:::iai_version_less_than("3.2.0")) {
+    expect_error(iai::get_policy_treatment_outcome_standard_error(),
+                 "requires IAI version 3.2.0")
+  } else {
+    errors <- iai::get_policy_treatment_outcome_standard_error(lnr, 3)
+    expect_equal(errors$A, 0.0777876, tolerance = 1e-5)
+    expect_equal(errors$B, 0.083841, tolerance = 1e-5)
+    expect_equal(errors$C, 0.10806, tolerance = 1e-5)
+  }
+
   expect_error(iai::get_policy_treatment_rank(lnr, 1))
   expect_error(iai::get_policy_treatment_outcome(lnr, 1))
+  expect_error(iai::get_policy_treatment_outcome_standard_error(lnr, 1))
   if (!iai:::iai_version_less_than("2.1.0")) {
     iai::get_policy_treatment_rank(lnr, 1, check_leaf = FALSE)
     iai::get_policy_treatment_outcome(lnr, 1, check_leaf = FALSE)
+  }
+  if (!iai:::iai_version_less_than("3.2.0")) {
+    iai::get_policy_treatment_outcome_standard_error(lnr, 1, check_leaf = FALSE)
   }
 })
 

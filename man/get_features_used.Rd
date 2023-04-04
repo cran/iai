@@ -11,7 +11,7 @@ get_features_used(lnr)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.get_features_used}{\code{IAI.get_features_used}}
+\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_features_used}{\code{IAI.get_features_used}}
 }
 \section{IAI Compatibility}{
 

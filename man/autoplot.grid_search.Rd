@@ -6,14 +6,14 @@
 \href{https://ggplot2.tidyverse.org/reference/ggplot.html}{\code{ggplot2::ggplot}}
 object plotting grid search results for Optimal Feature Selection learners}
 \usage{
-\method{autoplot}{grid_search}(x, type = stop("`type` is required"), ...)
+\method{autoplot}{grid_search}(object, type = stop("`type` is required"), ...)
 }
 \arguments{
-\item{x}{The grid search to plot}
+\item{object}{The grid search to plot}
 
 \item{type}{The type of plot to construct (either \code{"validation"} or
 \code{"importance"}, for more information refer to the
-\href{https://docs.interpretable.ai/v3.1.0/OptimalFeatureSelection/visualization/#Plotting-Grid-Search-Results-1}{Julia documentation for plotting grid search results}
+\href{https://docs.interpretable.ai/v3.1.1/OptimalFeatureSelection/visualization/#Plotting-Grid-Search-Results-1}{Julia documentation for plotting grid search results}
 )}
 
 \item{...}{Additional arguments (unused)}

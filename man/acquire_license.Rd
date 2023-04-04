@@ -11,7 +11,7 @@ acquire_license(...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/installation/#IAI.acquire_license}{\code{IAI.acquire_license}}
+\href{https://docs.interpretable.ai/v3.1.1/installation/#IAI.acquire_license}{\code{IAI.acquire_license}}
 }
 \section{IAI Compatibility}{
 

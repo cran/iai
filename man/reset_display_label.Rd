@@ -12,7 +12,7 @@ reset_display_label(lnr)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.reset_display_label!}{\code{IAI.reset_display_label!}}
+\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.reset_display_label!}{\code{IAI.reset_display_label!}}
 }
 \examples{
 \dontrun{iai::reset_display_label(lnr)}

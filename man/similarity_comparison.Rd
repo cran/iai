@@ -18,12 +18,12 @@ the new learner}
 }
 \description{
 Refer to the
-\href{https://docs.interpretable.ai/v3.1.0/IAITrees/stability/#Tree-Stability-1}{documentation on tree stability}
+\href{https://docs.interpretable.ai/v3.1.1/IAITrees/stability/#Tree-Stability-1}{documentation on tree stability}
 for more information.
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.SimilarityComparison}{\code{IAI.SimilarityComparison}}
+\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.SimilarityComparison}{\code{IAI.SimilarityComparison}}
 }
 \section{IAI Compatibility}{
 

@@ -15,7 +15,7 @@ get_survival_hazard(lnr, node_index, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.get_survival_hazard}{\code{IAI.get_survival_hazard}}
+\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_survival_hazard}{\code{IAI.get_survival_hazard}}
 }
 \section{IAI Compatibility}{
 

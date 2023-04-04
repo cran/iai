@@ -13,7 +13,7 @@ is_mixed_parallel_split(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.is_mixed_parallel_split}{\code{IAI.is_mixed_parallel_split}}
+\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.is_mixed_parallel_split}{\code{IAI.is_mixed_parallel_split}}
 }
 \examples{
 \dontrun{iai::is_mixed_parallel_split(lnr, 1)}

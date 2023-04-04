@@ -16,7 +16,7 @@ get_prescription_treatment_rank(lnr, node_index, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.get_prescription_treatment_rank}{\code{IAI.get_prescription_treatment_rank}}
+\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_prescription_treatment_rank}{\code{IAI.get_prescription_treatment_rank}}
 }
 \examples{
 \dontrun{iai::get_prescription_treatment_rank(lnr, 1)}

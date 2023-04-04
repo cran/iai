@@ -16,7 +16,7 @@ survival tree}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.get_regression_constant-Tuple\%7BSurvivalTreeLearner\%2C\%20Int64\%7D}{\code{IAI.get_regression_constant}}
+\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_regression_constant-Tuple\%7BSurvivalTreeLearner\%2C\%20Int64\%7D}{\code{IAI.get_regression_constant}}
 }
 \section{IAI Compatibility}{
 

@@ -13,7 +13,7 @@
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.show_in_browser-Tuple\%7BAbstractVisualization\%7D}{\code{IAI.show_in_browser}}
+\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.show_in_browser-Tuple\%7BAbstractVisualization\%7D}{\code{IAI.show_in_browser}}
 }
 \examples{
 \dontrun{iai::show_in_browser(lnr)}

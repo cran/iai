@@ -56,7 +56,7 @@ get_machine_id <- function() {
 #' Acquire an IAI license for the current session.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.0/installation/#IAI.acquire_license}{\code{IAI.acquire_license}}
+#' \href{https://docs.interpretable.ai/v3.1.1/installation/#IAI.acquire_license}{\code{IAI.acquire_license}}
 #'
 #' @param ... Refer to the Julia documentation for available parameters
 #'
@@ -75,7 +75,7 @@ acquire_license <- function(...) {
 #' Release any IAI license held by the current session.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.0/installation/#IAI.release_license}{\code{IAI.release_license}}
+#' \href{https://docs.interpretable.ai/v3.1.1/installation/#IAI.release_license}{\code{IAI.release_license}}
 #'
 #' @examples \dontrun{iai::release_license()}
 #'
@@ -105,7 +105,7 @@ load_graphviz <- function() {
 #' Convert a vector of values to IAI mixed data format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
 #'
 #' @param values The vector of values to convert
 #' @param categorical_levels The values in \code{values} to treat as categoric

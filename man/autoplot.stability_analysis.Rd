@@ -4,10 +4,10 @@
 \alias{autoplot.stability_analysis}
 \title{Construct a \href{https://ggplot2.tidyverse.org/reference/ggplot.html}{\code{ggplot2::ggplot}} object plotting the results of the stability analysis}
 \usage{
-\method{autoplot}{stability_analysis}(x, ...)
+\method{autoplot}{stability_analysis}(object, ...)
 }
 \arguments{
-\item{x}{The stability analysis to plot}
+\item{object}{The stability analysis to plot}
 
 \item{...}{Additional arguments (unused)}
 }

@@ -15,12 +15,12 @@ write_png(filename, lnr, ...)
 }
 \description{
 Before using this function, either run \code{\link{load_graphviz}} or ensure
-that \href{http://graphviz.org}{Graphviz} is installed and on the system
+that \href{https://graphviz.org/}{Graphviz} is installed and on the system
 \code{PATH}
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.write_png}{\code{IAI.write_png}}
+\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.write_png}{\code{IAI.write_png}}
 }
 \examples{
 \dontrun{iai::write_png(file.path(tempdir(), "tree.png"), lnr)}

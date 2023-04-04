@@ -16,7 +16,7 @@ be randomly assigned.
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/RewardEstimation/reference/#IAI.EqualPropensityEstimator}{\code{IAI.EqualPropensityEstimator}}
+\href{https://docs.interpretable.ai/v3.1.1/RewardEstimation/reference/#IAI.EqualPropensityEstimator}{\code{IAI.EqualPropensityEstimator}}
 }
 \section{IAI Compatibility}{
 

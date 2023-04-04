@@ -14,7 +14,7 @@ predict_treatment_outcome(lnr, X)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.predict_treatment_outcome}{\code{IAI.predict_treatment_outcome}}
+\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_treatment_outcome}{\code{IAI.predict_treatment_outcome}}
 }
 \section{IAI Compatibility}{
 

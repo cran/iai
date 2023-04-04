@@ -14,7 +14,7 @@ get_estimation_densities(lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/RewardEstimation/reference/#IAI.get_estimation_densities}{\code{IAI.get_estimation_densities}}
+\href{https://docs.interpretable.ai/v3.1.1/RewardEstimation/reference/#IAI.get_estimation_densities}{\code{IAI.get_estimation_densities}}
 }
 \section{IAI Compatibility}{
 

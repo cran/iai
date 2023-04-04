@@ -1,5 +1,9 @@
 # Unreleased
 
+# iai 1.9.0
+
+* Add `standard_error` functions for Policy Learners
+
 # iai 1.8.0
 
 * Introduce more generic functions to better cover and match Julia functionality

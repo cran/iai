@@ -1,10 +1,10 @@
 APPNAME <- "InterpretableAI"
 
+# Install Julia to our directory rather than JuliaCall by default
 julia_default_install_dir <- function() {
   file.path(path.expand(rappdirs::user_data_dir(APPNAME)), "julia")
 }
-
-
+# Filter list of stable versions to get the most recent that has an IAI release
 julia_latest_version <- function() {
   url <- "https://julialang-s3.julialang.org/bin/versions.json"
   file <- tempfile()
@@ -19,37 +19,6 @@ julia_latest_version <- function() {
   ))
 }
 
-julia_tgz_url <- function(version) {
-  sysname <- Sys.info()["sysname"]
-  sysmachine <- Sys.info()["machine"]
-
-  arch <- ifelse(sysmachine == "arm64", "aarch64", "x64")
-  short_version <- substr(version, 1, 3)
-
-  if (sysname == "Linux") {
-    os <- "linux"
-    slug <- "linux-x86_64"
-    ext <- "tar.gz"
-  } else if (sysname == "Darwin") {
-    os <- "mac"
-    slug <- ifelse(sysmachine == "arm64", "macaarch64", "mac64")
-    ext <- "dmg"
-  } else if (sysname == "Windows") {
-    os <- "winnt"
-    slug <- "win64"
-    ext <- "zip"
-  }
-
-  sprintf(
-    "https://julialang-s3.julialang.org/bin/%s/%s/%s/julia-%s-%s.%s",
-    os, arch, short_version, version, slug, ext
-  )
-}
-
-
-sysimage_default_install_dir <- function() {
-  file.path(path.expand(rappdirs::user_data_dir(APPNAME)), "sysimage")
-}
 
 
 # IMPORTANT: these functions deliberately don't use Julia to find the depot path
@@ -70,13 +39,9 @@ get_prefs_dir <- function() {
   dir.create(prefs, recursive = TRUE, showWarnings = FALSE)
   prefs
 }
-
+# The location of the file saved by `JuliaCall::julia_save_install_dir`
 julia_path_prefs_file <- function() {
   file.path(get_prefs_dir(), "JuliaCall")
-}
-julia_save_install_dir <- function(dir) {
-  # Save sysimg path so that it can be used automatically in future
-  cat(file.path(dir, "bin"), file = julia_path_prefs_file())
 }
 
 
@@ -97,78 +62,9 @@ install_julia <- function(version = "latest",
   if (version == "latest") {
     version <- julia_latest_version() # nocov
   }
-  url <- julia_tgz_url(version)
-
-  file <- tempfile()
-  tryCatch({
-    utils::download.file(url, file)
-  }, error = function(err) { # nocov start
-    stop(paste("There was an error downloading Julia. This could be due to ",
-               "network issues, and might be resolved by re-running ",
-               "`install_julia`.",
-               sep = ""))
-  }) # nocov end
-
-  dest <- file.path(prefix, version)
-  if (dir.exists(dest)) {
-    unlink(dest, recursive = TRUE) # nocov
-  }
-
-  sysname <- Sys.info()["sysname"]
-  if (sysname == "Linux") {
-    utils::untar(file, exdir = dest)
-    subfolder <- paste("julia-", version, sep = "")
-  } else if (sysname == "Darwin") {
-    subfolder <- install_julia_dmg(file, dest)
-  } else if (sysname == "Windows") {
-    utils::unzip(file, exdir = dest)
-    subfolder <- paste("julia-", version, sep = "")
-  }
-  dest <- file.path(dest, subfolder)
-
-  julia_save_install_dir(dest)
-
-  print(sprintf("Installed Julia to %s", dest))
-
-  invisible(TRUE)
+  JuliaCall::install_julia(version = version, prefix = prefix)
 }
 
-install_julia_dmg <- function(dmg_path, install_dir) {
-  mount_root <- normalizePath(".")
-  mount_name <- tools::file_path_sans_ext(basename(dmg_path))
-  mount_point <- file.path(mount_root, mount_name)
-
-  umount(mount_point)
-
-  cmd <- paste(
-      'hdiutil attach "', dmg_path, '" -mountpoint "', mount_point,
-      '" -mount required -quiet',
-  sep = "")
-
-  tryCatch({
-    exitcode <- system(cmd)
-    stopifnot(exitcode == 0)
-
-    appname <- list.files(mount_point, pattern = "julia*", ignore.case = TRUE)
-    src_path <- file.path(mount_point, appname)
-    if (!dir.exists(install_dir)) {
-      dir.create(install_dir, recursive = TRUE)
-    }
-    file.copy(src_path, install_dir, recursive = TRUE)
-  },
-  finally = {
-    umount(mount_point)
-  })
-
-  file.path(appname, "Contents", "Resources", "julia")
-}
-umount <- function(mount_point) {
-  if (dir.exists(mount_point)) {
-    system(paste('umount "', mount_point, '"', sep = ""))
-  } else {
-    0
-  }
-}
 
 #' @importFrom utils tail
 get_latest_iai_version <- function(versions) {
@@ -218,7 +114,9 @@ get_iai_versions <- function(julia_version) {
   return(info[[julia_version]])
 }
 
-
+sysimage_default_install_dir <- function() {
+  file.path(path.expand(rappdirs::user_data_dir(APPNAME)), "sysimage")
+}
 sysimage_path_prefs_file <- function() {
   file.path(get_prefs_dir(), "IAI")
 }

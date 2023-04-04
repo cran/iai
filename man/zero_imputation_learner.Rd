@@ -12,7 +12,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/OptImpute/reference/#IAI.ZeroImputationLearner}{\code{IAI.ZeroImputationLearner}}
+\href{https://docs.interpretable.ai/v3.1.1/OptImpute/reference/#IAI.ZeroImputationLearner}{\code{IAI.ZeroImputationLearner}}
 }
 \section{IAI Compatibility}{
 

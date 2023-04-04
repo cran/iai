@@ -40,15 +40,6 @@ iai_run_julia_setup <- function(sysimage_path = NULL, ...) {
   # Run julia setup with IAI init disabled to avoid polluting stdout
   # We will instead have to init it manually later
   Sys.setenv(IAI_DISABLE_INIT = TRUE)
-
-  if (Sys.info()["sysname"] == "Darwin") {
-    # https://github.com/Non-Contradiction/JuliaCall/commit/5170fcf5c9c650412f2003092b085c4f2ac576b8
-    julia_dll_file <- julia_dll_locate(...)
-    cur_dir <- getwd()
-    setwd(dirname(julia_dll_file))
-    on.exit(setwd(cur_dir))
-  }
-
   JuliaCall::julia_setup(sysimage_path = sysimage_path, ...)
   Sys.unsetenv("IAI_DISABLE_INIT")
 }

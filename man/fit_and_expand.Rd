@@ -16,7 +16,7 @@ fit_and_expand(lnr, X, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/OptImpute/reference/#IAI.fit_and_expand!}{\code{IAI.fit_and_expand!}}
+\href{https://docs.interpretable.ai/v3.1.1/OptImpute/reference/#IAI.fit_and_expand!}{\code{IAI.fit_and_expand!}}
 }
 \section{IAI Compatibility}{
 

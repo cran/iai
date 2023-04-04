@@ -14,7 +14,7 @@ Selection learner}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/OptimalFeatureSelection/reference/#IAI.get_num_fits-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.get_num_fits}}
+\href{https://docs.interpretable.ai/v3.1.1/OptimalFeatureSelection/reference/#IAI.get_num_fits-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.get_num_fits}}
 }
 \section{IAI Compatibility}{
 

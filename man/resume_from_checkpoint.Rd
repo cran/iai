@@ -11,7 +11,7 @@ resume_from_checkpoint(checkpoint_file)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.resume_from_checkpoint}{\code{IAI.resume_from_checkpoint}}
+\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.resume_from_checkpoint}{\code{IAI.resume_from_checkpoint}}
 }
 \section{IAI Compatibility}{
 

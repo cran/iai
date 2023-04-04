@@ -4,10 +4,10 @@
 \alias{autoplot.similarity_comparison}
 \title{Construct a \href{https://ggplot2.tidyverse.org/reference/ggplot.html}{\code{ggplot2::ggplot}} object plotting the results of the similarity comparison}
 \usage{
-\method{autoplot}{similarity_comparison}(x, ...)
+\method{autoplot}{similarity_comparison}(object, ...)
 }
 \arguments{
-\item{x}{The similarity comparison to plot}
+\item{object}{The similarity comparison to plot}
 
 \item{...}{Additional arguments (unused)}
 }

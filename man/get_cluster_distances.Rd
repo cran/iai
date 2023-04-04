@@ -14,7 +14,7 @@ get_cluster_distances(stability, num_trees)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.get_cluster_distances}{\code{IAI.get_cluster_distances}}
+\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_cluster_distances}{\code{IAI.get_cluster_distances}}
 }
 \section{IAI Compatibility}{
 

@@ -20,7 +20,7 @@ point in the features}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/OptimalFeatureSelection/reference/#IAI.predict-Tuple\%7BOptimalFeatureSelectionLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
+\href{https://docs.interpretable.ai/v3.1.1/OptimalFeatureSelection/reference/#IAI.predict-Tuple\%7BOptimalFeatureSelectionLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
 }
 \section{IAI Compatibility}{
 

@@ -15,7 +15,7 @@ write_json(filename, obj, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.write_json}{\code{IAI.write_json}}
+\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.write_json}{\code{IAI.write_json}}
 }
 \examples{
 \dontrun{iai::write_json(file.path(tempdir(), "out.json"), obj)}

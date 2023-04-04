@@ -3,7 +3,7 @@
 \name{write_dot}
 \alias{write_dot}
 \title{Output a learner in
-\href{http://www.graphviz.org/content/dot-language/}{.dot format}}
+\href{https://www.graphviz.org/content/dot-language/}{.dot format}}
 \usage{
 write_dot(filename, lnr, ...)
 }
@@ -16,7 +16,7 @@ write_dot(filename, lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAITrees/reference/#IAI.write_dot}{\code{IAI.write_dot}}
+\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.write_dot}{\code{IAI.write_dot}}
 }
 \examples{
 \dontrun{iai::write_dot(file.path(tempdir(), "tree.dot"), lnr)}

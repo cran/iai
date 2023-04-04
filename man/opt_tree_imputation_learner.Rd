@@ -12,7 +12,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/OptImpute/reference/#IAI.OptTreeImputationLearner}{\code{IAI.OptTreeImputationLearner}}
+\href{https://docs.interpretable.ai/v3.1.1/OptImpute/reference/#IAI.OptTreeImputationLearner}{\code{IAI.OptTreeImputationLearner}}
 }
 \examples{
 \dontrun{lnr <- iai::opt_tree_imputation_learner()}

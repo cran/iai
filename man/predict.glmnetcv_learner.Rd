@@ -19,7 +19,7 @@ defaulting to the best fit if not supplied.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/Heuristics/reference/#IAI.predict-Tuple\%7BGLMNetCVLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
+\href{https://docs.interpretable.ai/v3.1.1/Heuristics/reference/#IAI.predict-Tuple\%7BGLMNetCVLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
 }
 \section{IAI Compatibility}{
 

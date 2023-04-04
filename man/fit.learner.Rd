@@ -17,7 +17,7 @@ available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.0/IAIBase/reference/#IAI.fit\%21-Tuple\%7BLearner\%7D}{\code{IAI.fit!}}
+\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.fit\%21-Tuple\%7BLearner\%7D}{\code{IAI.fit!}}
 }
 \examples{
 \dontrun{
