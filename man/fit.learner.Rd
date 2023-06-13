@@ -20,10 +20,6 @@ Julia Equivalent:
 \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.fit\%21-Tuple\%7BLearner\%7D}{\code{IAI.fit!}}
 }
 \examples{
-\dontrun{
-X <- iris[, 1:4]
-y <- iris$Species
-lnr <- iai::random_forest_classifier()
-iai::fit(lnr, X, y)
-}
+\dontrun{iai::fit(lnr, X, y)}
+
 }

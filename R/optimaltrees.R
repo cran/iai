@@ -143,6 +143,46 @@ optimal_tree_policy_maximizer <- function(...) {
 }
 
 
+#' Learner for training multi-task Optimal Classification Trees
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.1/OptimalTrees/reference/#IAI.OptimalTreeMultiClassifier}{\code{IAI.OptimalTreeMultiClassifier}}
+#'
+#' @param ... Use keyword arguments to set parameters on the resulting learner.
+#'            Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{lnr <- iai::optimal_tree_multi_classifier()}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.2 or higher.
+#'
+#' @export
+optimal_tree_multi_classifier <- function(...) {
+  requires_iai_version("3.2.0", "optimal_tree_multi_classifier")
+  set_obj_class(jl_func("IAI.OptimalTreeMultiClassifier_convert", ...))
+}
+
+
+#' Learner for training multi-task Optimal Regression Trees
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.1/OptimalTrees/reference/#IAI.OptimalTreeMultiRegressor}{\code{IAI.OptimalTreeMultiRegressor}}
+#'
+#' @param ... Use keyword arguments to set parameters on the resulting learner.
+#'            Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{lnr <- iai::optimal_tree_multi_regressor()}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.2 or higher.
+#'
+#' @export
+optimal_tree_multi_regressor <- function(...) {
+  requires_iai_version("3.2.0", "optimal_tree_multi_regressor")
+  set_obj_class(jl_func("IAI.OptimalTreeMultiRegressor_convert", ...))
+}
+
+
 #' Refit the models in the leaves of a trained learner using the supplied data
 #'
 #' Julia Equivalent:

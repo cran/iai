@@ -18,7 +18,9 @@ set_obj_class <- function(obj) {
 
   # IAIBase
   add_class(obj, "Learner", "learner")
+  add_class(obj, "MultiLearner", "multi_learner")
   add_class(obj, "SupervisedLearner", "supervised_learner")
+  add_class(obj, "SupervisedMultiLearner", "supervised_multi_learner")
   add_class(obj, "UnsupervisedLearner", "unsupervised_learner")
   add_class(obj, "ClassificationLearner", "classification_learner")
   add_class(obj, "RegressionLearner", "regression_learner")
@@ -26,6 +28,10 @@ set_obj_class <- function(obj) {
   add_class(obj, "PrescriptionLearner", "prescription_learner")
   add_class(obj, "PolicyLearner", "policy_learner")
   add_class(obj, "ImputationLearner", "imputation_learner")
+  add_class(obj, "ClassificationMultiLearner", "classification_learner")
+  add_class(obj, "ClassificationMultiLearner", "classification_multi_learner")
+  add_class(obj, "RegressionMultiLearner", "regression_learner")
+  add_class(obj, "RegressionMultiLearner", "regression_multi_learner")
 
   # IAITrees
   add_class(obj, "TreeLearner", "tree_learner")
@@ -34,6 +40,11 @@ set_obj_class <- function(obj) {
   add_class(obj, "SurvivalTreeLearner", "survival_tree_learner")
   add_class(obj, "PrescriptionTreeLearner", "prescription_tree_learner")
   add_class(obj, "PolicyTreeLearner", "policy_tree_learner")
+  add_class(obj, "TreeMultiLearner", "tree_multi_learner")
+  add_class(obj, "ClassificationTreeMultiLearner", "classification_tree_learner")
+  add_class(obj, "ClassificationTreeMultiLearner", "classification_tree_multi_learner")
+  add_class(obj, "RegressionTreeMultiLearner", "regression_tree_learner")
+  add_class(obj, "RegressionTreeMultiLearner", "regression_tree_multi_learner")
 
   # OptimalTrees
   add_class(obj, "OptimalTreeLearner", "optimal_tree_learner")
@@ -47,6 +58,9 @@ set_obj_class <- function(obj) {
   add_class(obj, "OptimalTreePrescriptionMaximizer", "optimal_tree_prescription_maximizer")
   add_class(obj, "OptimalTreePolicyMinimizer", "optimal_tree_policy_minimizer")
   add_class(obj, "OptimalTreePolicyMaximizer", "optimal_tree_policy_maximizer")
+  add_class(obj, "OptimalTreeMultiLearner", "optimal_tree_multi_learner")
+  add_class(obj, "OptimalTreeMultiClassifier", "optimal_tree_multi_classifier")
+  add_class(obj, "OptimalTreeMultiRegressor", "optimal_tree_multi_regressor")
 
   # OptimalFeatureSelection
   add_class(obj, "OptimalFeatureSelectionLearner", "optimal_feature_selection_learner")

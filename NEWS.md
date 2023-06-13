@@ -1,5 +1,9 @@
 # Unreleased
 
+# iai 1.10.0
+
+* Add support for multi-task learners
+
 # iai 1.9.0
 
 * Add `standard_error` functions for Policy Learners

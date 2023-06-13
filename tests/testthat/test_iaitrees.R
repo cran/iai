@@ -786,3 +786,81 @@ test_that("stability", {
     ))
   }
 })
+
+test_that("multi classification structure", {
+  skip_on_cran()
+
+  if (iai:::iai_version_less_than("3.2.0")) {
+    expect_error(iai::optimal_tree_multi_classifier(),
+                 "requires IAI version 3.2.0")
+  } else {
+    lnr <- JuliaCall::julia_eval(
+        "IAI.OptimalTrees.load_iris_tree_multi(random_seed=1, max_depth=1)"
+    )
+    lnr <- iai:::set_obj_class(lnr)
+
+
+    label_all <- iai::get_classification_label(lnr, 3)
+    expect_true(is.list(label_all))
+    label_single <- iai::get_classification_label(lnr, 3, "y1")
+    expect_true(is.character(label_single))
+    expect_equal(label_all$y1, label_single)
+
+    proba_all <- iai::get_classification_proba(lnr, 3)
+    expect_true(is.list(proba_all))
+    proba_single <- iai::get_classification_proba(lnr, 3, "y1")
+    expect_true(is.list(proba_single))
+    expect_equal(proba_all$y1, proba_single)
+
+    const_all <- iai::get_regression_constant(lnr, 3)
+    expect_true(is.list(const_all))
+    const_single <- iai::get_regression_constant(lnr, 3, "y1")
+    expect_true(is.nan(const_single))
+    expect_true(is.nan(const_all$y1))
+
+    weights_all <- iai::get_regression_weights(lnr, 3)
+    expect_true(is.list(weights_all))
+    weights_single <- iai::get_regression_weights(lnr, 3, "y1")
+    expect_true(is.list(weights_single))
+    expect_equal(length(weights_single), 2)
+    expect_true(is.list(weights_single$numeric))
+    expect_true(is.list(weights_single$categoric))
+    expect_equal(length(weights_single$numeric), 0)
+    expect_equal(length(weights_single$categoric), 0)
+    expect_equal(weights_all$y1, weights_single)
+  }
+})
+
+test_that("multi regression structure", {
+  skip_on_cran()
+
+  if (iai:::iai_version_less_than("3.2.0")) {
+    expect_error(iai::optimal_tree_multi_regressor(),
+                 "requires IAI version 3.2.0")
+  } else {
+    lnr <- JuliaCall::julia_eval(
+        "IAI.OptimalTrees.load_mtcars_tree_multi(
+            random_seed=1,
+            regression_lambda=0.01,
+            regression_features=Set([\"All\"]),
+            max_depth=1,
+        )"
+    )
+    lnr <- iai:::set_obj_class(lnr)
+
+    const_all <- iai::get_regression_constant(lnr, 1)
+    expect_true(is.list(const_all))
+    const_single <- iai::get_regression_constant(lnr, 1, "MPG")
+    expect_true(is.numeric(const_single))
+    expect_equal(const_all$MPG, const_single)
+
+    weights_all <- iai::get_regression_weights(lnr, 1)
+    expect_true(is.list(weights_all))
+    weights_single <- iai::get_regression_weights(lnr, 1, "MPG")
+    expect_true(is.list(weights_single))
+    expect_equal(length(weights_single), 2)
+    expect_true(is.list(weights_single$numeric))
+    expect_true(is.list(weights_single$categoric))
+    expect_equal(weights_all$MPG, weights_single)
+  }
+})

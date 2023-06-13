@@ -293,34 +293,87 @@ get_split_weights <- function(lnr, node_index) {
 #' Return the predicted label at a node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_classification_label}{\code{IAI.get_classification_label}}
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_classification_label-Tuple\%7BClassificationTreeLearner\%2C\%20Int64\%7D}{\code{IAI.get_classification_label}}
 #'
-#' @param lnr The learner to query.
+#' @param obj The learner to query.
 #' @param node_index The node in the tree to query.
 #' @param ... Refer to the Julia documentation for available parameters.
 #'
 #' @examples \dontrun{iai::get_classification_label(lnr, 1)}
 #'
 #' @export
-get_classification_label <- function(lnr, node_index, ...) {
-  jl_func("IAI.get_classification_label_convert", lnr, node_index, ...)
+get_classification_label.classification_tree_learner <- function(
+    obj, node_index, ...
+) {
+  get_classification_label_common(obj, node_index, ...)
+}
+#' Return the predicted label at a node of a multi-task tree
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_classification_label-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Int64\%7D}{\code{IAI.get_classification_label}}
+#' and
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_classification_label-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Int64\%2C\%20Symbol\%7D}{\code{IAI.get_classification_label}}
+#'
+#' @param obj The learner to query.
+#' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{iai::get_classification_label(lnr, 1)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.2 or higher.
+#'
+#' @export
+get_classification_label.classification_tree_multi_learner <- function(
+    obj, node_index, ...
+) {
+  requires_iai_version("3.2.0", "get_classification_label",
+                       "with `classification_tree_multi_learner`")
+  NextMethod()
 }
 
 
 #' Return the predicted probabilities of class membership at a node of a tree
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_classification_proba}{\code{IAI.get_classification_proba}}
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_classification_proba-Tuple\%7BClassificationTreeLearner\%2C\%20Int64\%7D}{\code{IAI.get_classification_proba}}
 #'
-#' @param lnr The learner to query.
+#' @param obj The learner to query.
 #' @param node_index The node in the tree to query.
 #' @param ... Refer to the Julia documentation for available parameters.
 #'
 #' @examples \dontrun{iai::get_classification_proba(lnr, 1)}
 #'
 #' @export
-get_classification_proba <- function(lnr, node_index, ...) {
-  jl_func("IAI.get_classification_proba_convert", lnr, node_index, ...)
+get_classification_proba.classification_tree_learner <- function(
+    obj, node_index, ...
+) {
+  get_classification_proba_common(obj, node_index, ...)
+}
+#' Return the predicted probabilities of class membership at a node of a
+#' multi-task tree
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_classification_proba-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Int64\%7D}{\code{IAI.get_classification_proba}}
+#' and
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_classification_proba-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Int64\%2C\%20Symbol\%7D}{\code{IAI.get_classification_proba}}
+#'
+#' @param obj The learner to query.
+#' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{iai::get_classification_proba(lnr, 1)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.2 or higher.
+#'
+#' @export
+get_classification_proba.classification_tree_multi_learner <- function(
+    obj, node_index, ...
+) {
+  requires_iai_version("3.2.0", "get_classification_proba",
+                       "with `classification_tree_multi_learner`")
+  NextMethod()
 }
 
 
@@ -347,6 +400,32 @@ get_regression_constant.classification_tree_learner <- function(obj, node_index,
                        "with `classification_tree_learner`")
   get_regression_constant_common(obj, node_index, ...)
 }
+#' Return the constant term in the logistic regression prediction at a node of a
+#' multi-task classification tree
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_regression_constant-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Int64\%7D}{\code{IAI.get_regression_constant}}
+#' and
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_regression_constant-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Int64\%2C\%20Symbol\%7D}{\code{IAI.get_regression_constant}}
+#'
+#' @param obj The learner to query.
+#' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples
+#' \dontrun{iai::get_regression_constant(lnr, 1)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.2 or higher.
+#'
+#' @export
+get_regression_constant.classification_tree_multi_learner <- function(
+    obj, node_index, ...
+) {
+  requires_iai_version("3.2.0", "get_regression_constant",
+                       "with `classification_tree_multi_learner`")
+  NextMethod()
+}
 #' Return the constant term in the linear regression prediction at a node of a
 #' regression tree
 #'
@@ -364,6 +443,32 @@ get_regression_constant.classification_tree_learner <- function(obj, node_index,
 get_regression_constant.regression_tree_learner <- function(obj, node_index,
                                                             ...) {
   get_regression_constant_common(obj, node_index, ...)
+}
+#' Return the constant term in the linear regression prediction at a node of a
+#' multi-task regression tree
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_regression_constant-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.RegressionTask\%7D\%7D\%2C\%20Int64\%7D}{\code{IAI.get_regression_constant}}
+#' and
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_regression_constant-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.RegressionTask\%7D\%7D\%2C\%20Int64\%2C\%20Symbol\%7D}{\code{IAI.get_regression_constant}}
+#'
+#' @param obj The learner to query.
+#' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples
+#' \dontrun{iai::get_regression_constant(lnr, 1)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.2 or higher.
+#'
+#' @export
+get_regression_constant.regression_tree_multi_learner <- function(
+    obj, node_index, ...
+) {
+  requires_iai_version("3.2.0", "get_regression_constant",
+                       "with `regression_tree_multi_learner`")
+  NextMethod()
 }
 #' Return the constant term in the cox regression prediction at a node of a
 #' survival tree
@@ -432,6 +537,32 @@ get_regression_weights.classification_tree_learner <- function(obj, node_index,
                        "with `classification_tree_learner`")
   get_regression_weights_common(obj, node_index, ...)
 }
+#' Return the weights for each feature in the logistic regression prediction at
+#' a node of a multi-task classification tree
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_regression_weights-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Int64\%7D}{\code{IAI.get_regression_weights}}
+#' and
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_regression_weights-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Int64\%2C\%20Symbol\%7D}{\code{IAI.get_regression_weights}}
+#'
+#' @param obj The learner to query.
+#' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples
+#' \dontrun{iai::get_regression_weights(lnr, 1)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.2 or higher.
+#'
+#' @export
+get_regression_weights.classification_tree_multi_learner <- function(
+    obj, node_index, ...
+) {
+  requires_iai_version("3.2.0", "get_regression_weights",
+                       "with `classification_tree_multi_learner`")
+  NextMethod()
+}
 #' Return the weights for each feature in the linear regression prediction at a
 #' node of a regression tree
 #'
@@ -449,6 +580,32 @@ get_regression_weights.classification_tree_learner <- function(obj, node_index,
 get_regression_weights.regression_tree_learner <- function(obj, node_index,
                                                            ...) {
   get_regression_weights_common(obj, node_index, ...)
+}
+#' Return the weights for each feature in the linear regression prediction at a
+#' node of a multi-task regression tree
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_regression_weights-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.RegressionTask\%7D\%7D\%2C\%20Int64\%7D}{\code{IAI.get_regression_weights}}
+#' and
+#' \href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_regression_weights-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.RegressionTask\%7D\%7D\%2C\%20Int64\%2C\%20Symbol\%7D}{\code{IAI.get_regression_weights}}
+#'
+#' @param obj The learner to query.
+#' @param node_index The node in the tree to query.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples
+#' \dontrun{iai::get_regression_weights(lnr, 1)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.2 or higher.
+#'
+#' @export
+get_regression_weights.regression_tree_multi_learner <- function(
+    obj, node_index, ...
+) {
+  requires_iai_version("3.2.0", "get_regression_weights",
+                       "with `regression_tree_multi_learner`")
+  NextMethod()
 }
 #' Return the weights for each feature in the cox regression prediction at a
 #' node of a survival tree

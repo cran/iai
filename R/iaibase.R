@@ -16,7 +16,8 @@ split_data <- function(task, X, ...) {
   out <- jl_func("IAI.split_data_convert", task, X, ...)
 
   names(out) <- c("train", "test")
-  if (task %in% c("classification", "regression")) {
+  if (task %in% c("classification", "regression", "multi_classification",
+                  "multi_regression")) {
     names(out$train) <- names(out$test) <- c("X", "y")
   } else if (task %in% c("survival")) {
     names(out$train) <- names(out$test) <- c("X", "deaths", "times")
@@ -47,7 +48,7 @@ split_data <- function(task, X, ...) {
 #'            required by the problem type. Refer to the Julia documentation for
 #'            available parameters.
 #'
-#' @example examples/fit.learner.R
+#' @examples \dontrun{iai::fit(lnr, X, y)}
 #'
 #' @export
 fit.learner <- function(obj, X, ...) {
@@ -76,7 +77,7 @@ fit.grid_search <- function(obj, X, ...) {
 #' please refer to the Julia documentation.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/OptImpute/reference/#IAI.fit\%21-Tuple\%7BLearner\%7BIAIBase.ImputationTask\%7D\%7D}{\code{IAI.fit!}}
+#' \href{https://docs.interpretable.ai/v3.1.1/OptImpute/reference/#IAI.fit\%21-Tuple\%7BImputationLearner\%7D}{\code{IAI.fit!}}
 #'
 #' @param obj The learner or grid to fit.
 #' @param X The features of the data.
@@ -106,11 +107,32 @@ fit.imputation_learner <- function(obj, X, ...) {
 predict.supervised_learner <- function(obj, X, ...) {
   predict_common(obj, X, ...)
 }
+#' Return the predictions made by a multi-task supervised learner for each point in the features
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
+#' and
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Symbol\%7D}{\code{IAI.predict}}
+#'
+#' @param obj The learner or grid to use for prediction.
+#' @param X The features of the data.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{iai::predict(lnr, X)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.2 or higher.
+#'
+#' @export
+predict.supervised_multi_learner <- function(obj, X, ...) {
+  requires_iai_version("3.2.0", "predict", "with `supervised_multi_learner`")
+  NextMethod()
+}
 #' Return the predictions made by a survival learner for each point in the
 #' features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict-Tuple\%7BLearner\%7BIAIBase.SurvivalTask\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict-Tuple\%7BSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -146,6 +168,29 @@ predict.survival_learner <- function(obj, X, t = NULL, ...) {
 #' @export
 score.supervised_learner <- function(obj, X, ...) {
   score_common(obj, X, ...)
+}
+#' Calculate the score for a multi-task model on the given data
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.score-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%7D}{\code{IAI.score}}
+#' and
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.score-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Symbol\%7D}{\code{IAI.score}}
+#'
+#' @param obj The learner or grid to evaluate.
+#' @param X The features of the data.
+#' @param ... Other parameters, including zero or more target vectors as
+#'            required by the problem type. Refer to the Julia documentation for
+#'            available parameters.
+#'
+#' @examples \dontrun{iai::score(lnr, X, y)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.2 or higher.
+#'
+#' @export
+score.supervised_multi_learner <- function(obj, X, ...) {
+  requires_iai_version("3.2.0", "score", "with `supervised_multi_learner`")
+  NextMethod()
 }
 #' Calculate the score for a set of predictions on the given data
 #'
@@ -525,7 +570,7 @@ get_grid_result_details <- function(grid) {
 #' learner for each point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_proba-Tuple\%7BLearner\%7BIAIBase.ClassificationTask\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_proba}}
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_proba-Tuple\%7BClassificationLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_proba}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -537,13 +582,36 @@ get_grid_result_details <- function(grid) {
 predict_proba.classification_learner <- function(obj, X, ...) {
   predict_proba_common(obj, X, ...)
 }
+#' Return the probabilities of class membership predicted by a multi-task
+#' classification learner for each point in the features
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_proba-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_proba}}
+#' and
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_proba-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Symbol\%7D}{\code{IAI.predict_proba}}
+#'
+#' @param obj The learner or grid to use for prediction.
+#' @param X The features of the data.
+#' @param ... Additional arguments (unused)
+#'
+#' @examples \dontrun{iai::predict_proba(lnr, X)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.2 or higher.
+#'
+#' @export
+predict_proba.classification_multi_learner <- function(obj, X, ...) {
+  requires_iai_version("3.2.0", "predict_proba",
+                       "with `classification_multi_learner`")
+  NextMethod()
+}
 
 
 #' Construct an ROC curve using a trained classification learner on the given
 #' data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BLearner\%7BIAIBase.ClassificationTask\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20AbstractVector\%7D}{\code{IAI.ROCCurve}}
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BClassificationLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20AbstractVector\%7D}{\code{IAI.ROCCurve}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -555,6 +623,30 @@ predict_proba.classification_learner <- function(obj, X, ...) {
 #' @export
 roc_curve.classification_learner <- function(obj, X, y, ...) {
   roc_curve_common(obj, X, y, ...)
+}
+#' Construct an ROC curve using a trained multi-task classification learner on
+#' the given data
+#'
+#' Julia Equivalent:
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7D\%7D}{\code{IAI.ROCCurve}}
+#' and
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7D\%2C\%20Symbol\%7D}{\code{IAI.ROCCurve}}
+#'
+#' @param obj The learner or grid to use for prediction.
+#' @param X The features of the data.
+#' @param y The labels of the data.
+#' @param ... Refer to the Julia documentation for available parameters.
+#'
+#' @examples \dontrun{iai::roc_curve(lnr, X, y)}
+#'
+#' @section IAI Compatibility:
+#' Requires IAI version 3.2 or higher.
+#'
+#' @export
+roc_curve.classification_multi_learner <- function(obj, X, y, ...) {
+  requires_iai_version("3.2.0", "roc_curve",
+                       "with `classification_multi_learner`")
+  NextMethod()
 }
 #' Construct an ROC curve from predicted probabilities and true labels
 #'
@@ -691,7 +783,7 @@ get_survival_curve_data <- function(curve) {
 #' survival time.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_hazard-Tuple\%7BLearner\%7BIAIBase.SurvivalTask\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_hazard}}
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_hazard-Tuple\%7BSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_hazard}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -713,7 +805,7 @@ predict_hazard.survival_learner <- function(obj, X, ...) {
 #' each point in the features.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_expected_survival_time-Tuple\%7BLearner\%7BIAIBase.SurvivalTask\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_expected_survival_time}}
+#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_expected_survival_time-Tuple\%7BSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_expected_survival_time}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.

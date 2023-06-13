@@ -84,6 +84,36 @@ get_prediction_weights_common <- function(...) {
 }
 
 
+#' Generic function for returning the predicted label in the node of a
+#' classification tree
+#'
+#' @param obj The object controlling which method is used
+#' @param ... Arguments depending on the specific method used
+#'
+#' @export
+get_classification_label <- function(obj, ...) {
+  UseMethod("get_classification_label", obj)
+}
+get_classification_label_common <- function(...) {
+  jl_func("IAI.get_classification_label_convert", ...)
+}
+
+
+#' Generic function for returning the probabilities of class membership at a
+#' node of a classification tree
+#'
+#' @param obj The object controlling which method is used
+#' @param ... Arguments depending on the specific method used
+#'
+#' @export
+get_classification_proba <- function(obj, ...) {
+  UseMethod("get_classification_proba", obj)
+}
+get_classification_proba_common <- function(...) {
+  jl_func("IAI.get_classification_proba_convert", ...)
+}
+
+
 #' Generic function for returning the constant term in the regression
 #' prediction at a node of a tree
 #'
@@ -109,9 +139,17 @@ get_regression_constant_common <- function(...) {
 get_regression_weights <- function(obj, ...) {
   UseMethod("get_regression_weights", obj)
 }
-get_regression_weights_common <- function(...) {
-  out <- jl_func("IAI.get_regression_weights_convert", ...)
-  names(out) <- c("numeric", "categoric")
+get_regression_weights_common <- function(obj, ...) {
+  out <- jl_func("IAI.get_regression_weights_convert", obj, ...)
+  if ("tree_multi_learner" %in% class(obj) && length(out[[1]]) > 0 &&
+      is.list(out[[1]][[1]])) {
+    out <- lapply(out, function (x) {
+      names(x) <- c("numeric", "categoric")
+      x
+    })
+  } else {
+    names(out) <- c("numeric", "categoric")
+  }
   out
 }
 
@@ -176,8 +214,13 @@ predict_common <- function(obj, ...) {
   out <- jl_func("IAI.predict_convert", obj, ...)
 
   if (typeof(out) == "list" && length(out) == 2) {
-    stopifnot("prescription_learner" %in% class(obj))
-    names(out) <- c("treatments", "outcomes")
+    if ("optimal_tree_multi_classifier" %in% class(obj) ||
+        "optimal_tree_multi_regressor" %in% class(obj)) {
+      # Already have names from predict
+    } else {
+      stopifnot("prescription_learner" %in% class(obj))
+      names(out) <- c("treatments", "outcomes")
+    }
   } else if ("survival_learner" %in% class(obj) &&
              jl_isa(out[1], "IAI.SurvivalCurve")) {
     out <- sapply(out, set_obj_class)
@@ -274,7 +317,12 @@ roc_curve <- function(obj, ...) {
   UseMethod("roc_curve", obj)
 }
 roc_curve_common <- function(...) {
-  set_obj_class(jl_func("IAI.ROCCurve_convert", ...))
+  out <- jl_func("IAI.ROCCurve_convert", ...)
+  if (is.list(out)) {
+    lapply(out, set_obj_class)
+  } else {
+    set_obj_class(out)
+  }
 }
 
 

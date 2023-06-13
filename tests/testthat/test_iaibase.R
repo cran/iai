@@ -345,3 +345,45 @@ test_that("resume_from_checkpoint", {
     expect_true(all(out1$predictions$reward == out2$predictions$reward))
   }
 })
+
+test_that("multi API", {
+  skip_on_cran()
+
+  if (iai:::iai_version_less_than("3.2.0")) {
+    expect_error(iai::optimal_tree_multi_classifier(),
+                 "requires IAI version 3.2.0")
+  } else {
+    X <- iris[, 1:3]
+    y <- iris[, 4:5]
+    y[, 1] <- y[, 1] == y[1, 1]
+    y[, 2] <- y[, 2] == y[1, 2]
+
+    lnr <- iai::optimal_tree_multi_classifier(max_depth = 1, cp = 0)
+    iai::fit(lnr, X, y)
+
+    pred_all <- iai::predict(lnr, X)
+    expect_true(is.list(pred_all))
+    pred_single <- iai::predict(lnr, X, "Species")
+    expect_true(is.logical(pred_single) && length(pred_single) == nrow(X))
+    expect_equal(pred_all$Species, pred_single)
+
+    score_all <- iai::score(lnr, X, y)
+    expect_true(is.numeric(score_all) && length(score_all) == 1)
+    score_single <- iai::score(lnr, X, y, "Species")
+    expect_true(is.numeric(score_single) && length(score_single) == 1)
+    expect_false(score_all == score_single)
+
+    proba_all <- iai::predict_proba(lnr, X)
+    expect_true(is.list(proba_all))
+    proba_single <- iai::predict_proba(lnr, X, "Species")
+    expect_true(is.data.frame(proba_single))
+    expect_equal(proba_all$Species, proba_single)
+
+    roc_all <- iai::roc_curve(lnr, X, y, positive_label=c(T, F))
+    expect_true(is.list(roc_all))
+    expect_true("roc_curve" %in% class(roc_all[[1]]))
+    roc_single <- iai::roc_curve(lnr, X, y, "Species", positive_label=F)
+    expect_true("roc_curve" %in% class(roc_single))
+    expect_equal(roc_all$Species, roc_single)
+  }
+})
