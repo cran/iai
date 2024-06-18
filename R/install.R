@@ -13,10 +13,18 @@ julia_latest_version <- function() {
 
   iai_versions <- get_iai_version_info()
 
-  max(intersect(
+  valid_versions <- intersect(
       names(Filter(function(v) v$stable, versions)),
       names(iai_versions)
-  ))
+  )
+
+  # Sort by arranging into 3 x n matrix and sorting columns lexicographically
+  vs <- sapply(valid_versions, function (v) {
+    as.integer(strsplit(v, "\\.")[[1]])
+  })
+  vs <- vs[, order(vs[1,], vs[2,], vs[3,], decreasing = T)]
+  # Choose the largest version by selecting the name of the first column
+  colnames(vs)[1]
 }
 
 
@@ -26,11 +34,11 @@ julia_latest_version <- function() {
 #            is needed so that we can load prefs and process anything that needs
 #            to be done before initializing Julia (eg loading the sysimage path)
 julia_default_depot <- function() {
-  key <- if (Sys.info()["sysname"] == "Windows") {
+  key <- if (Sys.info()["sysname"] == "Windows") { # nocov start
     "USERPROFILE"
   } else {
     "HOME"
-  }
+  } # nocov end
   return(file.path(Sys.getenv(key), ".julia"))
 }
 get_prefs_dir <- function() {
@@ -62,7 +70,7 @@ install_julia <- function(version = "latest",
   if (version == "latest") {
     version <- julia_latest_version() # nocov
   }
-  JuliaCall::install_julia(version = version, prefix = prefix)
+  JuliaCall_install_julia(version = version, prefix = prefix)
 }
 
 
@@ -97,15 +105,15 @@ get_iai_version_info <- function() {
   sysname <- Sys.info()["sysname"]
   sysmachine <- Sys.info()["machine"]
 
-  os <- if (sysname == "Linux") {
+  os <- if (sysname == "Linux") { # nocov start
     "linux"
   } else if (sysname == "Darwin") {
     ifelse(sysmachine == "arm64", "macos_aarch64", "macos")
   } else if (sysname == "Windows") {
     "win64"
   } else {
-    stop("Unknown or unsupported OS") # nocov
-  }
+    stop("Unknown or unsupported OS")
+  } # nocov end
   return(versions[[os]])
 }
 
@@ -141,7 +149,7 @@ sysimage_replace_prefs_file <- function() {
 sysimage_save_replace_command <- function(image_path, target_path) {
   # Save the original path of the image and the new target path so that we can
   # process the copy during the next R session before Julia is initialized
-  writeLines(c(image_path, target_path), con = sysimage_replace_prefs_file())
+  writeLines(c(image_path, target_path), con = sysimage_replace_prefs_file()) # nocov
 }
 sysimage_do_replace <- function(image_path, target_path) {
   # Copy the image to the new path
@@ -177,6 +185,15 @@ install_system_image <- function(version = "latest", replace_default = FALSE,
     stop("The license agreement was not accepted, aborting installation")
   }
 
+  # Cleanup any previous sysimg configuration before loading Julia in case a
+  # prior installation is not functional
+  files <- c(sysimage_path_prefs_file(), sysimage_replace_prefs_file())
+  for (f in files) {
+    if (file.exists(f)) {
+      file.remove(f)
+    }
+  }
+
   iai_run_julia_setup()
   julia_version <- JuliaCall::julia_eval("string(VERSION)")
   iai_versions <- get_iai_versions(julia_version)
@@ -206,19 +223,40 @@ install_system_image <- function(version = "latest", replace_default = FALSE,
   utils::unzip(file, exdir = dest)
 
   sysname <- Sys.info()["sysname"]
-  image_name <- if (sysname == "Linux") {
+  image_name <- if (sysname == "Linux") { # nocov start
     "sys.so"
   } else if (sysname == "Darwin") {
     "sys.dylib"
   } else if (sysname == "Windows") {
     "sys.dll"
   } else {
-    stop("Unknown or unsupported OS") # nocov
-  }
+    stop("Unknown or unsupported OS")
+  } # nocov end
   image_path <- file.path(dest, image_name)
 
   sysimage_save_install_path(image_path)
   message(paste("Installed IAI system image to", dest))
+
+  # Install artifacts if needed
+  artifacts_toml_path <- file.path(dest, "Artifacts.toml")
+  if (file.exists(artifacts_toml_path)) {
+    artifacts_toml_path <- gsub("\\", "/", artifacts_toml_path, fixed = T)
+    message("Installing artifacts for system image...")
+    julia_cmd <- paste(
+        'using Pkg;',
+        'Pkg.activate(temp=true);',
+        'Pkg.add(url="https://github.com/InterpretableAI/IAISystemImages.jl");',
+        'using IAISystemImages;',
+        'IAISystemImages.install_artifacts("', artifacts_toml_path, '")',
+    sep = "")
+    cmd <- paste(
+        '"', JuliaCall::julia_eval("Base.julia_cmd()[1]"), '" ',
+        "-e ", shQuote(julia_cmd),
+    sep = "")
+    exitcode <- system(cmd)
+    stopifnot(exitcode == 0)
+    message("Installed artifacts for system image")
+  }
 
   # Run init step to fix packages to right versions (in case JuliaCall installed
   # incompatible versions before IAI was added)
@@ -227,7 +265,7 @@ install_system_image <- function(version = "latest", replace_default = FALSE,
   cmd <- paste(
       '"', JuliaCall::julia_eval("Base.julia_cmd()[1]"), '" ',
       '--sysimage="', image_path, '" ',
-      '-e nothing',
+      '-e "using Pkg; Pkg.add(\\\"RCall\\\"); Pkg.update()"',
   sep = "")
   exitcode <- system(cmd)
   stopifnot(exitcode == 0)
@@ -241,7 +279,7 @@ install_system_image <- function(version = "latest", replace_default = FALSE,
     # Windows can't replace the current sysimg as it is loaded into this session
     # so we save a command to run later
     if (sysname == "Windows") {
-      sysimage_save_replace_command(image_path, target_path)
+      sysimage_save_replace_command(image_path, target_path)  # nocov
     } else {
       sysimage_do_replace(image_path, target_path)
     }

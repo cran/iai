@@ -21,7 +21,7 @@ Refer to the Julia documentation for more information.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/RewardEstimation/reference/#IAI.fit_predict\%21-Tuple\%7BNumericRewardEstimator\%7D}{\code{IAI.fit_predict!}}
+\href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.fit_predict\%21-Tuple\%7BNumericRewardEstimator\%7D}{\code{IAI.fit_predict!}}
 }
 \section{IAI Compatibility}{
 

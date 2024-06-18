@@ -16,9 +16,9 @@ multi-task regression tree}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_regression_constant-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.RegressionTask\%7D\%7D\%2C\%20Int64\%7D}{\code{IAI.get_regression_constant}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_regression_constant-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.RegressionTask\%7D\%7D\%2C\%20Int64\%7D}{\code{IAI.get_regression_constant}}
 and
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_regression_constant-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.RegressionTask\%7D\%7D\%2C\%20Int64\%2C\%20Symbol\%7D}{\code{IAI.get_regression_constant}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_regression_constant-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.RegressionTask\%7D\%7D\%2C\%20Int64\%2C\%20Symbol\%7D}{\code{IAI.get_regression_constant}}
 }
 \section{IAI Compatibility}{
 

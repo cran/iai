@@ -16,7 +16,7 @@ learner for each point in the features}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_proba-Tuple\%7BClassificationLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_proba}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_proba-Tuple\%7BClassificationLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_proba}}
 }
 \examples{
 \dontrun{iai::predict_proba(lnr, X)}

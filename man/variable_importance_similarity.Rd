@@ -16,7 +16,7 @@ variable_importance_similarity(lnr, new_lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.variable_importance_similarity}{\code{IAI.variable_importance_similarity}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.variable_importance_similarity}{\code{IAI.variable_importance_similarity}}
 }
 \section{IAI Compatibility}{
 

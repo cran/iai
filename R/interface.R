@@ -10,11 +10,11 @@ iai_run_julia_setup <- function(sysimage_path = NULL, ...) {
 
   # Check if a system image replacement was queued on Windows
   replace_sysimg_file <- sysimage_replace_prefs_file()
-  if (file.exists(replace_sysimg_file)) {
+  if (file.exists(replace_sysimg_file)) { # nocov start
     lines <- readLines(replace_sysimg_file)
     sysimage_do_replace(lines[1], lines[2])
     file.remove(replace_sysimg_file)
-  }
+  } # nocov end
 
   if (!is.na(Sys.getenv("IAI_JULIA", unset = NA))) { # nocov start
     bindir <- normalizePath(dirname(Sys.getenv("IAI_JULIA")), mustWork = FALSE)

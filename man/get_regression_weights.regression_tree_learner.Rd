@@ -16,7 +16,7 @@ node of a regression tree}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_regression_weights-Tuple\%7BRegressionTreeLearner\%2C\%20Int64\%7D}{\code{IAI.get_regression_weights}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_regression_weights-Tuple\%7BRegressionTreeLearner\%2C\%20Int64\%7D}{\code{IAI.get_regression_weights}}
 }
 \examples{
 \dontrun{iai::get_regression_weights(lnr, 1)}

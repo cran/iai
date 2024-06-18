@@ -13,7 +13,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/OptimalTrees/reference/#IAI.OptimalTreePolicyMaximizer}{\code{IAI.OptimalTreePolicyMaximizer}}
+\href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.OptimalTreePolicyMaximizer}{\code{IAI.OptimalTreePolicyMaximizer}}
 }
 \section{IAI Compatibility}{
 

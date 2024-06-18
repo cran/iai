@@ -11,7 +11,7 @@ get_num_nodes(lnr)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_num_nodes}{\code{IAI.get_num_nodes}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_num_nodes}{\code{IAI.get_num_nodes}}
 }
 \examples{
 \dontrun{iai::get_num_nodes(lnr)}

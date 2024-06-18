@@ -13,7 +13,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/Heuristics/reference/#IAI.GLMNetCVRegressor}{\code{IAI.GLMNetCVRegressor}}
+\href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.GLMNetCVRegressor}{\code{IAI.GLMNetCVRegressor}}
 }
 \section{IAI Compatibility}{
 

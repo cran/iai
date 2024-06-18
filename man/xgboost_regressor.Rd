@@ -12,7 +12,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/Heuristics/reference/#IAI.XGBoostRegressor}{\code{IAI.XGBoostRegressor}}
+\href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.XGBoostRegressor}{\code{IAI.XGBoostRegressor}}
 }
 \section{IAI Compatibility}{
 

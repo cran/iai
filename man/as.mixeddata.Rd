@@ -17,7 +17,7 @@ ordinal levels, in the order supplied}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.make_mixed_data}{\code{IAI.make_mixed_data}}
 }
 \examples{
 \dontrun{

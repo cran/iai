@@ -1,5 +1,10 @@
 # Unreleased
 
+# iai 1.10.1
+
+* Add support for Julia 1.10+
+* Miscellaneous fixes for automatic installation
+
 # iai 1.10.0
 
 * Add support for multi-task learners

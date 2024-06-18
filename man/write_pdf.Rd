@@ -20,7 +20,7 @@ that \href{https://graphviz.org/}{Graphviz} is installed and on the system
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.write_pdf}{\code{IAI.write_pdf}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.write_pdf}{\code{IAI.write_pdf}}
 }
 \section{IAI Compatibility}{
 

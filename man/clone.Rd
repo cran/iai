@@ -11,7 +11,7 @@ clone(lnr)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.clone}{\code{IAI.clone}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.clone}{\code{IAI.clone}}
 }
 \examples{
 \dontrun{new_lnr <- iai::clone(lnr)}

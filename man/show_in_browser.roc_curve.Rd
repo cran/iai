@@ -14,7 +14,7 @@ browser}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.show_in_browser-Tuple\%7BROCCurve\%7D}{\code{IAI.show_in_browser}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.show_in_browser-Tuple\%7BROCCurve\%7D}{\code{IAI.show_in_browser}}
 }
 \section{IAI Compatibility}{
 

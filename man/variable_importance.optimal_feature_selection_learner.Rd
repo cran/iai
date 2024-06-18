@@ -19,7 +19,7 @@ that they sum to one.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/OptimalFeatureSelection/reference/#IAI.variable_importance-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.variable_importance}}
+\href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.variable_importance-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.variable_importance}}
 }
 \section{IAI Compatibility}{
 

@@ -17,7 +17,7 @@ defaulting to the best fit if not supplied.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/Heuristics/reference/#IAI.get_prediction_constant-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.get_prediction_constant}}
+\href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.get_prediction_constant-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.get_prediction_constant}}
 }
 \section{IAI Compatibility}{
 

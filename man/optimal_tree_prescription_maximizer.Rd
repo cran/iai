@@ -13,7 +13,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMaximizer}{\code{IAI.OptimalTreePrescriptionMaximizer}}
+\href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMaximizer}{\code{IAI.OptimalTreePrescriptionMaximizer}}
 }
 \examples{
 \dontrun{lnr <- iai::optimal_tree_prescription_maximizer()}

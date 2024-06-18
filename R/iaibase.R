@@ -1,7 +1,7 @@
 #' Split the data into training and test datasets
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.split_data}{\code{IAI.split_data}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.split_data}{\code{IAI.split_data}}
 #'
 #' @param task The type of problem.
 #' @param X The features of the data.
@@ -40,7 +40,7 @@ split_data <- function(task, X, ...) {
 #' Fits a model to the training data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.fit\%21-Tuple\%7BLearner\%7D}{\code{IAI.fit!}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.fit\%21-Tuple\%7BLearner\%7D}{\code{IAI.fit!}}
 #'
 #' @param obj The learner to fit.
 #' @param X The features of the data.
@@ -57,7 +57,7 @@ fit.learner <- function(obj, X, ...) {
 #' Fits a \code{\link{grid_search}} to the training data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.fit\%21-Tuple\%7BGridSearch\%7D}{\code{IAI.fit!}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.fit\%21-Tuple\%7BGridSearch\%7D}{\code{IAI.fit!}}
 #'
 #' @param obj The grid search to fit.
 #' @param X The features of the data.
@@ -77,7 +77,7 @@ fit.grid_search <- function(obj, X, ...) {
 #' please refer to the Julia documentation.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/OptImpute/reference/#IAI.fit\%21-Tuple\%7BImputationLearner\%7D}{\code{IAI.fit!}}
+#' \href{https://docs.interpretable.ai/v3.2.1/OptImpute/reference/#IAI.fit\%21-Tuple\%7BImputationLearner\%7D}{\code{IAI.fit!}}
 #'
 #' @param obj The learner or grid to fit.
 #' @param X The features of the data.
@@ -95,7 +95,7 @@ fit.imputation_learner <- function(obj, X, ...) {
 #' features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict-Tuple\%7BSupervisedLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict-Tuple\%7BSupervisedLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -110,9 +110,9 @@ predict.supervised_learner <- function(obj, X, ...) {
 #' Return the predictions made by a multi-task supervised learner for each point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
 #' and
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Symbol\%7D}{\code{IAI.predict}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Symbol\%7D}{\code{IAI.predict}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -132,7 +132,7 @@ predict.supervised_multi_learner <- function(obj, X, ...) {
 #' features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict-Tuple\%7BSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict-Tuple\%7BSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -155,7 +155,7 @@ predict.survival_learner <- function(obj, X, t = NULL, ...) {
 #' Calculate the score for a model on the given data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.score-Tuple\%7BSupervisedLearner\%7D}{\code{IAI.score}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.score-Tuple\%7BSupervisedLearner\%7D}{\code{IAI.score}}
 #'
 #' @param obj The learner or grid to evaluate.
 #' @param X The features of the data.
@@ -172,9 +172,9 @@ score.supervised_learner <- function(obj, X, ...) {
 #' Calculate the score for a multi-task model on the given data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.score-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%7D}{\code{IAI.score}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.score-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%7D}{\code{IAI.score}}
 #' and
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.score-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Symbol\%7D}{\code{IAI.score}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.score-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Symbol\%7D}{\code{IAI.score}}
 #'
 #' @param obj The learner or grid to evaluate.
 #' @param X The features of the data.
@@ -195,7 +195,7 @@ score.supervised_multi_learner <- function(obj, X, ...) {
 #' Calculate the score for a set of predictions on the given data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.score-Tuple\%7BUnion\%7BAbstractString\%2C\%20Symbol\%7D\%2C\%20Vararg\%7BAny\%7D\%7D}{\code{IAI.score}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.score-Tuple\%7BUnion\%7BAbstractString\%2C\%20Symbol\%7D\%2C\%20Vararg\%7BAny\%7D\%7D}{\code{IAI.score}}
 #'
 #' @param obj The type of problem.
 #' @param predictions The predictions to evaluate.
@@ -220,7 +220,7 @@ score.default <- function(obj, predictions, truths, ...) {
 #' one.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.variable_importance-Tuple\%7BLearner\%7D}{\code{IAI.variable_importance}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.variable_importance-Tuple\%7BLearner\%7D}{\code{IAI.variable_importance}}
 #'
 #' @param obj The learner to query.
 #' @param ... Refer to the Julia documentation for available parameters.
@@ -236,7 +236,7 @@ variable_importance.learner <- function(obj, ...) {
 #' Return the names of the features used by the learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_features_used}{\code{IAI.get_features_used}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_features_used}{\code{IAI.get_features_used}}
 #'
 #' @param lnr The learner to query.
 #'
@@ -255,7 +255,7 @@ get_features_used <- function(lnr) {
 #' Output a learner or grid in JSON format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.write_json}{\code{IAI.write_json}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.write_json}{\code{IAI.write_json}}
 #'
 #' @param filename Where to save the output.
 #' @param obj The learner or grid to output.
@@ -272,7 +272,7 @@ write_json <- function(filename, obj, ...) {
 #' Read in a learner or grid saved in JSON format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.read_json}{\code{IAI.read_json}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.read_json}{\code{IAI.read_json}}
 #'
 #' @param filename The location of the JSON file.
 #'
@@ -287,7 +287,7 @@ read_json <- function(filename) {
 #' Resume training from a checkpoint file
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.resume_from_checkpoint}{\code{IAI.resume_from_checkpoint}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.resume_from_checkpoint}{\code{IAI.resume_from_checkpoint}}
 #'
 #' @param checkpoint_file The location of the checkpoint file.
 #'
@@ -312,7 +312,7 @@ resume_from_checkpoint <- function(checkpoint_file) {
 #' Return the value of all parameters on a learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_params}{\code{IAI.get_params}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_params}{\code{IAI.get_params}}
 #'
 #' @param lnr The learner to query.
 #'
@@ -327,7 +327,7 @@ get_params <- function(lnr) {
 #' Set all supplied parameters on a learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.set_params!}{\code{IAI.set_params!}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.set_params!}{\code{IAI.set_params!}}
 #'
 #' @param lnr The learner to modify.
 #' @param ... The parameters to set on the learner.
@@ -344,7 +344,7 @@ set_params <- function(lnr, ...) {
 #' Return an unfitted copy of a learner with the same parameters
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.clone}{\code{IAI.clone}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.clone}{\code{IAI.clone}}
 #'
 #' @param lnr The learner to copy.
 #'
@@ -359,7 +359,7 @@ clone <- function(lnr) {
 #' Show interactive visualization of an object in the default browser
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.show_in_browser-Tuple\%7BAbstractVisualization\%7D}{\code{IAI.show_in_browser}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.show_in_browser-Tuple\%7BAbstractVisualization\%7D}{\code{IAI.show_in_browser}}
 #'
 #' @param obj The object to visualize.
 #' @param ... Refer to the Julia documentation for available parameters.
@@ -374,7 +374,7 @@ show_in_browser.abstract_visualization <- function(obj, ...) {
 #' browser
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.show_in_browser-Tuple\%7BROCCurve\%7D}{\code{IAI.show_in_browser}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.show_in_browser-Tuple\%7BROCCurve\%7D}{\code{IAI.show_in_browser}}
 #'
 #' @param obj The curve to visualize.
 #' @param ... Refer to the Julia documentation for available parameters.
@@ -394,7 +394,7 @@ show_in_browser.roc_curve <- function(obj, ...) {
 #' Sets a global rich output parameter
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.set_rich_output_param!}{\code{IAI.set_rich_output_param!}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.set_rich_output_param!}{\code{IAI.set_rich_output_param!}}
 #'
 #' @param key The parameter to set.
 #' @param value The value to set
@@ -410,7 +410,7 @@ set_rich_output_param <- function(key, value) {
 #' Return the current global rich output parameter settings
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_rich_output_params}{\code{IAI.get_rich_output_params}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_rich_output_params}{\code{IAI.get_rich_output_params}}
 #'
 #' @examples \dontrun{iai::get_rich_output_params()}
 #'
@@ -423,7 +423,7 @@ get_rich_output_params <- function() {
 #' Delete a global rich output parameter
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.delete_rich_output_param!}{\code{IAI.delete_rich_output_param!}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.delete_rich_output_param!}{\code{IAI.delete_rich_output_param!}}
 #'
 #' @param key The parameter to delete.
 #'
@@ -438,7 +438,7 @@ delete_rich_output_param <- function(key) {
 #' Controls grid search over parameter combinations
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.GridSearch}{\code{IAI.GridSearch}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.GridSearch}{\code{IAI.GridSearch}}
 #'
 #' @param lnr The learner to use when validating.
 #' @param ... The parameters to validate over.
@@ -454,7 +454,7 @@ grid_search <- function(lnr, ...) {
 #' Fits a grid search to the training data with cross-validation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.fit_cv\%21-Tuple\%7BGridSearch\%7D}{\code{IAI.fit_cv!}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.fit_cv\%21-Tuple\%7BGridSearch\%7D}{\code{IAI.fit_cv!}}
 #'
 #' @param grid The grid to fit.
 #' @param X The features of the data.
@@ -474,7 +474,7 @@ fit_cv <- function(grid, X, ...) {
 #' Return the fitted learner using the best parameter combination from a grid
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_learner}{\code{IAI.get_learner}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_learner}{\code{IAI.get_learner}}
 #'
 #' @param grid The grid to query.
 #'
@@ -489,7 +489,7 @@ get_learner <- function(grid) {
 #' Return the best parameter combination from a grid
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_best_params}{\code{IAI.get_best_params}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_best_params}{\code{IAI.get_best_params}}
 #'
 #' @param grid The grid search to query.
 #'
@@ -521,7 +521,7 @@ get_grid_results <- function(grid) {
 #' Return a summary of the results from the grid search
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_grid_result_summary}{\code{IAI.get_grid_result_summary}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_grid_result_summary}{\code{IAI.get_grid_result_summary}}
 #'
 #' @param grid The grid search to query.
 #'
@@ -540,7 +540,7 @@ get_grid_result_summary <- function(grid) {
 #' Return a vector of lists detailing the results of the grid search
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_grid_result_details}{\code{IAI.get_grid_result_details}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_grid_result_details}{\code{IAI.get_grid_result_details}}
 #'
 #' @param grid The grid search to query.
 #'
@@ -570,7 +570,7 @@ get_grid_result_details <- function(grid) {
 #' learner for each point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_proba-Tuple\%7BClassificationLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_proba}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_proba-Tuple\%7BClassificationLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_proba}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -586,9 +586,9 @@ predict_proba.classification_learner <- function(obj, X, ...) {
 #' classification learner for each point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_proba-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_proba}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_proba-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_proba}}
 #' and
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_proba-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Symbol\%7D}{\code{IAI.predict_proba}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_proba-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Symbol\%7D}{\code{IAI.predict_proba}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -611,7 +611,7 @@ predict_proba.classification_multi_learner <- function(obj, X, ...) {
 #' data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BClassificationLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20AbstractVector\%7D}{\code{IAI.ROCCurve}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BClassificationLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20AbstractVector\%7D}{\code{IAI.ROCCurve}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -628,9 +628,9 @@ roc_curve.classification_learner <- function(obj, X, y, ...) {
 #' the given data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7D\%7D}{\code{IAI.ROCCurve}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7D\%7D}{\code{IAI.ROCCurve}}
 #' and
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7D\%2C\%20Symbol\%7D}{\code{IAI.ROCCurve}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7D\%2C\%20Symbol\%7D}{\code{IAI.ROCCurve}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -651,7 +651,7 @@ roc_curve.classification_multi_learner <- function(obj, X, y, ...) {
 #' Construct an ROC curve from predicted probabilities and true labels
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BAbstractVector\%7B\%3C\%3AReal\%7D\%2C\%20AbstractVector\%7D}{\code{IAI.ROCCurve}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.ROCCurve-Tuple\%7BAbstractVector\%7B\%3C\%3AReal\%7D\%2C\%20AbstractVector\%7D}{\code{IAI.ROCCurve}}
 #'
 #' @param obj The predicted probabilities for each point in the data.
 #' @param y The true labels of the data.
@@ -738,7 +738,7 @@ plot.roc_curve <- function(x, ...) {
 #' (the threshold).
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_roc_curve_data}{\code{IAI.get_roc_curve_data}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_roc_curve_data}{\code{IAI.get_roc_curve_data}}
 #'
 #' @param curve The curve to query.
 #'
@@ -764,7 +764,7 @@ get_roc_curve_data <- function(curve) {
 #' probability for each breakpoint on the curve.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_survival_curve_data}{\code{IAI.get_survival_curve_data}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_survival_curve_data}{\code{IAI.get_survival_curve_data}}
 #'
 #' @param curve The curve to query.
 #'
@@ -783,7 +783,7 @@ get_survival_curve_data <- function(curve) {
 #' survival time.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_hazard-Tuple\%7BSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_hazard}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_hazard-Tuple\%7BSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_hazard}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -805,7 +805,7 @@ predict_hazard.survival_learner <- function(obj, X, ...) {
 #' each point in the features.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_expected_survival_time-Tuple\%7BSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_expected_survival_time}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_expected_survival_time-Tuple\%7BSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_expected_survival_time}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -829,7 +829,7 @@ predict_expected_survival_time.survival_learner <- function(obj, X, ...) {
 #' \code{\link{get_survival_curve}})
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_expected_survival_time-Tuple\%7BSurvivalCurve\%7D}{\code{IAI.predict_expected_survival_time}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_expected_survival_time-Tuple\%7BSurvivalCurve\%7D}{\code{IAI.predict_expected_survival_time}}
 #'
 #' @param obj The survival curve to use for prediction.
 #' @param ... Additional arguments (unused)
@@ -851,7 +851,7 @@ predict_expected_survival_time.survival_curve <- function(obj, ...) {
 #' learner for each point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_outcomes-Tuple\%7BPrescriptionLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_outcomes}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_outcomes-Tuple\%7BPrescriptionLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_outcomes}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -867,7 +867,7 @@ predict_outcomes.prescription_learner <- function(obj, X, ...) {
 #' learner for each point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_outcomes-Tuple\%7BPolicyLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_outcomes}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_outcomes-Tuple\%7BPolicyLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_outcomes}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -890,7 +890,7 @@ predict_outcomes.policy_learner <- function(obj, X, rewards, ...) {
 #' features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_treatment_rank}{\code{IAI.predict_treatment_rank}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_treatment_rank}{\code{IAI.predict_treatment_rank}}
 #'
 #' @param lnr The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -911,7 +911,7 @@ predict_treatment_rank <- function(lnr, X) {
 #' learner for each point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_treatment_outcome}{\code{IAI.predict_treatment_outcome}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_treatment_outcome}{\code{IAI.predict_treatment_outcome}}
 #'
 #' @param lnr The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -932,7 +932,7 @@ predict_treatment_outcome <- function(lnr, X) {
 #' trained model of the learner for each point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_treatment_outcome_standard_error}{\code{IAI.predict_treatment_outcome_standard_error}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_treatment_outcome_standard_error}{\code{IAI.predict_treatment_outcome_standard_error}}
 #'
 #' @param lnr The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -952,7 +952,7 @@ predict_treatment_outcome_standard_error <- function(lnr, X) {
 #' Impute missing values in a dataframe using a fitted imputation model
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.transform}{\code{IAI.transform}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.transform}{\code{IAI.transform}}
 #'
 #' @param lnr The learner or grid to use for imputation
 #' @param X The features of the data.
@@ -974,7 +974,7 @@ transform <- function(lnr, X) {
 #' \code{\link{transform}}
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
 #'
 #' @param lnr The learner or grid to use for imputation
 #' @param X The features of the data.
@@ -992,7 +992,7 @@ fit_transform <- function(lnr, X, ...) {
 #' values in these features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.fit_transform_cv!}{\code{IAI.fit_transform_cv!}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.fit_transform_cv!}{\code{IAI.fit_transform_cv!}}
 #'
 #' @param grid The grid to use for imputation
 #' @param X The features of the data.
@@ -1009,7 +1009,7 @@ fit_transform_cv <- function(grid, X, ...) {
 #' Output an object as an interactive browser visualization in HTML format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.write_html-Tuple\%7BAny\%2C\%20AbstractVisualization\%7D}{\code{IAI.write_html}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.write_html-Tuple\%7BAny\%2C\%20AbstractVisualization\%7D}{\code{IAI.write_html}}
 #'
 #' @param filename Where to save the output.
 #' @param obj The object to output.
@@ -1024,7 +1024,7 @@ write_html.abstract_visualization <- function(filename, obj, ...) {
 #' Output an ROC curve as an interactive browser visualization in HTML format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.write_html-Tuple\%7BAny\%2C\%20ROCCurve\%7D}{\code{IAI.write_html}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.write_html-Tuple\%7BAny\%2C\%20ROCCurve\%7D}{\code{IAI.write_html}}
 #'
 #' @param filename Where to save the output.
 #' @param obj The curve to output.
@@ -1045,13 +1045,13 @@ write_html.roc_curve <- function(filename, obj, ...) {
 #' Construct an interactive questionnaire from multiple specified learners
 #'
 #' Refer to the
-#' \href{https://docs.interpretable.ai/v3.1.1/IAI-R/julia/#R-Interactive-Visualizations-1}{documentation on advanced tree visualization}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAI-R/julia/#R-Interactive-Visualizations-1}{documentation on advanced tree visualization}
 #' for more information.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.MultiQuestionnaire-Tuple\%7BPair\%7D}{\code{IAI.MultiQuestionnaire}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.MultiQuestionnaire-Tuple\%7BPair\%7D}{\code{IAI.MultiQuestionnaire}}
 #'
-#' @param obj The questions to visualize. Refer to the \href{https://docs.interpretable.ai/v3.1.1/IAITrees/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.
+#' @param obj The questions to visualize. Refer to the \href{https://docs.interpretable.ai/v3.2.1/IAITrees/visualization/#multivis-1}{Julia documentation on multi-learner visualizations} for more information.
 #' @param ... Additional arguments (unused)
 #'
 #' @examples
@@ -1076,7 +1076,7 @@ multi_questionnaire.default <- function(obj, ...) {
 #' results of a grid search
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.MultiQuestionnaire-Tuple\%7BGridSearch\%7D}{\code{IAI.MultiQuestionnaire}}
+#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.MultiQuestionnaire-Tuple\%7BGridSearch\%7D}{\code{IAI.MultiQuestionnaire}}
 #'
 #' @param obj The grid to visualize
 #' @param ... Additional arguments (unused)

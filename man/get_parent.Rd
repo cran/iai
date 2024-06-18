@@ -13,7 +13,7 @@ get_parent(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_parent}{\code{IAI.get_parent}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_parent}{\code{IAI.get_parent}}
 }
 \examples{
 \dontrun{iai::get_parent(lnr, 2)}

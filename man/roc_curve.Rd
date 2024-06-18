@@ -13,5 +13,5 @@ roc_curve(obj, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
 }

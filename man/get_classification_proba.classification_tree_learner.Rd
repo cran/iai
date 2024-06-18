@@ -15,7 +15,7 @@
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_classification_proba-Tuple\%7BClassificationTreeLearner\%2C\%20Int64\%7D}{\code{IAI.get_classification_proba}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_classification_proba-Tuple\%7BClassificationTreeLearner\%2C\%20Int64\%7D}{\code{IAI.get_classification_proba}}
 }
 \examples{
 \dontrun{iai::get_classification_proba(lnr, 1)}

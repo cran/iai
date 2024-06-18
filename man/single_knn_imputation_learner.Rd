@@ -12,7 +12,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/OptImpute/reference/#IAI.SingleKNNImputationLearner}{\code{IAI.SingleKNNImputationLearner}}
+\href{https://docs.interpretable.ai/v3.2.1/OptImpute/reference/#IAI.SingleKNNImputationLearner}{\code{IAI.SingleKNNImputationLearner}}
 }
 \examples{
 \dontrun{lnr <- iai::single_knn_imputation_learner()}

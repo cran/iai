@@ -9,11 +9,11 @@
 \arguments{
 \item{obj}{The learner to visualize.}
 
-\item{...}{Refer to the \href{https://docs.interpretable.ai/v3.1.1/IAITrees/advanced/#Advanced-Visualization-1}{Julia documentation} for available parameters.}
+\item{...}{Refer to the \href{https://docs.interpretable.ai/v3.2.1/IAITrees/advanced/#Advanced-Visualization-1}{Julia documentation} for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/OptimalFeatureSelection/reference/#IAI.Questionnaire-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.Questionnaire}}
+\href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.Questionnaire-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.Questionnaire}}
 }
 \section{IAI Compatibility}{
 

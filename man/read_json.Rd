@@ -11,7 +11,7 @@ read_json(filename)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.read_json}{\code{IAI.read_json}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.read_json}{\code{IAI.read_json}}
 }
 \examples{
 \dontrun{obj <- iai::read_json("out.json")}

@@ -17,7 +17,7 @@ or
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict_expected_survival_time-Tuple\%7BSurvivalCurve\%7D}{\code{IAI.predict_expected_survival_time}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_expected_survival_time-Tuple\%7BSurvivalCurve\%7D}{\code{IAI.predict_expected_survival_time}}
 }
 \section{IAI Compatibility}{
 

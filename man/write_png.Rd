@@ -20,7 +20,7 @@ that \href{https://graphviz.org/}{Graphviz} is installed and on the system
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.write_png}{\code{IAI.write_png}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.write_png}{\code{IAI.write_png}}
 }
 \examples{
 \dontrun{iai::write_png(file.path(tempdir(), "tree.png"), lnr)}

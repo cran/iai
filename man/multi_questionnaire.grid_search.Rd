@@ -14,7 +14,7 @@ results of a grid search}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.MultiQuestionnaire-Tuple\%7BGridSearch\%7D}{\code{IAI.MultiQuestionnaire}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.MultiQuestionnaire-Tuple\%7BGridSearch\%7D}{\code{IAI.MultiQuestionnaire}}
 }
 \section{IAI Compatibility}{
 

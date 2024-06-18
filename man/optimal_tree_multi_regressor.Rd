@@ -12,7 +12,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/OptimalTrees/reference/#IAI.OptimalTreeMultiRegressor}{\code{IAI.OptimalTreeMultiRegressor}}
+\href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.OptimalTreeMultiRegressor}{\code{IAI.OptimalTreeMultiRegressor}}
 }
 \section{IAI Compatibility}{
 

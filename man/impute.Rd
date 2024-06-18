@@ -13,7 +13,7 @@ impute(X, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/OptImpute/reference/#IAI.impute}{\code{IAI.impute}}
+\href{https://docs.interpretable.ai/v3.2.1/OptImpute/reference/#IAI.impute}{\code{IAI.impute}}
 }
 \details{
 This function was deprecated in iai 1.7.0. This is for consistency with the

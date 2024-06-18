@@ -19,7 +19,7 @@ documentation for other available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/Heuristics/reference/#IAI.score-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.score}}
+\href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.score-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.score}}
 }
 \section{IAI Compatibility}{
 

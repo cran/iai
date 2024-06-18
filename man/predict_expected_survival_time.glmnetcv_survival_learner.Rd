@@ -19,7 +19,7 @@ defaulting to the best fit if not supplied.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/Heuristics/reference/#IAI.predict_expected_survival_time-Tuple\%7BGLMNetCVSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_expected_survival_time}}
+\href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.predict_expected_survival_time-Tuple\%7BGLMNetCVSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_expected_survival_time}}
 }
 \section{IAI Compatibility}{
 

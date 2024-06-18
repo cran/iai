@@ -11,7 +11,7 @@ get_params(lnr)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_params}{\code{IAI.get_params}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_params}{\code{IAI.get_params}}
 }
 \examples{
 \dontrun{iai::get_params(lnr)}

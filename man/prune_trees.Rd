@@ -15,7 +15,7 @@ prune_trees(lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/OptimalTrees/reference/#IAI.prune_trees!}{\code{IAI.prune_trees!}}
+\href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.prune_trees!}{\code{IAI.prune_trees!}}
 }
 \section{IAI Compatibility}{
 

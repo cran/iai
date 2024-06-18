@@ -14,7 +14,7 @@ get_tree(lnr, index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_tree}{\code{IAI.get_tree}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_tree}{\code{IAI.get_tree}}
 }
 \section{IAI Compatibility}{
 

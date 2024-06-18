@@ -15,7 +15,7 @@
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.write_html-Tuple\%7BAny\%2C\%20AbstractVisualization\%7D}{\code{IAI.write_html}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.write_html-Tuple\%7BAny\%2C\%20AbstractVisualization\%7D}{\code{IAI.write_html}}
 }
 \examples{
 \dontrun{iai::write_html(file.path(tempdir(), "out.html"), lnr)}

@@ -15,7 +15,7 @@ one.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.variable_importance-Tuple\%7BTreeLearner\%7D}{\code{IAI.variable_importance}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.variable_importance-Tuple\%7BTreeLearner\%7D}{\code{IAI.variable_importance}}
 }
 \examples{
 \dontrun{iai::variable_importance(lnr, ...)}

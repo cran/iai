@@ -15,7 +15,7 @@ print_path(lnr, X, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.print_path}{\code{IAI.print_path}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.print_path}{\code{IAI.print_path}}
 }
 \examples{
 \dontrun{

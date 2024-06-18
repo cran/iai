@@ -15,9 +15,9 @@
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
 and
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.predict-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Symbol\%7D}{\code{IAI.predict}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20Symbol\%7D}{\code{IAI.predict}}
 }
 \section{IAI Compatibility}{
 

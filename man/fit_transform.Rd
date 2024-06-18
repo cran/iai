@@ -22,7 +22,7 @@ followed by
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.fit_transform!}{\code{IAI.fit_transform!}}
 }
 \examples{
 \dontrun{

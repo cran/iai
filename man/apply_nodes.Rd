@@ -14,7 +14,7 @@ apply_nodes(lnr, X)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.apply_nodes}{\code{IAI.apply_nodes}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.apply_nodes}{\code{IAI.apply_nodes}}
 }
 \examples{
 \dontrun{iai::apply_nodes(lnr, X)}

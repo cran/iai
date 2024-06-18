@@ -19,7 +19,7 @@ probability for each breakpoint on the curve.
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_survival_curve_data}{\code{IAI.get_survival_curve_data}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_survival_curve_data}{\code{IAI.get_survival_curve_data}}
 }
 \examples{
 \dontrun{iai::get_survival_curve_data(curve)}

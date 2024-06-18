@@ -17,9 +17,9 @@ available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.score-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%7D}{\code{IAI.score}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.score-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%7D}{\code{IAI.score}}
 and
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.score-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Symbol\%7D}{\code{IAI.score}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.score-Tuple\%7BLearner\%7BIAIBase.MultiTask\%7BT\%7D\%7D\%20where\%20T\%3C\%3AIAIBase.SupervisedTask\%2C\%20Symbol\%7D}{\code{IAI.score}}
 }
 \section{IAI Compatibility}{
 

@@ -11,7 +11,7 @@ get_best_params(grid)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAIBase/reference/#IAI.get_best_params}{\code{IAI.get_best_params}}
+\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_best_params}{\code{IAI.get_best_params}}
 }
 \examples{
 \dontrun{iai::get_best_params(grid)}

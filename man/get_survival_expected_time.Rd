@@ -15,7 +15,7 @@ get_survival_expected_time(lnr, node_index, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/IAITrees/reference/#IAI.get_survival_expected_time}{\code{IAI.get_survival_expected_time}}
+\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_survival_expected_time}{\code{IAI.get_survival_expected_time}}
 }
 \section{IAI Compatibility}{
 

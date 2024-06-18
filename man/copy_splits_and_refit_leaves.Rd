@@ -16,7 +16,7 @@ copy_splits_and_refit_leaves(new_lnr, orig_lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.1.1/OptimalTrees/reference/#IAI.copy_splits_and_refit_leaves!}{\code{IAI.copy_splits_and_refit_leaves!}}
+\href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.copy_splits_and_refit_leaves!}{\code{IAI.copy_splits_and_refit_leaves!}}
 }
 \section{IAI Compatibility}{
 
