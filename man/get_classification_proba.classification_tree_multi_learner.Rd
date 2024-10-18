@@ -16,9 +16,9 @@ multi-task tree}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_classification_proba-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Int64\%7D}{\code{IAI.get_classification_proba}}
+\href{https://docs.interpretable.ai/v3.2.2/IAITrees/reference/#IAI.get_classification_proba-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Int64\%7D}{\code{IAI.get_classification_proba}}
 and
-\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_classification_proba-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Int64\%2C\%20Symbol\%7D}{\code{IAI.get_classification_proba}}
+\href{https://docs.interpretable.ai/v3.2.2/IAITrees/reference/#IAI.get_classification_proba-Tuple\%7BTreeLearner\%7BIAIBase.MultiTask\%7BIAIBase.ClassificationTask\%7D\%7D\%2C\%20Int64\%2C\%20Symbol\%7D}{\code{IAI.get_classification_proba}}
 }
 \section{IAI Compatibility}{
 

@@ -1,7 +1,7 @@
 #' Learner for conducting Optimal Feature Selection on classification problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionClassifier}{\code{IAI.OptimalFeatureSelectionClassifier}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionClassifier}{\code{IAI.OptimalFeatureSelectionClassifier}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -21,7 +21,7 @@ optimal_feature_selection_classifier <- function(...) {
 #' Learner for conducting Optimal Feature Selection on regression problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionRegressor}{\code{IAI.OptimalFeatureSelectionRegressor}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.OptimalFeatureSelectionRegressor}{\code{IAI.OptimalFeatureSelectionRegressor}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -45,7 +45,7 @@ optimal_feature_selection_regressor <- function(...) {
 #' documentation.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.fit\%21-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.fit!}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.fit\%21-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.fit!}}
 #'
 #' @param obj The learner or grid to fit.
 #' @param X The features of the data.
@@ -70,7 +70,7 @@ fit.optimal_feature_selection_learner <- function(obj, X, ...) {
 #' Optimal Feature Selection learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.get_prediction_constant-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.get_prediction_constant}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.get_prediction_constant-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.get_prediction_constant}}
 #'
 #' @param obj The learner to query.
 #' @param fit_index The index of the cluster to use for prediction, if the
@@ -101,7 +101,7 @@ get_prediction_constant.optimal_feature_selection_learner <- function(
 #' a trained Optimal Feature Selection learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.get_prediction_weights-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.get_prediction_weights}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.get_prediction_weights-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.get_prediction_weights}}
 #'
 #' @param obj The learner to query.
 #' @param fit_index The index of the cluster to use for prediction, if the
@@ -132,7 +132,7 @@ get_prediction_weights.optimal_feature_selection_learner <- function(
 #' Selection learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.get_num_fits-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.get_num_fits}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.get_num_fits-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.get_num_fits}}
 #'
 #' @param obj The Optimal Feature Selection learner to query.
 #' @param ... Additional arguments (unused)
@@ -154,7 +154,7 @@ get_num_fits.optimal_feature_selection_learner <- function(obj, ...) {
 #' on the given data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.score-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.score}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.score-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.score}}
 #'
 #' @param obj The learner or grid to evaluate.
 #' @param X The features of the data.
@@ -181,7 +181,7 @@ score.optimal_feature_selection_learner <- function(obj, X, ...) {
 #' point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.predict-Tuple\%7BOptimalFeatureSelectionLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.predict-Tuple\%7BOptimalFeatureSelectionLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -213,7 +213,7 @@ predict.optimal_feature_selection_learner <- function(obj, X, fit_index = NULL,
 #' that they sum to one.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.variable_importance-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.variable_importance}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.variable_importance-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.variable_importance}}
 #'
 #' @param obj The learner to query.
 #' @param fit_index The index of the cluster to use for prediction, if the
@@ -243,10 +243,10 @@ variable_importance.optimal_feature_selection_learner <- function(
 #' Specify an interactive questionnaire of an Optimal Feature Selection learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.Questionnaire-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.Questionnaire}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.Questionnaire-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.Questionnaire}}
 #'
 #' @param obj The learner to visualize.
-#' @param ... Refer to the \href{https://docs.interpretable.ai/v3.2.1/IAITrees/advanced/#Advanced-Visualization-1}{Julia documentation} for available parameters.
+#' @param ... Refer to the \href{https://docs.interpretable.ai/v3.2.2/IAITrees/advanced/#Advanced-Visualization-1}{Julia documentation} for available parameters.
 #'
 #' @examples \dontrun{iai::questionnaire(lnr)}
 #'
@@ -265,7 +265,7 @@ questionnaire.optimal_feature_selection_learner <- function(obj, ...) {
 #' in HTML format
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.write_questionnaire-Tuple\%7BAny\%2C\%20OptimalFeatureSelectionLearner\%7D}{\code{IAI.write_questionnaire}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.write_questionnaire-Tuple\%7BAny\%2C\%20OptimalFeatureSelectionLearner\%7D}{\code{IAI.write_questionnaire}}
 #'
 #' @param filename Where to save the output.
 #' @param obj The learner or grid to output.
@@ -289,7 +289,7 @@ write_questionnaire.optimal_feature_selection_learner <- function(filename, obj,
 #' learner in default browser
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.show_questionnaire-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.show_questionnaire}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.show_questionnaire-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.show_questionnaire}}
 #'
 #' @param obj The learner or grid to visualize.
 #' @param ... Refer to the Julia documentation for available parameters.
@@ -314,7 +314,7 @@ show_questionnaire.optimal_feature_selection_learner <- function(obj, ...) {
 #' @param object The grid search to plot
 #' @param type The type of plot to construct (either \code{"validation"} or
 #'             \code{"importance"}, for more information refer to the
-#'             \href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/visualization/#Plotting-Grid-Search-Results-1}{Julia documentation for plotting grid search results}
+#'             \href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/visualization/#Plotting-Grid-Search-Results-1}{Julia documentation for plotting grid search results}
 #'             )
 #' @param ... Additional arguments (unused)
 #'

@@ -16,7 +16,7 @@ in HTML format}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.write_questionnaire-Tuple\%7BAny\%2C\%20OptimalFeatureSelectionLearner\%7D}{\code{IAI.write_questionnaire}}
+\href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.write_questionnaire-Tuple\%7BAny\%2C\%20OptimalFeatureSelectionLearner\%7D}{\code{IAI.write_questionnaire}}
 }
 \section{IAI Compatibility}{
 

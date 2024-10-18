@@ -15,7 +15,7 @@
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.write_html-Tuple\%7BAny\%2C\%20TreeLearner\%7D}{\code{IAI.write_html}}
+\href{https://docs.interpretable.ai/v3.2.2/IAITrees/reference/#IAI.write_html-Tuple\%7BAny\%2C\%20TreeLearner\%7D}{\code{IAI.write_html}}
 }
 \section{IAI Compatibility}{
 

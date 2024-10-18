@@ -13,7 +13,7 @@
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.get_num_fits-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.get_num_fits}}
+\href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.get_num_fits-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.get_num_fits}}
 }
 \section{IAI Compatibility}{
 

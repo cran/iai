@@ -13,7 +13,7 @@ is_categoric_split(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.is_categoric_split}{\code{IAI.is_categoric_split}}
+\href{https://docs.interpretable.ai/v3.2.2/IAITrees/reference/#IAI.is_categoric_split}{\code{IAI.is_categoric_split}}
 }
 \examples{
 \dontrun{iai::is_categoric_split(lnr, 1)}

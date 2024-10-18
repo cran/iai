@@ -17,7 +17,7 @@ fit_common <- function(...) {
 #' internal estimators.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.fit_predict\%21-Tuple\%7BRewardEstimator\%7D}{\code{IAI.fit_predict!}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.fit_predict\%21-Tuple\%7BRewardEstimator\%7D}{\code{IAI.fit_predict!}}
 #'
 #' @param obj The object controlling which method is used
 #' @param ... Arguments depending on the specific method used
@@ -187,7 +187,7 @@ multi_tree_plot_common <- function(...) {
 #' Generic function for constructing an interactive questionnaire
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.Questionnaire-Tuple\%7BLearner\%7D}{\code{IAI.Questionnaire}}
+#' \href{https://docs.interpretable.ai/v3.2.2/IAIBase/reference/#IAI.Questionnaire-Tuple\%7BLearner\%7D}{\code{IAI.Questionnaire}}
 #'
 #' @param obj The object controlling which method is used
 #' @param ... Arguments depending on the specific method used
@@ -307,7 +307,7 @@ predict_reward_common <- function(...) {
 #' Generic function for constructing an ROC curve
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
+#' \href{https://docs.interpretable.ai/v3.2.2/IAIBase/reference/#IAI.ROCCurve}{\code{IAI.ROCCurve}}
 #'
 #' @param obj The object controlling which method is used
 #' @param ... Arguments depending on the specific method used

@@ -65,7 +65,7 @@ reward_estimator <- function(...) {
 #' Calculate the scores for a categorical reward estimator on the given data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.score-Tuple\%7BCategoricalRewardEstimator\%7D}{\code{IAI.score}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.score-Tuple\%7BCategoricalRewardEstimator\%7D}{\code{IAI.score}}
 #'
 #' @param obj The learner or grid to evaluate.
 #' @param X The features of the data.
@@ -89,7 +89,7 @@ score.categorical_reward_estimator <- function(obj, X, ...) {
 #' each observation in the supplied data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.predict-Tuple\%7BCategoricalRewardEstimator\%7D}{\code{IAI.predict}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.predict-Tuple\%7BCategoricalRewardEstimator\%7D}{\code{IAI.predict}}
 #'
 #' @param obj The learner or grid to use for estimation
 #' @param X The features of the data.
@@ -113,7 +113,7 @@ predict.categorical_reward_estimator <- function(obj, X, ...) {
 #' each observation in the supplied data and predictions
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.predict_reward-Tuple\%7BCategoricalRewardEstimator\%7D}{\code{IAI.predict_reward}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.predict_reward-Tuple\%7BCategoricalRewardEstimator\%7D}{\code{IAI.predict_reward}}
 #'
 #' @param obj The learner or grid to use for estimation
 #' @param X The features of the data.
@@ -137,7 +137,7 @@ predict_reward.categorical_reward_estimator <- function(obj, X, ...) {
 #' classification outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.CategoricalClassificationRewardEstimator}{\code{IAI.CategoricalClassificationRewardEstimator}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.CategoricalClassificationRewardEstimator}{\code{IAI.CategoricalClassificationRewardEstimator}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -159,7 +159,7 @@ categorical_classification_reward_estimator <- function(...) {
 #' regression outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.CategoricalRegressionRewardEstimator}{\code{IAI.CategoricalRegressionRewardEstimator}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.CategoricalRegressionRewardEstimator}{\code{IAI.CategoricalRegressionRewardEstimator}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -181,7 +181,7 @@ categorical_regression_reward_estimator <- function(...) {
 #' survival outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.CategoricalSurvivalRewardEstimator}{\code{IAI.CategoricalSurvivalRewardEstimator}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.CategoricalSurvivalRewardEstimator}{\code{IAI.CategoricalSurvivalRewardEstimator}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -233,7 +233,7 @@ numeric_reward_estimator <- function(...) {
 #' Calculate the scores for a numeric reward estimator on the given data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.score-Tuple\%7BNumericRewardEstimator\%7D}{\code{IAI.score}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.score-Tuple\%7BNumericRewardEstimator\%7D}{\code{IAI.score}}
 #'
 #' @param obj The learner or grid to evaluate.
 #' @param X The features of the data.
@@ -257,7 +257,7 @@ score.numeric_reward_estimator <- function(obj, X, ...) {
 #' each observation in the supplied data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.predict-Tuple\%7BNumericRewardEstimator\%7D}{\code{IAI.predict}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.predict-Tuple\%7BNumericRewardEstimator\%7D}{\code{IAI.predict}}
 #'
 #' @param obj The learner or grid to use for estimation
 #' @param X The features of the data.
@@ -280,7 +280,7 @@ predict.numeric_reward_estimator <- function(obj, X, ...) {
 #' each observation in the supplied data and predictions
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.predict_reward-Tuple\%7BNumericRewardEstimator\%7D}{\code{IAI.predict_reward}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.predict_reward-Tuple\%7BNumericRewardEstimator\%7D}{\code{IAI.predict_reward}}
 #'
 #' @param obj The learner or grid to use for estimation
 #' @param X The features of the data.
@@ -304,7 +304,7 @@ predict_reward.numeric_reward_estimator <- function(obj, X, ...) {
 #' classification outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.NumericClassificationRewardEstimator}{\code{IAI.NumericClassificationRewardEstimator}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.NumericClassificationRewardEstimator}{\code{IAI.NumericClassificationRewardEstimator}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -326,7 +326,7 @@ numeric_classification_reward_estimator <- function(...) {
 #' regression outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.NumericRegressionRewardEstimator}{\code{IAI.NumericRegressionRewardEstimator}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.NumericRegressionRewardEstimator}{\code{IAI.NumericRegressionRewardEstimator}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -347,7 +347,7 @@ numeric_regression_reward_estimator <- function(...) {
 #' outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.NumericSurvivalRewardEstimator}{\code{IAI.NumericSurvivalRewardEstimator}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.NumericSurvivalRewardEstimator}{\code{IAI.NumericSurvivalRewardEstimator}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -370,7 +370,7 @@ numeric_survival_reward_estimator <- function(...) {
 #' be randomly assigned.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.EqualPropensityEstimator}{\code{IAI.EqualPropensityEstimator}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.EqualPropensityEstimator}{\code{IAI.EqualPropensityEstimator}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -393,7 +393,7 @@ equal_propensity_estimator <- function(...) {
 #' internal estimators.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.fit_predict\%21-Tuple\%7BCategoricalRewardEstimator\%7D}{\code{IAI.fit_predict!}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.fit_predict\%21-Tuple\%7BCategoricalRewardEstimator\%7D}{\code{IAI.fit_predict!}}
 #'
 #' @param obj The learner or grid to use for estimation
 #' @param X The features of the data.
@@ -418,7 +418,7 @@ fit_predict.categorical_reward_estimator <- function(obj, X, treatments, ...) {
 #' estimators.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.fit_predict\%21-Tuple\%7BNumericRewardEstimator\%7D}{\code{IAI.fit_predict!}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.fit_predict\%21-Tuple\%7BNumericRewardEstimator\%7D}{\code{IAI.fit_predict!}}
 #'
 #' @param obj The learner or grid to use for estimation
 #' @param X The features of the data.
@@ -443,7 +443,7 @@ fit_predict.numeric_reward_estimator <- function(obj, X, treatments, ...) {
 #' propensity/outcome estimation problems in a fitted learner.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.get_estimation_densities}{\code{IAI.get_estimation_densities}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.get_estimation_densities}{\code{IAI.get_estimation_densities}}
 #'
 #' @param lnr The learner from which to extract densities
 #' @param ... Refer to the Julia documentation for other parameters
@@ -464,7 +464,7 @@ get_estimation_densities <- function(lnr, ...) {
 #' bandwidths and return the final tuned values.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.tune_reward_kernel_bandwidth}{\code{IAI.tune_reward_kernel_bandwidth}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.tune_reward_kernel_bandwidth}{\code{IAI.tune_reward_kernel_bandwidth}}
 #'
 #' @param lnr The learner to use for tuning the bandwidth
 #' @param ... Refer to the Julia documentation for other parameters
@@ -486,7 +486,7 @@ tune_reward_kernel_bandwidth <- function(lnr, ...) {
 #' train the learner.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.set_reward_kernel_bandwidth!}{\code{IAI.set_reward_kernel_bandwidth!}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.set_reward_kernel_bandwidth!}{\code{IAI.set_reward_kernel_bandwidth!}}
 #'
 #' @param lnr The learner to modify
 #' @param ... Refer to the Julia documentation for available parameters.
@@ -508,7 +508,7 @@ set_reward_kernel_bandwidth <- function(lnr, ...) {
 #' or `predict`
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.all_treatment_combinations}{\code{IAI.all_treatment_combinations}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.all_treatment_combinations}{\code{IAI.all_treatment_combinations}}
 #'
 #' @param ... A vector of possible options for each treatment
 #'
@@ -524,7 +524,7 @@ all_treatment_combinations <- function(...) {
 #' Convert `treatments` from symbol/string format into numeric values.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.convert_treatments_to_numeric}{\code{IAI.convert_treatments_to_numeric}}
+#' \href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.convert_treatments_to_numeric}{\code{IAI.convert_treatments_to_numeric}}
 #'
 #' @param treatments The treatments to convert
 #'

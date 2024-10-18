@@ -11,7 +11,7 @@ get_learner(grid)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_learner}{\code{IAI.get_learner}}
+\href{https://docs.interpretable.ai/v3.2.2/IAIBase/reference/#IAI.get_learner}{\code{IAI.get_learner}}
 }
 \examples{
 \dontrun{lnr <- iai::get_learner(grid)}

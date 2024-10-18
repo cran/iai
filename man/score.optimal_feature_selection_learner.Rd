@@ -20,7 +20,7 @@ the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.score-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.score}}
+\href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.score-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.score}}
 }
 \section{IAI Compatibility}{
 

@@ -17,7 +17,7 @@ available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.fit_cv\%21-Tuple\%7BGridSearch\%7D}{\code{IAI.fit_cv!}}
+\href{https://docs.interpretable.ai/v3.2.2/IAIBase/reference/#IAI.fit_cv\%21-Tuple\%7BGridSearch\%7D}{\code{IAI.fit_cv!}}
 }
 \examples{
 \dontrun{

@@ -15,5 +15,5 @@ fit_predict(obj, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.fit_predict\%21-Tuple\%7BRewardEstimator\%7D}{\code{IAI.fit_predict!}}
+\href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.fit_predict\%21-Tuple\%7BRewardEstimator\%7D}{\code{IAI.fit_predict!}}
 }

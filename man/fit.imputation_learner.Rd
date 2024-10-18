@@ -19,7 +19,7 @@ please refer to the Julia documentation.
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/OptImpute/reference/#IAI.fit\%21-Tuple\%7BImputationLearner\%7D}{\code{IAI.fit!}}
+\href{https://docs.interpretable.ai/v3.2.2/OptImpute/reference/#IAI.fit\%21-Tuple\%7BImputationLearner\%7D}{\code{IAI.fit!}}
 }
 \examples{
 \dontrun{iai::fit(lnr, X)}

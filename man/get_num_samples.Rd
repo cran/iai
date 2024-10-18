@@ -13,7 +13,7 @@ get_num_samples(lnr, node_index)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_num_samples}{\code{IAI.get_num_samples}}
+\href{https://docs.interpretable.ai/v3.2.2/IAITrees/reference/#IAI.get_num_samples}{\code{IAI.get_num_samples}}
 }
 \examples{
 \dontrun{iai::get_num_samples(lnr, 1)}

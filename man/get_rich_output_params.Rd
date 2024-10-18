@@ -8,7 +8,7 @@ get_rich_output_params()
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.get_rich_output_params}{\code{IAI.get_rich_output_params}}
+\href{https://docs.interpretable.ai/v3.2.2/IAIBase/reference/#IAI.get_rich_output_params}{\code{IAI.get_rich_output_params}}
 }
 \examples{
 \dontrun{iai::get_rich_output_params()}

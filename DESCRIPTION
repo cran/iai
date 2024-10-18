@@ -1,7 +1,7 @@
 Package: iai
 Type: Package
 Title: Interface to 'Interpretable AI' Modules
-Version: 1.10.1
+Version: 1.10.2
 Authors@R: c(person("Jack", "Dunn", role = c("aut", "cre"),
                     email = "jack@interpretable.ai"),
              person("Ying", "Zhuo", role = "aut",
@@ -21,13 +21,13 @@ SystemRequirements: Julia (>= 1.0) and Interpretable AI System Image
 License: MIT + file LICENSE
 Imports: JuliaCall (>= 0.17.5), stringr, rlang, lifecycle, rappdirs,
         ggplot2, cowplot, rjson
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Suggests: testthat, covr, xml2, withr
 NeedsCompilation: no
-Packaged: 2024-06-18 01:27:59 UTC; jack
+Packaged: 2024-10-18 23:25:55 UTC; jack
 Author: Jack Dunn [aut, cre],
   Ying Zhuo [aut],
   Interpretable AI LLC [cph]
 Maintainer: Jack Dunn <jack@interpretable.ai>
 Repository: CRAN
-Date/Publication: 2024-06-18 04:00:02 UTC
+Date/Publication: 2024-10-18 23:40:02 UTC

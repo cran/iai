@@ -14,7 +14,7 @@ the results of a grid search}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.MultiTreePlot-Tuple\%7BGridSearch\%7D}{\code{IAI.MultiTreePlot}}
+\href{https://docs.interpretable.ai/v3.2.2/IAITrees/reference/#IAI.MultiTreePlot-Tuple\%7BGridSearch\%7D}{\code{IAI.MultiTreePlot}}
 }
 \section{IAI Compatibility}{
 

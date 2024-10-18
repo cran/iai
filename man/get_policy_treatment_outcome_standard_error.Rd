@@ -16,7 +16,7 @@ get_policy_treatment_outcome_standard_error(lnr, node_index, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_policy_treatment_outcome_standard_error}{\code{IAI.get_policy_treatment_outcome_standard_error}}
+\href{https://docs.interpretable.ai/v3.2.2/IAITrees/reference/#IAI.get_policy_treatment_outcome_standard_error}{\code{IAI.get_policy_treatment_outcome_standard_error}}
 }
 \section{IAI Compatibility}{
 

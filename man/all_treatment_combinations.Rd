@@ -13,7 +13,7 @@ all_treatment_combinations(...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/RewardEstimation/reference/#IAI.all_treatment_combinations}{\code{IAI.all_treatment_combinations}}
+\href{https://docs.interpretable.ai/v3.2.2/RewardEstimation/reference/#IAI.all_treatment_combinations}{\code{IAI.all_treatment_combinations}}
 }
 \examples{
 \dontrun{iai::all_treatment_combinations(c(1, 2, 3))}

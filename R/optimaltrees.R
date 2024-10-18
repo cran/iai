@@ -1,7 +1,7 @@
 #' Learner for training Optimal Classification Trees
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.OptimalTreeClassifier}{\code{IAI.OptimalTreeClassifier}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.OptimalTreeClassifier}{\code{IAI.OptimalTreeClassifier}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -17,7 +17,7 @@ optimal_tree_classifier <- function(...) {
 #' Learner for training Optimal Regression Trees
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.OptimalTreeRegressor}{\code{IAI.OptimalTreeRegressor}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.OptimalTreeRegressor}{\code{IAI.OptimalTreeRegressor}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -33,7 +33,7 @@ optimal_tree_regressor <- function(...) {
 #' Learner for training Optimal Survival Trees
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.OptimalTreeSurvivalLearner}{\code{IAI.OptimalTreeSurvivalLearner}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.OptimalTreeSurvivalLearner}{\code{IAI.OptimalTreeSurvivalLearner}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -71,7 +71,7 @@ optimal_tree_survivor <- function(...) {
 #' should aim to minimize outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMinimizer}{\code{IAI.OptimalTreePrescriptionMinimizer}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMinimizer}{\code{IAI.OptimalTreePrescriptionMinimizer}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -88,7 +88,7 @@ optimal_tree_prescription_minimizer <- function(...) {
 #' should aim to maximize outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMaximizer}{\code{IAI.OptimalTreePrescriptionMaximizer}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.OptimalTreePrescriptionMaximizer}{\code{IAI.OptimalTreePrescriptionMaximizer}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -105,7 +105,7 @@ optimal_tree_prescription_maximizer <- function(...) {
 #' minimize outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.OptimalTreePolicyMinimizer}{\code{IAI.OptimalTreePolicyMinimizer}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.OptimalTreePolicyMinimizer}{\code{IAI.OptimalTreePolicyMinimizer}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -126,7 +126,7 @@ optimal_tree_policy_minimizer <- function(...) {
 #' maximize outcomes
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.OptimalTreePolicyMaximizer}{\code{IAI.OptimalTreePolicyMaximizer}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.OptimalTreePolicyMaximizer}{\code{IAI.OptimalTreePolicyMaximizer}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -146,7 +146,7 @@ optimal_tree_policy_maximizer <- function(...) {
 #' Learner for training multi-task Optimal Classification Trees
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.OptimalTreeMultiClassifier}{\code{IAI.OptimalTreeMultiClassifier}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.OptimalTreeMultiClassifier}{\code{IAI.OptimalTreeMultiClassifier}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -166,7 +166,7 @@ optimal_tree_multi_classifier <- function(...) {
 #' Learner for training multi-task Optimal Regression Trees
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.OptimalTreeMultiRegressor}{\code{IAI.OptimalTreeMultiRegressor}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.OptimalTreeMultiRegressor}{\code{IAI.OptimalTreeMultiRegressor}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -186,7 +186,7 @@ optimal_tree_multi_regressor <- function(...) {
 #' Refit the models in the leaves of a trained learner using the supplied data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.refit_leaves!}{\code{IAI.refit_leaves!}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.refit_leaves!}{\code{IAI.refit_leaves!}}
 #'
 #' @param lnr The learner to refit
 #' @param ... Refer to the Julia documentation for available parameters
@@ -207,7 +207,7 @@ refit_leaves <- function(lnr, ...) {
 #' models in each leaf of the tree using the supplied data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.copy_splits_and_refit_leaves!}{\code{IAI.copy_splits_and_refit_leaves!}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.copy_splits_and_refit_leaves!}{\code{IAI.copy_splits_and_refit_leaves!}}
 #'
 #' @param new_lnr The learner to modify and refit
 #' @param orig_lnr The learner from which to copy the tree split structure
@@ -231,7 +231,7 @@ copy_splits_and_refit_leaves <- function(new_lnr, orig_lnr, ...) {
 #' according to this value
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.prune_trees!}{\code{IAI.prune_trees!}}
+#' \href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.prune_trees!}{\code{IAI.prune_trees!}}
 #'
 #' @param lnr The learner to prune
 #' @param ... Refer to the Julia documentation for available parameters

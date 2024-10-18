@@ -1,7 +1,7 @@
 #' Learner for training random forests for classification problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.RandomForestClassifier}{\code{IAI.RandomForestClassifier}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.RandomForestClassifier}{\code{IAI.RandomForestClassifier}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -21,7 +21,7 @@ random_forest_classifier <- function(...) {
 #' Learner for training random forests for regression problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.RandomForestRegressor}{\code{IAI.RandomForestRegressor}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.RandomForestRegressor}{\code{IAI.RandomForestRegressor}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -41,7 +41,7 @@ random_forest_regressor <- function(...) {
 #' Learner for training random forests for survival problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.RandomForestSurvivalLearner}{\code{IAI.RandomForestSurvivalLearner}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.RandomForestSurvivalLearner}{\code{IAI.RandomForestSurvivalLearner}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -61,7 +61,7 @@ random_forest_survival_learner <- function(...) {
 #' Learner for training XGBoost models for classification problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.XGBoostClassifier}{\code{IAI.XGBoostClassifier}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.XGBoostClassifier}{\code{IAI.XGBoostClassifier}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -81,7 +81,7 @@ xgboost_classifier <- function(...) {
 #' Learner for training XGBoost models for regression problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.XGBoostRegressor}{\code{IAI.XGBoostRegressor}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.XGBoostRegressor}{\code{IAI.XGBoostRegressor}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -101,7 +101,7 @@ xgboost_regressor <- function(...) {
 #' Learner for training XGBoost models for survival problems
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.XGBoostSurvivalLearner}{\code{IAI.XGBoostSurvivalLearner}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.XGBoostSurvivalLearner}{\code{IAI.XGBoostSurvivalLearner}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -121,7 +121,7 @@ xgboost_survival_learner <- function(...) {
 #' Write the internal booster saved in the learner to file
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.write_booster}{\code{IAI.write_booster}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.write_booster}{\code{IAI.write_booster}}
 #'
 #' @param filename Where to save the output.
 #' @param lnr The XGBoost learner with the booster to output.
@@ -141,7 +141,7 @@ write_booster <- function(filename, lnr) {
 #' Calculate SHAP values for all points in the features using the learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.predict_shap}{\code{IAI.predict_shap}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.predict_shap}{\code{IAI.predict_shap}}
 #'
 #' @param lnr The XGBoost learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -166,7 +166,7 @@ predict_shap <- function(lnr, X) {
 #' cross-validation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.GLMNetCVRegressor}{\code{IAI.GLMNetCVRegressor}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.GLMNetCVRegressor}{\code{IAI.GLMNetCVRegressor}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -187,7 +187,7 @@ glmnetcv_regressor <- function(...) {
 #' cross-validation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.GLMNetCVClassifier}{\code{IAI.GLMNetCVClassifier}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.GLMNetCVClassifier}{\code{IAI.GLMNetCVClassifier}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -208,7 +208,7 @@ glmnetcv_classifier <- function(...) {
 #' on the given data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.ROCCurve-Tuple\%7BGLMNetCVClassifier\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20AbstractVector\%7D}{\code{IAI.ROCCurve}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.ROCCurve-Tuple\%7BGLMNetCVClassifier\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%2C\%20AbstractVector\%7D}{\code{IAI.ROCCurve}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -233,7 +233,7 @@ roc_curve.glmnetcv_classifier <- function(obj, X, y, fit_index = NULL, ...) {
 #' \code{\link{glmnetcv_classifier}} learner for each point in the features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.predict_proba-Tuple\%7BGLMNetCVClassifier\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_proba}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.predict_proba-Tuple\%7BGLMNetCVClassifier\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_proba}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -257,7 +257,7 @@ predict_proba.glmnetcv_classifier <- function(obj, X, fit_index = NULL, ...) {
 #' cross-validation
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.GLMNetCVSurvivalLearner}{\code{IAI.GLMNetCVSurvivalLearner}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.GLMNetCVSurvivalLearner}{\code{IAI.GLMNetCVSurvivalLearner}}
 #'
 #' @param ... Use keyword arguments to set parameters on the resulting learner.
 #'            Refer to the Julia documentation for available parameters.
@@ -278,7 +278,7 @@ glmnetcv_survival_learner <- function(...) {
 #' \code{\link{glmnetcv_survival_learner}} for each point in the features.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.predict_expected_survival_time-Tuple\%7BGLMNetCVSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_expected_survival_time}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.predict_expected_survival_time-Tuple\%7BGLMNetCVSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_expected_survival_time}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -306,7 +306,7 @@ predict_expected_survival_time.glmnetcv_survival_learner <- function(
 #' survival time.
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.predict_hazard-Tuple\%7BGLMNetCVSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_hazard}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.predict_hazard-Tuple\%7BGLMNetCVSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_hazard}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.
@@ -331,7 +331,7 @@ predict_hazard.glmnetcv_survival_learner <- function(obj, X, fit_index = NULL,
 #' Return the number of fits along the path in a trained GLMNet learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.get_num_fits-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.get_num_fits}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.get_num_fits-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.get_num_fits}}
 #'
 #' @param obj The GLMNet learner to query.
 #' @param ... Additional arguments (unused)
@@ -352,7 +352,7 @@ get_num_fits.glmnetcv_learner <- function(obj, ...) {
 #' GLMNet learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.get_prediction_constant-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.get_prediction_constant}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.get_prediction_constant-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.get_prediction_constant}}
 #'
 #' @param obj The learner to query.
 #' @param fit_index The index of the fit in the path to use for prediction,
@@ -381,7 +381,7 @@ get_prediction_constant.glmnetcv_learner <- function(obj, fit_index = NULL,
 #' a trained GLMNet learner
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.get_prediction_weights-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.get_prediction_weights}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.get_prediction_weights-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.get_prediction_weights}}
 #'
 #' @param obj The learner to query.
 #' @param fit_index The index of the fit in the path to use for prediction,
@@ -409,7 +409,7 @@ get_prediction_weights.glmnetcv_learner <- function(obj, fit_index = NULL,
 #' Calculate the score for a GLMNet learner on the given data
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.score-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.score}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.score-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.score}}
 #'
 #' @param obj The learner or grid to evaluate.
 #' @param X The features of the data.
@@ -435,7 +435,7 @@ score.glmnetcv_learner <- function(obj, X, ...) {
 #' features
 #'
 #' Julia Equivalent:
-#' \href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.predict-Tuple\%7BGLMNetCVLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
+#' \href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.predict-Tuple\%7BGLMNetCVLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict}}
 #'
 #' @param obj The learner or grid to use for prediction.
 #' @param X The features of the data.

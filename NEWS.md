@@ -1,5 +1,9 @@
 # Unreleased
 
+# iai 1.10.2
+
+* Add support for Julia 1.11+
+
 # iai 1.10.1
 
 * Add support for Julia 1.10+

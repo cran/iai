@@ -17,7 +17,7 @@ defaulting to the best fit if not supplied.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.get_prediction_weights-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.get_prediction_weights}}
+\href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.get_prediction_weights-Tuple\%7BGLMNetCVLearner\%7D}{\code{IAI.get_prediction_weights}}
 }
 \section{IAI Compatibility}{
 

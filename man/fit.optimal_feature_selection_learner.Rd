@@ -22,7 +22,7 @@ documentation.
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.fit\%21-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.fit!}}
+\href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.fit\%21-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.fit!}}
 }
 \section{IAI Compatibility}{
 

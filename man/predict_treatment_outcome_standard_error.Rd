@@ -14,7 +14,7 @@ predict_treatment_outcome_standard_error(lnr, X)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.predict_treatment_outcome_standard_error}{\code{IAI.predict_treatment_outcome_standard_error}}
+\href{https://docs.interpretable.ai/v3.2.2/IAIBase/reference/#IAI.predict_treatment_outcome_standard_error}{\code{IAI.predict_treatment_outcome_standard_error}}
 }
 \section{IAI Compatibility}{
 

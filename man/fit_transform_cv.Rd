@@ -16,7 +16,7 @@ fit_transform_cv(grid, X, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAIBase/reference/#IAI.fit_transform_cv!}{\code{IAI.fit_transform_cv!}}
+\href{https://docs.interpretable.ai/v3.2.2/IAIBase/reference/#IAI.fit_transform_cv!}{\code{IAI.fit_transform_cv!}}
 }
 \examples{
 \dontrun{

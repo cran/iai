@@ -23,7 +23,7 @@ survival time.
 }
 \details{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.predict_hazard-Tuple\%7BGLMNetCVSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_hazard}}
+\href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.predict_hazard-Tuple\%7BGLMNetCVSurvivalLearner\%2C\%20Union\%7BDataFrames.AbstractDataFrame\%2C\%20AbstractMatrix\%7B\%3C\%3AReal\%7D\%7D\%7D}{\code{IAI.predict_hazard}}
 }
 \section{IAI Compatibility}{
 

@@ -13,7 +13,7 @@ refit_leaves(lnr, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/OptimalTrees/reference/#IAI.refit_leaves!}{\code{IAI.refit_leaves!}}
+\href{https://docs.interpretable.ai/v3.2.2/OptimalTrees/reference/#IAI.refit_leaves!}{\code{IAI.refit_leaves!}}
 }
 \section{IAI Compatibility}{
 

@@ -8,7 +8,7 @@ release_license()
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/installation/#IAI.release_license}{\code{IAI.release_license}}
+\href{https://docs.interpretable.ai/v3.2.2/installation/#IAI.release_license}{\code{IAI.release_license}}
 }
 \section{IAI Compatibility}{
 

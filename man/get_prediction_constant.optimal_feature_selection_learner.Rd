@@ -18,7 +18,7 @@ Optimal Feature Selection learner}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.get_prediction_constant-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.get_prediction_constant}}
+\href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.get_prediction_constant-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.get_prediction_constant}}
 }
 \section{IAI Compatibility}{
 

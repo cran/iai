@@ -13,7 +13,7 @@ Refer to the Julia documentation for available parameters.}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/Heuristics/reference/#IAI.GLMNetCVSurvivalLearner}{\code{IAI.GLMNetCVSurvivalLearner}}
+\href{https://docs.interpretable.ai/v3.2.2/Heuristics/reference/#IAI.GLMNetCVSurvivalLearner}{\code{IAI.GLMNetCVSurvivalLearner}}
 }
 \section{IAI Compatibility}{
 

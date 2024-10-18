@@ -15,7 +15,7 @@
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_classification_label-Tuple\%7BClassificationTreeLearner\%2C\%20Int64\%7D}{\code{IAI.get_classification_label}}
+\href{https://docs.interpretable.ai/v3.2.2/IAITrees/reference/#IAI.get_classification_label-Tuple\%7BClassificationTreeLearner\%2C\%20Int64\%7D}{\code{IAI.get_classification_label}}
 }
 \examples{
 \dontrun{iai::get_classification_label(lnr, 1)}

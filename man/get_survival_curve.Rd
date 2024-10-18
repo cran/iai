@@ -15,7 +15,7 @@ get_survival_curve(lnr, node_index, ...)
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/IAITrees/reference/#IAI.get_survival_curve}{\code{IAI.get_survival_curve}}
+\href{https://docs.interpretable.ai/v3.2.2/IAITrees/reference/#IAI.get_survival_curve}{\code{IAI.get_survival_curve}}
 }
 \examples{
 \dontrun{iai::get_survival_curve(lnr, 1)}

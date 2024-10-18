@@ -18,7 +18,7 @@ a trained Optimal Feature Selection learner}
 }
 \description{
 Julia Equivalent:
-\href{https://docs.interpretable.ai/v3.2.1/OptimalFeatureSelection/reference/#IAI.get_prediction_weights-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.get_prediction_weights}}
+\href{https://docs.interpretable.ai/v3.2.2/OptimalFeatureSelection/reference/#IAI.get_prediction_weights-Tuple\%7BOptimalFeatureSelectionLearner\%7D}{\code{IAI.get_prediction_weights}}
 }
 \section{IAI Compatibility}{
 
